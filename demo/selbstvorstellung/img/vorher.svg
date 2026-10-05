@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1080">
+  <rect width="960" height="1080" fill="#FFFFFF"/>
+  <text x="60" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#1F1F1F">Lebensmittelwerbung</text>
+  <g font-family="Arial, sans-serif" font-size="30" fill="#333">
+    <text x="60" y="190">• Kinder sehen viel Werbung</text>
+    <text x="60" y="240">• 92 % ungesund (Studie)</text>
+    <text x="60" y="290">• 15 pro Tag</text>
+    <text x="60" y="340">• TV und Internet</text>
+    <text x="60" y="390">• EU Pledge 2007</text>
+    <text x="60" y="440">• Selbstverpflichtung</text>
+    <text x="60" y="490">• foodwatch Kritik</text>
+    <text x="60" y="540">• WHO Nährwertprofil</text>
+    <text x="60" y="590">• UK Verbot 2026</text>
+    <text x="60" y="640">• Deutschland KLWG</text>
+    <text x="60" y="690">• Österreich AMD-G</text>
+    <text x="60" y="740">• Diskussion</text>
+  </g>
+  <text x="60" y="1020" font-family="Arial, sans-serif" font-size="22" fill="#888">Quelle: Internet</text>
+</svg>

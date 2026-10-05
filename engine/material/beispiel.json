@@ -1,0 +1,51 @@
+{
+  "id": "beispiel",
+  "titel": "Fakt oder Meinung?",
+  "kurz": "Aussagen sortieren und begründen, ob sie überprüfbar sind.",
+  "einheit": "",
+  "thema": "Beispielthema",
+  "nach": "Fakten und Meinungen",
+  "stufe": "3. und 4. Schulstufe",
+  "faecher": ["Deutsch", "Sachunterricht"],
+  "zeit": "1 Unterrichtseinheit (50 Minuten)",
+  "lehrplanbezug": "",
+  "feinziele": [
+    "Die Schüler*innen können fünf vorgegebene Aussagen als Tatsache oder Meinung einordnen.",
+    "Die Schüler*innen können ihre Einordnung mit einem Satz begründen („Das kann man nachprüfen, weil …“)."
+  ],
+  "klafki": {
+    "gegenwart": "Kinder begegnen täglich Behauptungen in Gesprächen, Werbung und Videos.",
+    "zukunft": "Wer Tatsachen von Meinungen unterscheidet, kann später Nachrichten und Quellen besser beurteilen.",
+    "exemplarisch": "Am Beispiel einfacher Alltagsaussagen wird das allgemeine Prinzip der Überprüfbarkeit sichtbar.",
+    "struktur": "Tatsache = überprüfbar (messen, nachschauen, fragen); Meinung = Bewertung, Geschmack, Gefühl.",
+    "zugaenglichkeit": "Kurze, vertraute Aussagen; Sortieren mit Ankreuzen; Begründung mit Satzanfang."
+  },
+  "ablauf": [
+    "Einstieg (5 Minuten): Lehrperson nennt zwei Sätze über das Wetter – einer messbar, einer Geschmackssache.",
+    "Erarbeitung (20 Minuten): Arbeitsblatt Aufgabe 1 und 2 in Einzelarbeit.",
+    "Austausch (15 Minuten): Paare vergleichen und begründen Unterschiede.",
+    "Sicherung (10 Minuten): Merksatz an der Tafel."
+  ],
+  "aufgaben": [
+    {
+      "nr": 1,
+      "text": "Kreuze an: Welche Sätze kann man nachprüfen?",
+      "items": ["Der Tisch ist 70 cm hoch.", "Pizza schmeckt am besten."]
+    },
+    {
+      "nr": 2,
+      "text": "Wähle einen Satz und begründe: „Das kann man nachprüfen, weil …“",
+      "zeilen": 3
+    }
+  ],
+  "aufloesung": [
+    { "nr": 1, "item": "Der Tisch ist 70 cm hoch.", "loesung": "Tatsache", "begruendung": "Mit einem Maßband überprüfbar." },
+    { "nr": 1, "item": "Pizza schmeckt am besten.", "loesung": "Meinung", "begruendung": "Geschmack ist persönlich und nicht messbar." },
+    { "nr": 2, "item": "Begründung", "loesung": "Freie Antwort", "begruendung": "Erwartet wird ein Verweis auf Messen, Nachschauen oder Nachfragen." }
+  ],
+  "differenzierung": [
+    "Leichter: Aussagen mit Bildern; nur Aufgabe 1.",
+    "Schwieriger: eigene Aussagen erfinden und von der Partnerin oder dem Partner einordnen lassen."
+  ],
+  "quellen": []
+}

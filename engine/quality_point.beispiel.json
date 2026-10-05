@@ -1,0 +1,25 @@
+{
+  "titel": "Titel der Präsentation",
+  "untertitel": "Ein Satz, worum es geht und für wen.",
+  "autor": "Thomas Schroffenegger",
+  "veranstaltung": "Name der Lehrveranstaltung",
+  "institution": "Name der Institution",
+  "sprache": "de",
+  "stil": "papiertheater",
+  "engine": "../quality_point/engine",
+  "stile": "",
+  "artikel": "",
+  "lehrplan": { "an": false, "datei": "daten/lehrplan.json" },
+  "materialien": { "an": true, "ordner": "material", "ausgabe": "formulare", "feinziel_praefix": "Die Schüler*innen können ", "farbe": "1F5F5B", "schrift": "Arial" },
+  "themen": { "beispiel": ["Beispielthema"] },
+  "einheiten": [
+    { "kurz": "E1", "folie": "Teil 1: Einstieg", "name": "Einstieg", "text": "Worum es in der ersten Einheit geht.", "bild": "img/kapitel/e1.webp" }
+  ],
+  "titelbild": "img/titel.webp",
+  "fusszeile": "",
+  "bis_leerzeichen": false,
+  "institutionen": { "Unesco": { "anzeige": "UNESCO", "lang": "UNESCO" } },
+  "ziel": "../deployment",
+  "seiten_zusatz": [],
+  "sperrliste_zusatz": ["vertraulich", "intern-only"]
+}

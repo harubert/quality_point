@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1080">
+  <defs><filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#3C230A" flood-opacity=".3"/></filter></defs>
+  <rect width="960" height="1080" fill="#F3E7C9"/>
+  <rect x="60" y="70" width="40" height="6" fill="#C8452F"/>
+  <text x="112" y="80" font-family="Georgia, serif" font-size="24" letter-spacing="3" fill="#C8452F">WERBUNG HEUTE</text>
+  <text x="60" y="170" font-family="Georgia, serif" font-size="58" fill="#1F2A30">Werbung für</text>
+  <text x="60" y="240" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#C8452F">Ungesundes</text>
+  <g filter="url(#s)">
+    <rect x="60" y="300" width="840" height="300" fill="#FBF5E8"/>
+    <rect x="60" y="300" width="840" height="10" fill="#C8452F"/>
+  </g>
+  <text x="100" y="440" font-family="Georgia, serif" font-size="150" fill="#C8452F">92 %</text>
+  <text x="100" y="520" font-family="Arial, sans-serif" font-size="30" fill="#1F2A30">der Lebensmittelwerbung, die Kinder sehen,</text>
+  <text x="100" y="562" font-family="Arial, sans-serif" font-size="30" fill="#1F2A30">ist für ungesunde Produkte.</text>
+  <rect x="60" y="660" width="8" height="150" fill="#1F5F5B"/>
+  <text x="92" y="705" font-family="Arial, sans-serif" font-size="27" fill="#3A4A52">Das heißt: Fast jede Lebensmittelwerbung,</text>
+  <text x="92" y="745" font-family="Arial, sans-serif" font-size="27" fill="#3A4A52">die Kinder erreicht, ist für Ungesundes.</text>
+  <text x="92" y="785" font-family="Arial, sans-serif" font-size="22" fill="#6E7B83">Kinder 3 – 13 J., Deutschland, 2019/20</text>
+  <text x="60" y="1020" font-family="Arial, sans-serif" font-size="22" fill="#1F5F5B">Quelle: Effertz (2021), Universität Hamburg</text>
+</svg>

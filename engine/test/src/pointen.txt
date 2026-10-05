@@ -1,0 +1,16 @@
+# Je Folie ein Block: erste Zeile = data-title, Z: Zweck, P: Pointe
+Testprojekt
+Z: Titel und Rahmen des Vortrags.
+P: Ein Satz, der hängen bleibt.
+
+Fakten und Meinungen
+Z: Unterschied zwischen überprüfbaren und bewertenden Aussagen.
+P: Prüfbar oder nicht – das ist die Frage.
+
+Eine Zahl, die hängen bleibt
+Z: Kennzahl mit Lesehilfe.
+P: Zahlen brauchen einen Satz dazu.
+
+Merksatz
+Z: Sicherung in einem Satz.
+P: Nachprüfbar = Tatsache.

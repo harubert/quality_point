@@ -1,0 +1,24 @@
+{
+ "titel": "Bezüge zum Lehrplan",
+ "einleitung": "Wörtliche Auszüge mit Fundstelle.",
+ "abschnitte": [
+  {
+   "titel": "Abschnitt",
+   "zitate": [
+    {
+     "text": "Wörtliches Zitat aus dem Lehrplan.",
+     "fundstelle": "Lehrplan, Abschnitt 1",
+     "seite": 1,
+     "verifiziert": false
+    }
+   ]
+  }
+ ],
+ "quellen": [
+  {
+   "titel": "Lehrplan (Primärquelle)",
+   "url": "https://example.org/",
+   "abgerufen": "2026-01-01"
+  }
+ ]
+}

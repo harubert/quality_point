@@ -1,0 +1,61 @@
+{
+  "id": "comic",
+  "name": "Comic",
+  "beschreibung": "Comic-Heft: kräftige schwarze Konturen, Panels mit harten Schatten, Sprechblasen als Zitate, Halbtonraster und Speedlines, laute Titel in Bangers.",
+  "stimmung": "laut, witzig, dynamisch",
+  "passt_zu": [
+    "Motivation und Einstieg",
+    "Jugendliche",
+    "Medienkritik mit Humor",
+    "Geschichten in Bildfolgen"
+  ],
+  "schriftset": "comic",
+  "farben": {
+    "paper": "#FFF6DC",
+    "paper2": "#FFE9A8",
+    "card": "#FFFFFF",
+    "ink": "#111111",
+    "ink2": "#2A2A2A",
+    "ink3": "#4A4A4A",
+    "red": "#D7191C",
+    "teal": "#1565C0",
+    "teal-d": "#0D3F7A",
+    "yellow": "#FFD400",
+    "coral": "#FF7A00"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Bangers",
+      "achsen": "wght 400"
+    },
+    "akzent": {
+      "familie": "Titan One",
+      "achsen": "wght 400 (keine Kursive – Akzent aufrecht)"
+    },
+    "lesen": {
+      "familie": "Shantell Sans",
+      "achsen": "ital 1, wght 300..800"
+    },
+    "ui": {
+      "familie": "Shantell Sans",
+      "achsen": "wght 300..800"
+    }
+  },
+  "google_fonts": [
+    "Bangers",
+    "Titan One",
+    "Shantell Sans:ital,wght@0,300..800;1,300..800"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Bold comic book panel illustration, thick black ink outlines, flat bright colours in red, yellow, blue and orange, Ben-Day halftone dots, dynamic speed lines and burst shapes, pop-art energy, clean print look. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Alle Formen mit 5–8 px schwarzer Kontur (stroke-linejoin round), Flächen in #D7191C, #FFD400, #1565C0, #FF7A00, #FFF; Schattierung mit <pattern> aus Halbtonpunkten. Dynamik durch Speedlines (dicke Linien vom Zentrum), Explosions-Polygone und Sprechblasen mit Schwanz; Panelrahmen 10 px. Keine Wörter in der Grafik.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

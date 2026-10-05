@@ -1,0 +1,41 @@
+{
+  "id": "kreide",
+  "name": "Kreide",
+  "standard_fuer_stil": "tafelkreide",
+  "beschreibung": "Kreidige Cabin Sketch für Titel, Caveat als Tafel-Handschrift für Akzente, Atkinson Hyperlegible (für Sehbeeinträchtigte entwickelt) für Text.",
+  "titel": {
+    "familie": "Cabin Sketch",
+    "achsen": "wght 400/700",
+    "fallback": "\"Segoe Print\",cursive"
+  },
+  "akzent": {
+    "familie": "Caveat",
+    "achsen": "wght 400..700",
+    "fallback": "\"Segoe Print\",cursive"
+  },
+  "lesen": {
+    "familie": "Atkinson Hyperlegible",
+    "achsen": "ital 0..1, wght 400/700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "Atkinson Hyperlegible",
+    "achsen": "wght 400/700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Atkinson Hyperlegible",
+    "Cabin Sketch",
+    "Caveat"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Cabin Sketch\",\"Segoe Print\",cursive",
+    "--accent": "\"Caveat\",\"Segoe Print\",cursive",
+    "--lesen": "\"Atkinson Hyperlegible\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"Atkinson Hyperlegible\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Atkinson Hyperlegible\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/kreide.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Caveat:wght@400..700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+}

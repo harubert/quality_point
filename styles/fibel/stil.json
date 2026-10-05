@@ -1,0 +1,61 @@
+{
+  "id": "fibel",
+  "name": "Fibel",
+  "beschreibung": "Modernes Erstlesebuch und Lernplakat: dicke schwarze Konturen, harte Versatzschatten, Kreis, Dreieck und Quadrat in Signalrot, Kobaltblau und Sonnengelb.",
+  "stimmung": "klar, fröhlich, lehrreich",
+  "passt_zu": [
+    "Grundschule",
+    "Lesen und Schreiben",
+    "Regeln und Merksätze",
+    "Workshops"
+  ],
+  "schriftset": "fibel",
+  "farben": {
+    "paper": "#F3EAD5",
+    "paper2": "#E9DCBF",
+    "card": "#FFFBF0",
+    "ink": "#141414",
+    "ink2": "#38342C",
+    "ink3": "#5A5345",
+    "red": "#C42B22",
+    "teal": "#2347A8",
+    "teal-d": "#172F73",
+    "yellow": "#F2C230",
+    "coral": "#E0552A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Archivo",
+      "achsen": "wdth 62..125, wght 400..900 (Titel: wdth 125, wght 900)"
+    },
+    "akzent": {
+      "familie": "Fraunces",
+      "achsen": "ital 1, opsz 9..144, wght 400..700"
+    },
+    "lesen": {
+      "familie": "Andika",
+      "achsen": "ital 0..1, wght 400/700"
+    },
+    "ui": {
+      "familie": "Archivo",
+      "achsen": "wdth 100, wght 400..700"
+    }
+  },
+  "google_fonts": [
+    "Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900",
+    "Fraunces:ital,opsz,wght@1,9..144,400..700",
+    "Andika:ital,wght@0,400;0,700;1,400;1,700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Bauhaus-inspired children's primer illustration, flat geometric shapes, circles, triangles and squares in signal red, sun yellow and cobalt blue on warm cream paper, crisp edges, subtle print texture, playful modernist order. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Nur Grundformen (circle, rect, polygon) in #C42B22, #2347A8, #F2C230 und Schwarz auf Creme #F3EAD5; alle Formen mit 5–6 px schwarzer Kontur, harter Versatzschatten als schwarze Kopie 10 px nach rechts unten. Gegenstände aus Grundformen zusammensetzen (Haus = Quadrat + Dreieck). Keine Verläufe, keine Transparenz.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

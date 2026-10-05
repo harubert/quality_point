@@ -1,0 +1,61 @@
+{
+  "id": "journal",
+  "name": "Journal",
+  "beschreibung": "Ruhiger Wissenschaftsstil wie in einer Fachzeitschrift: viel Weißraum, Haarlinien, Kopflinie mit Karminakzent, Abbildungslegenden, Literata und Newsreader.",
+  "stimmung": "seriös, ruhig, präzise",
+  "passt_zu": [
+    "Forschungsberichte",
+    "Hochschulseminare",
+    "Tagungsvorträge",
+    "Evidenz und Statistik"
+  ],
+  "schriftset": "journal",
+  "farben": {
+    "paper": "#FBFAF7",
+    "paper2": "#F1EFEA",
+    "card": "#FFFFFF",
+    "ink": "#1A1D21",
+    "ink2": "#3A4047",
+    "ink3": "#5A6169",
+    "red": "#9E2A2B",
+    "teal": "#1F5673",
+    "teal-d": "#143B50",
+    "yellow": "#B8862B",
+    "coral": "#B5543B"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Literata",
+      "achsen": "opsz 7..72, wght 400..700"
+    },
+    "akzent": {
+      "familie": "Newsreader",
+      "achsen": "ital 1, opsz 6..72, wght 400..600"
+    },
+    "lesen": {
+      "familie": "Literata",
+      "achsen": "ital 1, opsz 7..72, wght 400..700"
+    },
+    "ui": {
+      "familie": "Public Sans",
+      "achsen": "ital 0..1, wght 400..700"
+    }
+  },
+  "google_fonts": [
+    "Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700",
+    "Newsreader:ital,opsz,wght@1,6..72,400..600",
+    "Public Sans:ital,wght@0,400..700;1,400..700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Refined scientific editorial illustration, fine ink line drawing with subtle muted washes of petrol blue and deep crimson on white paper, generous white space, precise and calm, in the style of a high quality academic journal figure. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Feine Linien (stroke 1.4–2.5 px, #1A1D21) auf Weiß, sparsame Flächen in #E2ECF1 oder #1F5673 (opacity .08–.75), Akzent nur in #9E2A2B. Diagramme mit Achsen, Ticks und gestrichelten Vergleichslinien; Beschriftung „Abb. n“ klein in Serifenschrift. Viel Leerraum, keine Schatten, keine Texturen.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

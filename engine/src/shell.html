@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="{{SPRACHE}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITEL}}</title>
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-ink"/></marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-red"/></marker>
+    <marker id="aht" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-teal"/></marker>
+    <marker id="ahc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-coral"/></marker>
+    <marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-yellow"/></marker>
+    <marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mk-paper"/></marker>
+  </defs>
+</svg>
+<div id="viewport"><div id="stage">
+{{SLIDES}}
+</div></div>
+<div id="notes">
+  <div class="nh"><span class="t">Sprechernotizen</span><span class="fx"></span><span class="st"></span></div>
+  <div class="nb"></div>
+  <div class="nnext"></div>
+</div>
+<div id="nav">
+  <button id="bO" title="Übersicht (O)">☰ Übersicht</button>
+  <button id="bN" title="Notizen ein/aus (N)">Notizen</button>
+  <button id="bW" title="Referentenfenster (P)">Notizfenster ↗</button>
+  <button id="bS" title="Zwei Bildschirme: Notizen hier, Folien als Vollbild auf dem Beamer (S)">⧉ Beamer</button>
+  <button id="bZ" title="Zeichnen: Malstift, Leuchtstift, Emoji (Z)">✎ Stifte</button>
+  <button id="bH" title="Hilfe (H)">?</button>
+  <button id="bB" title="ganze Folie zurück"></button>
+  <button id="bP" title="zurück"></button>
+  <button id="bX" title="weiter"></button>
+</div>
+<div id="overview"><div class="ovh"><div>Alle Folien</div><input type="search" placeholder="Folien durchsuchen …"></div><div class="ovl"></div></div>
+<div id="help"><div class="hb">
+  <h3>Steuerung</h3>
+  <table>
+    <tr><td><kbd>→</kbd> <kbd>Leertaste</kbd></td><td>nächster Schritt bzw. nächste Folie</td></tr>
+    <tr><td><kbd>←</kbd></td><td>einen Schritt zurück</td></tr>
+    <tr><td><kbd>Umschalt</kbd> + <kbd>→</kbd>/<kbd>←</kbd></td><td>ganze Folie vor/zurück (Schritte überspringen)</td></tr>
+    <tr><td><kbd>N</kbd></td><td>Notizen-Leiste ein/aus (die Folie rückt zur Seite)</td></tr>
+    <tr><td><kbd>P</kbd></td><td>eigenes Notizfenster (Referentenansicht) für den zweiten Bildschirm</td></tr>
+    <tr><td><kbd>S</kbd></td><td>zwei Bildschirme: Notizfenster hier, Folien als Vollbild auf dem Beamer (Chrome/Edge, auch am Mac)</td></tr>
+    <tr><td><kbd>V</kbd></td><td>im Notizfenster: zwischen Notizen und großer Folie umschalten</td></tr>
+    <tr><td><kbd>Z</kbd></td><td>Stifte: Malstift, Leuchtstift, Emoji-Stempel, Radierer</td></tr>
+    <tr><td><kbd>X</kbd></td><td>Spotlight: alles abdunkeln bis auf einen Lichtkreis (Mausrad: Größe)</td></tr>
+    <tr><td><kbd>+</kbd> / <kbd>−</kbd></td><td>Schrift der Notizen größer/kleiner</td></tr>
+    <tr><td><kbd>O</kbd></td><td>Übersicht aller Folien mit Suche</td></tr>
+    <tr><td>Zahl + <kbd>Enter</kbd></td><td>direkt zu Folie springen</td></tr>
+    <tr><td><kbd>F</kbd></td><td>Vollbild</td></tr>
+    <tr><td><kbd>B</kbd></td><td>Bildschirm schwarz (Pause)</td></tr>
+    <tr><td><kbd>L</kbd></td><td>Laserpointer</td></tr>
+    <tr><td><kbd>R</kbd></td><td>Timer im Notizfenster zurücksetzen</td></tr>
+    <tr><td><kbd>K</kbd></td><td>Pointe-Banner auf den Folien aus/ein</td></tr>
+    <tr><td><kbd>G</kbd></td><td>Glossar aller Fachbegriffe (Begriffe auf den Folien sind anklickbar)</td></tr>
+    <tr><td>Quellenangabe anklicken</td><td>springt ins Quellenverzeichnis · <b>↗</b> öffnet die Originalquelle</td></tr>
+  </table>
+  <p class="tipp">Tipp für den Hörsaal: Beamer als <b>erweiterten</b> Bildschirm anschließen (nicht spiegeln), dann <kbd>S</kbd> – die Folien gehen als Vollbild auf den Beamer, das Notizfenster bleibt am Laptop (Chrome oder Edge, Windows und Mac; der Browser fragt einmal nach der Erlaubnis „Fensterverwaltung“). In Safari oder Firefox: Fenster auf den Beamer ziehen, <kbd>F</kbd>, dann <kbd>P</kbd>. Gesteuert wird aus beiden Fenstern.</p>
+</div></div>
+<div id="black"></div>
+<div id="goto"></div>
+<div id="laser"></div>
+<script>
+{{JS}}
+document.querySelectorAll(".js-year").forEach(function(e){e.textContent=new Date().getFullYear();});
+</script>
+</body>
+</html>

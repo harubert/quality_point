@@ -1,0 +1,159 @@
+/* ==========================================================
+   STIL „Nachtprogramm“ – Bildschirmlicht im dunklen Raum
+   Indigo-Nacht, Cyan, Violett, Neonrosa · Syne + Bodoni Moda (Kursive) + Inter Tight
+   Dunkle Grundfläche, Glas-Karten, Leuchtkanten, Filmkorn.
+   ========================================================== */
+:root{
+  --paper:#0C0E1D; --paper2:#141833; --card:#171B36; --sand:#2C3260;
+  --ink:#EEF0FF; --ink2:#C9CDEB; --ink3:#A1A7CC;
+  --red:#FF7AA8; --red-l:rgba(255,122,168,.16);
+  --teal:#52E3FF; --teal-d:#8FEFFF; --teal-l:rgba(82,227,255,.14);
+  --yellow:#FFD166; --yellow-l:rgba(255,209,102,.16);
+  --coral:#A67CFF; --coral-l:rgba(166,124,255,.18);
+  --night:#05060F;
+  --serif:"Syne","Segoe UI",sans-serif;
+  --accent:"Bodoni Moda",Georgia,serif;
+  --lesen:"Inter Tight","Segoe UI",system-ui,sans-serif;
+  --ui:"Inter Tight","Segoe UI",system-ui,sans-serif;
+  --sans:"Inter Tight","Segoe UI",system-ui,sans-serif;
+  --glas:rgba(23,27,54,.78);
+  --glow:0 0 0 1px rgba(82,227,255,.28),0 0 30px -6px rgba(82,227,255,.35),0 30px 60px -20px rgba(0,0,0,.7);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:8px; --radius-s:4px; --schatten:rgba(0,0,0,.7); --auf-dunkel:#EEF0FF; --auf-akzent:#0C0E1D; --buehne:#020309; --ui-dunkel:#05060F; --panel:#141833;
+}
+html,body{background:#020309}
+
+/* Nacht: Lichtschein + Filmkorn */
+.slide{background:var(--paper) radial-gradient(ellipse at 85% 0%,rgba(166,124,255,.22),transparent 55%);color:var(--ink)}
+.slide::before{opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:220px 220px}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(166,124,255,.30),rgba(82,227,255,.08) 45%,transparent 70%)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+h2{font-weight:700;letter-spacing:-.015em}
+h3{font-weight:700;letter-spacing:-.01em}
+h1{text-shadow:0 0 32px rgba(82,227,255,.35)}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:500;color:var(--teal);letter-spacing:0;text-shadow:0 0 24px rgba(82,227,255,.45)}
+.kick{color:var(--teal);letter-spacing:.24em;font-weight:600}
+.kick::before{height:2px;box-shadow:0 0 10px var(--teal)}
+p,li,td,th{color:inherit}
+.lead{color:var(--ink2)}
+.slide footer{color:var(--ink3)}
+.slide footer .src::before,.slide footer .pg{color:var(--ink2)}
+.slide footer .chap{color:var(--ink3)}
+
+/* Glas-Karten mit Leuchtkante */
+.card{background:var(--glas);border-radius:8px;box-shadow:var(--glow);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.card h3{color:var(--ink)}
+.card.t{border-top:4px solid var(--teal)}.card.c{border-top:4px solid var(--coral)}.card.r{border-top:4px solid var(--red)}.card.y{border-top:4px solid var(--yellow)}
+.card .num{color:var(--teal);font-family:var(--serif)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;left:28px;right:28px;top:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--teal),var(--coral),transparent);box-shadow:0 0 14px var(--teal)}
+.tag{border-radius:4px;background:var(--teal-l);color:var(--teal);border:1px solid rgba(82,227,255,.4)}
+.tag.c{background:var(--coral-l);color:#CDB6FF;border-color:rgba(166,124,255,.5)}.tag.r{background:var(--red-l);color:var(--red);border-color:rgba(255,122,168,.5)}.tag.y{background:var(--yellow-l);color:var(--yellow);border-color:rgba(255,209,102,.5)}
+.box{border-radius:8px;border:1px solid rgba(255,255,255,.12)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal)}
+.box.res{background:var(--glas);border-left:6px solid var(--teal);box-shadow:var(--glow)}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:var(--yellow)}
+.bh i span{color:var(--paper)}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--coral);text-shadow:0 0 20px rgba(166,124,255,.6)}
+.quote cite{color:var(--ink3)}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{background:var(--glas);border-radius:8px;box-shadow:var(--glow)}
+.tbl th{background:#1F2550;color:var(--teal)}
+.tbl td{border-top:1px solid var(--sand);color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+
+ul.dots li::before{background:var(--teal);box-shadow:0 0 12px var(--teal);width:12px;height:12px;top:.6em}
+ol.steps>li::before{background:transparent;color:var(--teal);border:2px solid var(--teal);box-shadow:0 0 16px -2px var(--teal);font:700 28px/52px var(--serif)}
+ol.steps.red>li::before{color:var(--red);border-color:var(--red);box-shadow:0 0 16px -2px var(--red);background:transparent}
+.sb{background:var(--coral);color:var(--paper)}
+.wcard{background:var(--card);border:1px solid var(--teal);box-shadow:var(--glow)}
+.wcard .ex{color:var(--ink2)}
+.bub{background:var(--card);color:var(--ink);box-shadow:var(--glow)}
+.bub.r{background:#123A4A}.bub.x{background:#3A2E12}
+.flip .fa{background:var(--card)}
+.arrow{color:var(--teal)}
+
+.foto{background:#05060F;padding:10px;border:1px solid rgba(82,227,255,.35);box-shadow:var(--glow);--r:0deg}
+.foto .cap{color:var(--ink3)}
+.zettel{background:#1C2147;color:var(--ink);border-left:4px solid var(--yellow);box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+
+/* Titel: Bild als Bildschirmlicht */
+.s-title{background:var(--paper)}
+.s-title .hero{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+.s-title h1{font-size:110px;line-height:1}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+.s-title .who b{color:var(--ink)}
+
+/* Kapitel: Glas-Etikett über dem Bild */
+.s-chapter{background:var(--night) radial-gradient(ellipse at 20% 80%,rgba(82,227,255,.18),transparent 60%);color:var(--ink)}
+.s-chapter .bignum{font-family:var(--serif);color:transparent;-webkit-text-stroke:2px rgba(82,227,255,.35)}
+.s-chapter h2{color:#fff}.s-chapter h2 em{color:var(--teal)}
+.etikett{background:rgba(10,12,30,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(82,227,255,.35);border-radius:8px;transform:translateY(-54%);box-shadow:0 0 0 1px rgba(166,124,255,.15),0 40px 80px rgba(0,0,0,.6)}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:#fff}
+.s-chapter .etikett h2 em{color:var(--teal)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:1px solid rgba(82,227,255,.35);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--teal);font-family:var(--serif);font-weight:700}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:var(--ink2)}
+
+/* Dunkle Folie: noch tiefer, violetter Schein */
+.s-dark{background:var(--night) radial-gradient(ellipse at 50% 120%,rgba(166,124,255,.3),transparent 60%);color:var(--ink)}
+.s-dark h2,.s-dark h3{color:#fff}.s-dark h2 em{color:var(--red);text-shadow:0 0 24px rgba(255,122,168,.45)}
+.s-dark .lead{color:var(--ink2)}
+.s-dark .card{background:rgba(23,27,54,.85);color:var(--ink)}
+.s-dark .card p,.s-dark .card li{color:var(--ink2)}
+
+.s-statement .big{font-weight:800;letter-spacing:-.025em}
+
+/* Werkstatt: Raster aus Leuchtlinien */
+.s-auftrag{background:#0A1426;color:var(--ink)}
+.s-auftrag::before{opacity:1;background-image:linear-gradient(rgba(82,227,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(82,227,255,.07) 1px,transparent 1px);background-size:48px 48px}
+.s-auftrag .wk .wn{background:var(--teal);color:var(--paper);border-radius:4px;box-shadow:0 0 20px rgba(82,227,255,.5)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--teal)}
+.s-auftrag h2 em{color:var(--yellow);text-shadow:0 0 24px rgba(255,209,102,.4)}
+.s-auftrag .panel{border-radius:8px;background:rgba(23,27,54,.7);border:1px solid rgba(82,227,255,.25)}
+.s-auftrag p,.s-auftrag li{color:var(--ink)}
+.s-auftrag .meta span{background:var(--teal-l);color:var(--teal)}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--yellow);border-color:var(--yellow);box-shadow:0 0 16px -2px var(--yellow)}
+.s-auftrag ul.dots li::before{background:var(--yellow);box-shadow:0 0 12px var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:800;color:var(--teal);text-shadow:0 0 30px rgba(82,227,255,.45)}
+.card.r .zahl{color:var(--red);text-shadow:0 0 30px rgba(255,122,168,.45)}
+.card.y .zahl{color:var(--yellow);text-shadow:0 0 30px rgba(255,209,102,.4)}
+.zahl small{color:var(--ink2);text-shadow:none}
+.zl{color:var(--ink2)}
+.bars .bz{color:var(--ink)}
+.bars .bt{background:rgba(255,255,255,.06);border-radius:4px}
+.bars .bt i{background:linear-gradient(90deg,var(--coral),var(--red));box-shadow:0 0 18px rgba(255,122,168,.5)}
+.bars .bz.t .bt i{background:linear-gradient(90deg,#2BA7C4,var(--teal));box-shadow:0 0 18px rgba(82,227,255,.5)}
+.bars .bv{font-family:var(--serif);font-weight:700;color:var(--ink)}
+
+.lesehilfe{background:rgba(20,24,51,.94);color:var(--ink2);border-left:4px solid var(--teal)}
+.lesehilfe b{color:var(--teal)}.lesehilfe .lh{color:var(--teal)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(5,6,15,.94);color:var(--ink2);border-left-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kurz{color:var(--ink2)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal);border-radius:4px}
+.pointe{background:#1C2147;color:var(--ink);border:1px solid rgba(82,227,255,.4)}
+.pointe b{background:var(--red);color:var(--paper)}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow);color:var(--paper)}
+#progress{background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.hl{background:linear-gradient(transparent 60%,rgba(166,124,255,.45) 60%)}
+.mark{background-image:linear-gradient(rgba(82,227,255,.45),rgba(82,227,255,.45))}
+.gl{text-decoration-color:var(--teal)}
+.gl:hover{background:var(--teal-l)}
+a.qo,a.ql:hover{color:var(--teal)}
+.fax{color:#1E2B33}
+
+/* Flächen, die basis.css mit --teal-d füllt: hier dunkel halten */
+.flip .fb,#pnotes .nz{background:#0E5C70}
+/* Heller Akzentgrund + --ink (hell) ergäbe hell auf hell: hier dunkle Schrift */
+ol.steps.y>li::before,a.formlink,#notes .nb .lbl.z,#pnotes .np,.ia-ampel .ia-gelb button{color:#0C0E1D}

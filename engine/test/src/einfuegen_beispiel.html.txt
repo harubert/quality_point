@@ -1,0 +1,5 @@
+<!-- Folien mit data-nach werden hinter die Folie mit gleichem data-title gesetzt -->
+<section class="slide s-statement" data-nach="Fakten und Meinungen" data-title="Merksatz">
+  <div class="big">Was man <em>nachprüfen</em> kann, ist eine Tatsache.</div>
+  <aside class="notes"><p><span class="lbl">Kern</span>Eingefügte Folie aus src/einfuegen_beispiel.html.txt.</p></aside>
+</section>

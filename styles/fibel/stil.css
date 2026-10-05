@@ -1,0 +1,154 @@
+/* ==========================================================
+   STIL „Fibel“ – Lernplakat / Erstlesebuch der Moderne
+   Creme, Signalrot, Kobaltblau, Sonnengelb, Schwarz · Archivo (breit) + Fraunces + Andika
+   Dicke schwarze Konturen, harte Versatzschatten, Kreis/Dreieck/Quadrat.
+   ========================================================== */
+:root{
+  --paper:#F3EAD5; --paper2:#E9DCBF; --card:#FFFBF0; --sand:#D9C9A3;
+  --ink:#141414; --ink2:#38342C; --ink3:#5A5345;
+  --red:#C42B22; --red-l:#F7D5CF;
+  --teal:#2347A8; --teal-d:#172F73; --teal-l:#D6DDF2;
+  --yellow:#F2C230; --yellow-l:#FBEDB8;
+  --coral:#E0552A; --coral-l:#F9DCCB;
+  --night:#141414;
+  --serif:"Archivo","Arial Black",sans-serif;
+  --accent:"Fraunces",Georgia,serif;
+  --lesen:"Andika","Segoe UI",system-ui,sans-serif;
+  --ui:"Archivo","Segoe UI",system-ui,sans-serif;
+  --sans:"Archivo","Segoe UI",system-ui,sans-serif;
+  --linie:5px solid var(--ink);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(20,20,20,.45); --auf-dunkel:#F3EAD5; --buehne:#1b1a17;
+}
+html,body{background:#1b1a17}
+
+/* Folie: Druckpapier mit feinem Raster, geometrische Form oben rechts */
+.slide{background:var(--paper)}
+.slide::before{opacity:1;background-image:
+  radial-gradient(rgba(20,20,20,.06) 1px,transparent 1.3px),
+  linear-gradient(rgba(35,71,168,.05) 2px,transparent 2px);
+  background-size:9px 9px,100% 54px}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:56px;top:46px;width:120px;height:104px;pointer-events:none;
+  background:var(--yellow);clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.95}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink)}
+h1,h2{font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+h2{font-size:66px}
+h3{font-weight:800;font-stretch:110%}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:700;text-transform:none;color:var(--red);letter-spacing:0;font-stretch:100%}
+.kick{color:var(--teal);font-weight:800;letter-spacing:.16em}
+.kick::before{width:26px;height:26px;border-radius:50%;background:var(--red);border:4px solid var(--ink)}
+.lead{color:var(--ink2)}
+
+/* Karten: Kontur + harter Versatzschatten */
+.card{background:var(--card);border:var(--linie);border-radius:0;box-shadow:10px 10px 0 var(--ink)}
+.card.t{border-top:18px solid var(--teal)}.card.c{border-top:18px solid var(--coral)}
+.card.r{border-top:18px solid var(--red)}.card.y{border-top:18px solid var(--yellow)}
+.card .num{font:900 72px/1 var(--serif);font-stretch:125%;color:var(--red)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;right:-26px;top:-26px;width:52px;height:52px;border-radius:50%;
+  background:var(--red);border:5px solid var(--ink);box-shadow:none}
+.tag{border-radius:0;border:3px solid var(--ink);background:var(--yellow);color:var(--ink);font-weight:700}
+.tag.c{background:var(--coral-l);color:var(--ink)}.tag.r{background:var(--red);color:#fff}.tag.y{background:var(--yellow-l);color:var(--ink)}
+.box{border-radius:0;border:var(--linie)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:22px solid var(--teal);box-shadow:10px 10px 0 var(--ink)}
+.box.tip{background:var(--yellow-l)}.box.tip .bh{color:#8A2019}
+.box.daz{background:var(--red-l)}.box.daz .bh{color:#8A2019}
+.bh{font-weight:800}
+.bh i{border-radius:0;border:3px solid var(--ink)}
+
+.quote{color:var(--ink);padding-left:80px}
+.quote::before{content:"";left:0;top:10px;width:46px;height:46px;border-radius:50%;background:var(--red);border:5px solid var(--ink)}
+.quote cite{color:var(--ink3);font-family:var(--ui)}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{border:var(--linie);border-radius:0;box-shadow:10px 10px 0 var(--ink)}
+.tbl th{background:var(--ink);color:var(--yellow)}
+.tbl td{border-top:2px solid var(--ink)}
+.tbl tr:nth-child(even) td{background:#F8F0DC}
+
+ul.dots li::before{border-radius:0;background:var(--teal);width:18px;height:18px}
+ul.dots li:nth-child(3n+2)::before{background:var(--red);border-radius:50%}
+ul.dots li:nth-child(3n)::before{background:var(--yellow);clip-path:polygon(50% 0,100% 100%,0 100%);width:22px;height:20px}
+ol.steps>li::before{background:var(--yellow);color:var(--ink);border:4px solid var(--ink);font:900 28px/48px var(--serif)}
+ol.steps.red>li::before{background:var(--red);color:#fff}
+.sb{background:var(--red);border:4px solid var(--ink)}
+.wcard{border:var(--linie);border-radius:0;box-shadow:10px 10px 0 var(--teal)}
+.bub{border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--red)}
+
+/* Fotos & Zettel */
+.foto{background:#fff;border:var(--linie);box-shadow:12px 12px 0 var(--teal);--r:-1deg}
+.foto .cap{color:var(--ink2);font-weight:600}
+.zettel{background:var(--yellow-l);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);font-family:var(--lesen)}
+
+/* Titelfolie */
+.s-title .hero{-webkit-mask-image:none;mask-image:none;width:1000px;clip-path:circle(46% at 58% 50%)}
+.s-title::after{content:"";position:absolute;right:80px;bottom:60px;width:230px;height:230px;background:var(--red);border:6px solid var(--ink);border-radius:50%;z-index:-0;pointer-events:none;mix-blend-mode:multiply}
+.s-title h1{font-size:104px;font-weight:900}
+.s-title .sub{color:var(--ink2)}
+.s-title .who{color:var(--ink2)}
+
+/* Kapitel: Schild mit Kontur */
+.s-chapter{background:var(--teal);color:#fff}
+.s-chapter::before{opacity:.25;background-image:radial-gradient(rgba(255,255,255,.35) 1.4px,transparent 1.6px);background-size:14px 14px}
+.s-chapter .bignum{font:900 640px/1 var(--serif);font-stretch:125%;color:var(--yellow);opacity:.9;-webkit-text-stroke:8px var(--ink)}
+.s-chapter h2{color:#fff}
+.s-chapter h2 em{color:var(--yellow)}
+.etikett{background:var(--card);border:6px solid var(--ink);box-shadow:16px 16px 0 var(--ink);transform:translateY(-54%)}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink);font-size:76px}
+.s-chapter .etikett h2 em{color:var(--red)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:4px solid var(--ink);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-weight:900}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:#fff}
+
+/* Dunkle Folie */
+.s-dark{background:var(--ink);color:#F3EAD5}
+.s-dark h2,.s-dark h3{color:#F3EAD5}
+.s-dark h2 em{color:var(--yellow)}
+.s-dark .lead{color:#D9CFB8}
+.s-dark .card{background:#262420;color:#F3EAD5;border-color:#F3EAD5;box-shadow:10px 10px 0 var(--red)}
+.s-dark .card p,.s-dark .card li{color:#E8DFC9}
+
+/* Statement */
+.s-statement .big{font-family:var(--serif);font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:84px;line-height:1.02}
+.s-statement .big em{text-transform:none;font-size:1.05em}
+
+/* Werkstatt: blaue Tafel mit gelben Formen */
+.s-auftrag{background:var(--teal-d);color:#F3EAD5}
+.s-auftrag::before{opacity:.35}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--ink);border:4px solid var(--ink);border-radius:0;box-shadow:6px 6px 0 var(--ink)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4,.s-auftrag h2 em{color:var(--yellow)}
+.s-auftrag .panel{border-radius:0;border:3px solid rgba(243,234,213,.5);background:rgba(255,255,255,.06)}
+.s-auftrag ol.steps>li::before{background:var(--yellow);color:var(--ink)}
+
+/* Kennzahl, Balken */
+.zahl{font-weight:900;font-stretch:125%;color:var(--red)}
+.zahl small{color:var(--ink2);font-stretch:100%}
+.zl{color:var(--ink2)}
+.bars .bt{background:var(--card);border:4px solid var(--ink)}
+.bars .bt i{background:var(--red)}
+.bars .bz.t .bt i{background:var(--teal)}
+.bars .bz:nth-child(3n) .bt i{background:var(--yellow)}
+.bars .bv{font-weight:900;color:var(--ink)}
+
+.lesehilfe{background:var(--yellow-l);color:var(--ink);border:4px solid var(--ink);border-left-width:14px}
+.lesehilfe b{color:var(--teal-d)}
+.lesehilfe .lh{color:var(--red)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:#262420;color:#F3EAD5;border-color:var(--yellow)}
+
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border:3px solid var(--ink)}
+.pointe{background:var(--yellow-l);border:4px solid var(--ink);border-radius:0}
+.pointe b{background:var(--red);border-radius:0}
+#progress{background:var(--red)}
+.hl{background:linear-gradient(transparent 55%,var(--yellow) 55%)}
+.gl{text-decoration-color:var(--teal)}
+.s-dark .kick{color:var(--yellow)}
+.s-dark .quote,.s-auftrag .quote{color:#F3EAD5}
+.s-dark .ueb,.s-auftrag .ueb{color:#D9CFB8}
+.s-dark .ueb::before,.s-auftrag .ueb::before{color:var(--yellow)}
+.s-auftrag p,.s-auftrag li{color:#F3EAD5}

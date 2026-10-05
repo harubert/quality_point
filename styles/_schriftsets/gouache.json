@@ -1,0 +1,41 @@
+{
+  "id": "gouache",
+  "name": "Bilderbuch",
+  "standard_fuer_stil": "gouache",
+  "beschreibung": "Kontrastreiche Display-Antiqua mit weicher Kursive, kalligrafische Lesetext-Kursive, freundliche Grotesk.",
+  "titel": {
+    "familie": "DM Serif Display",
+    "achsen": "wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "akzent": {
+    "familie": "DM Serif Display",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Lora",
+    "achsen": "ital 0..1, wght 400..700",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Karla",
+    "achsen": "ital 0..1, wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "DM Serif Display",
+    "Karla",
+    "Lora"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"DM Serif Display\",Georgia,serif",
+    "--accent": "\"DM Serif Display\",Georgia,serif",
+    "--lesen": "\"Lora\",Georgia,serif",
+    "--ui": "\"Karla\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Karla\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/gouache.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Karla:ital,wght@0,400..800;1,400..800&display=swap"
+}

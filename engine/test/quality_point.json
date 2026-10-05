@@ -1,0 +1,37 @@
+{
+  "titel": "Testprojekt",
+  "untertitel": "",
+  "autor": "Testautor",
+  "veranstaltung": "",
+  "institution": "",
+  "sprache": "de",
+  "stil": "papiertheater",
+  "engine": "..",
+  "stile": "",
+  "artikel": "",
+  "lehrplan": {
+    "an": false,
+    "datei": "daten/lehrplan.json"
+  },
+  "materialien": {
+    "an": true,
+    "ordner": "material",
+    "ausgabe": "formulare",
+    "feinziel_praefix": "Die Schüler*innen können ",
+    "farbe": "1F5F5B",
+    "schrift": "Arial"
+  },
+  "themen": {
+    "beispiel": [
+      "Beispielthema"
+    ]
+  },
+  "einheiten": [],
+  "titelbild": "",
+  "fusszeile": "",
+  "bis_leerzeichen": false,
+  "institutionen": {},
+  "ziel": "_deployment",
+  "seiten_zusatz": [],
+  "sperrliste_zusatz": []
+}

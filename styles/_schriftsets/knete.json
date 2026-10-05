@@ -1,0 +1,41 @@
+{
+  "id": "knete",
+  "name": "Knete",
+  "standard_fuer_stil": "knetwerk",
+  "beschreibung": "Runde, weiche Formen: Fredoka für Titel, verspielte Grandstander-Kursive als Akzent, Nunito für Text.",
+  "titel": {
+    "familie": "Fredoka",
+    "achsen": "wdth 75..125, wght 400..700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "akzent": {
+    "familie": "Grandstander",
+    "achsen": "ital 1, wght 500..900",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "lesen": {
+    "familie": "Nunito",
+    "achsen": "ital 0..1, wght 400..900",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "Nunito",
+    "achsen": "wght 400..900",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Fredoka",
+    "Grandstander",
+    "Nunito"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Fredoka\",\"Segoe UI\",system-ui,sans-serif",
+    "--accent": "\"Grandstander\",\"Segoe UI\",system-ui,sans-serif",
+    "--lesen": "\"Nunito\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"Nunito\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Nunito\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/knete.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@75..125,400..700&family=Grandstander:ital,wght@1,500..900&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap"
+}

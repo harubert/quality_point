@@ -1,0 +1,62 @@
+{
+  "id": "riso",
+  "name": "Riso",
+  "beschreibung": "Risografie: zwei Druckfarben (Leuchtpink und Mittelblau) übereinander auf Naturpapier, Rasterpunkte, Passerversatz, schmale fette Plakat-Grotesk.",
+  "stimmung": "frisch, grafisch, zeitgenössisch",
+  "passt_zu": [
+    "Erwachsenenbildung",
+    "Kreativ- und Designthemen",
+    "Kurzvorträge und Pitches",
+    "Zines und Poster"
+  ],
+  "schriftset": "riso",
+  "farben": {
+    "paper": "#F6F1E6",
+    "paper2": "#EDE5D3",
+    "card": "#FFFDF7",
+    "ink": "#1A2F8F",
+    "ink2": "#2B3C8A",
+    "ink3": "#4A5590",
+    "red": "#D42A73",
+    "teal": "#1F3FBF",
+    "teal-d": "#14267A",
+    "yellow": "#FFD23F",
+    "coral": "#FF4F9A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Bricolage Grotesque",
+      "achsen": "opsz 12..96, wdth 75..100, wght 400..800 (Titel: wdth 75, wght 800)"
+    },
+    "akzent": {
+      "familie": "IBM Plex Serif",
+      "achsen": "ital 1, wght 600"
+    },
+    "lesen": {
+      "familie": "IBM Plex Serif",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "IBM Plex Sans",
+      "achsen": "ital 0..1, wght 400/600; dazu IBM Plex Mono 500 für Kicker"
+    }
+  },
+  "google_fonts": [
+    "Bricolage Grotesque:opsz,wdth,wght@12..96,75..100,400..800",
+    "IBM Plex Serif:ital,wght@1,400;1,600",
+    "IBM Plex Sans:ital,wght@0,400;0,600;1,400",
+    "IBM Plex Mono:wght@500"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Risograph print, two-colour overprint in fluorescent pink and medium blue on off-white paper, visible halftone grain, slight misregistration, bold flat simplified shapes, contemporary editorial illustration. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Nur zwei Farben: #FF4F9A und #1F3FBF auf #F6F1E6, Überlagerungen mit mix-blend-mode=\"multiply\" (ergibt Violett). Flächen ohne Kontur, je Farbebene 3–6 px gegeneinander versetzt (Passerversatz). Schattierung über <pattern> mit Rasterpunkten (r 2–4 px, Abstand 8–10 px).",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

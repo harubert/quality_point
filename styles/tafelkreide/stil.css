@@ -1,0 +1,157 @@
+/* ==========================================================
+   STIL „Tafelkreide“ – dunkelgrüne Schultafel mit farbiger Kreide
+   Tafelgrün, Kreideweiß, Kreidegelb/-rosa/-blau, Holzrahmen · Cabin Sketch + Caveat + Atkinson Hyperlegible
+   Wischspuren und Kreidestaub (SVG-Rauschen), gezeichnete Rahmen, Holzleiste.
+   ========================================================== */
+:root{
+  --paper:#1F3B2F; --paper2:#25463A; --card:#24443A; --sand:#3E5F52;
+  --ink:#F4F2E8; --ink2:#DDE4D8; --ink3:#B9C8B8;
+  --red:#F6A5A5; --red-l:rgba(246,165,165,.16);
+  --teal:#9CD3F0; --teal-d:#C8E8F7; --teal-l:rgba(156,211,240,.15);
+  --yellow:#F6DE78; --yellow-l:rgba(246,222,120,.15);
+  --coral:#F7B27A; --coral-l:rgba(247,178,122,.16);
+  --night:#1A1E1D;
+  --holz:#7A4E2D;
+  --serif:"Cabin Sketch","Segoe Print",cursive;
+  --accent:"Caveat","Segoe Print",cursive;
+  --lesen:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --ui:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --sans:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --kreide:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --strich:3px solid rgba(244,242,232,.78);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:14px; --radius-s:8px; --schatten:rgba(0,0,0,.6); --auf-dunkel:#F4F2E8; --auf-akzent:#1F3B2F; --buehne:#121a16; --ui-dunkel:#0F1A15; --panel:#25463A;
+}
+html,body{background:#121a16}
+
+/* Tafel: Wischspuren + Kreidestaub, Holzrahmen innen, Kreideablage unten */
+.slide{background:var(--paper) radial-gradient(ellipse 60% 40% at 30% 30%,rgba(255,255,255,.06),transparent 70%);color:var(--ink);
+  box-shadow:inset 0 0 0 16px var(--holz),inset 0 0 0 20px #5E3A20,inset 0 0 90px rgba(0,0,0,.45)}
+.slide::before{opacity:1;background-image:var(--kreide),radial-gradient(ellipse 40% 12% at 60% 70%,rgba(255,255,255,.05),transparent 70%),radial-gradient(ellipse 30% 10% at 20% 85%,rgba(255,255,255,.04),transparent 70%);background-size:260px 260px,100% 100%,100% 100%}
+.slide::after{content:"";position:absolute;left:300px;bottom:20px;width:120px;height:14px;border-radius:7px;background:#F4F2E8;opacity:.85;pointer-events:none;box-shadow:160px 0 0 -2px var(--yellow),300px 2px 0 -3px var(--red)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:.01em}
+h3{font-weight:400}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:normal;font-weight:700;color:var(--yellow);font-size:1.18em;letter-spacing:0}
+.kick{color:var(--teal);font-weight:700;letter-spacing:.14em}
+.kick::before{height:4px;border-radius:2px;background:currentColor;transform:rotate(-3deg);opacity:.9}
+p,li,td,th{color:inherit}
+.lead{color:var(--ink2)}
+.slide footer{color:var(--ink3);bottom:40px}
+.slide footer .src::before,.slide footer .pg{color:var(--ink2)}
+.slide footer .chap{color:var(--ink3)}
+
+/* Karten: mit Kreide umrandete Felder */
+.card{background:rgba(255,255,255,.035);border:var(--strich);border-radius:14px 6px 18px 8px;box-shadow:none}
+.card h3{color:var(--ink)}
+.card.t{border-top:6px solid var(--teal)}.card.c{border-top:6px solid var(--coral)}.card.r{border-top:6px solid var(--red)}.card.y{border-top:6px solid var(--yellow)}
+.card .num{color:var(--yellow);font-family:var(--serif)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;left:50%;top:-18px;width:130px;height:30px;transform:translateX(-50%) rotate(-3deg);
+  background:rgba(246,222,120,.85);border-radius:3px;box-shadow:0 4px 8px rgba(0,0,0,.3)}
+.tag{background:transparent;border:2px solid currentColor;color:var(--teal);border-radius:20px 8px 18px 10px}
+.tag.c{color:var(--coral)}.tag.r{color:var(--red)}.tag.y{color:var(--yellow)}
+.box{border-radius:14px 6px 18px 8px;border:2px dashed rgba(244,242,232,.55)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal)}
+.box.res{background:rgba(255,255,255,.04);border:var(--strich);border-left:10px solid var(--teal);box-shadow:none}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:var(--yellow)}
+.bh i span{color:var(--paper)}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--yellow);font-family:var(--accent)}
+.quote cite{color:var(--ink3)}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{background:transparent;border:var(--strich);border-radius:8px;box-shadow:none}
+.tbl th{background:rgba(255,255,255,.07);color:var(--yellow);border-bottom:var(--strich)}
+.tbl td{border-top:2px dashed rgba(244,242,232,.3);color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+
+ul.dots li::before{background:transparent;border:3px solid var(--yellow);width:18px;height:18px}
+ol.steps>li::before{background:transparent;color:var(--yellow);border:3px solid var(--yellow);border-radius:50% 46% 52% 48%;font:700 30px/50px var(--serif)}
+ol.steps.red>li::before{color:var(--red);border-color:var(--red);background:transparent}
+.sb{background:transparent;border:3px solid var(--red);color:var(--red)}
+.wcard{background:transparent;border:var(--strich);box-shadow:6px 6px 0 rgba(246,222,120,.4)}
+.wcard .ex{color:var(--ink2)}
+.bub{background:rgba(255,255,255,.06);color:var(--ink);border:2px solid rgba(244,242,232,.6);box-shadow:none}
+.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.flip .fa{background:var(--paper2)}
+.arrow{color:var(--yellow);font-family:var(--accent)}
+
+/* Fotos: mit Magnet an die Tafel geheftet */
+.foto{background:#F4F2E8;box-shadow:0 20px 34px -18px rgba(0,0,0,.7)}
+.foto::before{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FF8A80,#C62828);transform:translateX(-50%)}
+.foto .cap{color:#3A4A40}
+.zettel{background:#F6E9A8;color:#2B2B22;font-family:var(--accent);font-size:38px;box-shadow:0 18px 30px -18px rgba(0,0,0,.7)}
+
+/* Titel */
+.s-title .hero{opacity:.92;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+.s-title h1{font-size:112px}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+.s-title .who b{color:var(--ink)}
+
+/* Kapitel: großes Kreidezeichen, Etikett als Kreiderahmen */
+.s-chapter{background:var(--paper2);color:var(--ink)}
+.s-chapter .bignum{font-family:var(--serif);color:rgba(244,242,232,.1)}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--yellow)}
+.s-chapter .hero{opacity:.35;mix-blend-mode:luminosity}
+.etikett{background:rgba(31,59,47,.9);border:4px solid rgba(244,242,232,.8);border-radius:18px 8px 22px 10px;transform:translateY(-54%) rotate(-1deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink)}
+.s-chapter .etikett h2 em{color:var(--yellow)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:2px dashed rgba(244,242,232,.5);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--coral)}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:var(--ink2)}
+
+/* Dunkel: Schiefertafel */
+.s-dark{background:var(--night);color:var(--ink)}
+.s-dark h2,.s-dark h3{color:var(--ink)}.s-dark h2 em{color:var(--red)}
+.s-dark .lead{color:var(--ink2)}
+.s-dark .card{background:rgba(255,255,255,.03);color:var(--ink)}
+.s-dark .card p,.s-dark .card li{color:var(--ink2)}
+
+.s-statement .big{font-family:var(--serif);font-weight:700;color:var(--ink)}
+
+/* Werkstatt: Rechenkästchen-Tafel */
+.s-auftrag{background:#1C3A4A;color:var(--ink)}
+.s-auftrag::before{opacity:1;background-image:var(--kreide),linear-gradient(rgba(244,242,232,.09) 2px,transparent 2px),linear-gradient(90deg,rgba(244,242,232,.09) 2px,transparent 2px);background-size:260px 260px,60px 60px,60px 60px}
+.s-auftrag .wk .wn{background:transparent;color:var(--yellow);border:3px solid var(--yellow);border-radius:14px 6px 16px 8px;font-family:var(--serif)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--yellow)}
+.s-auftrag h2 em{color:var(--yellow)}
+.s-auftrag p,.s-auftrag li{color:var(--ink)}
+.s-auftrag .panel{border-radius:14px 6px 18px 8px;background:rgba(0,0,0,.12);border:var(--strich)}
+.s-auftrag .meta span{background:transparent;border:2px solid rgba(246,222,120,.7);color:var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--yellow)}
+.card.r .zahl{color:var(--red)}.card.t .zahl{color:var(--teal)}
+.zahl small{color:var(--ink2);font-family:var(--accent);font-size:48px}
+.zl{color:var(--ink2)}
+.bars .bz{color:var(--ink)}
+.bars .bt{background:transparent;border:2px solid rgba(244,242,232,.6);border-radius:6px}
+.bars .bt i{background:repeating-linear-gradient(-45deg,var(--red) 0 8px,rgba(246,165,165,.55) 8px 14px)}
+.bars .bz.t .bt i{background:repeating-linear-gradient(-45deg,var(--teal) 0 8px,rgba(156,211,240,.55) 8px 14px)}
+.bars .bv{font-family:var(--serif);color:var(--ink)}
+
+.lesehilfe{background:rgba(22,48,38,.95);color:var(--ink2);border-left:5px solid var(--yellow);bottom:84px}
+.lesehilfe b{color:var(--yellow)}.lesehilfe .lh{color:var(--yellow)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(26,30,29,.95);color:var(--ink2)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kurz{color:var(--ink2)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal);border-radius:8px}
+.pointe{background:var(--paper2);color:var(--ink);border:2px solid rgba(244,242,232,.6)}
+.pointe b{background:var(--red);color:var(--paper)}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow);color:var(--paper)}
+#progress{background:var(--yellow)}
+.hl{background:linear-gradient(transparent 60%,rgba(246,222,120,.35) 60%)}
+.mark{background-image:linear-gradient(rgba(246,222,120,.45),rgba(246,222,120,.45))}
+.gl{text-decoration-color:var(--yellow)}
+a.qo,a.ql:hover{color:var(--yellow)}
+.fax{color:#1E2B33}
+
+/* Flächen, die basis.css mit --teal-d füllt: hier dunkel halten */
+.flip .fb,#pnotes .nz{background:#163026}
+/* Heller Akzentgrund + --ink (hell) ergäbe hell auf hell: hier dunkle Schrift */
+ol.steps.y>li::before,a.formlink,#notes .nb .lbl.z,#pnotes .np,.ia-ampel .ia-gelb button{color:#1F3B2F}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--yellow);border:3px solid var(--yellow)}

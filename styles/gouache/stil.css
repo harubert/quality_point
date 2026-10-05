@@ -1,0 +1,141 @@
+/* ==========================================================
+   STIL „Gouache-Bilderbuch“ – deckende Malfarbe, weiche Formen
+   Waldgrün, Senf, Altrosa, Tintenblau auf Büttenpapier · DM Serif Display + Lora + Karla
+   Organische Kanten, Pinsel-Unterstreichungen, gemalter Farbklecks oben rechts.
+   ========================================================== */
+:root{
+  --paper:#F3EAD9; --paper2:#E8DCC4; --card:#FAF4E8; --sand:#DCCDB0;
+  --ink:#24312A; --ink2:#3F4D44; --ink3:#5A6656;
+  --red:#A8432F; --red-l:#F2D9CF;
+  --teal:#2F5D46; --teal-d:#1F4231; --teal-l:#D8E6DA;
+  --yellow:#D9A94A; --yellow-l:#F5E6C2;
+  --coral:#C9776A; --coral-l:#F4DDD6;
+  --night:#1E2A33;
+  --serif:"DM Serif Display",Georgia,serif;
+  --accent:"DM Serif Display",Georgia,serif;
+  --lesen:"Lora",Georgia,serif;
+  --ui:"Karla","Segoe UI",system-ui,sans-serif;
+  --sans:"Karla","Segoe UI",system-ui,sans-serif;
+  --klecks:62% 38% 55% 45% / 50% 60% 40% 50%;
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:30px; --radius-s:14px; --schatten:rgba(36,49,42,.45); --auf-dunkel:#F1E9D8; --buehne:#1f2620;
+}
+html,body{background:#1f2620}
+
+/* Büttenpapier: weiches Rauschen + Lichtflecken */
+.slide{background:var(--paper) radial-gradient(ellipse at 20% 15%,rgba(255,252,240,.7),transparent 55%)}
+.slide::before{opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:-90px;top:-80px;width:360px;height:280px;pointer-events:none;
+  border-radius:var(--klecks);background:radial-gradient(circle at 40% 40%,#E3B65A,var(--yellow) 55%,#C08E33 75%);opacity:.85;box-shadow:-40px 60px 0 -30px rgba(201,119,106,.55)}
+
+h1,h2,h3{font-weight:400;color:var(--teal-d)}
+h2{font-style:normal}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:400;color:var(--red)}
+h3{color:var(--teal-d)}
+.kick{color:var(--red);font-weight:700;letter-spacing:.16em}
+.kick::before{width:60px;height:10px;border-radius:50% 40% 60% 30%;background:var(--yellow);transform:rotate(-3deg)}
+.lead{color:var(--ink2)}
+
+/* Karten: gemalte Flächen mit weichen, unregelmäßigen Ecken */
+.card{background:var(--card);border-radius:34px 22px 38px 26px;box-shadow:0 22px 40px -26px rgba(36,49,42,.5)}
+.card.t,.card.c,.card.r,.card.y{border-top:none}
+.card.t{box-shadow:inset 0 14px 0 var(--teal),0 22px 40px -26px rgba(36,49,42,.5)}
+.card.r{box-shadow:inset 0 14px 0 var(--red),0 22px 40px -26px rgba(36,49,42,.5)}
+.card.c{box-shadow:inset 0 14px 0 var(--coral),0 22px 40px -26px rgba(36,49,42,.5)}
+.card.y{box-shadow:inset 0 14px 0 var(--yellow),0 22px 40px -26px rgba(36,49,42,.5)}
+.card .num{color:var(--red);font-family:var(--serif);font-weight:400}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;left:50%;top:-22px;width:140px;height:44px;transform:translateX(-50%) rotate(-4deg);
+  border-radius:50% 45% 55% 40%;background:rgba(201,119,106,.85);box-shadow:none}
+.tag{border-radius:999px;background:var(--teal-l);color:var(--teal-d)}
+.tag.c{background:var(--coral-l);color:#7A3428}.tag.r{background:var(--red-l);color:#7A2E20}.tag.y{background:var(--yellow-l);color:#6B4D0F}
+.box{border-radius:30px 20px 34px 24px}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:14px solid var(--teal)}
+.box.tip{background:var(--yellow-l)}.box.tip .bh{color:#6B4D0F}
+.box.daz{background:var(--coral-l)}.box.daz .bh{color:#7A3428}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--yellow);font-family:var(--serif)}
+.quote cite{color:var(--ink3)}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{border-radius:24px}
+.tbl th{background:var(--teal-d);color:var(--card)}
+.tbl td{border-top-color:var(--sand)}
+.tbl tr:nth-child(even) td{background:#F5EDDC}
+
+ul.dots li::before{border-radius:var(--klecks);width:20px;height:16px;background:var(--red)}
+ul.dots li:nth-child(even)::before{background:var(--teal)}
+ol.steps>li::before{background:var(--teal);border-radius:var(--klecks);font:400 30px/56px var(--serif)}
+ol.steps.red>li::before{background:var(--red)}
+.sb{background:var(--red)}
+.wcard{border:none;border-radius:30px;box-shadow:8px 10px 0 var(--yellow)}
+.bub{border-radius:30px}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--red)}
+
+.foto{background:#FFFDF7;border-radius:6px;box-shadow:0 26px 40px -24px rgba(36,49,42,.55)}
+.foto img{border-radius:28px 18px 30px 22px}
+.foto .cap{color:var(--ink3);font-family:var(--lesen);font-style:italic}
+.zettel{background:var(--yellow-l);border-radius:24px 10px 28px 14px;box-shadow:0 18px 30px -20px rgba(36,49,42,.5)}
+
+/* Titel */
+.s-title .hero{-webkit-mask-image:radial-gradient(ellipse 70% 80% at 62% 50%,#000 55%,transparent 72%);mask-image:radial-gradient(ellipse 70% 80% at 62% 50%,#000 55%,transparent 72%)}
+.s-title .tt{width:800px}
+.s-title h1{color:var(--teal-d);font-size:104px}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+
+/* Kapitel: Bild + gemalter Farbfleck als Etikett */
+.s-chapter{background:var(--teal-d);color:var(--card)}
+.s-chapter::before{opacity:.3}
+.s-chapter .bignum{font-family:var(--serif);color:rgba(217,169,74,.22)}
+.s-chapter h2{color:var(--card)}
+.s-chapter h2 em{color:var(--yellow)}
+.etikett{background:var(--card);border-radius:58% 42% 52% 48% / 46% 54% 46% 54%;padding:90px 120px 84px;width:960px;transform:translateY(-54%);box-shadow:0 30px 60px -20px rgba(20,30,24,.55)}
+.etikett::before{display:none}
+.s-chapter .etikett .kick{color:var(--red)}
+.s-chapter .etikett h2{color:var(--teal-d);font-size:80px}
+.s-chapter .etikett h2 em{color:var(--red)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:3px solid var(--sand);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red)}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:rgba(250,244,232,.9);text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+/* Dunkel: Tintenblau-Nacht */
+.s-dark{background:var(--night) radial-gradient(ellipse at 80% 10%,rgba(217,169,74,.18),transparent 50%);color:#F1E9D8}
+.s-dark h2,.s-dark h3{color:#F1E9D8}
+.s-dark h2 em{color:#E9B866}
+.s-dark .lead{color:#D2C9B6}
+.s-dark .card{background:#2A3843;color:#F1E9D8;box-shadow:0 22px 40px -22px rgba(0,0,0,.7)}
+.s-dark .card p,.s-dark .card li{color:#E3DAC7}
+.s-dark .quote{color:#F1E9D8}
+.s-dark .ueb{color:#D2C9B6}.s-dark .ueb::before{color:#E9B866}
+
+.s-statement .big{color:var(--teal-d);font-weight:400}
+
+/* Werkstatt: grüne Malfläche */
+.s-auftrag{background:var(--teal-d);color:#F1E9D8}
+.s-auftrag::before{opacity:.35}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--ink);border-radius:var(--klecks)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4,.s-auftrag h2 em{color:#EAC27A}
+.s-auftrag .panel{border-radius:30px 20px 34px 24px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
+.s-auftrag .ueb{color:#D2C9B6}
+
+.zahl{color:var(--red);font-family:var(--serif)}
+.zahl small{color:var(--ink2)}
+.zl{color:var(--ink2)}
+.bars .bt{background:#E3D5B8;border-radius:22px}
+.bars .bt i{background:var(--red);border-radius:22px}
+.bars .bz.t .bt i{background:var(--teal)}
+.bars .bv{color:var(--teal-d)}
+
+.lesehilfe{background:rgba(250,244,232,.94);color:var(--ink2);border-left:8px solid var(--yellow);border-radius:0 20px 20px 0}
+.lesehilfe b{color:var(--teal-d)}
+.lesehilfe .lh{color:var(--red)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(30,42,51,.92);color:#E3DAC7}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:#E9B866}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:14px}
+.pointe{background:var(--card);border:2px solid var(--sand)}
+.pointe b{background:var(--red)}
+#progress{background:var(--yellow)}
+.hl{background:linear-gradient(transparent 55%,var(--yellow-l) 55%)}

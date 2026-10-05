@@ -1,0 +1,8 @@
+# Begriff | weitere Schreibweisen (alle werden auf den Folien erkannt)
+# E: Erklärung in einfachen Worten   Q: optional id aus src/quellen.json
+
+Tatsache | Tatsachen
+E: Eine Aussage, die sich überprüfen lässt, etwa durch Messen oder Nachschauen.
+
+Meinung | Meinungen
+E: Eine persönliche Bewertung; sie kann begründet sein, lässt sich aber nicht nachprüfen.

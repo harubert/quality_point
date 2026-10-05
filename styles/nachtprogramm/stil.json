@@ -1,0 +1,61 @@
+{
+  "id": "nachtprogramm",
+  "name": "Nachtprogramm",
+  "beschreibung": "Bildschirmlicht im dunklen Raum: Indigo-Nacht mit Cyan, Violett und Neonrosa, Glaskarten mit Leuchtkanten, Filmkorn.",
+  "stimmung": "atmosphärisch, nachdenklich, modern",
+  "passt_zu": [
+    "Jugendliche",
+    "Digitale Medien und Social Media",
+    "Abendvorträge",
+    "Risiken und Reflexion"
+  ],
+  "schriftset": "nacht",
+  "farben": {
+    "paper": "#0C0E1D",
+    "paper2": "#141833",
+    "card": "#171B36",
+    "ink": "#EEF0FF",
+    "ink2": "#C9CDEB",
+    "ink3": "#A1A7CC",
+    "red": "#FF7AA8",
+    "teal": "#52E3FF",
+    "teal-d": "#8FEFFF",
+    "yellow": "#FFD166",
+    "coral": "#A67CFF"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Syne",
+      "achsen": "wght 400..800"
+    },
+    "akzent": {
+      "familie": "Bodoni Moda",
+      "achsen": "ital 1, opsz 6..96, wght 400..700"
+    },
+    "lesen": {
+      "familie": "Inter Tight",
+      "achsen": "ital 1, wght 400..800"
+    },
+    "ui": {
+      "familie": "Inter Tight",
+      "achsen": "wght 400..800"
+    }
+  },
+  "google_fonts": [
+    "Syne:wght@400..800",
+    "Bodoni Moda:ital,opsz,wght@1,6..96,400..700",
+    "Inter Tight:ital,wght@0,400..800;1,400..800"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Cinematic night photography, a dim room lit only by the cool cyan and violet glow of screens, deep indigo shadows, volumetric light, film grain, quiet and atmospheric, children only seen from behind or as silhouettes. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Dunkler Grund #0C0E1D; Gegenstände als Silhouetten (#171B36) mit 2 px Leuchtkontur in #52E3FF oder #A67CFF und filter feGaussianBlur (stdDeviation 6) als Glow-Kopie darunter. Lichtkegel als radialGradient (cyan → transparent). Wenige Elemente, viel Dunkel; Personen nur als Rückenansicht-Silhouette.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

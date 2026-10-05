@@ -1,0 +1,147 @@
+/* ==========================================================
+   STIL „Riso“ – Risografie-Druck, zwei Farben übereinander
+   Leuchtpink + Mittelblau auf Naturpapier · Bricolage Grotesque (schmal) + IBM Plex Serif/Sans/Mono
+   Rasterpunkte, leichter Passerversatz, Multiplikation der Farben.
+   ========================================================== */
+:root{
+  --paper:#F6F1E6; --paper2:#EDE5D3; --card:#FFFDF7; --sand:#DCD3C0;
+  --ink:#1A2F8F; --ink2:#2B3C8A; --ink3:#4A5590;
+  --red:#D42A73; --red-l:#FFD6E7;
+  --teal:#1F3FBF; --teal-d:#14267A; --teal-l:#D9DFF7;
+  --yellow:#FFD23F; --yellow-l:#FFF1BF;
+  --coral:#FF4F9A; --coral-l:#FFD6E7;
+  --night:#14267A;
+  --serif:"Bricolage Grotesque","Arial Narrow",sans-serif;
+  --accent:"IBM Plex Serif",Georgia,serif;
+  --lesen:"IBM Plex Serif",Georgia,serif;
+  --ui:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --raster:radial-gradient(var(--coral) 36%,transparent 38%) 0 0/10px 10px;
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(20,38,122,.4); --auf-dunkel:#F6F1E6; --buehne:#121a45;
+}
+html,body{background:#121a45}
+
+/* Naturpapier mit Druckkorn; Rasterkreis oben rechts */
+.slide{background:var(--paper)}
+.slide::before{opacity:.6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .15 0 0 0 0 .5 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:-70px;top:-70px;width:320px;height:320px;border-radius:50%;pointer-events:none;mix-blend-mode:multiply;background:var(--raster)}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink)}
+h1,h2{font-weight:800;font-stretch:75%;text-transform:uppercase;letter-spacing:-.005em;line-height:.95}
+h2{font-size:80px}
+h3{font-weight:700;font-stretch:85%}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:600;text-transform:none;color:var(--red);font-stretch:100%;letter-spacing:-.01em;mix-blend-mode:multiply}
+.kick{font:500 24px/1 var(--mono);letter-spacing:.08em;color:var(--red)}
+.kick::before{height:14px;width:40px;border-radius:0;background:var(--coral);mix-blend-mode:multiply}
+.lead{color:var(--ink2)}
+p,li,td{color:var(--ink)}
+
+/* Karten: blauer Versatzschatten wie verrutschte Druckplatte */
+.card{background:var(--card);border-radius:0;box-shadow:12px 12px 0 rgba(31,63,191,.85)}
+.card.t{border-top:12px solid var(--teal)}.card.c,.card.r{border-top:12px solid var(--coral)}.card.y{border-top:12px solid var(--yellow)}
+.card .num{color:var(--red);font-family:var(--serif);font-stretch:75%}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;left:50%;top:-18px;width:150px;height:36px;transform:translateX(-50%) rotate(-3deg);
+  background:var(--coral);opacity:.85;mix-blend-mode:multiply}
+.tag{border-radius:0;background:var(--teal-l);color:var(--teal-d);font-family:var(--mono);font-weight:500}
+.tag.c,.tag.r{background:var(--coral-l);color:#8E1650}.tag.y{background:var(--yellow-l);color:#6B5200}
+.box{border-radius:0}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:14px solid var(--coral);box-shadow:10px 10px 0 rgba(31,63,191,.85)}
+.box.tip{background:var(--coral-l)}.box.tip .bh{color:#8E1650}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:#6B5200}
+.bh{font-family:var(--mono);font-weight:500}
+.bh i{border-radius:0}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--coral);mix-blend-mode:multiply;font-family:var(--accent)}
+.quote cite{color:var(--ink3);font-family:var(--mono);font-size:24px}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--red);font-family:var(--mono)}
+
+table.tbl{border-radius:0;box-shadow:10px 10px 0 rgba(255,79,154,.8)}
+.tbl th{background:var(--teal);color:var(--card);font-family:var(--mono);font-weight:500}
+.tbl td{border-top:2px dotted var(--teal)}
+.tbl tr:nth-child(even) td{background:#FBF7EE}
+
+ul.dots li::before{border-radius:50%;background:var(--coral);mix-blend-mode:multiply;box-shadow:3px 2px 0 rgba(31,63,191,.6)}
+ol.steps>li::before{background:var(--teal);border-radius:0;box-shadow:5px 5px 0 var(--coral);font:800 30px/56px var(--serif)}
+ol.steps.red>li::before{background:var(--red)}
+.sb{background:var(--coral);color:var(--teal-d)}
+.wcard{border:3px solid var(--teal);border-radius:0;box-shadow:10px 10px 0 var(--coral)}
+.bub{border-radius:0;box-shadow:6px 6px 0 rgba(31,63,191,.7)}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--coral)}
+
+/* Fotos als Duoton-Druck */
+.foto{background:var(--card);box-shadow:12px 12px 0 var(--coral);--r:-1.5deg}
+.foto img{filter:contrast(1.05) saturate(1.1)}
+.foto .cap{font-family:var(--mono);color:var(--ink3)}
+.zettel{background:var(--yellow);color:var(--teal-d);box-shadow:8px 8px 0 rgba(31,63,191,.8)}
+
+/* Titel */
+.s-title .hero{mix-blend-mode:multiply}
+.s-title h1{font-size:130px;line-height:.92}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+.s-title .who b{color:var(--ink)}
+
+/* Kapitel: pinke Fläche, blaues Raster */
+.s-chapter{background:var(--coral);color:var(--teal-d)}
+.s-chapter::before{opacity:.5;background-image:radial-gradient(rgba(20,38,122,.6) 30%,transparent 33%);background-size:12px 12px}
+.s-chapter .bignum{font-family:var(--serif);font-weight:800;font-stretch:75%;color:rgba(20,38,122,.25)}
+.s-chapter h2{color:var(--teal-d)}.s-chapter h2 em{color:#fff;mix-blend-mode:normal}
+.etikett{background:var(--card);transform:translateY(-54%) rotate(.6deg);box-shadow:16px 16px 0 rgba(31,63,191,.85)}
+.s-chapter .etikett .kick{color:var(--red)}
+.s-chapter .etikett h2{color:var(--ink);font-size:92px}
+.s-chapter .etikett h2 em{color:var(--red);mix-blend-mode:multiply}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:3px solid var(--coral);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-family:var(--mono);font-size:22px}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.s-chapter .lead{color:var(--teal-d)}
+
+/* Dunkel: Vollton-Blau */
+.s-dark{background:var(--teal-d);color:#F6F1E6}
+.s-dark::before{opacity:.35}
+.s-dark h2,.s-dark h3{color:#F6F1E6}.s-dark h2 em{color:var(--coral);mix-blend-mode:normal}
+.s-dark .lead{color:#D9DFF7}
+.s-dark .kick{color:var(--yellow)}
+.s-dark p,.s-dark li{color:#F6F1E6}
+.s-dark .card{background:#1F3399;color:#F6F1E6;box-shadow:10px 10px 0 var(--coral)}
+.s-dark .card h3{color:#fff}
+.s-dark .card p,.s-dark .card li{color:#E6E9FA}
+.s-dark .quote{color:#F6F1E6}.s-dark .ueb{color:#D9DFF7}.s-dark .ueb::before{color:var(--yellow)}
+
+.s-statement .big{font-family:var(--serif);font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:100px;line-height:.98}
+.s-statement .big em{text-transform:none}
+
+/* Werkstatt: blauer Druckbogen mit gelb */
+.s-auftrag{background:var(--teal-d);color:#F6F1E6}
+.s-auftrag::before{opacity:.3}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--teal-d);border-radius:0;box-shadow:5px 5px 0 var(--coral)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--yellow);font-family:var(--mono)}
+.s-auftrag h2 em{color:var(--coral);mix-blend-mode:normal}
+.s-auftrag p,.s-auftrag li{color:#F6F1E6}
+.s-auftrag .panel{border-radius:0;background:rgba(255,255,255,.06);border:2px dashed rgba(255,210,63,.5)}
+.s-auftrag .meta span{background:rgba(255,79,154,.25);color:#FFD6E7}
+.s-auftrag ol.steps>li::before{background:var(--yellow);color:var(--teal-d);box-shadow:5px 5px 0 var(--coral)}
+
+.zahl{font-family:var(--serif);font-weight:800;font-stretch:75%;color:var(--red);text-shadow:5px 4px 0 rgba(31,63,191,.35)}
+.zahl small{color:var(--ink2);font-stretch:100%;text-shadow:none}
+.zl{color:var(--ink2)}
+.bars .bz{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.bars .bt{background:var(--raster);opacity:1;background-color:transparent;outline:2px solid var(--teal);outline-offset:-2px}
+.bars .bt i{background:var(--teal)}
+.bars .bz.t .bt i{background:var(--red)}
+.bars .bv{font-family:var(--serif);font-weight:800;color:var(--ink)}
+
+.lesehilfe{background:rgba(255,253,247,.95);color:var(--ink2);border-left:8px solid var(--coral);font-family:var(--ui)}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--red);font-family:var(--mono)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(20,38,122,.95);color:#E6E9FA;border-left-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:0;font-family:var(--mono)}
+.pointe{background:var(--yellow-l);border-radius:0;box-shadow:6px 6px 0 var(--coral)}
+.pointe b{background:var(--teal);border-radius:0;font-family:var(--mono)}
+#progress{background:var(--coral)}
+.hl{background:linear-gradient(transparent 55%,rgba(255,79,154,.45) 55%)}
+.mark{background-image:linear-gradient(rgba(255,210,63,.9),rgba(255,210,63,.9))}

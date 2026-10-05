@@ -1,0 +1,41 @@
+{
+  "id": "journal",
+  "name": "Journal",
+  "standard_fuer_stil": "journal",
+  "beschreibung": "Literata (für Langlesen am Bildschirm gebaut) für Titel und Text, Newsreader-Kursive für Akzente, Public Sans für Beschriftungen.",
+  "titel": {
+    "familie": "Literata",
+    "achsen": "opsz 7..72, wght 400..700",
+    "fallback": "Georgia,serif"
+  },
+  "akzent": {
+    "familie": "Newsreader",
+    "achsen": "ital 1, opsz 6..72, wght 400..600",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Literata",
+    "achsen": "ital 1, opsz 7..72, wght 400..700",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Public Sans",
+    "achsen": "ital 0..1, wght 400..700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Literata",
+    "Newsreader",
+    "Public Sans"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Literata\",Georgia,serif",
+    "--accent": "\"Newsreader\",Georgia,serif",
+    "--lesen": "\"Literata\",Georgia,serif",
+    "--ui": "\"Public Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Public Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/journal.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Newsreader:ital,opsz,wght@1,6..72,400..600&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "comic",
+  "name": "Comic",
+  "standard_fuer_stil": "comic",
+  "beschreibung": "Bangers für laute Titel, Titan One für Akzente, Shantell Sans (handschriftlich, aber sehr gut lesbar) für Text und Kursive.",
+  "titel": {
+    "familie": "Bangers",
+    "achsen": "wght 400",
+    "fallback": "Impact,sans-serif"
+  },
+  "akzent": {
+    "familie": "Titan One",
+    "achsen": "wght 400 (keine Kursive – Akzent aufrecht)",
+    "fallback": "Impact,sans-serif"
+  },
+  "lesen": {
+    "familie": "Shantell Sans",
+    "achsen": "ital 1, wght 300..800",
+    "fallback": "\"Comic Sans MS\",sans-serif"
+  },
+  "ui": {
+    "familie": "Shantell Sans",
+    "achsen": "wght 300..800",
+    "fallback": "\"Comic Sans MS\",sans-serif"
+  },
+  "familien": [
+    "Bangers",
+    "Shantell Sans",
+    "Titan One"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Bangers\",Impact,sans-serif",
+    "--accent": "\"Titan One\",Impact,sans-serif",
+    "--lesen": "\"Shantell Sans\",\"Comic Sans MS\",sans-serif",
+    "--ui": "\"Shantell Sans\",\"Comic Sans MS\",sans-serif",
+    "--sans": "\"Shantell Sans\",\"Comic Sans MS\",sans-serif"
+  },
+  "fonts_css": "fonts/comic.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Bangers&family=Titan+One&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+}

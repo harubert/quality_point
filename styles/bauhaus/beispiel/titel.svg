@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Geometrische Komposition: Tablet, Bücher und Stifte in Primärfarben</title>
+  <rect width="1200" height="800" fill="#F4F1EA"/>
+  <!-- Grundraster -->
+  <g stroke="#111" stroke-width="2" opacity=".12">
+    <path d="M400 0V800M600 0V800M800 0V800M1000 0V800M400 200H1200M400 400H1200M400 600H1200"/>
+  </g>
+  <!-- Sonne/Kreis -->
+  <circle cx="930" cy="250" r="190" fill="#C8281E"/>
+  <!-- Tablet -->
+  <rect x="560" y="300" width="380" height="270" fill="#111"/>
+  <rect x="585" y="325" width="330" height="220" fill="#F2C12E"/>
+  <path d="M715 380 L715 490 L805 435 Z" fill="#111"/>
+  <!-- Bücher -->
+  <rect x="440" y="560" width="260" height="46" fill="#1D4E9E"/>
+  <rect x="470" y="606" width="230" height="46" fill="#111"/>
+  <rect x="430" y="652" width="280" height="46" fill="#C8281E"/>
+  <!-- Bauklötze -->
+  <rect x="980" y="590" width="108" height="108" fill="#1D4E9E"/>
+  <polygon points="1034,480 1090,590 978,590" fill="#F2C12E"/>
+  <circle cx="1140" cy="660" r="38" fill="#111"/>
+  <!-- Stifte -->
+  <rect x="760" y="640" width="200" height="22" fill="#C8281E"/>
+  <polygon points="960,640 1000,651 960,662" fill="#111"/>
+  <rect x="760" y="676" width="170" height="22" fill="#1D4E9E"/>
+  <polygon points="930,676 970,687 930,698" fill="#111"/>
+  <!-- Tischkante -->
+  <rect x="400" y="698" width="800" height="14" fill="#111"/>
+  <!-- Viertelkreis -->
+  <path d="M1200 800 V712 A88 88 0 0 0 1112 800 Z" fill="#F2C12E"/>
+</svg>

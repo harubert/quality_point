@@ -1,0 +1,40 @@
+# ---- Geheimnisse: API-Schlüssel gehören in Umgebungsvariablen, nie in Dateien ----
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*_key.txt
+*_key.js
+*_KEY*
+API Key.js
+API_Key.js
+api_key*
+apikey*
+secrets.json
+credentials.json
+
+# ---- Erzeugte und lokale Ausgaben ----
+deployment/
+video_lokal/
+screens/
+*.zip
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- Editor und Betriebssystem ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+
+# ---- Lokale Claude-Einstellungen (persönlich) ----
+.claude/settings.local.json
+_deployment/

@@ -1,0 +1,11 @@
+# Begriff | weitere Schreibweisen (alle werden auf den Folien erkannt)
+# E: Erklärung in einfachen Worten   Q: optional id aus src/quellen.json
+
+Effektstärke | Effektstärken
+E: Zahl, die angibt, wie groß ein Unterschied oder Zusammenhang ist – unabhängig davon, wie viele Personen untersucht wurden. Faustregel nach Cohen für d: 0,2 klein, 0,5 mittel, 0,8 groß.
+
+Lesehilfe | Lesehilfen
+E: Kurzer Satz unter einer Kennzahl, der sagt, was sie bedeutet und auf wen sie sich bezieht – beginnt immer mit „Das heißt:“.
+
+Referentenansicht
+E: Eigenes Fenster für die vortragende Person mit Notizen, nächster Folie, Uhr und Stoppuhr (Taste P).

@@ -1,0 +1,40 @@
+{
+  "id": "grotesk",
+  "name": "Grotesk",
+  "standard_fuer_stil": "bauhaus",
+  "beschreibung": "Geometrische Jost (Futura-Tradition) für Titel und Akzente, Libre Franklin als robuste Text-Grotesk mit guter Kursive.",
+  "titel": {
+    "familie": "Jost",
+    "achsen": "wght 300..900 (Titel: 700)",
+    "fallback": "\"Century Gothic\",sans-serif"
+  },
+  "akzent": {
+    "familie": "Jost",
+    "achsen": "ital 1, wght 300..900",
+    "fallback": "\"Century Gothic\",sans-serif"
+  },
+  "lesen": {
+    "familie": "Libre Franklin",
+    "achsen": "ital 0..1, wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "Libre Franklin",
+    "achsen": "wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Jost",
+    "Libre Franklin"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Jost\",\"Century Gothic\",sans-serif",
+    "--accent": "\"Jost\",\"Century Gothic\",sans-serif",
+    "--lesen": "\"Libre Franklin\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"Libre Franklin\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Libre Franklin\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/grotesk.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..900;1,300..900&family=Libre+Franklin:ital,wght@0,400..800;1,400..800&display=swap"
+}

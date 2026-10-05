@@ -1,0 +1,61 @@
+{
+  "id": "tafelkreide",
+  "name": "Tafelkreide",
+  "beschreibung": "Dunkelgrüne Schultafel mit Holzrahmen: Kreideweiß und farbige Kreide, Wischspuren, mit Kreide gezogene Rahmen, Rechenkästchen in der Werkstatt.",
+  "stimmung": "schulisch, vertraut, handgezeichnet",
+  "passt_zu": [
+    "Unterrichtsplanung",
+    "Mathematik und Sachunterricht",
+    "Lehrerfortbildung",
+    "Schritt-für-Schritt-Erklärungen"
+  ],
+  "schriftset": "kreide",
+  "farben": {
+    "paper": "#1F3B2F",
+    "paper2": "#25463A",
+    "card": "#24443A",
+    "ink": "#F4F2E8",
+    "ink2": "#DDE4D8",
+    "ink3": "#B9C8B8",
+    "red": "#F6A5A5",
+    "teal": "#9CD3F0",
+    "teal-d": "#C8E8F7",
+    "yellow": "#F6DE78",
+    "coral": "#F7B27A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Cabin Sketch",
+      "achsen": "wght 400/700"
+    },
+    "akzent": {
+      "familie": "Caveat",
+      "achsen": "wght 400..700"
+    },
+    "lesen": {
+      "familie": "Atkinson Hyperlegible",
+      "achsen": "ital 0..1, wght 400/700"
+    },
+    "ui": {
+      "familie": "Atkinson Hyperlegible",
+      "achsen": "wght 400/700"
+    }
+  },
+  "google_fonts": [
+    "Cabin Sketch:wght@400;700",
+    "Caveat:wght@400..700",
+    "Atkinson Hyperlegible:ital,wght@0,400;0,700;1,400;1,700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Hand-drawn chalk illustration on a dark green school chalkboard, white and pastel coloured chalk lines in yellow, pink and light blue, visible chalk dust and smudges, rough grainy strokes, simple friendly classroom doodle style, flat front view. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Grund #1F3B2F; nur Linien (fill=\"none\", stroke 5–9 px, stroke-linecap round) in #F4F2E8, #F6DE78, #F6A5A5, #9CD3F0, #F7B27A. Kreidekante über <filter>: feTurbulence (baseFrequency 1.2–1.6) + feDisplacementMap (scale 4–6) + feComponentTransfer, der Alpha ausdünnt. Flächen höchstens als fill-opacity .2. Kreidestaub: zweites feTurbulence-Rechteck mit Alpha .07.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

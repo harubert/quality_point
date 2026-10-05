@@ -1,0 +1,61 @@
+{
+  "id": "knetwerk",
+  "name": "Knetwerk",
+  "beschreibung": "Knete und Trickfilm: pralle, runde Formen mit Innenschatten, Himmelblau, Mandarine, Minze und Sonnengelb, Kugeln statt Aufzählungspunkte.",
+  "stimmung": "verspielt, weich, freundlich",
+  "passt_zu": [
+    "Kinder 4–10",
+    "Trickfilm und Stop-Motion",
+    "Projektarbeit",
+    "Spielerisches Lernen"
+  ],
+  "schriftset": "knete",
+  "farben": {
+    "paper": "#E4F1F7",
+    "paper2": "#D2E7F1",
+    "card": "#FFFFFF",
+    "ink": "#1F3347",
+    "ink2": "#34495E",
+    "ink3": "#4C6276",
+    "red": "#B9471A",
+    "teal": "#23805F",
+    "teal-d": "#17573F",
+    "yellow": "#F5C54A",
+    "coral": "#F2793D"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Fredoka",
+      "achsen": "wdth 75..125, wght 400..700"
+    },
+    "akzent": {
+      "familie": "Grandstander",
+      "achsen": "ital 1, wght 500..900"
+    },
+    "lesen": {
+      "familie": "Nunito",
+      "achsen": "ital 0..1, wght 400..900"
+    },
+    "ui": {
+      "familie": "Nunito",
+      "achsen": "wght 400..900"
+    }
+  },
+  "google_fonts": [
+    "Fredoka:wdth,wght@75..125,400..700",
+    "Grandstander:ital,wght@1,500..900",
+    "Nunito:ital,wght@0,400..900;1,400..900"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Claymation stop-motion miniature set, handmade plasticine objects and faceless simple clay figures, visible fingerprints, soft rounded forms, pastel sky blue, tangerine and mint, soft studio lighting, shallow depth of field. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Weiche Formen mit großen Radien (rx ≥ 30 % der Kantenlänge), jede Form mit radialGradient (Glanzpunkt oben links, z. B. #FFB489 → #F2793D) und dunklerem Innenschatten unten rechts. Farben #F2793D, #23805F, #F5C54A, #1F3347 auf #E4F1F7. Keine Konturen; Bodenschatten als weiche Ellipse (opacity .15).",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

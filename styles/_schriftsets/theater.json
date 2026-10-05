@@ -1,0 +1,43 @@
+{
+  "id": "theater",
+  "name": "Theater",
+  "standard_fuer_stil": "papiertheater",
+  "beschreibung": "Warme, leicht verspielte Antiqua mit eleganter Display-Kursive für Akzentwörter; ruhige Grotesk für Text.",
+  "titel": {
+    "familie": "Young Serif",
+    "achsen": "wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "akzent": {
+    "familie": "Instrument Serif",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif",
+    "hinweis": "schmal – nur für große Akzentwörter in Überschriften"
+  },
+  "lesen": {
+    "familie": "Source Serif 4",
+    "achsen": "ital 0..1, opsz 8..60, wght 400..700",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Instrument Sans",
+    "achsen": "ital 0..1, wght 400..700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Instrument Sans",
+    "Instrument Serif",
+    "Source Serif 4",
+    "Young Serif"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Young Serif\",Georgia,serif",
+    "--accent": "\"Instrument Serif\",Georgia,serif",
+    "--lesen": "\"Source Serif 4\",Georgia,serif",
+    "--ui": "\"Instrument Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Instrument Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/theater.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+}

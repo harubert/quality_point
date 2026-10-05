@@ -1,0 +1,61 @@
+{
+  "id": "gouache",
+  "name": "Gouache-Bilderbuch",
+  "beschreibung": "Deckende Malfarbe auf Büttenpapier: weiche, organische Formen, Waldgrün, Senf, Altrosa und Tintenblau, gemalte Farbkleckse statt Linien.",
+  "stimmung": "ruhig, poetisch, geborgen",
+  "passt_zu": [
+    "Bilderbuch und Literatur",
+    "Elementarpädagogik",
+    "Werte und Gefühle",
+    "Abschluss und Fazit"
+  ],
+  "schriftset": "gouache",
+  "farben": {
+    "paper": "#F3EAD9",
+    "paper2": "#E8DCC4",
+    "card": "#FAF4E8",
+    "ink": "#24312A",
+    "ink2": "#3F4D44",
+    "ink3": "#5A6656",
+    "red": "#A8432F",
+    "teal": "#2F5D46",
+    "teal-d": "#1F4231",
+    "yellow": "#D9A94A",
+    "coral": "#C9776A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "DM Serif Display",
+      "achsen": "wght 400"
+    },
+    "akzent": {
+      "familie": "DM Serif Display",
+      "achsen": "ital 1, wght 400"
+    },
+    "lesen": {
+      "familie": "Lora",
+      "achsen": "ital 0..1, wght 400..700"
+    },
+    "ui": {
+      "familie": "Karla",
+      "achsen": "ital 0..1, wght 400..800"
+    }
+  },
+  "google_fonts": [
+    "DM Serif Display:ital@0;1",
+    "Lora:ital,wght@0,400..700;1,400..700",
+    "Karla:ital,wght@0,400..800;1,400..800"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Lush gouache picture-book painting, opaque matte brushstrokes, forest green, mustard, dusty rose and ink blue, visible brush texture, warm storybook atmosphere, gentle light. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Organische Flächen mit Bezier-Kurven (keine geraden Kanten), Farben #2F5D46, #D9A94A, #C9776A, #1E2A33 auf #F3EAD9. Pinseltextur über <filter> mit feTurbulence (baseFrequency .04–.08) + feDisplacementMap (scale 6–10). Lichter als hellere, halbtransparente Kleckse; keine schwarzen Konturen.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

@@ -1,0 +1,135 @@
+/* ==========================================================
+   STIL „Knetwerk“ – Knete, Trickfilm, Spielzimmer
+   Himmelblau, Mandarine, Minze, Sonnengelb · Fredoka + Grandstander + Nunito
+   Pralle, runde Formen mit Innenschatten (wie geknetet), Kugeln statt Punkte.
+   ========================================================== */
+:root{
+  --paper:#E4F1F7; --paper2:#D2E7F1; --card:#FFFFFF; --sand:#C9DDE8;
+  --ink:#1F3347; --ink2:#34495E; --ink3:#4C6276;
+  --red:#B9471A; --red-l:#FFE1D2;
+  --teal:#23805F; --teal-d:#17573F; --teal-l:#D3F0E4;
+  --yellow:#F5C54A; --yellow-l:#FFF0C7;
+  --coral:#F2793D; --coral-l:#FFE1D2;
+  --night:#1B2A3A;
+  --serif:"Fredoka","Trebuchet MS",sans-serif;
+  --accent:"Grandstander","Trebuchet MS",sans-serif;
+  --lesen:"Nunito","Segoe UI",system-ui,sans-serif;
+  --ui:"Nunito","Segoe UI",system-ui,sans-serif;
+  --sans:"Nunito","Segoe UI",system-ui,sans-serif;
+  --knete:inset -10px -14px 0 rgba(31,51,71,.07),inset 8px 10px 0 rgba(255,255,255,.6),0 14px 0 rgba(31,51,71,.10),0 28px 44px -18px rgba(31,51,71,.28);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:40px; --radius-s:18px; --schatten:rgba(31,51,71,.35); --auf-dunkel:#EAF3F8; --buehne:#14202b;
+}
+html,body{background:#14202b}
+
+/* Weicher Studiohintergrund mit Lichtkegel, Knetklumpen oben rechts */
+.slide{background:var(--paper) radial-gradient(ellipse at 35% 25%,rgba(255,255,255,.75),transparent 60%)}
+.slide::before{opacity:.5;background-image:radial-gradient(rgba(31,51,71,.05) 2px,transparent 2.5px);background-size:22px 22px}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:-80px;top:-90px;width:320px;height:290px;pointer-events:none;
+  border-radius:48% 52% 44% 56% / 55% 45% 55% 45%;background:radial-gradient(circle at 35% 30%,#FFB489,var(--coral) 70%);box-shadow:inset -18px -22px 0 rgba(0,0,0,.08)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:0;color:var(--ink)}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:800;color:var(--red)}
+.kick{color:var(--teal);font-weight:800;letter-spacing:.1em;text-transform:none;font-size:28px}
+.kick::before{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7FD9B5,var(--teal) 70%)}
+.lead{color:var(--ink2)}
+
+/* Karten: geknetete Platten */
+.card{background:var(--card);border-radius:44px;box-shadow:var(--knete)}
+.card.t,.card.c,.card.r,.card.y{border-top:none;padding-top:44px}
+.card.t::after,.card.c::after,.card.r::after,.card.y::after{content:"";position:absolute;left:38px;top:16px;width:90px;height:16px;border-radius:10px;background:var(--teal)}
+.card.c::after{background:var(--coral)}.card.r::after{background:var(--red)}.card.y::after{background:var(--yellow)}
+.card .num{color:var(--coral);font-family:var(--serif)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;right:-22px;top:-26px;width:70px;height:70px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#FFE28A,var(--yellow) 65%);box-shadow:inset -6px -8px 0 rgba(0,0,0,.08),0 8px 14px rgba(31,51,71,.2)}
+.tag{border-radius:999px;background:var(--teal-l);color:var(--teal-d);text-transform:none;letter-spacing:.04em;font-weight:800}
+.tag.c,.tag.r{background:var(--coral-l);color:#8A3511}.tag.y{background:var(--yellow-l);color:#6E5200}
+.box{border-radius:40px;box-shadow:inset -8px -10px 0 rgba(31,51,71,.05)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:none;box-shadow:var(--knete)}
+.box.tip{background:var(--coral-l)}.box.tip .bh{color:#8A3511}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:#6E5200}
+.bh{text-transform:none;letter-spacing:.04em;font-weight:800}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--coral);font-family:var(--serif)}
+.quote cite{color:var(--ink3)}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{border-radius:30px;box-shadow:var(--knete)}
+.tbl th{background:var(--ink);color:#fff;text-transform:none}
+.tbl td{border-top-color:#E1ECF2}
+.tbl tr:nth-child(even) td{background:#F4FAFD}
+
+ul.dots li::before{width:22px;height:22px;top:.45em;background:radial-gradient(circle at 35% 30%,#FFB489,var(--coral) 70%)}
+ul.dots li:nth-child(even)::before{background:radial-gradient(circle at 35% 30%,#7FD9B5,var(--teal) 70%)}
+ol.steps>li::before{background:radial-gradient(circle at 35% 30%,#7FD9B5,var(--teal) 70%);box-shadow:inset -5px -6px 0 rgba(0,0,0,.12);font:600 30px/56px var(--serif)}
+ol.steps.red>li::before{background:radial-gradient(circle at 35% 30%,#FFB489,var(--coral) 70%);color:var(--ink)}
+.sb{background:var(--coral);color:var(--ink)}
+.wcard{border:none;border-radius:36px;box-shadow:var(--knete)}
+.bub{border-radius:34px}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--coral)}
+
+.foto{background:#fff;border-radius:34px;padding:16px;box-shadow:var(--knete)}
+.foto img{border-radius:24px}
+.foto .cap{color:var(--ink3);font-weight:700}
+.zettel{background:var(--yellow-l);border-radius:30px;box-shadow:var(--knete)}
+
+/* Titel */
+.s-title .hero{-webkit-mask-image:radial-gradient(ellipse 75% 85% at 62% 50%,#000 60%,transparent 76%);mask-image:radial-gradient(ellipse 75% 85% at 62% 50%,#000 60%,transparent 76%)}
+.s-title .tt{width:820px}
+.s-title h1{font-size:110px;font-weight:600}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+
+/* Kapitel: Knet-Schild */
+.s-chapter{background:var(--teal-d);color:#fff}
+.s-chapter::before{opacity:.15;background-image:radial-gradient(rgba(255,255,255,.4) 2px,transparent 2.5px)}
+.s-chapter .bignum{font-family:var(--serif);color:rgba(255,255,255,.1)}
+.s-chapter h2{color:#fff}.s-chapter h2 em{color:var(--yellow)}
+.etikett{background:var(--card);border-radius:56px;transform:translateY(-54%) rotate(-1deg);box-shadow:var(--knete),0 40px 70px -20px rgba(0,0,0,.45)}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink);font-size:84px}
+.s-chapter .etikett h2 em{color:var(--red)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:4px solid var(--sand);border-radius:2px;color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--coral);font-weight:600}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+/* Dunkel: Trickfilmstudio bei Nacht */
+.s-dark{background:var(--night) radial-gradient(ellipse at 70% 0%,rgba(242,121,61,.22),transparent 55%);color:#EAF3F8}
+.s-dark h2,.s-dark h3{color:#fff}.s-dark h2 em{color:#FFB489}
+.s-dark .lead{color:#C8D8E4}
+.s-dark .kick{color:#7FD9B5}
+.s-dark .card{background:#26394C;color:#EAF3F8;box-shadow:inset -8px -10px 0 rgba(0,0,0,.15),0 24px 40px -20px rgba(0,0,0,.6)}
+.s-dark .card p,.s-dark .card li{color:#DCE8F0}
+.s-dark .quote{color:#EAF3F8}.s-dark .ueb{color:#C8D8E4}.s-dark .ueb::before{color:#7FD9B5}
+
+.s-statement .big{font-weight:600}
+
+/* Werkstatt */
+.s-auftrag{background:#1E4D63;color:#EAF3F8}
+.s-auftrag::before{opacity:.2;border-radius:0}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--ink);border-radius:999px}
+.s-auftrag .wk .wl,.s-auftrag .panel h4,.s-auftrag h2 em{color:var(--yellow)}
+.s-auftrag .panel{border-radius:36px;background:rgba(255,255,255,.08)}
+.s-auftrag ol.steps>li::before{background:radial-gradient(circle at 35% 30%,#FFE28A,var(--yellow) 70%);color:var(--ink)}
+
+.zahl{color:var(--coral);font-family:var(--serif);font-weight:600;text-shadow:0 6px 0 rgba(31,51,71,.08)}
+.card .zahl{color:var(--red)}
+.zahl small{color:var(--ink2)}
+.zl{color:var(--ink2);font-weight:700}
+.bars .bt{background:#D2E3EC;border-radius:999px;box-shadow:inset 0 4px 0 rgba(31,51,71,.08)}
+.bars .bt i{background:linear-gradient(180deg,#FFA06B,var(--coral));border-radius:999px}
+.bars .bz.t .bt i{background:linear-gradient(180deg,#4FB58F,var(--teal))}
+.bars .bv{color:var(--ink);font-weight:600}
+
+.lesehilfe{background:rgba(255,255,255,.94);color:var(--ink2);border-left:none;border-radius:30px;box-shadow:var(--knete)}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--coral)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(27,42,58,.92);color:#DCE8F0}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:999px}
+.pointe{background:#fff;box-shadow:var(--knete)}
+.pointe b{background:var(--coral);color:var(--ink)}
+#progress{background:var(--coral)}
+.hl{background:linear-gradient(transparent 55%,var(--yellow-l) 55%)}

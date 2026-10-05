@@ -1,0 +1,62 @@
+{
+  "id": "papiertheater",
+  "name": "Papiertheater",
+  "beschreibung": "Geschichtete Papierbühne aus Kraftpapier, Tomatenrot und Petrol; Karten wie aufgeklebte Bögen mit Klebestreifen, Fotos als schräge Abzüge.",
+  "stimmung": "warm, handgemacht, erzählend",
+  "passt_zu": [
+    "Primarstufe",
+    "Medienpädagogik",
+    "Erzählungen und Fallbeispiele",
+    "Elternabende"
+  ],
+  "schriftset": "theater",
+  "farben": {
+    "paper": "#EFE3CC",
+    "paper2": "#E6D6B8",
+    "card": "#FBF5E8",
+    "ink": "#2B211A",
+    "ink2": "#55473A",
+    "ink3": "#857260",
+    "red": "#C8452F",
+    "teal": "#1F5F5B",
+    "teal-d": "#163F3C",
+    "yellow": "#D9A441",
+    "coral": "#C8452F"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Young Serif",
+      "achsen": "wght 400"
+    },
+    "akzent": {
+      "familie": "Instrument Serif",
+      "achsen": "ital 1, wght 400"
+    },
+    "lesen": {
+      "familie": "Source Serif 4",
+      "achsen": "ital 0..1, opsz 8..60, wght 400..700"
+    },
+    "ui": {
+      "familie": "Instrument Sans",
+      "achsen": "ital 0..1, wght 400..700"
+    }
+  },
+  "google_fonts": [
+    "Young Serif",
+    "Instrument Serif:ital@0;1",
+    "Source Serif 4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700",
+    "Instrument Sans:ital,wght@0,400..700;1,400..700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Layered cut-paper diorama, handcrafted construction paper in kraft brown, tomato red, deep teal and cream, visible paper fibers, soft drop shadows between layers, theatrical warm side light, miniature stage depth. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Flächen aus Papierbögen in Kraftbraun (#C9A878), Tomatenrot, Petrol und Creme; jede Ebene als <path> mit leicht unregelmäßigem Rand und versetztem Schatten (gleicher Pfad, dunkler, 4–8 px verschoben, opacity .25). Keine Konturlinien. Tiefe durch 3–5 hintereinander gestaffelte Ebenen wie Kulissen; Klebestreifen als halbtransparente rote Rechtecke, leicht gedreht.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Wissenschaftliche Abbildung: Verlaufsdiagramm mit Lupe</title>
+  <rect width="1200" height="800" fill="#FBFAF7"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Achsen -->
+    <path d="M460 180 V600 H1120" stroke="#1A1D21" stroke-width="2.4"/>
+    <g stroke="#DAD6CE" stroke-width="1.4"><path d="M460 495 H1120 M460 390 H1120 M460 285 H1120"/></g>
+    <g stroke="#1A1D21" stroke-width="2"><path d="M560 600 v10 M680 600 v10 M800 600 v10 M920 600 v10 M1040 600 v10"/></g>
+    <!-- Verlauf A -->
+    <path d="M480 540 C560 520 620 470 680 450 S800 360 920 330 S1040 260 1100 240" stroke="#1F5673" stroke-width="4"/>
+    <!-- Verlauf B (gestrichelt) -->
+    <path d="M480 560 C580 555 660 540 760 520 S940 470 1100 440" stroke="#9E2A2B" stroke-width="3" stroke-dasharray="10 9"/>
+    <!-- Konfidenzband -->
+    <path d="M480 520 C560 500 620 445 680 425 S800 335 920 305 S1040 235 1100 215 L1100 265 C1040 285 980 330 920 355 S800 385 680 475 S560 540 480 560 Z" fill="#1F5673" opacity=".08"/>
+    <g fill="#1F5673"><circle cx="680" cy="450" r="7"/><circle cx="920" cy="330" r="7"/></g>
+    <!-- Lupe -->
+    <circle cx="900" cy="345" r="95" stroke="#1A1D21" stroke-width="3" fill="#FFFFFF" fill-opacity=".35"/>
+    <path d="M968 412 L1050 494" stroke="#1A1D21" stroke-width="12"/>
+  </g>
+  <g font-family="Georgia,serif" font-size="20" fill="#5A6169">
+    <text x="460" y="160">Abb. 2</text>
+  </g>
+</svg>

@@ -1,0 +1,146 @@
+/* ==========================================================
+   STIL „Bauhaus“ – Primärfarben, Geometrie, Grotesk
+   Rot, Gelb, Blau, Schwarz auf gebrochenem Weiß · Jost + Libre Franklin
+   Flächen statt Schatten, strenges Raster, Kreis/Quadrat/Balken als Komposition.
+   ========================================================== */
+:root{
+  --paper:#F4F1EA; --paper2:#E8E3D8; --card:#FFFFFF; --sand:#D8D2C4;
+  --ink:#111111; --ink2:#2E2E2E; --ink3:#555555;
+  --red:#C8281E; --red-l:#F6D4CF;
+  --teal:#1D4E9E; --teal-d:#12346E; --teal-l:#D5DFF0;
+  --yellow:#F2C12E; --yellow-l:#FBEEC0;
+  --coral:#E4572E; --coral-l:#F9DCCF;
+  --night:#111111;
+  --serif:"Jost","Century Gothic",sans-serif;
+  --accent:"Jost","Century Gothic",sans-serif;
+  --lesen:"Libre Franklin","Segoe UI",system-ui,sans-serif;
+  --ui:"Libre Franklin","Segoe UI",system-ui,sans-serif;
+  --sans:"Libre Franklin","Segoe UI",system-ui,sans-serif;
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(17,17,17,.4); --auf-dunkel:#F4F1EA; --buehne:#111111;
+}
+html,body{background:#111}
+
+/* Fläche ohne Textur; Komposition aus Kreis, Viertelkreis und Balken oben rechts */
+.slide{background:var(--paper)}
+.slide::before{opacity:0}
+.slide:not(.s-title):not(.s-chapter):not(.s-dark):not(.s-auftrag):not(.uf)::after{content:"";position:absolute;right:0;top:0;width:260px;height:260px;pointer-events:none;
+  background:radial-gradient(circle at 100% 0,var(--red) 0 118px,transparent 119px),linear-gradient(var(--yellow),var(--yellow)) 0 0/80px 80px no-repeat,linear-gradient(var(--teal),var(--teal)) 0 100%/14px 180px no-repeat}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.015em}
+h1,h2{font-weight:700}
+h2{font-size:74px;line-height:1.02}
+h3{font-weight:600}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:normal;font-weight:700;color:var(--red);
+  background:linear-gradient(var(--yellow),var(--yellow)) 0 92%/100% .14em no-repeat}
+.kick{font-family:var(--serif);font-weight:600;letter-spacing:.22em;color:var(--teal)}
+.kick::before{width:26px;height:26px;border-radius:0;background:var(--red)}
+.lead{color:var(--ink2)}
+
+/* Karten: Flächen, farbiger Balken links, keine weichen Schatten */
+.card{background:var(--card);border-radius:0;box-shadow:none;border:2px solid var(--ink)}
+.card.t,.card.c,.card.r,.card.y{border-top:2px solid var(--ink);border-left:22px solid var(--teal)}
+.card.c{border-left-color:var(--coral)}.card.r{border-left-color:var(--red)}.card.y{border-left-color:var(--yellow)}
+.card .num{font:700 64px/1 var(--serif);color:var(--red)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;right:-2px;top:-2px;width:60px;height:60px;background:radial-gradient(circle at 100% 0,var(--yellow) 0 58px,transparent 59px)}
+.tag{border-radius:0;background:var(--ink);color:var(--paper);letter-spacing:.14em}
+.tag.c{background:var(--coral);color:var(--ink)}.tag.r{background:var(--red);color:#fff}.tag.y{background:var(--yellow);color:var(--ink)}
+.box{border-radius:0}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border:2px solid var(--ink);border-left:22px solid var(--red);box-shadow:none}
+.box.tip{background:var(--yellow-l)}.box.tip .bh{color:#8F1C15}
+.box.daz{background:var(--red-l)}.box.daz .bh{color:#8F1C15}
+.bh{font-family:var(--serif);font-weight:600;letter-spacing:.18em}
+.bh i{border-radius:0}
+
+.quote{color:var(--ink);padding-left:90px}
+.quote::before{content:"";left:0;top:12px;width:56px;height:56px;border-radius:50%;background:var(--red)}
+.quote cite{color:var(--ink3);font-family:var(--serif);letter-spacing:.06em}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{border-radius:0;box-shadow:none;border:2px solid var(--ink)}
+.tbl th{background:var(--ink);color:var(--paper);font-family:var(--serif);font-weight:600;letter-spacing:.14em}
+.tbl td{border-top:1px solid var(--ink)}
+.tbl tr:nth-child(even) td{background:#F8F6F1}
+
+ul.dots li::before{border-radius:0;width:16px;height:16px;background:var(--ink)}
+ul.dots li:nth-child(3n+1)::before{background:var(--red);border-radius:50%}
+ul.dots li:nth-child(3n+2)::before{background:var(--teal)}
+ul.dots li:nth-child(3n)::before{background:var(--yellow);clip-path:polygon(50% 0,100% 100%,0 100%);width:20px;height:18px}
+ol.steps>li::before{border-radius:0;background:var(--ink);color:var(--paper);font:700 30px/56px var(--serif)}
+ol.steps.red>li::before{background:var(--red);color:#fff}
+.sb{background:var(--red);border-radius:0}
+.wcard{border:2px solid var(--ink);border-radius:0;box-shadow:10px 10px 0 var(--yellow)}
+.bub{border-radius:0;border:2px solid var(--ink);box-shadow:none}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--red);font-family:var(--serif)}
+
+.foto{background:var(--card);border:2px solid var(--ink);box-shadow:14px 14px 0 var(--teal);--r:0deg}
+.foto .cap{color:var(--ink3);font-family:var(--serif);letter-spacing:.04em}
+.zettel{background:var(--yellow);color:var(--ink);--r:0deg;font-family:var(--lesen);font-style:italic}
+
+/* Titel: Bild im Kreis, Komposition */
+.s-title{background:var(--paper)}
+.s-title .hero{width:1020px;height:680px;right:60px;top:180px;object-fit:contain;-webkit-mask-image:none;mask-image:none}
+.s-title .tt{width:780px}
+.s-title::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:28px;background:linear-gradient(90deg,var(--red) 0 33.3%,var(--yellow) 33.3% 66.6%,var(--teal) 66.6%);pointer-events:none}
+.s-title::before{opacity:1;background:var(--teal);clip-path:polygon(1740px 0,1920px 0,1920px 180px);background-image:none}
+.s-title h1{font-size:112px;line-height:1;font-weight:700}
+.s-title .sub,.s-title .who{color:var(--ink2)}
+
+/* Kapitel: geteilte Fläche Blau/Rot mit Kreis */
+.s-chapter{background:linear-gradient(90deg,var(--teal) 0 62%,var(--red) 62%);color:#fff}
+.s-chapter::before{opacity:1;background-image:radial-gradient(circle at 1450px 560px,var(--yellow) 0 360px,transparent 361px);background-size:auto}
+.s-chapter .hero{clip-path:circle(330px at 1400px 520px)}
+.s-chapter .bignum{font:700 640px/1 var(--serif);color:rgba(255,255,255,.12)}
+.s-chapter h2{color:#fff}.s-chapter h2 em{color:var(--yellow);background:none}
+.etikett{background:var(--card);border:3px solid var(--ink);transform:translateY(-54%);box-shadow:none;border-left:26px solid var(--ink)}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink);font-size:82px}
+.s-chapter .etikett h2 em{color:var(--red);background:linear-gradient(var(--yellow),var(--yellow)) 0 92%/100% .14em no-repeat}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:3px solid var(--ink);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-weight:700}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:#fff}
+
+/* Dunkel: Schwarz mit Farbflächen */
+.s-dark{background:var(--night);color:#F4F1EA}
+.s-dark::after{content:"";position:absolute;right:0;bottom:0;width:240px;height:240px;background:radial-gradient(circle at 100% 100%,var(--yellow) 0 120px,transparent 121px);pointer-events:none}
+.s-dark h2,.s-dark h3{color:#F4F1EA}.s-dark h2 em{color:var(--yellow);background:none}
+.s-dark .lead{color:#D6D2C8}
+.s-dark .kick{color:var(--yellow)}
+.s-dark .card{background:#1E1E1E;color:#F4F1EA;border-color:#F4F1EA}
+.s-dark .card p,.s-dark .card li{color:#E4E0D6}
+.s-dark .quote{color:#F4F1EA}.s-dark .ueb{color:#D6D2C8}.s-dark .ueb::before{color:var(--yellow)}
+
+.s-statement .big{font-weight:700;letter-spacing:-.02em}
+
+/* Werkstatt: Blau mit Raster */
+.s-auftrag{background:var(--teal-d);color:#F4F1EA}
+.s-auftrag::before{opacity:.22}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--ink);border-radius:0}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--yellow);font-family:var(--serif)}
+.s-auftrag h2 em{color:var(--yellow);background:none}
+.s-auftrag .panel{border-radius:0;background:rgba(255,255,255,.06);border:2px solid rgba(244,241,234,.4)}
+.s-auftrag ol.steps>li::before{background:var(--yellow);color:var(--ink)}
+.s-auftrag ul.dots li::before{background:var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--ink)}
+.card.r .zahl{color:var(--red)}.card.t .zahl{color:var(--teal)}
+.zahl small{color:var(--ink2);font-weight:500}
+.zl{color:var(--ink2)}
+.bars .bt{background:var(--paper2);border-radius:0}
+.bars .bt i{background:var(--red)}
+.bars .bz.t .bt i{background:var(--teal)}
+.bars .bz:nth-child(3) .bt i{background:var(--yellow)}
+.bars .bv{font-family:var(--serif);font-weight:700;color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border:2px solid var(--ink);border-left:14px solid var(--teal)}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--red)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:#1E1E1E;color:#E4E0D6;border-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:0}
+.pointe{background:var(--yellow);border-radius:0;color:var(--ink)}
+.pointe b{background:var(--ink);border-radius:0}
+#progress{background:var(--red)}
+.hl{background:linear-gradient(transparent 60%,var(--yellow) 60%)}

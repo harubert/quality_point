@@ -1,0 +1,42 @@
+{
+  "id": "nacht",
+  "name": "Nacht",
+  "standard_fuer_stil": "nachtprogramm",
+  "beschreibung": "Expressive Syne für Titel, Bodoni-Kursive als funkelnder Akzent, sehr klare Inter Tight für Text auf dunklem Grund.",
+  "titel": {
+    "familie": "Syne",
+    "achsen": "wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "akzent": {
+    "familie": "Bodoni Moda",
+    "achsen": "ital 1, opsz 6..96, wght 400..700",
+    "fallback": "Georgia,serif",
+    "hinweis": "nur ab ca. 40 px einsetzen (feine Haarstriche)"
+  },
+  "lesen": {
+    "familie": "Inter Tight",
+    "achsen": "ital 1, wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "Inter Tight",
+    "achsen": "wght 400..800",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Bodoni Moda",
+    "Inter Tight",
+    "Syne"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Syne\",\"Segoe UI\",system-ui,sans-serif",
+    "--accent": "\"Bodoni Moda\",Georgia,serif",
+    "--lesen": "\"Inter Tight\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"Inter Tight\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Inter Tight\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/nacht.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400..700&family=Inter+Tight:ital,wght@0,400..800;1,400..800&display=swap"
+}

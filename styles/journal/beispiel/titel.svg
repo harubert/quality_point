@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Linienzeichnung: aufgeschlagenes Buch und Tablet mit Diagramm</title>
+  <rect width="1200" height="800" fill="#FBFAF7"/>
+  <g fill="none" stroke="#1A1D21" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Buch -->
+    <path d="M430 560 C520 520 600 520 680 560 C760 520 840 520 930 560 L930 300 C840 260 760 260 680 300 C600 260 520 260 430 300 Z" fill="#FFFFFF"/>
+    <path d="M680 300 V560"/>
+    <g stroke="#5A6169" stroke-width="1.4">
+      <path d="M470 330 C540 305 600 305 650 325 M470 360 C540 335 600 335 650 355 M470 390 C540 365 600 365 650 385 M470 420 C540 395 600 395 650 415 M470 450 C520 432 560 430 600 438"/>
+    </g>
+    <!-- Abbildung im Buch -->
+    <rect x="715" y="320" width="180" height="120" fill="#E2ECF1" stroke="#1F5673" stroke-width="1.6"/>
+    <path d="M725 425 L770 380 L805 405 L850 345 L885 370" stroke="#9E2A2B" stroke-width="2.4"/>
+    <g stroke="#5A6169" stroke-width="1.4"><path d="M715 470 H880 M715 495 H860"/></g>
+    <!-- Tablet daneben -->
+    <rect x="890" y="430" width="240" height="170" rx="14" fill="#FFFFFF" transform="rotate(8 1010 515)"/>
+    <g transform="rotate(8 1010 515)">
+      <rect x="908" y="446" width="204" height="138" rx="4" stroke="#1F5673" stroke-width="1.6" fill="#F1EFEA"/>
+      <rect x="930" y="530" width="26" height="40" fill="#1F5673" stroke="none"/>
+      <rect x="966" y="505" width="26" height="65" fill="#1F5673" stroke="none" opacity=".75"/>
+      <rect x="1002" y="485" width="26" height="85" fill="#9E2A2B" stroke="none"/>
+      <rect x="1038" y="515" width="26" height="55" fill="#1F5673" stroke="none" opacity=".55"/>
+    </g>
+    <!-- Bleistift -->
+    <path d="M520 610 L760 640" stroke-width="10" stroke="#B8862B"/>
+    <path d="M760 640 L784 643" stroke-width="3"/>
+    <!-- Tischlinie -->
+    <path d="M400 660 H1180" stroke="#DAD6CE" stroke-width="2"/>
+  </g>
+  <g font-family="Georgia,serif" font-size="18" fill="#5A6169"><text x="715" y="312">Abb. 1</text></g>
+</svg>

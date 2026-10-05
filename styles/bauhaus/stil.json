@@ -1,0 +1,60 @@
+{
+  "id": "bauhaus",
+  "name": "Bauhaus",
+  "beschreibung": "Primärfarben und reine Geometrie: Rot, Gelb, Blau und Schwarz auf gebrochenem Weiß, Flächen statt Schatten, strenges Raster, geometrische Grotesk.",
+  "stimmung": "sachlich, mutig, strukturiert",
+  "passt_zu": [
+    "Design und Gestaltung",
+    "Strukturen und Modelle",
+    "Hochschullehre",
+    "Präsentationen mit Daten"
+  ],
+  "schriftset": "grotesk",
+  "farben": {
+    "paper": "#F4F1EA",
+    "paper2": "#E8E3D8",
+    "card": "#FFFFFF",
+    "ink": "#111111",
+    "ink2": "#2E2E2E",
+    "ink3": "#555555",
+    "red": "#C8281E",
+    "teal": "#1D4E9E",
+    "teal-d": "#12346E",
+    "yellow": "#F2C12E",
+    "coral": "#E4572E"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Jost",
+      "achsen": "wght 300..900 (Titel: 700)"
+    },
+    "akzent": {
+      "familie": "Jost",
+      "achsen": "ital 1, wght 300..900"
+    },
+    "lesen": {
+      "familie": "Libre Franklin",
+      "achsen": "ital 0..1, wght 400..800"
+    },
+    "ui": {
+      "familie": "Libre Franklin",
+      "achsen": "wght 400..800"
+    }
+  },
+  "google_fonts": [
+    "Jost:ital,wght@0,300..900;1,300..900",
+    "Libre Franklin:ital,wght@0,400..800;1,400..800"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Bauhaus poster illustration, strict geometric composition of circles, squares, triangles and bars in primary red, yellow, blue and black on off-white paper, flat colour fields, no gradients, precise grid, subtle offset print texture. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Ausschließlich circle, rect, polygon und Viertelkreise (path mit A-Bogen) in #C8281E, #F2C12E, #1D4E9E, #111111 auf #F4F1EA. Keine Konturen, keine Verläufe, keine Schatten. Komposition auf einem sichtbaren oder gedachten 200-px-Raster, asymmetrisch; Gegenstände maximal abstrahiert (Lupe = Ring + Balken).",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "fonts/fonts.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  }
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Comic-Panel: Lupe entdeckt einen Riss im Handybild</title>
+  <defs>
+    <pattern id="raster" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="3.6" fill="#1565C0" opacity=".35"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#FFD400"/>
+  <g stroke="#FFF" stroke-width="16" opacity=".55">
+    <path d="M820 400 L1200 0 M820 400 L1200 250 M820 400 L1200 560 M820 400 L1000 800 M820 400 L560 0 M820 400 L380 300 M820 400 L760 0 M820 400 L1200 800 M820 400 L420 700"/>
+  </g>
+  <!-- Smartphone -->
+  <g stroke="#111" stroke-width="7" stroke-linejoin="round">
+    <rect x="600" y="160" width="250" height="460" rx="34" fill="#111"/>
+    <rect x="622" y="200" width="206" height="380" rx="10" fill="#D6E6FA"/>
+  </g>
+  <rect x="622" y="200" width="206" height="380" rx="10" fill="url(#raster)"/>
+  <!-- Bild im Handy: Berg und Sonne -->
+  <g stroke="#111" stroke-width="5" stroke-linejoin="round">
+    <circle cx="770" cy="270" r="30" fill="#FF7A00"/>
+    <polygon points="630,470 700,350 760,430 800,380 822,420 822,470" fill="#1565C0"/>
+  </g>
+  <!-- Riss -->
+  <path d="M640 220 L700 300 L680 340 L740 400 L720 450 L790 540" fill="none" stroke="#D7191C" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lupe -->
+  <g stroke="#111" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="890" y="560" width="210" height="58" rx="22" fill="#D7191C" transform="rotate(45 890 560)"/>
+    <circle cx="800" cy="460" r="150" fill="#FFF" fill-opacity=".35"/>
+  </g>
+  <path d="M720 380 q30 -40 80 -40" fill="none" stroke="#FFF" stroke-width="12" stroke-linecap="round"/>
+  <!-- Wackelstriche -->
+  <g stroke="#111" stroke-width="6" stroke-linecap="round">
+    <path d="M560 220 l-40 -20 M560 270 l-50 0 M560 320 l-40 20"/>
+  </g>
+  <rect x="380" y="16" width="804" height="768" fill="none" stroke="#111" stroke-width="10"/>
+</svg>

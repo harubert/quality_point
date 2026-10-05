@@ -1,0 +1,41 @@
+{
+  "id": "fibel",
+  "name": "Fibel",
+  "standard_fuer_stil": "fibel",
+  "beschreibung": "Breite, kräftige Grotesk wie auf alten Lernplakaten; Andika wurde für Leseanfänger entwickelt (eindeutige Buchstabenformen).",
+  "titel": {
+    "familie": "Archivo",
+    "achsen": "wdth 62..125, wght 400..900 (Titel: wdth 125, wght 900)",
+    "fallback": "\"Arial Black\",sans-serif"
+  },
+  "akzent": {
+    "familie": "Fraunces",
+    "achsen": "ital 1, opsz 9..144, wght 400..700",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Andika",
+    "achsen": "ital 0..1, wght 400/700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "Archivo",
+    "achsen": "wdth 100, wght 400..700",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Andika",
+    "Archivo",
+    "Fraunces"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Archivo\",\"Arial Black\",sans-serif",
+    "--accent": "\"Fraunces\",Georgia,serif",
+    "--lesen": "\"Andika\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"Archivo\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Archivo\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/fibel.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+}

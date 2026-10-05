@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Kreidezeichnung: Tablet, Bücher und Stifte auf der Schultafel</title>
+  <defs>
+    <filter id="kreide" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .55 .95 1"/></feComponentTransfer>
+    </filter>
+    <filter id="staub"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="8"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#1F3B2F"/>
+  <rect width="1200" height="800" filter="url(#staub)"/>
+  <ellipse cx="700" cy="420" rx="420" ry="160" fill="#fff" opacity=".035"/>
+  <g filter="url(#kreide)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tisch -->
+    <path d="M430 640 L1160 620" stroke="#F4F2E8" stroke-width="7"/>
+    <!-- Tablet -->
+    <rect x="640" y="250" width="330" height="240" rx="22" stroke="#F4F2E8" stroke-width="8" transform="rotate(-6 805 370)"/>
+    <rect x="668" y="276" width="274" height="186" rx="8" stroke="#9CD3F0" stroke-width="5" transform="rotate(-6 805 370)"/>
+    <path d="M780 335 L780 405 L838 368 Z" stroke="#F6DE78" stroke-width="7" fill="#F6DE78" fill-opacity=".25" transform="rotate(-6 805 370)"/>
+    <path d="M640 500 L700 640 M960 470 L1040 625" stroke="#F4F2E8" stroke-width="6"/>
+    <!-- Bücherstapel -->
+    <rect x="470" y="560" width="210" height="40" rx="6" stroke="#F6A5A5" stroke-width="7"/>
+    <rect x="490" y="515" width="180" height="42" rx="6" stroke="#9CD3F0" stroke-width="7"/>
+    <rect x="460" y="470" width="200" height="42" rx="6" stroke="#F6DE78" stroke-width="7"/>
+    <path d="M480 580 H660 M510 535 H650 M480 490 H640" stroke="#F4F2E8" stroke-width="3" opacity=".6"/>
+    <!-- Bauklötze -->
+    <rect x="1010" y="540" width="80" height="80" stroke="#F7B27A" stroke-width="7"/>
+    <path d="M1030 540 L1050 470 L1070 540" stroke="#F6A5A5" stroke-width="7"/>
+    <!-- Stifte -->
+    <path d="M720 600 L900 570" stroke="#F6DE78" stroke-width="12"/>
+    <path d="M900 570 L930 565" stroke="#F4F2E8" stroke-width="6"/>
+    <path d="M740 615 L880 600" stroke="#F6A5A5" stroke-width="12"/>
+    <!-- Sterne, Pfeil, Herz -->
+    <path d="M1080 170 l12 30 32 2 -25 20 9 31 -28 -18 -28 18 9 -31 -25 -20 32 -2 Z" stroke="#F6DE78" stroke-width="5"/>
+    <path d="M560 210 q60 -70 140 -40" stroke="#F4F2E8" stroke-width="6"/>
+    <path d="M690 160 l14 14 -20 6" stroke="#F4F2E8" stroke-width="6"/>
+    <path d="M500 330 c-20 -30 -60 -10 -40 20 l40 35 40 -35 c20 -30 -20 -50 -40 -20" stroke="#F6A5A5" stroke-width="5"/>
+    <path d="M1000 330 h90 M1000 360 h60 M1000 390 h80" stroke="#B9C8B8" stroke-width="5"/>
+  </g>
+</svg>

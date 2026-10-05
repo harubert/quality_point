@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Kreidezeichnung: Lupe über einer Sprechblase und einem Bildschirm</title>
+  <defs>
+    <filter id="kreide" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="5" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .55 .95 1"/></feComponentTransfer>
+    </filter>
+    <filter id="staub"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="2"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#25463A"/>
+  <rect width="1200" height="800" filter="url(#staub)"/>
+  <g filter="url(#kreide)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bildschirm -->
+    <rect x="520" y="180" width="460" height="300" rx="14" stroke="#F4F2E8" stroke-width="8"/>
+    <path d="M700 480 L680 560 H820 L800 480" stroke="#F4F2E8" stroke-width="7"/>
+    <path d="M560 420 L650 330 L720 390 L800 290 L940 400" stroke="#9CD3F0" stroke-width="7"/>
+    <circle cx="880" cy="250" r="26" stroke="#F6DE78" stroke-width="6"/>
+    <!-- Sprechblase -->
+    <path d="M430 230 h170 a30 30 0 0 1 30 30 v70 a30 30 0 0 1 -30 30 h-110 l-40 40 v-40 h-20 a30 30 0 0 1 -30 -30 v-70 a30 30 0 0 1 30 -30 Z" stroke="#F6A5A5" stroke-width="7" transform="translate(-40 -60)"/>
+    <path d="M420 230 h120 M420 260 h80" stroke="#F4F2E8" stroke-width="5" opacity=".7" transform="translate(-40 -60)"/>
+    <!-- Lupe -->
+    <circle cx="880" cy="520" r="110" stroke="#F6DE78" stroke-width="12"/>
+    <circle cx="880" cy="520" r="90" stroke="#F6DE78" stroke-width="3" opacity=".5"/>
+    <path d="M960 600 L1080 720" stroke="#F7B27A" stroke-width="26"/>
+    <path d="M830 470 q20 -25 55 -25" stroke="#F4F2E8" stroke-width="6"/>
+    <!-- Fragezeichen-Form und Häkchen -->
+    <path d="M500 600 q0 -50 50 -50 q50 0 50 45 q0 30 -40 45 v30" stroke="#F4F2E8" stroke-width="8"/>
+    <circle cx="560" cy="720" r="6" fill="#F4F2E8" stroke="#F4F2E8" stroke-width="4"/>
+    <path d="M1060 200 l30 30 60 -70" stroke="#9CD3F0" stroke-width="9"/>
+  </g>
+</svg>

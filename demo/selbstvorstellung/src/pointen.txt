@@ -1,0 +1,40 @@
+# Je Folie ein Block: erste Zeile = data-title, Z: Zweck, P: Pointe
+Quality Point
+Z: Quality Point stellt sich vor: ein Claude-Code-Skill für belegte Präsentationen mit allem Drum und Dran.
+P: PowerPoint war gestern – Quality Point zeigt, was belegt ist.
+
+Was ich baue
+Z: Sechs Bausteine, die man einzeln an- oder abwählt: Präsentation, Landingpage, Glossar und Quellen, Fachartikel, Unterrichtsmaterial, Prüfung.
+P: Ein Material, ein ganzes Paket.
+
+Füttern Sie mich
+Z: Welches Material Quality Point verarbeitet und welcher Inhaltsschalter festlegt, wie frei es damit umgeht.
+P: Erst der Schalter, dann die Folien.
+
+Qualität mit Beleg
+Z: Kennzahl mit Bezugsgruppe und Lesehilfe, Zitat mit Übersetzung, Quellenlink, Glossarbegriff.
+P: Keine Zahl ohne Quelle.
+
+Vortragen wie ein Profi
+Z: Referentenansicht, zwei Bildschirme, große Folie im Notizfenster, Schwarzbild.
+P: Notizen bei Ihnen, Folien beim Publikum.
+
+Zeigen, markieren, vergrößern
+Z: Stifte, Spotlight und Lupe für den Moment, in dem man auf etwas zeigen will.
+P: Zeigen statt suchen.
+
+Mitmachen 1: schätzen und vergleichen
+Z: Schätzregler, Echt-oder-Fake-Abstimmung und Vorher-nachher-Regler – ohne Server.
+P: Erst schätzen, dann wissen.
+
+Mitmachen 2: abstimmen, losen, sammeln
+Z: Ampel-Abstimmung, Zufallsrad, Timer, QR-Code und Wortwolke.
+P: Das Publikum ist Teil der Folie.
+
+Zehn Stile, zehn Schriftsets
+Z: Die mitgelieferten Stile und Schriftsets, frei kombinierbar und lokal eingebunden.
+P: Gleicher Inhalt, zehn Gesichter.
+
+So starten Sie
+Z: Vier Schritte vom Klonen bis zur fertigen Präsentation.
+P: Fragen beantworten, Gliederung freigeben, fertig.

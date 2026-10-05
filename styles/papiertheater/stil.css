@@ -1,0 +1,83 @@
+/* ==========================================================
+   Stil „Papiertheater“ – Kraftpapier, Tomatenrot, Petrol, Creme.
+   Schriften: Young Serif (Überschriften), Instrument Serif (Akzentwörter),
+   Source Serif 4 (Lesetext-Kursive), Instrument Sans (Text/Oberfläche).
+   Wird nach engine/src/basis.css geladen: Tokens (siehe engine/TOKENS.md) + Dekoration.
+   ========================================================== */
+:root{
+  --paper:#EFE3CC; --paper2:#E6D6B8; --card:#FBF5E8;
+  --ink:#2B211A; --ink2:#55473A; --ink3:#6E5C4B;
+  --red:#C8452F; --teal:#1F5F5B; --teal-d:#163F3C; --yellow:#D9A441; --coral:#C8452F;
+  --serif:"Young Serif",Georgia,serif;
+  --accent:"Instrument Serif",Georgia,serif;
+  --lesen:"Source Serif 4",Georgia,serif;
+  --ui:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  /* optionale Tokens */
+  --sand:#DCCAA6; --teal-l:#D4E3DF; --red-l:#F4D8CC; --coral-l:#F4D8CC; --yellow-l:#F5E5BE;
+  --night:#241C16; --buehne:#1d1712; --panel:#FBF8F2; --ui-dunkel:#14222A; --auf-dunkel:#F2E8D6;
+  --schatten:rgba(70,40,10,.45);
+  --radius:3px; --radius-s:3px;
+}
+
+/* Papier: warmes Licht und Korn */
+.slide{background:var(--paper) radial-gradient(ellipse at 30% 20%,rgba(255,250,238,.55),transparent 60%)}
+.slide::before{opacity:.5;background-image:radial-gradient(rgba(90,60,30,.07) 1px,transparent 1.2px),radial-gradient(rgba(90,60,30,.05) 1px,transparent 1px);background-size:7px 7px,13px 13px;background-position:0 0,3px 5px}
+h1,h2,h3{font-weight:400;letter-spacing:-.005em}
+h2 em,h1 em,.s-statement .big em{font-weight:400;letter-spacing:0}
+h2 em{font-size:1.12em}
+.kick{color:var(--red)}
+.kick::before{height:6px;border-radius:0;transform:rotate(-2deg)}
+
+/* Papier-Karten: gestapelte Bögen, Klebestreifen */
+.card{box-shadow:0 2px 0 #DCCAA6,0 5px 0 #E8DBC1,0 22px 36px -20px rgba(70,40,10,.45)}
+.card.t{border-top-width:10px}.card.c,.card.r{border-top:10px solid var(--red)}.card.y{border-top-width:10px}
+.card .num{color:var(--red)}
+.card.tape::before,.foto::before,.etikett::before{content:"";position:absolute;left:50%;top:-16px;width:150px;height:34px;transform:translateX(-50%) rotate(-3deg);background:rgba(200,69,47,.78);box-shadow:0 4px 8px rgba(70,40,10,.18)}
+.tag{border-radius:3px}
+.tbl tr:nth-child(even) td{background:#F6EEDD}
+ol.steps>li::before{background:var(--red);font-weight:400}
+ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45deg);width:14px;height:14px}
+.quote::before{color:var(--red)}
+
+/* Fotos und Zettel: Abzüge, leicht schräg (Winkel per --r am Element) */
+.foto{background:#fff;box-shadow:0 2px 0 #E2D5BB,0 26px 40px -22px rgba(60,35,10,.55);transform:rotate(var(--r,-1.2deg))}
+.foto::before{width:120px;height:30px;top:-14px}
+.foto.contain img{background:#fff}
+.foto.zoom:hover{box-shadow:0 2px 0 #E2D5BB,0 30px 50px -20px rgba(60,35,10,.7)}
+.zettel{background:#FFFDF6;transform:rotate(var(--r,1deg))}
+.fax{background:#fff;transform:rotate(-.8deg)}
+.fax::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(0,0,0,.025) 31px 32px);pointer-events:none}
+
+/* Titelfolie */
+.s-title .hero{width:1260px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+.s-title .tt{width:800px}
+.s-title h1{font-size:108px;font-weight:400}
+.s-title h1 em{font-size:1.08em}
+
+/* Kapitelfolie: Bild ganzflächig, Text auf aufgeklebtem Etikett */
+.s-chapter{background:var(--paper);color:var(--ink);padding:0}
+.s-chapter::before{display:none}
+.s-chapter .bignum{display:none}
+.etikett{transform:translateY(-54%) rotate(-1.3deg);box-shadow:0 2px 0 #DCCAA6,0 6px 0 #E9DCC2,0 34px 60px -20px rgba(60,35,10,.6)}
+.etikett::before{width:220px;height:40px;top:-20px}
+
+/* Dunkle Folie: Theater bei Nacht */
+.s-dark .card{background:#33281F;color:#F2E8D6;box-shadow:0 22px 40px -22px rgba(0,0,0,.8)}
+.s-dark .card p,.s-dark .card li{color:#E6DACA}
+.s-dark h2 em{color:#E8826B}
+
+/* Arbeitsauftrag: Petrol-Tafel mit Kreideraster */
+.s-auftrag{background:#163F3C;color:#EFE6D4}
+.s-auftrag::before{opacity:.25}
+.s-auftrag .wk .wl,.s-auftrag h2 em,.s-auftrag .panel h4{color:#F2C46A}
+.s-auftrag .panel{background:rgba(255,255,255,.07)}
+
+/* Kennzahlen, Balken, Pointe, Lesehilfe */
+.bars .bt{background:#E2D3B5}
+.pointe{background:var(--card);border:2px solid var(--sand)}
+.lesehilfe{background:rgba(251,245,232,.92)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(36,28,22,.92);color:#E6DACA}
+.matgrid a.mg{box-shadow:0 14px 24px -18px rgba(60,35,10,.5)}
+.matgrid a.mg:hover{background:#fff}
+.uf .uf-bild{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%),linear-gradient(180deg,#000 82%,transparent 93%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 26%),linear-gradient(180deg,#000 82%,transparent 93%);mask-composite:intersect}

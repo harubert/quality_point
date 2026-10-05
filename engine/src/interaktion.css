@@ -1,0 +1,90 @@
+/* ==========================================================
+   Interaktionsbausteine (src/interaktion.js)
+   ========================================================== */
+[class^="ia-"] button,[class*=" ia-"] button{font:600 20px/1 var(--ui);background:var(--ink);color:var(--card);border:0;border-radius:8px;padding:12px 18px;cursor:pointer}
+[class^="ia-"] button:hover,[class*=" ia-"] button:hover{background:var(--teal)}
+.ia-frage{font:400 30px/1.25 var(--serif);color:var(--ink);margin-bottom:14px}
+.ia-zeile{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.ia-erg{font:500 22px/1.35 var(--ui);color:var(--ink)}
+.ia-erg b{color:var(--red)}
+/* Schätzregler */
+.ia-schaetz{background:var(--card);padding:22px 28px;box-shadow:0 14px 30px -18px var(--schatten)}
+.ia-schaetz .ia-skala{position:relative;padding:18px 0}
+.ia-schaetz input[type=range]{width:100%;height:14px;accent-color:var(--teal)}
+.ia-schaetz .ia-wahr{position:absolute;top:0;bottom:0;width:6px;margin-left:-3px;background:var(--red);border-radius:3px;opacity:0;transition:left 1.2s cubic-bezier(.3,.7,.2,1),opacity .4s}
+.ia-schaetz.aufgeloest .ia-wahr{opacity:1}
+.ia-schaetz .ia-tipp{font:500 22px/1 var(--ui)}
+/* Vorher-nachher */
+.ia-vergleich{position:relative;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:none;box-shadow:0 18px 34px -18px var(--schatten);background:#000}
+.ia-vergleich img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.ia-vergleich .ia-oben{position:absolute;inset:0}
+.ia-vergleich .ia-griff{position:absolute;top:0;bottom:0;width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.ia-vergleich .ia-griff span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);font:700 18px/1 var(--ui);padding:10px 12px;border-radius:30px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.ia-vergleich .ia-la,.ia-vergleich .ia-lb{position:absolute;bottom:12px;font:600 17px/1 var(--ui);color:#fff;background:rgba(0,0,0,.6);padding:7px 11px;border-radius:6px}
+.ia-vergleich .ia-la{left:12px}
+.ia-vergleich .ia-lb{right:12px}
+/* Ausschnitt */
+.ia-ausschnitt .ia-bild{transition:clip-path 1.4s cubic-bezier(.3,.7,.2,1);background:#000}
+.ia-ausschnitt .ia-bild img{display:block;width:100%}
+.ia-ausschnitt button{margin-top:12px}
+/* Echt oder Fake */
+.ia-quiz{background:var(--card);padding:16px 20px;box-shadow:0 14px 30px -18px var(--schatten)}
+.ia-quiz .ia-q-bild img{display:block;width:100%;max-height:420px;object-fit:contain}
+.ia-quiz button i{font-style:normal;background:rgba(255,255,255,.25);border-radius:20px;padding:2px 8px;margin-left:6px}
+.ia-quiz button[data-s=echt]{background:var(--teal);color:var(--auf-akzent)}
+.ia-quiz button[data-s=fake]{background:var(--red);color:var(--auf-akzent)}
+/* Zuordnen */
+.ia-sort .ia-vorrat{display:flex;flex-wrap:wrap;gap:10px;min-height:60px;padding:12px;border:2px dashed var(--sand);border-radius:10px}
+.ia-sort .ia-felder{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:18px;margin-top:16px}
+.ia-sort .ia-feld{min-height:150px;background:var(--card);padding:12px;border-top:6px solid var(--teal);display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.ia-sort .ia-feld b{width:100%;font:400 26px/1.2 var(--serif)}
+.ia-sort .ia-item{font:500 21px/1.2 var(--ui);background:var(--card);border:2px solid var(--sand);border-radius:8px;padding:9px 13px;cursor:grab}
+.ia-sort .ia-item.gewaehlt{border-color:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 25%,transparent)}
+.ia-sort .ia-item.ok{border-color:var(--gruen);background:color-mix(in srgb,var(--gruen) 15%,var(--card))}
+.ia-sort .ia-item.falsch{border-color:var(--red);background:var(--red-l)}
+.ia-sort .ia-pruefen{margin-top:14px}
+/* Timer */
+.ia-timer{text-align:center}
+.ia-timer .ia-zeit{font:400 160px/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.ia-timer.knapp .ia-zeit{color:var(--red)}
+.ia-timer.aus .ia-zeit{color:var(--red);animation:iaBlink 1s steps(2) infinite}
+@keyframes iaBlink{50%{opacity:.25}}
+.ia-timer .ia-zeile{justify-content:center}
+/* Zufallsrad */
+.ia-rad{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ia-rad .ia-scheibe{position:relative;width:420px;height:420px;border-radius:50%;transition:transform 3.2s cubic-bezier(.15,.75,.1,1);box-shadow:0 18px 34px -16px rgba(0,0,0,.5);border:6px solid var(--card)}
+.ia-rad .ia-scheibe span{position:absolute;left:50%;top:50%;width:0;height:0;display:flex;justify-content:center;align-items:center;font:700 20px/1 var(--ui);color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);white-space:nowrap;transform-origin:0 0}
+.ia-rad .ia-zeiger{position:absolute;top:-6px;left:50%;margin-left:-16px;border:16px solid transparent;border-top:30px solid var(--ink)}
+.ia-rad .ia-erg{font:400 40px/1 var(--serif);color:var(--red);min-height:40px}
+/* Wortwolke */
+.ia-wolke input{font:500 22px/1 var(--ui);padding:12px 16px;border:2px solid var(--sand);border-radius:8px;min-width:420px;background:var(--card);color:var(--ink)}
+.ia-wolke .ia-woerter{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;justify-content:center;margin-top:20px;min-height:120px}
+.ia-wolke .ia-woerter span{font-family:var(--serif);color:var(--ink)}
+.ia-wolke .ia-woerter span:nth-child(3n){color:var(--red)}
+.ia-wolke .ia-woerter span:nth-child(3n+1){color:var(--teal)}
+/* Karteikarte */
+.ia-karte{perspective:1200px;cursor:pointer;min-height:200px}
+.ia-karte .ia-in{position:relative;width:100%;height:100%;min-height:200px;transition:transform .7s;transform-style:preserve-3d}
+.ia-karte.um .ia-in{transform:rotateY(180deg)}
+.ia-karte .ia-v,.ia-karte .ia-h{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font:400 28px/1.3 var(--serif);background:var(--card);box-shadow:0 14px 30px -18px var(--schatten);border-top:6px solid var(--yellow)}
+.ia-karte .ia-h{transform:rotateY(180deg);border-top-color:var(--teal);font:500 23px/1.4 var(--ui)}
+/* QR */
+.ia-qr{display:inline-flex;flex-direction:column;align-items:center;gap:8px;background:#fff;color:#000;padding:14px;box-shadow:0 14px 30px -18px var(--schatten)}
+.ia-qr svg{width:220px;height:220px;display:block}
+.ia-qr .ia-qrt{font:600 17px/1.2 var(--ui);color:var(--ink)}
+/* Ampel */
+.ia-ampel .ia-lichter{display:flex;gap:30px;align-items:flex-end}
+.ia-ampel .ia-l{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;width:150px;height:330px}
+.ia-ampel .ia-l i{display:block;width:100%;height:0;flex:none;border-radius:8px 8px 0 0;transition:height .6s}
+.ia-ampel .ia-rot i{background:var(--red)}
+.ia-ampel .ia-gelb i{background:var(--yellow)}
+.ia-ampel .ia-gruen i{background:var(--gruen)}
+.ia-ampel .ia-l b{font:400 44px/1 var(--serif)}
+.ia-ampel .ia-l button{width:64px;height:64px;border-radius:50%;font-size:30px;padding:0}
+.ia-ampel .ia-rot button{background:var(--red)}
+.ia-ampel .ia-gelb button{background:var(--yellow);color:var(--ink)}
+.ia-ampel .ia-gruen button{background:var(--gruen)}
+.ia-ampel .ia-reset{margin-top:12px}
+/* Spotlight */
+#spot{position:fixed;inset:0;z-index:62;pointer-events:none;display:none;background:radial-gradient(circle var(--r,180px) at var(--x,50%) var(--y,50%),transparent 97%,rgba(0,0,0,.82) 100%)}
+#spot.on{display:block}

@@ -1,0 +1,42 @@
+{
+  "id": "riso",
+  "name": "Riso",
+  "standard_fuer_stil": "riso",
+  "beschreibung": "Variable Bricolage Grotesque (schmal, fett) für Plakat-Titel, IBM Plex als nüchterne Text- und Mono-Familie.",
+  "titel": {
+    "familie": "Bricolage Grotesque",
+    "achsen": "opsz 12..96, wdth 75..100, wght 400..800 (Titel: wdth 75, wght 800)",
+    "fallback": "\"Arial Narrow\",sans-serif"
+  },
+  "akzent": {
+    "familie": "IBM Plex Serif",
+    "achsen": "ital 1, wght 600",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "IBM Plex Serif",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "IBM Plex Sans",
+    "achsen": "ital 0..1, wght 400/600; dazu IBM Plex Mono 500 für Kicker",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Bricolage Grotesque",
+    "IBM Plex Mono",
+    "IBM Plex Sans",
+    "IBM Plex Serif"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Bricolage Grotesque\",\"Arial Narrow\",sans-serif",
+    "--accent": "\"IBM Plex Serif\",Georgia,serif",
+    "--lesen": "\"IBM Plex Serif\",Georgia,serif",
+    "--ui": "\"IBM Plex Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"IBM Plex Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/riso.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Serif:ital,wght@1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap"
+}
