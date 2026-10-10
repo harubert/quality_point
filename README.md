@@ -26,7 +26,7 @@ Der Anspruch steckt im Namen: Jede Zahl braucht eine Quelle und eine Bezugsgrupp
 | ![Referentenansicht](docs/bilder/referentenansicht.png) | ![Übersicht mit Suche](docs/bilder/uebersicht.png) |
 | Referentenansicht (`P`) | Übersicht mit Suche (`O`) |
 | ![Stilauswahl](docs/bilder/stilauswahl.png) | ![Interaktionsbaustein](docs/bilder/interaktion.png) |
-| Stilauswahl: 10 Stile × 10 Schriftsets | Interaktionsbaustein „Echt oder Fake“ |
+| Startseite: Ablauf, Bilder-Wege, 10 Stile × 10 Schriftsets | Interaktionsbaustein „Echt oder Fake“ |
 
 ## Der Inhaltsschalter
 
@@ -64,7 +64,7 @@ Dann eine der beiden Varianten:
 
 > Ich halte im November eine 90-minütige Fortbildung „KI im Deutschunterricht der Sekundarstufe“ für Lehrer*innen. Hier ist meine alte PowerPoint (`vorlage/ki_deutsch.pptx`). Mach daraus mit Quality Point eine neue Präsentation – Vorlage vollständig, aber gern mit aktueller Forschung ergänzt – plus Glossar, Quellen und drei Arbeitsblätter.
 
-Claude stellt dann die offenen Fragen, öffnet die Stilauswahl, zeigt die Gliederung zur Freigabe und baut anschließend durch.
+Claude öffnet zuerst die Startseite (`styles/index.html`): Ablauf, Bilder-Wege – Claude zeichnet selbst oder Bildgenerator mit eigenem Schlüssel – und alle Stile mit ehrlicher Angabe, welcher ohne Schlüssel gleichwertig aussieht. Danach stellt Claude die offenen Fragen, zeigt die Gliederung zur Freigabe und baut anschließend durch.
 
 ## Ordnerstruktur
 
@@ -80,7 +80,7 @@ quality_point/
 │   ├── src/                       ← Hülle, Engine (JS/CSS), Interaktionen, vendor/qrcode.js
 │   ├── fonts/                     ← lokale Schriften (OFL)
 │   └── werkzeuge/                 ← Quellen, Seiten, Materialien, Screenshots, Bilder
-├── styles/                        ← 10 Stile, 10 Schriftsets, index.html (Auswahl)
+├── styles/                        ← 10 Stile, 10 Schriftsets, index.html (Start und Auswahl)
 ├── demo/                          ← Beispielprojekte
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```
@@ -191,7 +191,7 @@ quality_point/
 │   ├── src/                       ← shell, engine (JS/CSS), widgets, vendor/qrcode.js
 │   ├── fonts/                     ← local fonts (OFL)
 │   └── werkzeuge/                 ← references, pages, materials, screenshots, images
-├── styles/                        ← 10 styles, 10 font sets, index.html (picker)
+├── styles/                        ← 10 styles, 10 font sets, index.html (onboarding and picker)
 ├── demo/                          ← example projects
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Gouache-Bilderbuchszene: Kind von hinten am Schreibtisch mit Tablet, Buch, Stiften und Pflanze</title>
+  <defs>
+    <!-- Pinselrand: Turbulenz verschiebt die Kanten -->
+    <filter id="pinsel" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="pinselfein" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="2" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- matte Farbstruktur: gestreifte Pinselspuren -->
+    <filter id="struktur" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".03 .07" numOctaves="3" seed="2"/>
+      <feColorMatrix values="0 0 0 0 .14  0 0 0 0 .18  0 0 0 0 .16  0 0 0 -1.6 1.05"/>
+    </filter>
+    <filter id="weich"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="#F3EAD9"/>
+
+  <!-- Wand: grüne Gouachefläche mit weichem linkem Rand -->
+  <g filter="url(#pinsel)">
+    <path d="M430 -20 C395 90 450 170 410 260 C380 340 440 420 400 520 C390 600 420 700 396 820 L1220 820 L1220 -20 Z" fill="#2F5D46"/>
+    <path d="M398 740 C600 730 900 736 1220 730 L1220 820 L396 820 C400 790 398 760 398 740 Z" fill="#1F4231"/>
+    <path d="M520 -10 C560 80 500 160 560 240 C600 300 560 380 600 450 C700 420 800 300 840 160 C860 80 820 20 800 -10 Z" fill="#3D6E55" opacity=".55"/>
+    <path d="M900 40 C980 20 1100 60 1180 30 C1160 110 1080 140 980 130 C930 120 880 90 900 40 Z" fill="#4A7A5F" opacity=".5"/>
+  </g>
+  <!-- Lampenlicht als heller Klecks -->
+  <g filter="url(#weich)">
+    <ellipse cx="760" cy="300" rx="210" ry="160" fill="#F0D9A6" opacity=".3"/>
+  </g>
+
+  <!-- Pflanze hinten rechts -->
+  <g filter="url(#pinselfein)">
+    <path d="M1110 380 C1060 320 1010 280 1000 210 C1050 230 1100 280 1120 360 Z" fill="#1F4231"/>
+    <path d="M1120 370 C1110 290 1130 220 1170 170 C1190 240 1170 310 1135 375 Z" fill="#4C8062"/>
+    <path d="M1130 380 C1160 320 1200 300 1230 300 C1220 350 1180 380 1140 390 Z" fill="#2F5D46"/>
+    <path d="M1105 385 C1080 340 1040 330 1010 340 C1030 375 1070 395 1110 395 Z" fill="#5A8F6E"/>
+    <path d="M1060 380 C1100 372 1160 372 1200 384 C1196 420 1190 460 1170 480 C1130 490 1100 488 1080 478 C1066 450 1060 420 1060 380 Z" fill="#C9776A"/>
+    <path d="M1078 400 C1110 396 1150 398 1180 404 C1170 410 1110 412 1080 408 Z" fill="#F3EAD9" opacity=".35"/>
+  </g>
+
+  <!-- Tischplatte -->
+  <g filter="url(#pinsel)">
+    <path d="M500 450 C700 432 950 428 1220 432 L1220 720 C950 716 700 712 410 704 C430 620 470 520 500 450 Z" fill="#B88A3E"/>
+    <path d="M520 470 C720 456 960 452 1220 456 C1100 480 880 480 640 498 C580 502 540 500 520 470 Z" fill="#D9A94A" opacity=".6"/>
+    <path d="M410 704 C700 712 950 716 1220 720 L1220 762 C950 758 700 754 412 744 Z" fill="#7E5A2A"/>
+    <path d="M436 744 C450 744 466 746 476 746 C480 780 478 800 476 820 L438 820 C436 790 436 770 436 744 Z" fill="#6B4A22"/>
+  </g>
+  <!-- Pinselspuren auf Holz -->
+  <g filter="url(#pinselfein)" fill="none" stroke="#E6C27A" stroke-width="5" stroke-linecap="round" opacity=".45">
+    <path d="M560 560 C700 552 820 556 940 552"/>
+    <path d="M500 640 C640 636 760 642 880 636"/>
+    <path d="M900 600 C1000 596 1100 600 1200 596"/>
+  </g>
+
+  <!-- Stiftebecher -->
+  <g filter="url(#pinselfein)">
+    <path d="M574 400 C584 360 590 330 598 296 C602 300 606 304 606 310 C600 340 594 370 588 402 Z" fill="#A8432F"/>
+    <path d="M598 402 C604 360 612 320 628 284 C632 290 636 294 634 300 C624 336 616 370 612 404 Z" fill="#2F5D46"/>
+    <path d="M618 404 C630 370 646 340 668 312 C670 318 674 322 672 328 C656 352 642 380 632 408 Z" fill="#1E2A33"/>
+    <path d="M560 400 C590 392 630 392 662 400 C664 440 662 480 656 510 C626 520 590 520 566 510 C560 480 558 440 560 400 Z" fill="#D9A94A"/>
+    <path d="M570 412 C576 440 576 476 574 500 C568 470 566 440 570 412 Z" fill="#F3EAD9" opacity=".45"/>
+    <path d="M640 410 C650 440 650 480 646 506 C658 480 660 440 654 408 Z" fill="#8F6A2A" opacity=".5"/>
+  </g>
+
+  <!-- Tablet auf Ständer -->
+  <g filter="url(#pinselfein)">
+    <path d="M830 548 C860 520 900 520 930 548 C900 556 860 556 830 548 Z" fill="#141C22" opacity=".5"/>
+    <path d="M768 292 C850 280 940 278 1012 288 C1022 370 1022 450 1014 530 C930 540 850 542 772 534 C762 450 762 370 768 292 Z" fill="#1E2A33"/>
+    <path d="M790 312 C860 304 930 302 992 310 C998 380 998 450 992 512 C930 520 860 520 792 514 C786 450 786 380 790 312 Z" fill="#E6C989"/>
+    <path d="M792 312 C860 304 930 302 992 310 C994 340 996 370 996 396 C930 392 860 396 790 400 C788 370 788 340 792 312 Z" fill="#F0D9A6"/>
+    <path d="M940 330 C960 324 980 336 978 356 C976 376 952 382 938 370 C924 356 926 336 940 330 Z" fill="#C9776A"/>
+    <path d="M790 440 C830 390 870 380 910 410 C940 380 980 380 996 410 L994 512 C930 520 860 520 792 514 Z" fill="#2F5D46"/>
+    <path d="M790 470 C840 440 900 450 960 470 C975 476 990 480 996 484 L994 512 C930 520 860 520 792 514 Z" fill="#4C8062"/>
+    <path d="M820 432 C832 418 846 418 856 432 C846 440 830 440 820 432 Z" fill="#1F4231"/>
+    <path d="M800 320 C830 314 860 312 890 314 C860 330 830 340 804 350 Z" fill="#FFFFFF" opacity=".25"/>
+  </g>
+
+  <!-- Offenes Bilderbuch -->
+  <g filter="url(#pinselfein)">
+    <path d="M470 676 C560 664 640 668 700 680 C760 666 840 662 920 672 C900 676 760 694 700 696 C640 694 520 690 470 676 Z" fill="#7E5A2A" opacity=".55"/>
+    <path d="M490 586 C560 570 640 574 700 594 C694 620 694 650 700 680 C640 664 560 660 476 668 C480 640 484 610 490 586 Z" fill="#FAF4E8"/>
+    <path d="M700 594 C760 572 840 568 906 580 C910 610 914 640 920 664 C840 658 760 662 700 680 C694 650 694 620 700 594 Z" fill="#F3EAD9"/>
+    <path d="M510 640 C540 610 580 604 620 624 C650 610 676 618 690 636 C692 648 692 660 694 670 C620 656 560 654 500 660 Z" fill="#2F5D46"/>
+    <path d="M560 602 C576 594 594 600 596 616 C584 626 566 622 560 602 Z" fill="#D9A94A"/>
+    <path d="M720 610 C760 596 800 600 830 616 C820 640 790 650 760 646 C730 640 718 628 720 610 Z" fill="#C9776A"/>
+    <path d="M820 640 C850 618 880 620 900 640 C890 656 860 660 830 658 Z" fill="#2F5D46" opacity=".8"/>
+    <path d="M700 594 C698 622 698 650 700 680" fill="none" stroke="#C9B48A" stroke-width="3"/>
+  </g>
+
+  <!-- Kind von hinten -->
+  <g filter="url(#pinsel)">
+    <path d="M900 820 C900 740 930 690 990 670 C1030 656 1100 656 1140 670 C1190 690 1220 740 1220 820 Z" fill="#C9776A"/>
+    <path d="M940 820 C946 760 970 716 1010 694 C990 740 980 780 980 820 Z" fill="#E09A8C" opacity=".6"/>
+    <path d="M1150 690 C1190 720 1210 770 1214 820 L1170 820 C1170 770 1160 730 1150 690 Z" fill="#A8432F" opacity=".45"/>
+    <path d="M1040 676 C1050 660 1080 660 1090 676 C1080 686 1050 686 1040 676 Z" fill="#D9A94A"/>
+    <path d="M1000 590 C996 530 1030 492 1066 490 C1110 488 1140 524 1138 584 C1136 630 1110 666 1066 668 C1024 668 1002 632 1000 590 Z" fill="#1E2A33"/>
+    <path d="M1030 520 C1050 500 1080 498 1100 510 C1080 512 1056 520 1040 540 Z" fill="#3A4C5A" opacity=".8"/>
+    <path d="M996 596 C988 590 986 610 996 616 Z" fill="#D9A27E"/>
+  </g>
+
+  <!-- helle Lichtkleckse -->
+  <g filter="url(#pinselfein)" fill="#FFF3D6" opacity=".35">
+    <path d="M560 470 C620 462 680 464 720 472 C680 482 610 484 560 470 Z"/>
+    <path d="M1050 500 C1070 494 1090 496 1104 506 C1086 508 1066 510 1050 500 Z"/>
+    <path d="M920 160 C950 150 980 156 990 172 C960 176 936 174 920 160 Z"/>
+  </g>
+
+  <!-- Farbstruktur über allem -->
+  <rect width="1200" height="800" filter="url(#struktur)" opacity=".12"/>
+</svg>

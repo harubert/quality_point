@@ -56,5 +56,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Reine Geometrie in Primärfarben – genau das, was Vektorgrafik am besten kann."
   }
 }

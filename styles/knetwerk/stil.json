@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "schwach",
+    "hinweis": "Als Vektor eher glänzendes 3D-Icon als Knete – Fingerabdrücke und Tiefenschärfe gibt es nur mit Bildgenerator."
   }
 }

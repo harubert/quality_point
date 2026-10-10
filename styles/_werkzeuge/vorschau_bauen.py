@@ -29,6 +29,21 @@ def bild(sid, name):
     return ""
 
 
+def bild_vektor(sid):
+    for name in ("vektor", "titel"):
+        p = STYLES / sid / "beispiel" / f"{name}.svg"
+        if p.exists():
+            return f"{sid}/beispiel/{name}.svg"
+    return ""
+
+
+def bild_ki(sid):
+    for ext in ("webp", "jpg", "png"):
+        if (STYLES / sid / "beispiel" / f"titel.{ext}").exists():
+            return f"{sid}/beispiel/titel.{ext}"
+    return ""
+
+
 def folien(sid):
     t, m = bild(sid, "titel"), bild(sid, "motiv")
     fuss = lambda k, q, n: (f'<footer><span class="chap">{k}</span><span class="src{" nolabel" if not q else ""}">{q}</span>'
@@ -87,7 +102,7 @@ SEITE = '''<!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{name} – Stilvorschau</title>
 <link rel="stylesheet" href="../../engine/src/basis.css">
-<link rel="stylesheet" href="../{sid}/fonts/fonts.css">
+<link rel="stylesheet" href="../_schriftsets/fonts/{fs}.css">
 <link rel="stylesheet" href="../{sid}/stil.css">
 <style>
 html,body{{height:auto;overflow:auto}} body{{display:block;padding:0}}
@@ -116,7 +131,7 @@ def seiten():
             continue
         cfg = json.loads((STYLES / sid / "stil.json").read_text(encoding="utf-8"))
         stile.append(cfg)
-        (VS / f"{sid}.html").write_text(SEITE.format(name=html.escape(cfg["name"]), sid=sid,
+        (VS / f"{sid}.html").write_text(SEITE.format(name=html.escape(cfg["name"]), sid=sid, fs=cfg["schriftset"],
                                                      folien="\n".join(folien(sid))), encoding="utf-8")
     sets = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((STYLES / "_schriftsets").glob("*.json"))]
     sets.sort(key=lambda s: REIHENFOLGE.index(s["standard_fuer_stil"]) if s["standard_fuer_stil"] in REIHENFOLGE else 99)
@@ -124,10 +139,20 @@ def seiten():
     for c in stile:
         farben = "".join(f'<i style="background:{v}" title="{k} {v}"></i>' for k, v in c["farben"].items()
                          if k in ("paper", "card", "ink", "red", "teal", "yellow", "coral"))
-        karten.append(f'''<article class="stil"><a class="bildlink" href="_vorschau/{c["id"]}.html" title="Groß ansehen: alle Musterfolien">
+        b = c.get("bilder", {})
+        stufe = b.get("vektor", "gut")
+        badge = {"voll": ("ok", "Kein Schlüssel nötig", "Claude zeichnet die Bilder selbst als Vektorgrafik – gleichwertig."),
+                 "gut": ("mittel", "Geht ohne Schlüssel", "Vektorgrafik sieht gut aus; mit Bildgenerator wirkt der Stil stimmungsvoller."),
+                 "schwach": ("key", "Bildgenerator empfohlen", "Die Wirkung lebt von Malerei/Material – Vektor ist nur eine Annäherung.")}[stufe]
+        vek, ki = bild_vektor(c["id"]), bild_ki(c["id"])
+        bsp = (f'<figure><img src="{vek}" alt="" loading="lazy"><figcaption>Claude zeichnet selbst (SVG)</figcaption></figure>' if vek else "") +               (f'<figure><img src="{ki}" alt="" loading="lazy"><figcaption>Mit Bildgenerator (KI)</figcaption></figure>' if ki else
+               '<figure class="leer"><div>Bildgenerator optional – der Stil braucht ihn nicht.</div><figcaption>Mit Bildgenerator (KI)</figcaption></figure>')
+        karten.append(f'''<article class="stil" data-bild="{stufe}"><a class="bildlink" href="_vorschau/{c["id"]}.html" title="Groß ansehen: alle Musterfolien">
 <iframe src="_vorschau/{c["id"]}.html#mini" loading="lazy" tabindex="-1" title="{html.escape(c["name"])}"></iframe></a>
-<div class="txt"><h3>{html.escape(c["name"])} <code>{c["id"]}</code></h3><p>{html.escape(c["beschreibung"])}</p>
+<div class="txt"><div class="badge {badge[0]}" title="{html.escape(badge[2])}">{badge[1]}</div>
+<h3>{html.escape(c["name"])} <code>{c["id"]}</code></h3><p>{html.escape(c["beschreibung"])}</p>
 <p class="meta"><b>Stimmung:</b> {html.escape(c["stimmung"])}<br><b>Schriftset:</b> {html.escape(c["schriftset"])} · <b>Passt zu:</b> {html.escape(", ".join(c["passt_zu"]))}</p>
+<div class="bsp">{bsp}</div><p class="bh">{html.escape(b.get("hinweis") or badge[2])}</p>
 <div class="farben">{farben}</div><a class="gross" href="_vorschau/{c["id"]}.html">Alle Musterfolien groß ansehen →</a></div></article>''')
     zeilen = []
     for s in sets:
@@ -147,16 +172,16 @@ def seiten():
 
 INDEX = '''<!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quality Point – Stile und Schriftsets</title>
+<title>Quality Point – Start und Stile</title>
 {links}
 <style>
-:root{{--bg:#F5F2EC;--fg:#1E1E1E;--mut:#555;--card:#fff;--line:#DDD6C8;--acc:#B23A2A}}
-@media (prefers-color-scheme:dark){{:root{{--bg:#16171A;--fg:#ECEAE4;--mut:#B4B0A8;--card:#212226;--line:#34363C;--acc:#F08A6E}}}}
+:root{{--bg:#F5F2EC;--fg:#1E1E1E;--mut:#555;--card:#fff;--line:#DDD6C8;--acc:#B23A2A;--ok:#2E7D4F;--mittel:#9A6A10;--key:#7A3FA0}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#16171A;--fg:#ECEAE4;--mut:#B4B0A8;--card:#212226;--line:#34363C;--acc:#F08A6E;--ok:#3F9A65;--mittel:#B07E1A;--key:#9A62C4}}}}
 *{{box-sizing:border-box}} body{{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.55 "Instrument Sans","Segoe UI",system-ui,sans-serif}}
 header,main{{max-width:1480px;margin:0 auto;padding:0 24px}}
 header{{padding-top:40px}} h1{{font:400 46px/1.1 "Young Serif",Georgia,serif;margin:0 0 10px}} h2{{font:400 30px/1.2 "Young Serif",Georgia,serif;margin:48px 0 16px}}
 header p{{max-width:860px;color:var(--mut)}} code{{font-size:.8em;background:rgba(127,127,127,.15);padding:2px 6px;border-radius:5px}}
-.raster{{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:24px}}
+.raster{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr));gap:24px}}
 .stil{{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}}
 .bildlink{{display:block;aspect-ratio:3864/2184;position:relative;background:#222}}
 .bildlink iframe{{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}}
@@ -165,23 +190,79 @@ header p{{max-width:860px;color:var(--mut)}} code{{font-size:.8em;background:rgb
 .meta{{font-size:15px;color:var(--mut)}} .farben{{display:flex;gap:6px;margin:8px 0 10px}}
 .farben i{{width:28px;height:28px;border-radius:50%;border:1px solid rgba(127,127,127,.4)}}
 .gross{{color:var(--acc);font-weight:600;text-decoration:none}} .gross:hover{{text-decoration:underline}}
-.sets{{display:grid;grid-template-columns:repeat(auto-fill,minmax(560px,1fr));gap:18px;margin-bottom:60px}}
+.sets{{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(560px,100%),1fr));gap:18px;margin-bottom:60px}}
 .set{{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 22px}}
 .set h3{{margin:0 0 8px;font-size:18px}} .set h3 small{{color:var(--mut);font-weight:400}}
 .set p{{margin:4px 0}} .m-titel{{font-size:36px;line-height:1.15}} .m-akzent{{font-size:30px;font-style:italic;color:var(--acc)}}
 .m-lesen{{font-size:21px;font-style:italic}} .m-ui{{font-size:18px}} .sl{{font-size:14px;color:var(--mut);margin-top:10px!important}}
-@media (max-width:520px){{.raster,.sets{{grid-template-columns:1fr}} h1{{font-size:34px}}}}
+.start .kicker{{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);font-weight:600}}
+.start .lead{{font-size:19px;max-width:820px;color:var(--fg)}}
+.schritte{{list-style:none;padding:0;margin:24px 0 8px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}}
+.schritte li{{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}}
+.schritte li::before{{content:counter(s);font:400 30px/1 "Young Serif",Georgia,serif;color:var(--acc)}}
+.schritte b{{font-size:18px}} .schritte span{{font-size:15px;color:var(--mut)}}
+.wege{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+.weg{{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--ok);border-radius:12px;padding:16px 20px}}
+.weg.key{{border-top-color:var(--key)}} .weg.neutral{{border-top-color:var(--mut)}}
+.weg h3{{margin:8px 0 4px;font-size:21px}} .weg p{{margin:0 0 8px}} .weg ul{{margin:0;padding-left:18px;font-size:15px}} .weg li{{margin:3px 0}}
+.badge{{display:inline-block;font:600 13px/1 "Instrument Sans",system-ui,sans-serif;padding:6px 10px;border-radius:99px;background:var(--ok);color:#fff;font-style:normal;margin-bottom:6px}}
+.badge.mittel{{background:var(--mittel)}} .badge.key{{background:var(--key)}} .badge.neutral{{background:var(--mut);color:var(--bg)}}
+.legende{{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin:18px 0 0;font-size:15px;color:var(--mut)}}
+.legende .badge{{margin:0 4px 0 0}}
+.filter{{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}}
+.filter button{{font:inherit;font-size:15px;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}}
+.filter button.an{{background:var(--fg);color:var(--bg);border-color:var(--fg)}}
+.bsp{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 6px}}
+.bsp figure{{margin:0}} .bsp img{{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}}
+.bsp figcaption{{font-size:13px;color:var(--mut);margin-top:4px}}
+.bsp .leer div{{aspect-ratio:3/2;border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:14px;color:var(--mut)}}
+.bh{{font-size:15px;color:var(--mut)}} .hinweis{{color:var(--mut);margin-top:-8px}}
+[hidden]{{display:none!important}}
+@media (max-width:1100px){{.schritte{{grid-template-columns:1fr 1fr}} .wege{{grid-template-columns:1fr}}}}
+
+@media (max-width:520px){{.raster,.sets,.wege,.schritte{{grid-template-columns:1fr}} h1{{font-size:34px}}}}
 </style></head><body>
-<header><h1>Quality Point – Stile und Schriftsets</h1>
-<p>{n} Stile für 1920×1080-Folien. Jede Vorschau zeigt Titel-, Kapitel-, Zitat- und Kennzahlfolie im jeweiligen Stil;
-ein Klick öffnet alle acht Musterfolien groß. Darunter die {m} Schriftsets – jedes Set lässt sich mit jedem Stil kombinieren.
-Alle Schriften liegen lokal (SIL Open Font License 1.1).</p></header>
-<main><h2>Stile</h2><div class="raster">
+<header class="start"><div class="kicker">Quality Point · Start</div>
+<h1>Willkommen! So entsteht deine Präsentation.</h1>
+<p class="lead">Bevor Claude die ersten Fragen stellt, siehst du hier, was dich erwartet: welche Stile es gibt, woher die Bilder kommen und was du dafür brauchst. Du musst nichts installieren und nichts bezahlen, um loszulegen.</p>
+<ol class="schritte">
+<li><b>Stil aussuchen</b><span>Unten {n} Stile mit Musterfolien. Merk dir einen Namen oder sag „du entscheidest“.</span></li>
+<li><b>Bilder-Weg wählen</b><span>Claude zeichnet selbst (gratis) oder nutzt einen Bildgenerator mit deinem Schlüssel.</span></li>
+<li><b>Fragen beantworten</b><span>Thema, Zielgruppe, Material, Umfang, gewünschte Bausteine – nacheinander, mit Empfehlung.</span></li>
+<li><b>Gliederung freigeben</b><span>Danach baut und prüft Claude selbstständig und meldet sich mit dem Ergebnis.</span></li>
+</ol>
+<h2 id="bilder">Woher kommen die Bilder?</h2>
+<div class="wege">
+<section class="weg ok"><div class="badge ok">Kein Schlüssel nötig</div><h3>Claude zeichnet selbst</h3>
+<p>Vektorgrafiken (SVG), direkt von Claude Code geschrieben.</p>
+<ul><li><b>Kosten:</b> keine, kein Konto, läuft offline</li><li><b>Stark bei:</b> flachen, grafischen Stilen, Piktogrammen, Diagrammen, Schemata</li><li><b>Grenzen:</b> keine Fotos, Malerei und Material (Knete, Gouache) nur angenähert</li></ul></section>
+<section class="weg key"><div class="badge key">Eigener Schlüssel</div><h3>Bildgenerator</h3>
+<p>KI-Bilder über einen Anbieter, bei dem du ein Konto hast.</p>
+<ul><li><b>Anbieter:</b> OpenAI gpt-image, Google Gemini/Imagen, fal.ai Flux, Stability, Replicate</li><li><b>Kosten:</b> je nach Anbieter Bruchteile eines Cents bis ca. 0,25 USD pro Bild – eine Präsentation braucht meist 10–30 Bilder</li><li><b>Schlüssel:</b> nur als Umgebungsvariable, nie in einer Datei oder im Chat</li></ul></section>
+<section class="weg neutral"><div class="badge neutral">Geht immer</div><h3>Eigene oder freie Bilder</h3>
+<p>Fotos aus deiner Vorlage oder frei lizenzierte Bilder (z. B. Wikimedia Commons).</p>
+<ul><li><b>Kosten:</b> keine</li><li><b>Pflicht:</b> Urheber*in und Lizenz stehen auf der Folie</li><li><b>Kombinierbar</b> mit beiden anderen Wegen</li></ul></section>
+</div>
+<div class="legende"><b>Auf jeder Stilkarte:</b>
+<span><i class="badge ok">Kein Schlüssel nötig</i> Vektor gleichwertig</span>
+<span><i class="badge mittel">Geht ohne Schlüssel</i> Vektor gut, Bildgenerator stimmungsvoller</span>
+<span><i class="badge key">Bildgenerator empfohlen</i> Vektor nur Annäherung</span>
+<span>Jede Karte zeigt beide Beispielbilder nebeneinander.</span></div>
+</header>
+<main><h2 id="stile">Schritt 1 · Stil aussuchen</h2>
+<div class="filter" role="group" aria-label="Stile filtern"><button class="an" data-f="alle">Alle {n}</button><button data-f="ohne">Ohne Schlüssel gleichwertig</button><button data-f="mit">Mit Bildgenerator am schönsten</button></div>
+<div class="raster">
 {karten}
 </div>
-<h2>Schriftsets</h2><div class="sets">
+<h2 id="schriften">Schritt 2 · Schriftset (optional)</h2><p class="hinweis">Jeder Stil bringt sein Schriftset mit. Du kannst es gegen jedes andere tauschen.</p><div class="sets">
 {zeilen}
-</div></main></body></html>
+</div></main>
+<script>
+document.querySelectorAll('.filter button').forEach(function(b){{b.addEventListener('click',function(){{
+  document.querySelectorAll('.filter button').forEach(function(x){{x.classList.toggle('an',x===b)}});
+  var f=b.dataset.f;document.querySelectorAll('.stil').forEach(function(k){{var s=k.dataset.bild;
+    k.hidden=!(f==='alle'||(f==='ohne'&&s==='voll')||(f==='mit'&&s!=='voll'))}});}})}});
+</script></body></html>
 '''
 
 

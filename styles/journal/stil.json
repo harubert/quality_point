@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Sachliche Abbildungen, Diagramme und Linienzeichnungen – Vektor ist hier sogar die bessere Wahl."
   }
 }

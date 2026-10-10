@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Risographie-Schreibtisch in Pink und Blau: Tablet, offenes Buch, Stifte und Bauklötze im Zweifarbdruck</title>
+  <defs>
+    <!-- Rasterpunkte je Druckfarbe, Blau im 45-Grad-Winkel -->
+    <pattern id="rp" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="4.5" cy="4.5" r="2.6" fill="#FF4F9A"/>
+    </pattern>
+    <pattern id="rpk" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="4.5" cy="4.5" r="1.8" fill="#FF4F9A"/>
+    </pattern>
+    <pattern id="rb" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="4.5" cy="4.5" r="2.4" fill="#1F3FBF"/>
+    </pattern>
+    <pattern id="rbg" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="5" cy="5" r="3.4" fill="#1F3FBF"/>
+    </pattern>
+    <!-- ungleichmäßiger Farbauftrag: feine Fehlstellen in der Druckfarbe -->
+    <filter id="druck" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="8" result="n"/>
+      <feColorMatrix in="n" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 2.05" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+    <filter id="papier" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="2"/>
+      <feColorMatrix values="0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .38  0 0 0 -2 1.05"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="#F6F1E6"/>
+
+  <!-- Druckplatte Pink -->
+  <g filter="url(#druck)" style="mix-blend-mode:multiply">
+    <circle cx="880" cy="250" r="190" fill="url(#rpk)"/>
+    <!-- Tischplatte -->
+    <path fill-rule="evenodd" d="M500 560 L1230 548 L1230 640 L440 652 Z M520 596 L660 586 L812 596 L812 646 L660 638 L512 648 Z" fill="url(#rp)"/>
+    <!-- Tablet-Rahmen mit Bildschirmöffnung -->
+    <path fill-rule="evenodd" fill="#FF4F9A" d="M664 300 H900 Q918 300 918 318 V512 Q918 530 900 530 H664 Q646 530 646 512 V318 Q646 300 664 300 Z M672 324 V506 H892 V324 Z"/>
+    <path d="M760 530 L740 566 H830 L812 530 Z" fill="#FF4F9A"/>
+    <circle cx="840" cy="372" r="24" fill="#FF4F9A"/>
+    <path d="M672 470 L730 420 L780 460 L820 430 L892 480 V506 H672 Z" fill="url(#rp)"/>
+    <!-- Buch: Seitenschatten und Baum -->
+    <circle cx="616" cy="606" r="12" fill="#FF4F9A"/>
+    <path d="M700 616 C716 600 740 602 748 618 C740 632 716 632 700 616 Z M748 618 L764 606 L764 630 Z" fill="#FF4F9A"/>
+    <path d="M660 586 L660 638" stroke="#FF4F9A" stroke-width="3"/>
+    <!-- Stiftebecher -->
+    <path d="M960 460 H1040 V556 Q1040 566 1030 566 H970 Q960 566 960 556 Z" fill="#FF4F9A"/>
+    <path d="M992 386 L1000 360 L1008 386 V470 H992 Z" fill="#FF4F9A"/>
+    <!-- Bauklötze -->
+    <rect x="1110" y="490" width="76" height="70" fill="#FF4F9A"/>
+    <path d="M1070 490 L1110 430 L1150 490 Z" fill="#FF4F9A"/>
+    <!-- Stuhl vorne -->
+    <rect x="640" y="700" width="300" height="74" rx="10" fill="#FF4F9A"/>
+    <rect x="672" y="774" width="26" height="40" fill="#FF4F9A"/>
+    <rect x="882" y="774" width="26" height="40" fill="#FF4F9A"/>
+  </g>
+
+  <!-- Druckplatte Blau, Passerversatz 5 px / 3 px -->
+  <g filter="url(#druck)" style="mix-blend-mode:multiply" transform="translate(5 3)">
+    <!-- Tischkante, Beine, Bodenschatten -->
+    <path d="M440 652 L1230 640 L1230 672 L440 684 Z" fill="#1F3FBF"/>
+    <rect x="474" y="684" width="30" height="130" fill="#1F3FBF"/>
+    <rect x="1150" y="672" width="30" height="140" fill="#1F3FBF"/>
+    <ellipse cx="830" cy="772" rx="380" ry="24" fill="url(#rbg)"/>
+    <!-- Bildschirm: Himmel gerastert, Wal -->
+    <rect x="672" y="324" width="220" height="182" fill="url(#rb)"/>
+    <path d="M700 470 C700 440 740 424 780 432 C810 438 830 452 840 470 L870 452 L866 486 L840 480 C820 496 780 502 744 496 C716 492 700 484 700 470 Z" fill="#1F3FBF"/>
+    <path d="M740 430 C736 414 726 404 716 400 M740 430 C748 414 760 406 770 404" fill="none" stroke="#1F3FBF" stroke-width="6" stroke-linecap="round"/>
+    <!-- Tablet-Ständer im Schatten -->
+    <path d="M740 566 H830 L834 574 H736 Z" fill="#1F3FBF"/>
+    <!-- Buch: Deckel und blaues Bild -->
+    <path d="M512 648 L660 638 L812 646 L812 656 L660 648 L508 660 Z" fill="#1F3FBF"/>
+    <path d="M556 628 L578 594 L600 628 Z" fill="#1F3FBF"/>
+    <rect x="575" y="628" width="6" height="10" fill="#1F3FBF"/>
+    <path d="M676 630 C700 622 720 636 744 628 C766 620 786 632 806 626 L806 640 L676 634 Z" fill="url(#rb)"/>
+    <!-- Stifte im Becher -->
+    <path d="M970 400 L978 372 L986 400 V470 H970 Z" fill="#1F3FBF"/>
+    <path d="M1014 410 L1022 382 L1030 410 V470 H1014 Z" fill="#1F3FBF"/>
+    <rect x="960" y="520" width="80" height="46" fill="url(#rb)"/>
+    <!-- Bauklötze -->
+    <rect x="1050" y="510" width="62" height="50" fill="#1F3FBF"/>
+    <rect x="1150" y="490" width="36" height="70" fill="url(#rb)"/>
+    <!-- liegender Stift -->
+    <path d="M860 604 H990 L1014 612 L990 620 H860 Z" fill="#1F3FBF"/>
+    <!-- Stuhlschatten -->
+    <rect x="640" y="700" width="300" height="30" fill="url(#rb)"/>
+  </g>
+
+  <!-- Papierkorn -->
+  <rect width="1200" height="800" filter="url(#papier)" opacity=".08"/>
+</svg>

@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Kreidestriche entstehen per SVG-Filter; wirkt wie an der Tafel gezeichnet."
   }
 }

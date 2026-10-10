@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Nachtszene: Kind als Rückenansicht-Silhouette vor einem leuchtenden Tablet, daneben Bücher, Lampe und Fenster</title>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="dunst" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="korn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 .8  0 0 0 0 .85  0 0 0 0 1  0 0 0 -2.4 1.25"/>
+    </filter>
+    <radialGradient id="kegel" cx="870" cy="470" r="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#52E3FF" stop-opacity=".42"/>
+      <stop offset=".35" stop-color="#52E3FF" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#52E3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lampe" cx="600" cy="420" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A67CFF" stop-opacity=".45"/>
+      <stop offset=".4" stop-color="#A67CFF" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#A67CFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="schirm" x1="0" y1="0" x2=".4" y2="1">
+      <stop offset="0" stop-color="#C8F7FF"/><stop offset=".45" stop-color="#52E3FF"/><stop offset="1" stop-color="#1F6E9A"/>
+    </linearGradient>
+    <radialGradient id="schein" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#EEF0FF"/><stop offset=".5" stop-color="#C9B3FF"/><stop offset="1" stop-color="#A67CFF"/>
+    </radialGradient>
+
+    <!-- Formen (Silhouetten) -->
+    <path id="fenster" d="M940 60 H1170 V320 H940 Z M1055 60 V320 M940 190 H1170"/>
+    <path id="tisch" d="M500 560 L1230 540 L1230 600 L500 612 Z M540 612 V820 M560 612 V820"/>
+    <path id="buecher" d="M650 560 L790 557 L790 532 L650 535 Z M662 535 L780 532 L780 508 L662 511 Z M644 511 L774 508 L774 486 L644 489 Z"/>
+    <path id="lampfuss" d="M582 562 L618 561 L612 470 L590 470 Z"/>
+    <path id="lampschirm" d="M556 474 C556 420 646 420 646 472 Z"/>
+    <path id="tablet" d="M790 392 L962 380 L972 540 L800 552 Z"/>
+    <path id="kind" d="M1050 395 C1006 395 984 430 986 470 C988 500 1000 520 1016 532 C960 546 920 580 908 640 C900 690 898 750 896 820 L1220 820 C1218 750 1214 690 1204 640 C1192 580 1150 546 1096 532 C1112 518 1122 496 1122 468 C1122 428 1094 394 1050 395 Z"/>
+  </defs>
+
+  <rect width="1200" height="800" fill="#0C0E1D"/>
+
+  <!-- Lichtkegel -->
+  <rect width="1200" height="800" fill="url(#kegel)"/>
+  <rect width="1200" height="800" fill="url(#lampe)"/>
+
+  <!-- Fenster mit Sternen -->
+  <use xlink:href="#fenster" fill="none" stroke="#A67CFF" stroke-width="6" filter="url(#glow)"/>
+  <rect x="940" y="60" width="230" height="260" fill="#10132A"/>
+  <g fill="#C9CDEB">
+    <circle cx="975" cy="96" r="2"/><circle cx="1020" cy="140" r="1.5"/><circle cx="1100" cy="92" r="2.5"/>
+    <circle cx="1140" cy="150" r="1.5"/><circle cx="990" cy="250" r="1.5"/><circle cx="1120" cy="230" r="2"/>
+    <circle cx="1080" cy="280" r="1.5"/>
+  </g>
+  <path d="M1128 118 A22 22 0 1 1 1106 96 A17 17 0 1 0 1128 118 Z" fill="#FFD166" opacity=".85"/>
+  <use xlink:href="#fenster" fill="none" stroke="#A67CFF" stroke-width="2"/>
+
+  <!-- Glow-Kopien unter den Silhouetten -->
+  <g fill="none" stroke-width="5" filter="url(#glow)">
+    <use xlink:href="#tisch" stroke="#52E3FF" opacity=".7"/>
+    <use xlink:href="#buecher" stroke="#A67CFF"/>
+    <use xlink:href="#lampfuss" stroke="#A67CFF"/>
+    <use xlink:href="#lampschirm" stroke="#A67CFF"/>
+    <use xlink:href="#kind" stroke="#52E3FF"/>
+  </g>
+
+  <!-- Silhouetten mit Leuchtkontur -->
+  <g fill="#171B36" stroke-width="2" stroke-linejoin="round">
+    <use xlink:href="#tisch" stroke="#52E3FF"/>
+    <use xlink:href="#buecher" stroke="#A67CFF"/>
+    <use xlink:href="#lampfuss" stroke="#A67CFF"/>
+  </g>
+  <!-- Lampenschirm leuchtet -->
+  <ellipse cx="601" cy="470" rx="70" ry="40" fill="#A67CFF" opacity=".5" filter="url(#dunst)"/>
+  <use xlink:href="#lampschirm" fill="url(#schein)" stroke="#A67CFF" stroke-width="2"/>
+
+  <!-- Tablet: Lichtquelle -->
+  <path d="M790 560 L990 548 L1010 600 L770 612 Z" fill="#52E3FF" opacity=".18" filter="url(#dunst)"/>
+  <use xlink:href="#tablet" fill="#52E3FF" opacity=".55" filter="url(#dunst)"/>
+  <use xlink:href="#tablet" fill="#171B36" stroke="#8FEFFF" stroke-width="2"/>
+  <path d="M802 402 L952 392 L960 528 L810 538 Z" fill="url(#schirm)"/>
+  <path d="M810 538 L808 500 C840 470 860 462 884 486 C904 462 930 456 958 488 L960 528 Z" fill="#1A3E66" opacity=".85"/>
+  <circle cx="918" cy="428" r="13" fill="#EEF0FF" opacity=".9"/>
+  <path d="M804 410 L880 405 L812 470 Z" fill="#FFFFFF" opacity=".12"/>
+
+  <!-- Kind von hinten -->
+  <use xlink:href="#kind" fill="#171B36" stroke="#52E3FF" stroke-width="2"/>
+  <path d="M1016 404 C1030 380 1070 380 1090 396 C1076 392 1050 392 1034 404 Z M1100 404 C1112 410 1122 430 1122 450 C1112 432 1104 420 1094 412 Z" fill="#52E3FF" opacity=".35"/>
+  <path d="M988 466 C990 500 1000 520 1016 532 C960 546 920 580 908 640 C918 590 952 556 1002 540 C992 520 986 494 988 466 Z" fill="#52E3FF" opacity=".25"/>
+
+  <!-- Filmkorn -->
+  <rect width="1200" height="800" filter="url(#korn)" opacity=".07"/>
+</svg>

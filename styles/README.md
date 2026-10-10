@@ -3,7 +3,9 @@
 Zehn Stile für Quality-Point-Folien (1920×1080) und zehn frei kombinierbare Schriftsets. Alles liegt lokal –
 zur Laufzeit werden keine Schriften oder Bilder aus dem Netz geladen.
 
-**Auswahl ansehen:** `styles/index.html` im Browser öffnen (Mini-Folien je Stil, Klick = alle acht Musterfolien groß).
+**Auswahl ansehen:** `styles/index.html` im Browser öffnen. Die Seite ist zugleich das Onboarding: Ablauf in vier Schritten, die drei Bilder-Wege mit Kosten und Grenzen, dann alle Stile (Mini-Folien, Klick = alle acht Musterfolien groß). Neu bauen: `python styles/_werkzeuge/vorschau_bauen.py`.
+
+**Ohne Schlüssel oder mit Bildgenerator?** `stil.json` → `bilder.vektor`: `voll` = Vektor gleichwertig (bauhaus, comic, fibel, journal, riso, tafelkreide) · `gut` = Vektor gut, Bildgenerator stimmungsvoller (gouache, nachtprogramm, papiertheater) · `schwach` = Bildgenerator empfohlen (knetwerk). Jede Stilkarte zeigt beide Beispielbilder nebeneinander.
 
 ## Stile
 
@@ -26,9 +28,8 @@ Jeder Ordner `styles/<id>/` enthält:
 |---|---|
 | `stil.css` | Tokens in `:root` + Dekor-Regeln für die Folienklassen (wird nach `engine/src/basis.css` geladen) |
 | `stil.json` | Name, Beschreibung, Stimmung, `passt_zu`, Farben, `schriften` (Rollen + Achsen), `google_fonts` (API-Familien), `bildprompt`, `vektor_hinweise` |
-| `fonts/` | WOFF2 (latin + latin-ext) des Standard-Schriftsets + `fonts.css` mit relativen `url()` |
 | `vorschau.webp` | Bildschirmfoto (Titel, Kapitel, Zitat, Kennzahl) |
-| `beispiel/` | zwei Beispielbilder: KI-generiert (WebP, 6 ältere Stile, vom Autor) bzw. selbst gezeichnete SVG (4 neue Stile) |
+| `beispiel/` | Beispielbilder: `titel`/`motiv` (KI-generiertes WebP oder SVG) und bei KI-Stilen zusätzlich `vektor.svg` – das, was Claude ohne Bildgenerator selbst zeichnet |
 
 ## Token-Vertrag
 
@@ -73,7 +74,7 @@ Die OFL erlaubt Weitergabe und Einbetten, auch kommerziell; die Schriften dürfe
 und abgeleitete Schriften dürfen die reservierten Namen nicht tragen. Lizenztexte: <https://openfontlicense.org>.
 
 Neu laden: `python styles/_werkzeuge/schriften_holen.py [set …]` (Google-Fonts-CSS-API mit Chrome-Kennung,
-nur `latin` + `latin-ext`; kopiert das Standard-Set auch nach `styles/<stil>/fonts/`).
+nur `latin` + `latin-ext`, Ablage in `styles/_schriftsets/fonts/`).
 
 ## Bilder
 

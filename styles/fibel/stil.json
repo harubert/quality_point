@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Nur Grundformen mit dicker Kontur und hartem Schatten – als Vektor sogar konsequenter als das KI-Bild."
   }
 }

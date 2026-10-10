@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Knetfiguren-Szene: gesichtslose Knetfigur am Tisch mit Tablet, Büchern, Stiften und Bauklötzen</title>
+  <defs>
+    <!-- Knetkörper: Glanzpunkt oben links, Innenschatten unten rechts -->
+    <radialGradient id="or" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#FFB489"/><stop offset=".55" stop-color="#F2793D"/><stop offset="1" stop-color="#C4561F"/>
+    </radialGradient>
+    <radialGradient id="gr" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#6CC7A2"/><stop offset=".55" stop-color="#23805F"/><stop offset="1" stop-color="#145238"/>
+    </radialGradient>
+    <radialGradient id="ge" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#FFE8A8"/><stop offset=".55" stop-color="#F5C54A"/><stop offset="1" stop-color="#C99A22"/>
+    </radialGradient>
+    <radialGradient id="na" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#4E6B8C"/><stop offset=".55" stop-color="#1F3347"/><stop offset="1" stop-color="#111D29"/>
+    </radialGradient>
+    <radialGradient id="mi" cx=".35" cy=".3" r=".9" fx=".28" fy=".2">
+      <stop offset="0" stop-color="#E2F5EA"/><stop offset=".6" stop-color="#A9DCC3"/><stop offset="1" stop-color="#78B99A"/>
+    </radialGradient>
+    <radialGradient id="cr" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F6EEDF"/><stop offset="1" stop-color="#D8CBB3"/>
+    </radialGradient>
+    <radialGradient id="ha" cx=".35" cy=".3" r=".85" fx=".28" fy=".22">
+      <stop offset="0" stop-color="#FFE3CC"/><stop offset=".55" stop-color="#F2B98F"/><stop offset="1" stop-color="#C98A60"/>
+    </radialGradient>
+    <radialGradient id="raum" cx=".7" cy=".35" r=".8">
+      <stop offset="0" stop-color="#F2F9FC"/><stop offset=".6" stop-color="#E4F1F7"/><stop offset="1" stop-color="#C9E1EC"/>
+    </radialGradient>
+    <filter id="weich" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+    <!-- feine Fingerabdruck-Struktur -->
+    <filter id="knete" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5"/>
+      <feColorMatrix values="0 0 0 0 .12  0 0 0 0 .2  0 0 0 0 .28  0 0 0 -2.2 1.2"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#raum)"/>
+
+  <!-- Wandbrett mit Regenbogen und Topfpflanze -->
+  <ellipse cx="720" cy="290" rx="150" ry="12" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <g transform="translate(-120 0)">
+  <g fill="none" stroke-linecap="round" stroke-width="22">
+    <path d="M738 250 A64 64 0 0 1 866 250" stroke="url(#or)"/>
+    <path d="M760 250 A42 42 0 0 1 844 250" stroke="url(#ge)"/>
+    <path d="M782 250 A20 20 0 0 1 824 250" stroke="url(#gr)"/>
+  </g>
+  <path d="M936 180 C930 150 944 130 960 120 C968 146 962 166 948 182 Z" fill="url(#gr)"/>
+  <path d="M948 184 C962 150 990 140 1008 146 C1000 170 980 184 956 190 Z" fill="url(#gr)"/>
+  <path d="M942 186 C920 166 900 166 886 172 C898 190 920 196 942 194 Z" fill="url(#gr)"/>
+  <rect x="902" y="186" width="92" height="76" rx="30" fill="url(#or)"/>
+  <rect x="680" y="262" width="330" height="34" rx="17" fill="url(#mi)"/>
+  </g>
+
+  <!-- Knetfigur hinter dem Tisch -->
+  <ellipse cx="1030" cy="514" rx="150" ry="18" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <rect x="916" y="380" width="230" height="200" rx="90" fill="url(#gr)"/>
+  <rect x="990" y="362" width="80" height="40" rx="20" fill="url(#ha)"/>
+  <ellipse cx="1030" cy="302" rx="74" ry="78" fill="url(#ha)"/>
+  <path d="M956 300 C952 236 994 212 1034 214 C1080 216 1110 248 1106 300 C1090 268 1060 252 1030 254 C996 256 972 272 956 300 Z" fill="url(#or)"/>
+  <circle cx="996" cy="232" r="24" fill="url(#or)"/>
+  <circle cx="1040" cy="222" r="26" fill="url(#or)"/>
+  <circle cx="1082" cy="240" r="24" fill="url(#or)"/>
+
+  <!-- Tisch -->
+  <rect x="470" y="600" width="56" height="230" rx="26" fill="url(#mi)"/>
+  <rect x="1130" y="600" width="56" height="230" rx="26" fill="url(#mi)"/>
+  <rect x="420" y="574" width="820" height="72" rx="34" fill="#86C2A6"/>
+  <rect x="420" y="486" width="820" height="120" rx="44" fill="url(#mi)"/>
+
+  <!-- Bücherstapel -->
+  <ellipse cx="540" cy="582" rx="100" ry="14" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <rect x="454" y="528" width="176" height="48" rx="20" fill="url(#or)"/>
+  <rect x="470" y="534" width="150" height="12" rx="6" fill="#FFF3E6" opacity=".7"/>
+  <rect x="466" y="484" width="160" height="46" rx="20" fill="url(#gr)"/>
+  <rect x="448" y="440" width="170" height="46" rx="20" fill="url(#ge)"/>
+  <circle cx="492" cy="463" r="12" fill="url(#or)"/>
+
+  <!-- Tablet mit Ständer -->
+  <ellipse cx="690" cy="566" rx="120" ry="14" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <rect x="664" y="500" width="56" height="64" rx="20" fill="url(#na)"/>
+  <rect x="572" y="330" width="240" height="196" rx="48" fill="url(#na)"/>
+  <rect x="594" y="350" width="196" height="156" rx="30" fill="url(#cr)"/>
+  <circle cx="742" cy="394" r="22" fill="url(#ge)"/>
+  <path d="M600 486 C626 430 668 420 700 450 C722 430 756 432 784 470 L784 476 C784 492 772 506 758 506 L626 506 C610 506 600 498 600 486 Z" fill="url(#gr)"/>
+
+  <!-- Stifte -->
+  <ellipse cx="760" cy="606" rx="110" ry="10" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <rect x="670" y="570" width="160" height="28" rx="14" fill="url(#or)" transform="rotate(-6 750 584)"/>
+  <path d="M826 568 C846 572 862 578 870 582 C860 588 846 592 830 596 Z" fill="url(#ha)" transform="rotate(-6 750 584)"/>
+  <rect x="700" y="540" width="140" height="26" rx="13" fill="url(#ge)" transform="rotate(4 770 553)"/>
+  <path d="M836 540 C854 544 868 550 876 554 C866 560 852 564 838 566 Z" fill="url(#ha)" transform="rotate(4 770 553)"/>
+
+  <!-- Bauklötze -->
+  <ellipse cx="1010" cy="602" rx="150" ry="14" fill="#1F3347" opacity=".15" filter="url(#weich)"/>
+  <rect x="890" y="534" width="70" height="66" rx="22" fill="url(#ge)"/>
+  <circle cx="1004" cy="568" r="34" fill="url(#or)"/>
+  <path d="M1060 600 C1048 600 1042 590 1048 578 L1076 532 C1082 522 1096 522 1102 532 L1130 578 C1136 590 1130 600 1118 600 Z" fill="url(#gr)"/>
+  <rect x="1140" y="548" width="70" height="52" rx="22" fill="url(#na)"/>
+
+  <!-- Stuhllehne im Vordergrund -->
+  <rect x="610" y="700" width="340" height="140" rx="56" fill="url(#or)"/>
+  <rect x="640" y="716" width="200" height="16" rx="8" fill="#FFD7BF" opacity=".55"/>
+
+  <!-- Knet-Struktur über allem -->
+  <rect width="1200" height="800" filter="url(#knete)" opacity=".1"/>
+</svg>

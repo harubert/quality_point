@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Leuchtkanten und Lichtkegel wirken als Vektor stark; Fotostimmung und Unschärfe bringt nur der Bildgenerator."
   }
 }

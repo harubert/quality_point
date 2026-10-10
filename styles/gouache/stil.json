@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Pinselränder per SVG-Filter tragen die Bilderbuch-Stimmung; Tiefe und Malerei kann nur der Bildgenerator."
   }
 }

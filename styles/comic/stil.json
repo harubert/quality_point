@@ -57,5 +57,9 @@
     "fonts": "fonts/fonts.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Konturen, Halbtonraster und Speedlines entstehen als SVG sauber und scharf."
   }
 }
