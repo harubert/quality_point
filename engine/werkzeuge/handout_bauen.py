@@ -22,7 +22,7 @@ handout.json:
                 "kaesten": [{"art": "beispiel|merke|praxis", "titel", "html"}],
                 "bilder": [{"datei": "img/…", "unterschrift", "quelle"}],
                 "fragen": ["…"],                                 „Fragestellungen für die eigene Kompetenzentwicklung“
-                "neue_seite": true }],
+                "neue_seite": true|false }],                       ohne Angabe: neue Seite nur bei neuem Teil (kick vor „·“)
   "literatur": true                                             false = ohne Literaturliste
 }
 Regeln wie bei den Folien: nichts erfinden, Zahlen mit Bezugsgruppe, englische Zitate mit Übersetzung,
@@ -126,7 +126,11 @@ def seiten(prj, ziel, H):
     P.append('<section class="seite"><div class="kick">Auf einen Blick</div><h2>Die Kernaussagen</h2>'
              '<div class="these">%s</div><ol class="kerne">%s</ol><h3>Inhalt</h3><ol class="inhalt">%s</ol>%s</section>'
              % (H.get("these", ""), liste(H.get("kernaussagen", [])), inhalt, qr))
+    vorher = None
     for k in H["kapitel"]:
+        teil = re.split(r"\s*·\s*", k.get("kick", ""))[0]
+        neu = k.get("neue_seite", teil != vorher)   # ohne Angabe: neue Seite nur, wenn ein neuer Teil beginnt
+        vorher = teil
         b = [x for x in k.get("bilder", []) if x.get("datei")]
         figs = ""
         for x in b:
@@ -137,14 +141,14 @@ def seiten(prj, ziel, H):
         fr = ('<div class="fragen"><div class="fk">%s</div><ol>%s</ol></div>' % (FRAGEN, liste(k["fragen"]))) if k.get("fragen") else ""
         kern = '<div class="kern"><span>Kernaussage</span>%s</div>' % k["kern"] if k.get("kern") else ""
         bilder = '<div class="bilder n%d">%s</div>' % (min(len(b), 3), figs) if b else ""
-        P.append('<section class="seite%s"><div class="kick">%s</div><h2>%s</h2>%s<div class="text">%s</div>%s%s%s</section>'
-                 % ("" if k.get("neue_seite", True) else " weiter", e(k.get("kick", "")), k["titel"], kern,
-                    liste(k.get("absaetze", []), "p"), bilder, kae, fr))
+        P.append('<section class="seite%s"><div class="kopf"><div class="kick">%s</div><h2>%s</h2>%s</div>%s<div class="text">%s</div>%s%s</section>'
+                 % ("" if neu else " weiter", e(k.get("kick", "")), k["titel"], kern, bilder,
+                    liste(k.get("absaetze", []), "p"), kae, fr))
     if H.get("literatur", True):
         L = literatur(prj)
         if L:
             P.append('<section class="seite"><div class="kick">Anhang</div><h2>Literatur und Quellen</h2>'
-                     '<p class="lhin">Alle %d Quellen der Präsentation, alphabetisch.</p><ol class="lit">%s</ol></section>' % (len(L), "".join(L)))
+                     '<p class="lhin">Alle %d Quellen der Präsentation, alphabetisch.</p><ul class="lit">%s</ul></section>' % (len(L), "".join(L)))
     return P
 
 
@@ -156,9 +160,9 @@ CSS = r"""
 :root{--fuss:""}
 *{box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{margin:0;background:#fff;color:var(--ink,#1E1E1E);font:10.5pt/1.5 var(--ui,"Segoe UI",system-ui,sans-serif)}
+body{margin:0;background:#fff;color:var(--ink,#1E1E1E);font:10pt/1.45 var(--ui,"Segoe UI",system-ui,sans-serif)}
 h1,h2,h3{font-family:var(--serif,Georgia,serif);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
-h1{font-size:34pt} h2{font-size:22pt;margin:2mm 0 4mm} h3{font-size:14pt;margin:7mm 0 2mm}
+h1{font-size:34pt} h2{font-size:21pt;margin:1.5mm 0 3.5mm} h3{font-size:14pt;margin:7mm 0 2mm}
 em{font-family:var(--accent,inherit);color:var(--red,#B23A2A)}
 a{color:var(--teal,#1F5F5B);text-decoration:none;word-break:break-all}
 b{font-weight:700}
@@ -168,23 +172,24 @@ b{font-weight:700}
 .tsub{font:italic 15pt/1.35 var(--lesen,Georgia,serif);margin:0;color:var(--ink2,#444)}
 .twer{margin:2mm 0 0;font-size:11pt}
 .titel .qr{margin-top:auto}
-.seite{break-before:page} .seite.weiter{break-before:auto;margin-top:8mm}
+.seite{break-before:page} .seite.weiter{break-before:auto;margin-top:9mm;padding-top:6mm;border-top:.4mm solid var(--line,#CFC6B4)}
 .these{background:var(--red,#B23A2A);color:#fff;font:400 17pt/1.3 var(--serif);padding:6mm 7mm;border-radius:2.5mm;margin:2mm 0 5mm}
 .these b,.these em{color:#fff}
 .kerne{margin:0;padding-left:6mm;font-size:11.5pt} .kerne li{margin:0 0 2.2mm;padding-left:1mm}
 .kerne li::marker{font:700 11pt var(--ui);color:var(--red,#B23A2A)}
 .inhalt{list-style:none;padding:0;margin:0;columns:2;column-gap:8mm;font-size:10.5pt}
-.inhalt li{break-inside:avoid;margin:0 0 1.5mm} .inhalt span{display:inline-block;min-width:16mm;font-weight:700;color:var(--teal,#1F5F5B)}
+.inhalt li{break-inside:avoid;margin:0 0 2.2mm;line-height:1.3} .inhalt span{display:block;font:700 7.5pt var(--ui);letter-spacing:.1em;text-transform:uppercase;color:var(--teal,#1F5F5B)}
 .qr{display:flex;gap:5mm;align-items:center;border:.4mm solid var(--line,#CFC6B4);border-radius:2.5mm;padding:4mm 5mm;margin-top:6mm;break-inside:avoid;font-size:10pt}
 .qrbild{width:28mm;height:28mm;flex:none} .qrbild svg{width:100%;height:100%}
 .url{font:600 11pt var(--ui);color:var(--teal,#1F5F5B)}
 .kern{background:var(--teal,#1F5F5B);color:#fff;font:400 13pt/1.35 var(--serif);padding:4mm 5mm;border-radius:2mm;margin:0 0 5mm;break-inside:avoid}
 .kern span{display:block;font:700 7.5pt var(--ui);letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:1mm}
 .kern b,.kern em{color:#fff}
-.text p{margin:0 0 3mm;text-align:left;hyphens:auto}
-.bilder{display:grid;gap:4mm;margin:2mm 0 4mm;break-inside:avoid} .bilder.n2{grid-template-columns:1fr 1fr} .bilder.n3{grid-template-columns:1fr 1fr 1fr}
-.bilder figure{margin:0;break-inside:avoid} .bilder img{width:100%;max-height:78mm;object-fit:contain;background:#F4F1EA;border-radius:1.5mm;display:block}
-.bilder.n1 img{max-height:95mm}
+.text p{margin:0 0 2.6mm;text-align:left;hyphens:auto;orphans:3;widows:3}
+.bilder{display:grid;gap:4mm;margin:0 0 4.5mm;break-inside:avoid} .bilder.n2{grid-template-columns:1fr 1fr} .bilder.n3{grid-template-columns:1fr 1fr 1fr}
+.bilder figure{margin:0;break-inside:avoid} .bilder img{width:100%;height:52mm;object-fit:contain;background:#F4F1EA;border-radius:1.5mm;display:block}
+.bilder.n1 figure{display:grid;grid-template-columns:1.25fr 1fr;gap:5mm;align-items:end} .bilder.n1 img{height:62mm} .bilder.n3 img{height:44mm}
+.kopf{break-inside:avoid;break-after:avoid}
 figcaption{font-size:8.5pt;line-height:1.35;color:#555;margin-top:1.5mm} .quelle{color:#888}
 .kasten{border-left:1.6mm solid var(--yellow,#D9A441);background:#FAF6EC;padding:3mm 4mm;margin:0 0 4mm;break-inside:avoid;font-size:10pt}
 .kasten.praxis{border-color:var(--teal,#1F5F5B);background:#EEF4F2} .kasten.beispiel{border-color:var(--red,#B23A2A);background:#FBEFEC}
@@ -194,8 +199,8 @@ figcaption{font-size:8.5pt;line-height:1.35;color:#555;margin-top:1.5mm} .quelle
 .fk{font:700 8pt var(--ui);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5mm;color:var(--red,#B23A2A)}
 .fragen ol{margin:0;padding-left:5mm} .fragen li{margin:0 0 1.2mm}
 .lhin{margin:0 0 3mm;color:#555}
-.lit{columns:2;column-gap:7mm;font-size:7.6pt;line-height:1.35;padding-left:5mm;margin:0}
-.lit li{break-inside:avoid;margin:0 0 1.3mm}
+.lit{columns:2;column-gap:7mm;font-size:7.4pt;line-height:1.33;list-style:none;padding:0;margin:0}
+.lit li{break-inside:avoid;margin:0 0 1.2mm;padding-left:4mm;text-indent:-4mm}
 """
 
 
