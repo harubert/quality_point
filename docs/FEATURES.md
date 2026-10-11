@@ -79,6 +79,7 @@ Alle laufen im Browser ohne Server und ohne Konto. Sie eignen sich für Präsenz
 | Fachartikel (`artikel.html`) | aus claude-research übernommen, mit klickbaren Zitaten |
 | Word-Materialien (`formulare/`) | Arbeitsblätter mit Feinzielen, didaktischer Analyse nach Klafki, Ablauf und Lösungen mit Begründung |
 | Unterrichtsfolien | je Material eine Folie „Im Unterricht: …“ mit Illustration, Ablauf und Download |
+| Handout (`handout/*.pdf`) | A4-PDF im Design der Präsentation: Titelseite mit QR-Code, Kernaussagen, Kapitel mit Kernaussage, Beispielen, Bildern und „Fragestellungen für die eigene Kompetenzentwicklung“, gesamte Literaturliste (`handout_bauen.py`, Druck über Edge/Chrome) |
 | Bilder-Herkunftsübersicht | alle Bilder mit Herkunft, Lizenz bzw. Zitatrecht, generiert oder „Herkunft unbekannt“ |
 
 ## Werkzeuge für Autor*innen
