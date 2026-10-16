@@ -7,9 +7,9 @@ def load():
     alle = '\n\n'.join(open(p, encoding='utf-8').read() for p in sorted(glob.glob('src/glossar*.txt')))
     for block in re.split(r'\n\s*\n', alle):
         lines = [l for l in block.strip().split('\n') if l.strip() and not l.startswith('#')]
-        if not lines or '|' not in lines[0]: continue
+        if not lines or lines[0].startswith(('E:', 'Q:')): continue      # Begriff ohne „|“ ist erlaubt (verlinkt sich dann selbst)
         parts = [p.strip() for p in lines[0].split('|')]
-        e = dict(id='g%d' % len(G), term=parts[0], forms=[p for p in parts[1:] if p], e='', q='')
+        e = dict(id='g%d' % len(G), term=parts[0], forms=[p for p in parts[1:] if p] or [parts[0]], e='', q='')
         for l in lines[1:]:
             if l.startswith('E:'): e['e'] = l[2:].strip()
             if l.startswith('Q:'): e['q'] = l[2:].strip()

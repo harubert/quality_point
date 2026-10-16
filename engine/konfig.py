@@ -22,6 +22,7 @@ STANDARD = {
     'einheiten': [],                 # Kacheln der Startseite: {kurz, folie (data-title), name, text, bild}
     'ziel': '../deployment',         # Veröffentlichungsordner (relativ zum Projekt)
     'sperrliste_zusatz': [],         # weitere Regex-Muster, die im Paket nicht vorkommen dürfen
+    'notizschutz': {},               # {"bis": "JJJJ-MM-TT"} + PIN in Umgebungsvariable QP_NOTIZ_PIN: Notizen im Paket nur mit PIN (werkzeuge/notizschutz.py)
     'seiten_zusatz': [],             # weitere Dateien/Ordner fürs Paket (z. B. "img/hero.webp")
     'institutionen': {},             # Autorkürzel in Quellen -> {"anzeige": "UNESCO", "lang": "United Nations …"}
     'bis_leerzeichen': False,        # „12–17“ -> „12 – 17“ in Folien, Seiten und Word-Dateien

@@ -45,7 +45,7 @@ Wer eine bestehende Präsentation mitbringt, entscheidet, wie frei Claude damit 
 
 - [Claude Code](https://claude.com/claude-code) (CLI oder Erweiterung für VS Code)
 - Python 3.10 oder neuer
-- Python-Pakete: `pip install python-docx Pillow python-pptx` – optional `PyMuPDF` (PDF-Vorlagen)
+- Python-Pakete: `pip install python-docx Pillow python-pptx` – optional `PyMuPDF` (PDF-Vorlagen), `cryptography` (Notizschutz)
 - Microsoft Edge oder Google Chrome (für Layoutprüfung und Screenshots, headless)
 - optional: ein API-Schlüssel für generierte Bilder (OpenAI, Google Gemini/Imagen, fal.ai, Stability, Replicate) – **nur als Umgebungsvariable**
 
@@ -156,7 +156,7 @@ If you bring an existing deck, you decide how freely Claude may treat it:
 
 - [Claude Code](https://claude.com/claude-code) (CLI or VS Code extension)
 - Python 3.10 or newer
-- Python packages: `pip install python-docx Pillow python-pptx` – optionally `PyMuPDF` (PDF sources)
+- Python packages: `pip install python-docx Pillow python-pptx` – optionally `PyMuPDF` (PDF sources), `cryptography` (speaker-note protection)
 - Microsoft Edge or Google Chrome (headless, for layout checks and screenshots)
 - optional: an API key for generated images (OpenAI, Google Gemini/Imagen, fal.ai, Stability, Replicate) – **environment variable only**
 

@@ -13,6 +13,9 @@ Schema einer Materialdatei (Beispiel: engine/material/beispiel.json):
   feinziele[ „Die Schüler*innen können …“ ], klafki{gegenwart, zukunft, exemplarisch, struktur, zugaenglichkeit},
   ablauf[], aufgaben[{nr, text, items[], zeilen}], aufloesung[{nr, item, loesung, begruendung}],
   differenzierung (Text oder Liste), quellen[] (fertige APA-Angaben).
+  Optional: bilder[{datei, breite_cm, unterschrift}] + bilder_spalten (unter dem Titel); je Aufgabe ebenso
+  bilder/bilder_spalten (Raster ab 2 Spalten), neue_seite (true oder Zwischenüberschrift: Seitenumbruch davor),
+  ohne_kaestchen (true: Aufzählung ohne ☐, z. B. für Lückentexte). Bilder brauchen Pillow.
 
 Jedes Material besteht aus dem Arbeitsblatt und einer Seite „Für die Lehrperson“.
 Prüfung: Feinziel-Form, Klafki-Pflichtfelder, vollständige Auflösung (jede Aufgabe, jede Zeile mit allen Feldern),
@@ -114,9 +117,47 @@ def baue(m, ziel, K, tx):
         return p
 
     def linie(p):
-        pPr = p._p.get_or_add_pPr(); b = OxmlElement('w:pBdr'); e = OxmlElement('w:bottom')
-        for k, v in (('w:val', 'single'), ('w:sz', '6'), ('w:space', '1'), ('w:color', '9A9A9A')): e.set(qn(k), v)
-        b.append(e); pPr.append(b)
+        # Unterkante und „between“: Word verschmilzt aufeinanderfolgende gleiche Rahmen sonst zu einem – Schreiblinien verschwänden
+        pPr = p._p.get_or_add_pPr(); b = OxmlElement('w:pBdr')
+        for seite in ('w:bottom', 'w:between'):
+            e = OxmlElement(seite)
+            for k, v in (('w:val', 'single'), ('w:sz', '6'), ('w:space', '1'), ('w:color', '9A9A9A')): e.set(qn(k), v)
+            b.append(e)
+        pPr.append(b)
+
+    def bildstrom(pfad):
+        # python-docx kann kein WebP: jedes Bild als JPEG (max. 1600 px, Transparenz auf Weiß) einbetten
+        from io import BytesIO
+        from PIL import Image
+        im = Image.open(pfad)
+        if im.mode in ('RGBA', 'LA', 'P'):
+            im = im.convert('RGBA'); weiss = Image.new('RGB', im.size, 'white'); weiss.paste(im, mask=im.split()[-1]); im = weiss
+        im = im.convert('RGB'); im.thumbnail((1600, 1600))
+        puffer = BytesIO(); im.save(puffer, 'JPEG', quality=88); puffer.seek(0)
+        return puffer
+
+    def bilder(liste, spalten=1):
+        # liste: [{"datei": "img/…", "breite_cm": 12, "unterschrift": "…"}] – Pfade relativ zum Projekt; spalten > 1 = Raster
+        da = []
+        for b in liste or []:
+            pfad = konfig.p(K, b['datei'])
+            if os.path.exists(pfad): da.append((b, pfad))
+            else: print('WARNUNG: Bild fehlt', b['datei'])
+        if not da: return
+        spalten = max(1, int(spalten))
+        if spalten == 1:
+            for b, pfad in da:
+                d.add_picture(bildstrom(pfad), width=Cm(float(b.get('breite_cm', 12))))
+                d.paragraphs[-1].paragraph_format.space_after = Pt(2)
+                if b.get('unterschrift'): absatz(b['unterschrift'], size=8, italic=True, after=8)
+            return
+        raster = d.add_table(rows=(len(da) + spalten - 1) // spalten, cols=spalten)
+        for i, (b, pfad) in enumerate(da):
+            zelle = raster.rows[i // spalten].cells[i % spalten]
+            zelle.paragraphs[0].add_run().add_picture(bildstrom(pfad), width=Cm(float(b.get('breite_cm', 16.5 / spalten - 0.5))))
+            if b.get('unterschrift'):
+                r = zelle.add_paragraph().add_run(bis(b['unterschrift'])); r.italic = True; r.font.size = Pt(8)
+        d.add_paragraph().paragraph_format.space_after = Pt(2)
 
     def tabelle(zeilen, kopf=None, breiten=None):
         t = d.add_table(rows=0, cols=len(zeilen[0] if zeilen else kopf)); t.style = 'Table Grid'
@@ -141,11 +182,17 @@ def baue(m, ziel, K, tx):
     absatz(m['titel'], size=20, bold=True, color=FARBE, after=2)
     if m.get('kurz'): absatz(m['kurz'], size=11, italic=True, after=8)
     linie(absatz(f'{tx["name"]}: ______________________________    {tx["datum"]}: ______________', size=11, after=10))
+    bilder(m.get('bilder'), m.get('bilder_spalten', 1))
     for a in m['aufgaben']:
+        if a.get('neue_seite'):          # z. B. damit die Auflösung nicht schon beim Bearbeiten von Teil 1 sichtbar ist
+            d.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+            if isinstance(a['neue_seite'], str): absatz(a['neue_seite'], size=11, bold=True, color=FARBE, after=6)
         ueberschrift(f'{tx["aufgabe"]} {a["nr"]}', 13)
         absatz(a['text'], size=13)
+        bilder(a.get('bilder'), a.get('bilder_spalten', 1))
+        marke = '' if a.get('ohne_kaestchen') else '☐  '
         for it in a.get('items') or []:
-            absatz('☐  ' + it, size=13, after=2)
+            absatz(marke + it, size=13, after=2)
         for _ in range(int(a.get('zeilen', 0))):
             linie(absatz(' ', size=16, after=0))
 

@@ -405,6 +405,7 @@ body.notes-open #notes{flex-basis:34%}
 #notes .nh .fx{font:500 13px/1 var(--ui);color:var(--ink3)}
 #notes .nb{padding:22px 28px 60px;overflow:auto;flex:1;font:400 var(--nfs,19px)/1.6 var(--ui);color:var(--ink)}
 #notes .nb p{font-size:inherit;line-height:inherit;margin-bottom:.8em}
+#notes .nb :is(p,li,td,th){color:inherit}   /* Notizfarbe gilt auch, wenn ein Stil p/li global einfärbt */
 #notes .nb li{font-size:inherit;line-height:inherit;margin:0 0 .45em 1.2em}
 #notes .nb ul,#notes .nb ol{margin-bottom:.8em}
 #notes .nb b{color:var(--teal-d)}

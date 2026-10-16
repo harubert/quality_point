@@ -77,7 +77,7 @@ Alle laufen im Browser ohne Server und ohne Konto. Sie eignen sich für Präsenz
 | Quellen (`quellen.html`) | Quellenverzeichnis (APA 7), aus dem Fachartikel und den Zusatzquellen |
 | Lehrplan (`lehrplan.html`) | Bezug zu Lehrplan-Stellen, sofern Lehrplan-Daten vorliegen |
 | Fachartikel (`artikel.html`) | aus claude-research übernommen, mit klickbaren Zitaten |
-| Word-Materialien (`formulare/`) | Arbeitsblätter mit Feinzielen, didaktischer Analyse nach Klafki, Ablauf und Lösungen mit Begründung |
+| Word-Materialien (`formulare/`) | Arbeitsblätter mit Feinzielen, didaktischer Analyse nach Klafki, Ablauf und Lösungen mit Begründung; optional Bilder bzw. Bildraster, Seitenumbruch vor einer Aufgabe (Auflösung erst nach dem Umblättern), Aufzählungen ohne Ankreuzkästchen |
 | Unterrichtsfolien | je Material eine Folie „Im Unterricht: …“ mit Illustration, Ablauf und Download |
 | Handout (`handout/*.pdf`) | A4-PDF im Design der Präsentation: Titelseite mit QR-Code, Kernaussagen, Kapitel mit Kernaussage, Beispielen, Bildern und „Fragestellungen für die eigene Kompetenzentwicklung“, gesamte Literaturliste (`handout_bauen.py`, Druck über Edge/Chrome) |
 | Bilder-Herkunftsübersicht | alle Bilder mit Herkunft, Lizenz bzw. Zitatrecht, generiert oder „Herkunft unbekannt“ |
@@ -105,4 +105,5 @@ Alle Skripte liegen im Quality-Point-Ordner unter `engine/` und werden mit dem P
 
 - Keine externen Schriften, keine CDNs, keine Tracker: die Präsentation lädt zur Laufzeit nichts von fremden Servern (außer Links, die man selbst anklickt).
 - Läuft direkt vom Dateisystem (Doppelklick) oder von jedem Webspace.
+- **Notizschutz (optional):** Im veröffentlichten Paket sind Sprechernotizen und Pointen verschlüsselt (AES-GCM); N, P, S und V fragen zuerst eine PIN ab, danach bleibt der Browser-Tab freigeschaltet. Einschalten mit `"notizschutz": {"bis": "JJJJ-MM-TT"}` in `quality_point.json`, PIN in der Umgebungsvariable `QP_NOTIZ_PIN`. Eine kurze PIN hält Neugierige ab, keinen gezielten Angriff; nach dem Stichtag einmal neu veröffentlichen.
 - Optimiert für 16 : 9 (Bühne 1920 × 1080), skaliert auf jede Bildschirmgröße.

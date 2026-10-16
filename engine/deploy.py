@@ -10,9 +10,6 @@ ENG, PRJ = K['_engine'], K['_projekt']
 os.chdir(PRJ)
 ZIEL = K['_ziel']
 SEITEN = konfig.seiten(K)                                       # Positivliste der Seiten
-IMMER = ['fonts/' + f for f in os.listdir('fonts')] if os.path.isdir('fonts') else []
-for z in K['seiten_zusatz']:                                    # weitere Dateien/Ordner aus quality_point.json
-    IMMER += [os.path.relpath(f, PRJ).replace('\\', '/') for f in glob.glob(z, recursive=True) if os.path.isfile(f)] or [z]
 MAUS = K['materialien'].get('ausgabe', 'formulare')
 
 # Sperrliste: Schlüssel, Zugangsdaten, absolute Pfade, private Mail-Domains, fremde Server (nur lokale Schriften/Skripte)
@@ -24,7 +21,30 @@ SPERRE = [r'(?<![A-Za-z])sk-[A-Za-z0-9_-]{20,}', r'sk-proj', r'sk-ant-', r'\bAPI
           r'fonts\.googleapis', r'fonts\.gstatic', r'cdn\.jsdelivr', r'unpkg\.com', r'cdnjs\.', r'ajax\.googleapis'] + list(K['sperrliste_zusatz'])
 
 
+def immer():
+    """Schriften und Zusatzdateien – erst nach dem Bau ermitteln (der Bau legt fonts/ beim ersten Mal überhaupt erst an)."""
+    liste = ['fonts/' + f for f in os.listdir('fonts')] if os.path.isdir('fonts') else []
+    for z in K['seiten_zusatz']:                                # weitere Dateien/Ordner aus quality_point.json
+        liste += [os.path.relpath(f, PRJ).replace('\\', '/') for f in glob.glob(z, recursive=True) if os.path.isfile(f)] or [z]
+    return liste
+
+
+def herkunft(pfad):
+    """Quelldatei zu einem Verweis: im Projekt, sonst (Abbildungen figures/…) im claude-research-Ordner des Artikels."""
+    if os.path.exists(pfad): return pfad
+    if pfad.startswith('figures/') and K['_artikel']:
+        alt = os.path.join(K['_artikel'], pfad)
+        if os.path.exists(alt): return alt
+    return ''
+
+
 def main():
+    ns = K.get('notizschutz') or {}             # vor allem anderen prüfen: nie ein ungeschütztes Paket in den Zielordner legen
+    if ns and not (os.environ.get('QP_NOTIZ_PIN') or ns.get('pin')):
+        sys.exit('Notizschutz eingeschaltet, aber keine PIN (Umgebungsvariable QP_NOTIZ_PIN) – Abbruch, Zielordner unverändert')
+    if ns:
+        try: import cryptography  # noqa: F401
+        except ImportError: sys.exit('Notizschutz braucht das Paket „cryptography“ (pip install cryptography) – Abbruch, Zielordner unverändert')
     if '--ohne-bau' not in sys.argv:
         py = sys.executable
         if K['materialien'].get('an'):
@@ -40,15 +60,21 @@ def main():
         for d in ds:
             try: os.rmdir(os.path.join(dp, d))
             except OSError: pass
-    dateien = set(IMMER)
+    dateien = set(immer())
     for s in SEITEN:
         if not os.path.exists(s): print('FEHLT (Seite):', s); continue
         shutil.copy2(s, os.path.join(ZIEL, s))
         txt = open(s, encoding='utf-8').read()
-        dateien |= set(re.findall(r'(?:src|href|data-img)="((?:img|' + re.escape(MAUS) + r'|media|fonts)/[^"#?]+)"', txt))
+        dateien |= set(re.findall(r'(?:src|href|data-img|data-a|data-b)="((?:img|' + re.escape(MAUS) + r'|media|fonts|figures)/[^"#?]+)"', txt))
     for a in sorted(dateien):
-        if not os.path.exists(a): print('FEHLT:', a); continue
-        os.makedirs(os.path.dirname(os.path.join(ZIEL, a)) or ZIEL, exist_ok=True); shutil.copy2(a, os.path.join(ZIEL, a))
+        q = herkunft(a)
+        if not q: print('FEHLT:', a); continue
+        os.makedirs(os.path.dirname(os.path.join(ZIEL, a)) or ZIEL, exist_ok=True); shutil.copy2(q, os.path.join(ZIEL, a))
+    ns = K.get('notizschutz') or {}
+    if ns:                                                       # Sprechernotizen im Paket nur mit PIN
+        sys.path.insert(0, os.path.join(ENG, 'werkzeuge')); import notizschutz
+        if notizschutz.aktiv(ns): notizschutz.schuetzen(os.path.join(ZIEL, K['ausgabe']), notizschutz.pin_aus(ns))
+        else: print(f'Notizschutz: Stichtag {ns.get("bis")} erreicht – Notizen bleiben offen')
 
     treffer = []
     for dp, _, fs in os.walk(ZIEL):
@@ -66,7 +92,7 @@ def main():
         q = os.path.join(ZIEL, f)
         if not os.path.exists(q): continue
         t = re.sub(r'/\*.*?\*/|<!--.*?-->', '', open(q, encoding='utf-8').read(), flags=re.S)   # Beispiele in Kommentaren ignorieren
-        for m in re.finditer(r'(?:href|src|data-img)=["\']([^"\'#?]+?\.(?:html|webp|png|jpe?g|gif|svg|css|js|docx|pdf|mp4|woff2))(?:[#?][^"\']*)?["\']|url\(["\']?([^)"\'#?]+?\.(?:woff2?|webp|png|jpe?g|svg))', t):
+        for m in re.finditer(r'(?:href|src|data-img|data-a|data-b)=["\']([^"\'#?]+?\.(?:html|webp|png|jpe?g|gif|svg|css|js|docx|pdf|mp4|woff2))(?:[#?][^"\']*)?["\']|url\(["\']?([^)"\'#?]+?\.(?:woff2?|webp|png|jpe?g|svg))', t):
             ziel = m.group(1) or m.group(2)
             if re.match(r'[a-z]+:|//|/', ziel) or '${' in ziel or ziel.startswith('video_lokal/'): continue
             if not os.path.exists(os.path.join(ZIEL, ziel)): treffer.append(f'{f}: toter Verweis auf {ziel}')

@@ -50,7 +50,7 @@ Danach **ausdrücklich** fragen: **„Soll zusätzlich ein Fachartikel mit claud
 - **Vektorgrafiken direkt von Claude Code** (SVG, kostenlos, offline).
 - **Nur Bilder aus der Vorlage bzw. frei lizenzierte** (Wikimedia Commons u. Ä., mit Lizenzangabe).
 
-**7. Veröffentlichung** – nur lokal (`deployment/`) · zusätzlich Übergabe an eigene Server-Session/Webspace (Ziel erfragen; du lädst nichts ohne ausdrückliche Freigabe hoch). Wird Zitatrecht genutzt (fremde Screenshots, Werbemotive), **Zugangsschutz empfehlen** (z. B. Passwort per `.htaccess`, LMS-Kurs).
+**7. Veröffentlichung** – nur lokal (`deployment/`) · zusätzlich Übergabe an eigene Server-Session/Webspace (Ziel erfragen; du lädst nichts ohne ausdrückliche Freigabe hoch). Wird Zitatrecht genutzt (fremde Screenshots, Werbemotive), **Zugangsschutz empfehlen** (z. B. Passwort per `.htaccess`, LMS-Kurs). Sollen Studierende die Folien vor einer Prüfung sehen, aber nicht die Sprechernotizen: **Notizschutz** anbieten (`"notizschutz": {"bis": "JJJJ-MM-TT"}`, PIN nur als Umgebungsvariable `QP_NOTIZ_PIN` – nie in eine Datei, nie in den Chat zurückschreiben; ehrlich sagen, dass eine kurze PIN nur Neugierige abhält).
 
 Danach alles in `quality_point.json` des Projekts schreiben (Vorlage: `engine/quality_point.beispiel.json`) und **einmal** zusammenfassen: „So baue ich es – passt das?“
 

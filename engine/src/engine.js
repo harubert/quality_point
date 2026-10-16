@@ -224,6 +224,11 @@
   }
   function toggleNotes(){ document.body.classList.toggle('notes-open'); document.getElementById('bN').classList.toggle('on'); setTimeout(fit,480); }
   function fontNotes(d){ nfs=Math.max(13,Math.min(40,nfs+d)); try{localStorage.setItem('praes-nfs',nfs);}catch(e){} renderNotes(); syncPopup(); }
+  // Notizen nachträglich eingesetzt (z. B. Notizschutz nach PIN): Pointe-Banner ergänzen, Leiste und Fenster neu zeichnen
+  document.addEventListener('qp-notizen',()=>{
+    slides.forEach(s=>{ if(s.dataset.pointe&&!s.querySelector(':scope > .pointe')){ const pb=document.createElement('div'); pb.className='pointe'; pb.innerHTML='<b>Pointe</b><span></span>'; pb.querySelector('span').textContent=s.dataset.pointe; s.appendChild(pb); } });
+    renderNotes(); syncPopup();
+  });
 
   /* ---- Referentenfenster ---- */
   const css=[...document.querySelectorAll('style')].map(s=>s.textContent).join('\n');
@@ -294,6 +299,7 @@
   #ptitle small{display:block;font:500 15px var(--ui);color:var(--yellow);letter-spacing:.06em;margin-top:6px}
   #pnotes{flex:1;overflow:auto;padding:20px 34px 60px;font:400 var(--nfs,19px)/1.62 var(--ui);color:#EDE6D8}
   #pnotes p{font-size:inherit;line-height:inherit;margin-bottom:.8em} #pnotes li{font-size:inherit;line-height:inherit;margin:0 0 .45em 1.2em} #pnotes ul,#pnotes ol{margin-bottom:.8em}
+  #pnotes :is(p,li,td,th,span:not(.lbl)){color:inherit}   /* Stile wie riso/journal färben p,li global dunkel – im dunklen Fenster wäre das unlesbar */
   #pnotes b{color:#9FD6CF}
   #pnotes .lbl{display:inline-block;font:600 .66em/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:#14222A;background:#9FD6CF;padding:.35em .6em;border-radius:6px;margin-right:.4em;vertical-align:.12em}
   #pnotes .lbl.q{background:var(--coral);color:#fff}#pnotes .lbl.v{background:#C9C2B4}#pnotes .lbl.z{background:var(--yellow)}

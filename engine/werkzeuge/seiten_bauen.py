@@ -27,7 +27,7 @@ def main(K):
     for p in sorted(glob.glob('src/glossar*.txt')):
         for block in re.split(r'\n\s*\n', rd(p)):
             lines = [l for l in block.strip().split('\n') if l.strip() and not l.startswith('#')]
-            if not lines or '|' not in lines[0]: continue
+            if not lines or lines[0].startswith(('E:', 'Q:')): continue      # Begriff ohne „|“ ist erlaubt
             d = {'t': lines[0].split('|')[0].strip(), 'e': ''}
             for l in lines[1:]:
                 if l.startswith('E:'): d['e'] = l[2:].strip()

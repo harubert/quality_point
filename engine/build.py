@@ -87,6 +87,7 @@ def inj(m):
     d = pt.get(t)
     if not d: return tag
     used.add(t)
+    if re.search(r'\sdata-(?:zweck|pointe)=', tag): return tag       # Merksatz direkt an der Folie gewinnt gegen pointen*.txt
     return tag[:-1] + f' data-zweck="{_h.escape(d.get("z",""))}" data-pointe="{_h.escape(d.get("p",""))}">'
 slides = re.sub(r'<section class="slide[^>]*data-title="([^"]*)"[^>]*>', inj, slides)
 
