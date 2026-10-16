@@ -1,0 +1,64 @@
+{
+  "id": "blaupause",
+  "name": "Blaupause",
+  "beschreibung": "Technische Zeichnung auf Lichtpauspapier: Preußischblau mit weißen Linien, Feinraster 40 px und Hauptraster 200 px, Maßlinien mit Pfeilspitzen, Schraffuren, eckige Schablonenschrift und Kreidegelb als Markierung – dunkel.",
+  "stimmung": "präzise, konstruktiv, ingenieurhaft",
+  "passt_zu": [
+    "Technik, Making und Werken",
+    "Planung und Unterrichtsentwürfe",
+    "Modelle, Abläufe, Architektur von Systemen",
+    "MINT-Projekte"
+  ],
+  "schriftset": "blaupause",
+  "farben": {
+    "paper": "#123C7F",
+    "paper2": "#0F3470",
+    "card": "#1A4A99",
+    "ink": "#F2F6FB",
+    "ink2": "#D7E3F4",
+    "ink3": "#AFC6E6",
+    "red": "#FFB07C",
+    "teal": "#8FD8FF",
+    "teal-d": "#C8ECFF",
+    "yellow": "#F7DC6F",
+    "coral": "#FF9F80"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Rajdhani",
+      "achsen": "wght 500/600/700 (Titel: 700, Versalien)"
+    },
+    "akzent": {
+      "familie": "Saira",
+      "achsen": "ital 1, wght 500"
+    },
+    "lesen": {
+      "familie": "Saira",
+      "achsen": "ital 1, wght 400..500"
+    },
+    "ui": {
+      "familie": "Saira",
+      "achsen": "wght 400..700"
+    }
+  },
+  "google_fonts": [
+    "Rajdhani:wght@500;600;700",
+    "Saira:ital,wght@0,400..700;1,400..500"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Engineering blueprint drawing, white technical line art on Prussian blue cyanotype paper, fine grid, orthographic views with dimension lines and arrowheads, hatching, construction lines, a few chalk-yellow highlights, precise and schematic like an architect's plan. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Grund #123C7F mit Raster als <pattern>: Linien alle 40 px (stroke 1 px, #F2F6FB, opacity .08) und alle 200 px (opacity .18). Objekte nur als Umrisse, stroke 2–3 px in #F2F6FB, fill none oder Schraffur (<pattern>, 45°, 1.5-px-Linien); Hilfs- und Mittellinien gestrichelt (stroke-dasharray 10 6, opacity .5). Maßlinien mit Pfeilspitzen (marker-end) und Endstrichen als Dekor. Einzelne Flächen oder Kreise in Kreidegelb #F7DC6F (opacity .85) als Markierung. Figuren als Linienzeichnung ohne Gesicht.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/blaupause.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Technische Linienzeichnungen mit Raster, Maßlinien und Schraffur sind das Medium selbst – SVG ist hier authentischer als jedes generierte Bild."
+  }
+}

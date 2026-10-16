@@ -1,0 +1,65 @@
+{
+  "id": "konsole",
+  "name": "Konsole",
+  "beschreibung": "Terminal mit Bernstein-Phosphor: fast schwarzer Grund, warmes Weiß, Bernstein und ein wenig Aquamarin, Monospace für alles, Prompt-Zeichen als Aufzählung, Doppellinien-Rahmen wie Box-Drawing, feine Scanlines – dunkel, ohne Neon.",
+  "stimmung": "technisch, konzentriert, nerdig",
+  "passt_zu": [
+    "Informatik und Coding-Unterricht",
+    "Algorithmen, KI und Datenschutz",
+    "Making, Robotik, Tüfteln",
+    "Abendvorträge für Technikinteressierte"
+  ],
+  "schriftset": "konsole",
+  "farben": {
+    "paper": "#141311",
+    "paper2": "#1C1B18",
+    "card": "#1E1D1A",
+    "ink": "#F0E9DC",
+    "ink2": "#CFC8BB",
+    "ink3": "#A39C8F",
+    "red": "#FFB000",
+    "teal": "#6FC3B2",
+    "teal-d": "#A8E6D8",
+    "yellow": "#FFD75E",
+    "coral": "#E0905A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Martian Mono",
+      "achsen": "wght 700 (wdth 100)"
+    },
+    "akzent": {
+      "familie": "JetBrains Mono",
+      "achsen": "ital 1, wght 600"
+    },
+    "lesen": {
+      "familie": "Fira Sans",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "JetBrains Mono",
+      "achsen": "ital 0..1, wght 400..800"
+    }
+  },
+  "google_fonts": [
+    "Martian Mono:wght@700",
+    "JetBrains Mono:ital,wght@0,400..800;1,400..800",
+    "Fira Sans:ital@1"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Vintage amber phosphor computer terminal aesthetic, near-black room, objects drawn as thin glowing amber monochrome lines and solid amber blocks on a dark CRT screen, subtle horizontal scanlines, slight vignette, no green, no neon blue, restrained and technical. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Grund #141311; Objekte als Linienzeichnung mit stroke 3–4 px in #FFB000 (Bernstein) und Flächen in #FFB000 mit opacity .15–.5, Zweitfarbe sparsam #6FC3B2. Textzeilen auf Bildschirmen als Balken unterschiedlicher Länge (rect, Höhe 8–12 px). Kein Glow außer einer einzigen feGaussianBlur-Kopie (stdDeviation 4, opacity .35) unter dem Hauptobjekt. Scanlines als <pattern> aus 1-px-Linien in Schwarz (opacity .25) über alles. Personen nur als dunkle Silhouetten (#1E1D1A) von hinten.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/konsole.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Linien, Balken und Scanlines in Bernstein sind genau das, was ein Terminal zeigen würde – Vektor ist hier die natürliche Form."
+  }
+}

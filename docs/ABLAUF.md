@@ -113,11 +113,11 @@ Schemata für „Anderes Schema“ (Folgefrage, Einzelauswahl):
 ## Block 5 · Stil
 
 1. `styles/index.html` öffnen (Windows `start "" "…\styles\index.html"`, macOS `open "…/styles/index.html"`).
-2. Die Seite zeigt 10 Stile und 10 Schriftsets; beide sind frei kombinierbar. Jede Kombination hält sich an dieselben Design-Variablen (`engine/TOKENS.md`), deshalb funktionieren alle Folientypen in jedem Stil.
+2. Die Seite zeigt 20 Stile und 20 Schriftsets; beide sind frei kombinierbar. Jede Kombination hält sich an dieselben Design-Variablen (`engine/TOKENS.md`), deshalb funktionieren alle Folientypen in jedem Stil.
 3. Frage im Chat: „Welcher Stil und welches Schriftset? Oder soll ich passend zur Zielgruppe wählen?“
 4. Die Wahl landet in `quality_point.json` (`stil` = Ordnername unter `styles/`, z. B. `papiertheater`; das Schriftset aus `styles/_schriftsets/`). `build.py` bindet beides beim Bauen ein. Schriften liegen lokal (WOFF2, SIL Open Font License).
 
-Die zehn Stile: bauhaus · comic · fibel · gouache · journal · knetwerk · nachtprogramm · papiertheater · riso · tafelkreide.
+Die zwanzig Stile: papiertheater · fibel · gouache · knetwerk · herbarium · nordisch (warm, erzählend) · magazin · journal · galerie · schweizer · bauhaus · zeitung (editorial, sachlich) · riso · linol · comic · beton (grafisch, laut) · nachtprogramm · tafelkreide · konsole · blaupause (dunkel). Stimmung und Einsatz je Stil: `styles/README.md`.
 
 ---
 

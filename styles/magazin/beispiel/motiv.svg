@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Editorial-Stillleben: Bücherstapel mit Tablet, Zweig in Vase und Stifte</title>
+  <rect width="1200" height="800" fill="#F5F0E8"/>
+  <rect x="40" y="40" width="1120" height="720" fill="none" stroke="#2B2A28" stroke-width="1" opacity=".4"/>
+  <circle cx="820" cy="300" r="230" fill="#EBE4D8"/>
+  <!-- Ablage -->
+  <rect x="460" y="640" width="680" height="14" fill="#2B2A28" opacity=".85"/>
+  <!-- Bücherstapel -->
+  <rect x="600" y="590" width="330" height="50" rx="4" fill="#5F7357"/>
+  <rect x="620" y="540" width="300" height="50" rx="4" fill="#FBF8F2" stroke="#2B2A28" stroke-width="1" opacity=".95"/>
+  <rect x="612" y="490" width="310" height="50" rx="4" fill="#B04E33"/>
+  <rect x="630" y="446" width="280" height="44" rx="4" fill="#B8893A"/>
+  <g stroke="#F5F0E8" stroke-width="2" opacity=".55"><path d="M640 615H890M650 515H880M660 468H870"/></g>
+  <!-- Tablet auf dem Stapel -->
+  <rect x="650" y="372" width="240" height="74" rx="8" fill="#2B2A28"/>
+  <rect x="662" y="380" width="216" height="58" rx="4" fill="#EBE4D8"/>
+  <rect x="676" y="394" width="90" height="6" fill="#B8766A"/>
+  <rect x="676" y="408" width="130" height="6" fill="#B8766A" opacity=".7"/>
+  <rect x="820" y="394" width="44" height="30" fill="#5F7357" opacity=".6"/>
+  <!-- Vase mit Zweig -->
+  <path d="M1010 640 L990 500 Q1040 470 1090 500 L1070 640 Z" fill="#FBF8F2" stroke="#2B2A28" stroke-width="1" opacity=".95"/>
+  <path d="M1040 500 Q1050 400 1010 320 Q1000 290 1030 250" fill="none" stroke="#5F7357" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#5F7357">
+    <ellipse cx="1000" cy="420" rx="12" ry="34" transform="rotate(30 1000 420)"/>
+    <ellipse cx="1050" cy="380" rx="12" ry="34" transform="rotate(-40 1050 380)"/>
+    <ellipse cx="990" cy="330" rx="11" ry="30" transform="rotate(50 990 330)"/>
+    <ellipse cx="1045" cy="290" rx="11" ry="30" transform="rotate(-25 1045 290)"/>
+    <ellipse cx="1010" cy="252" rx="10" ry="26" transform="rotate(20 1010 252)"/>
+  </g>
+  <!-- Stifte in der Schale -->
+  <path d="M470 640 L480 586 L560 586 L570 640 Z" fill="#B8766A"/>
+  <rect x="496" y="500" width="12" height="92" fill="#2B2A28" transform="rotate(-10 502 546)"/>
+  <rect x="518" y="494" width="12" height="98" fill="#B04E33" transform="rotate(4 524 543)"/>
+  <rect x="538" y="506" width="12" height="86" fill="#B8893A" transform="rotate(14 544 549)"/>
+</svg>

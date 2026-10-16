@@ -31,9 +31,9 @@ Mitmachen 2: abstimmen, losen, sammeln
 Z: Ampel-Abstimmung, Zufallsrad, Timer, QR-Code und Wortwolke.
 P: Das Publikum ist Teil der Folie.
 
-Zehn Stile, zehn Schriftsets
+Zwanzig Stile, zwanzig Schriftsets
 Z: Die mitgelieferten Stile und Schriftsets, frei kombinierbar und lokal eingebunden.
-P: Gleicher Inhalt, zehn Gesichter.
+P: Gleicher Inhalt, zwanzig Gesichter.
 
 So starten Sie
 Z: Vier Schritte vom Klonen bis zur fertigen Präsentation.

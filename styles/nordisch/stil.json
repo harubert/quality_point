@@ -1,0 +1,64 @@
+{
+  "id": "nordisch",
+  "name": "Nordisch",
+  "beschreibung": "Skandinavischer Möbelkatalog: warmes Hellgrau, weiches Schwarz, gedämpftes Staubblau, Ton und Moos, runde Ecken, Haarlinien statt Schatten, Pillen-Etiketten und viel Luft; Manrope mit Crimson-Pro-Kursive.",
+  "stimmung": "ruhig, aufgeräumt, freundlich",
+  "passt_zu": [
+    "Elementar- und Primarpädagogik",
+    "Schulentwicklung und Konzepte",
+    "Elternabende und Beratung",
+    "Lernraum, Möbel, Ausstattung"
+  ],
+  "schriftset": "nordisch",
+  "farben": {
+    "paper": "#EFEDE8",
+    "paper2": "#E4E1DA",
+    "card": "#F8F7F3",
+    "ink": "#2A2A28",
+    "ink2": "#4C4C48",
+    "ink3": "#646460",
+    "red": "#A96044",
+    "teal": "#5E7E99",
+    "teal-d": "#3F5A70",
+    "yellow": "#C9A86A",
+    "coral": "#76845F"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Manrope",
+      "achsen": "wght 400..800 (Titel: 600, enge Laufweite)"
+    },
+    "akzent": {
+      "familie": "Crimson Pro",
+      "achsen": "ital 1, wght 500"
+    },
+    "lesen": {
+      "familie": "Crimson Pro",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "Manrope",
+      "achsen": "wght 400..800 (UI: 500/600)"
+    }
+  },
+  "google_fonts": [
+    "Manrope:wght@400..800",
+    "Crimson Pro:ital,wght@1,400..600"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Scandinavian interior catalogue illustration, flat minimal vector style with soft rounded shapes, muted palette of warm light grey, dusty blue, clay and moss green on a pale warm background, light oak wood, generous empty space, thin hairline details, calm daylight, no gradients, no textures. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Flache Flächen ohne Kontur in Staubblau #5E7E99, Ton #A96044, Moos #76845F, Sand #C9A86A und Hellgrau #E4E1DA auf #EFEDE8; weiches Schwarz #2A2A28 nur für wenige Details (Lampenkabel, Stiftspitze). Große Eckenradien (rx 12–40), Figuren ohne Gesicht mit runden Köpfen, Möbel aus einfachen Rechtecken mit Holzton #D9C9A8. Haarlinien 1 px in #D6D2C9 als Boden- oder Tischkante. Viel Leerraum, keine Verläufe, keine Schatten, keine Texturen.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/nordisch.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Flache, reduzierte Katalog-Illustrationen mit gedämpften Farben sind in SVG gleichwertig – ein Bildgenerator ist nicht nötig."
+  }
+}

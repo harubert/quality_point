@@ -1,0 +1,40 @@
+{
+  "id": "blaupause",
+  "name": "Blaupause",
+  "standard_fuer_stil": "blaupause",
+  "beschreibung": "Rajdhani als eckige, technische Schablonenschrift für Titel und große Zahlen, Saira als ruhige Ingenieurs-Grotesk für Fließtext; ihre Kursive dient als Lesekursive.",
+  "titel": {
+    "familie": "Rajdhani",
+    "achsen": "wght 500/600/700 (Titel: 700, Versalien)",
+    "fallback": "Bahnschrift,\"Arial Narrow\",sans-serif"
+  },
+  "akzent": {
+    "familie": "Saira",
+    "achsen": "ital 1, wght 500",
+    "fallback": "Bahnschrift,Arial,sans-serif"
+  },
+  "lesen": {
+    "familie": "Saira",
+    "achsen": "ital 1, wght 400..500",
+    "fallback": "Bahnschrift,Arial,sans-serif"
+  },
+  "ui": {
+    "familie": "Saira",
+    "achsen": "wght 400..700",
+    "fallback": "Bahnschrift,Arial,sans-serif"
+  },
+  "familien": [
+    "Rajdhani",
+    "Saira"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Rajdhani\",Bahnschrift,\"Arial Narrow\",sans-serif",
+    "--accent": "\"Saira\",Bahnschrift,Arial,sans-serif",
+    "--lesen": "\"Saira\",Bahnschrift,Arial,sans-serif",
+    "--ui": "\"Saira\",Bahnschrift,Arial,sans-serif",
+    "--sans": "\"Saira\",Bahnschrift,Arial,sans-serif"
+  },
+  "fonts_css": "fonts/blaupause.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Saira:ital,wght@0,400..700;1,400..500&display=swap"
+}

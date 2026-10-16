@@ -1,0 +1,169 @@
+/* ==========================================================
+   STIL „Konsole“ – Terminal mit Bernstein-Phosphor (dunkel)
+   Fast-Schwarz, warmes Weiß, Bernstein, Aquamarin · Martian Mono (schwer) + JetBrains Mono + Fira Sans (Kursive)
+   Prompt-Zeichen als Aufzählung, Doppellinien-Rahmen wie Box-Drawing, feine Scanlines, kein Glühen.
+   ========================================================== */
+:root{
+  --paper:#141311; --paper2:#1C1B18; --card:#1E1D1A; --sand:#3A3833;
+  --ink:#F0E9DC; --ink2:#CFC8BB; --ink3:#A39C8F;
+  --red:#FFB000; --red-l:rgba(255,176,0,.14);
+  --teal:#6FC3B2; --teal-d:#A8E6D8; --teal-l:rgba(111,195,178,.14);
+  --yellow:#FFD75E; --yellow-l:rgba(255,215,94,.14);
+  --coral:#E0905A; --coral-l:rgba(224,144,90,.16);
+  --night:#0C0B0A;
+  --serif:"Martian Mono",Consolas,"Courier New",monospace;
+  --accent:"JetBrains Mono",Consolas,"Courier New",monospace;
+  --lesen:"Fira Sans","Segoe UI",system-ui,sans-serif;
+  --ui:"JetBrains Mono",Consolas,"Courier New",monospace;
+  --sans:"JetBrains Mono",Consolas,"Courier New",monospace;
+  --linie:rgba(240,233,220,.5);
+  --doppel:4px double var(--linie);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(0,0,0,.8); --auf-dunkel:#F0E9DC; --auf-akzent:#141311; --buehne:#070706; --ui-dunkel:#0C0B0A; --panel:#1C1B18;
+}
+html,body{background:#070706}
+
+/* Bildschirm: leichte Vignette, feine Scanlines */
+.slide{background:var(--paper) radial-gradient(ellipse at 50% 40%,rgba(255,176,0,.05),transparent 70%);color:var(--ink)}
+.slide::before{opacity:1;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+.slide footer{color:var(--ink3);font-family:var(--ui)}
+.slide footer .chap{letter-spacing:0;text-transform:lowercase;font-weight:400}
+.slide footer .chap::before{content:"~/ ";color:var(--red)}
+.slide footer .src::before,.slide footer .pg{color:var(--ink2)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:-.03em}
+h2{font-size:64px;line-height:1.08;margin-bottom:30px}
+h3{font-size:30px;line-height:1.2}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:600;color:var(--red);letter-spacing:-.02em;text-shadow:0 0 14px rgba(255,176,0,.3)}
+.kick{font:600 22px/1 var(--ui);letter-spacing:.06em;text-transform:lowercase;color:var(--ink2);gap:14px}
+.kick::before{content:"$";width:auto;height:auto;background:none;font:700 24px/1 var(--ui);color:var(--red)}
+.lead{color:var(--ink2)}
+p,li,td,th{color:inherit}
+
+/* Karten: Doppellinie wie Box-Drawing */
+.card{background:var(--card);border:var(--doppel);border-radius:0;box-shadow:none;padding:24px 28px}
+.card h3{color:var(--ink)}
+.card.t,.card.c,.card.r,.card.y{border-top-width:4px;border-top-style:solid}
+.card.t{border-top-color:var(--teal)}.card.c{border-top-color:var(--coral)}.card.r{border-top-color:var(--red)}.card.y{border-top-color:var(--yellow)}
+.card .num{color:var(--red);font-family:var(--serif);font-size:56px}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.tag{border-radius:0;background:transparent;color:var(--teal-d);font:600 20px/1 var(--ui);letter-spacing:.02em;text-transform:lowercase;padding:6px 2px}
+.tag::before{content:"[";color:var(--ink3)}.tag::after{content:"]";color:var(--ink3)}
+.tag.c{background:transparent;color:var(--coral)}.tag.r{background:transparent;color:var(--red)}.tag.y{background:transparent;color:var(--yellow)}
+.box{border-radius:0;border:1px solid var(--sand)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:4px solid var(--teal);box-shadow:none}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:var(--yellow)}
+.bh{font:700 20px/1.2 var(--ui);letter-spacing:.04em;text-transform:lowercase}
+.bh i{border-radius:0;width:32px;height:32px}
+.bh i span{color:var(--paper);font:700 20px/1 var(--ui)}
+
+.quote{color:var(--ink);padding-left:40px;border-left:3px solid var(--red);font-weight:400}
+.quote::before{content:none}
+.quote cite{color:var(--ink3);font-size:22px}
+.quote cite::before{content:"-- "}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--red);text-transform:lowercase;letter-spacing:.04em}
+
+table.tbl{background:var(--card);border:var(--doppel);border-radius:0;box-shadow:none}
+.tbl th{background:var(--paper2);color:var(--red);font:700 20px/1.2 var(--ui);letter-spacing:.02em;text-transform:lowercase}
+.tbl td{border-top:1px dashed var(--sand);color:var(--ink)}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+
+ul.dots li::before{content:">";width:auto;height:auto;background:none;border-radius:0;left:6px;top:0;font:700 30px/1.4 var(--ui);color:var(--red)}
+ol.steps>li::before{content:"[" counter(s) "]";width:auto;background:transparent;color:var(--red);border-radius:0;font:700 26px/56px var(--ui);text-align:left;letter-spacing:-.04em}
+ol.steps.red>li::before{background:transparent;color:var(--coral)}
+.sb{background:var(--red);color:var(--paper);border-radius:0}
+.wcard{background:var(--card);border:var(--doppel);border-radius:0;box-shadow:none}
+.wcard .w{color:var(--ink)}.wcard .ex{color:var(--ink2)}
+.bub{background:var(--card);color:var(--ink);border:1px solid var(--sand);border-radius:0;box-shadow:none}
+.bub.r{background:#1A2E2A}.bub.x{background:#2E2814}
+.arrow{color:var(--red)}
+
+/* Bilder: Bernstein-Monochrom wie auf einem Phosphorschirm */
+.foto{background:#0C0B0A;padding:8px;border:var(--doppel);box-shadow:none;--r:0deg}
+.foto img{filter:grayscale(1) sepia(1) saturate(2.2) hue-rotate(-8deg) brightness(.9) contrast(1.05)}
+.foto .cap{color:var(--ink3);font:400 18px/1.3 var(--ui)}
+.foto .cap::before{content:"> ";color:var(--red)}
+.zettel{background:var(--paper2);color:var(--ink);border-left:3px solid var(--yellow);box-shadow:none;--r:0deg;font-family:var(--lesen)}
+
+/* Titel: Prompt mit blinkendem Cursor */
+.s-title{background:var(--paper)}
+.s-title .hero{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%);filter:brightness(.92)}
+.s-title .tt{top:170px}
+.s-title h1{font-size:92px;line-height:1.02;margin:26px 0 30px}
+.s-title h1::after{content:"_";color:var(--red);margin-left:.06em;animation:kcursor 1.1s steps(1) infinite}
+.s-title .sub{color:var(--ink2);font:400 30px/1.4 var(--ui)}
+.s-title .who{color:var(--ink2);font-family:var(--ui)}
+.s-title .who b{color:var(--ink)}
+@keyframes kcursor{50%{opacity:0}}
+
+/* Kapitel: Bild gedimmt, Etikett als Fenster mit Doppelrahmen */
+.s-chapter{background:var(--night);color:var(--ink)}
+.s-chapter .hero{opacity:.7;filter:brightness(.75)}
+.s-chapter .bignum{font-family:var(--serif);color:rgba(255,176,0,.09);font-size:520px;right:60px;bottom:-60px}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--red)}
+.etikett{background:rgba(12,11,10,.92);border:var(--doppel);border-radius:0;box-shadow:none;transform:translateY(-54%);padding:48px 56px 44px}
+.s-chapter .etikett .kick{color:var(--ink2)}
+.s-chapter .etikett h2{color:var(--ink);font-size:70px}
+.s-chapter .etikett h2 em{color:var(--red)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:1px dashed var(--linie);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-family:var(--ui);font-weight:700}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap{color:var(--ink2)}
+
+/* Dunkle Folie: tieferes Schwarz, Bernsteinlinie oben */
+.s-dark{background:var(--night);color:var(--ink)}
+.s-dark::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--red);pointer-events:none}
+.s-dark h2,.s-dark h3{color:var(--ink)}.s-dark h2 em{color:var(--red)}
+.s-dark .lead{color:var(--ink2)}
+.s-dark .card{background:rgba(30,29,26,.9);color:var(--ink);border:var(--doppel)}
+.s-dark .card p,.s-dark .card li{color:var(--ink2)}
+.s-dark .quote{color:var(--ink)}.s-dark .ueb{color:var(--ink2)}.s-dark .ueb::before{color:var(--red)}
+
+.s-statement .big{font-weight:700;font-size:74px;line-height:1.18;letter-spacing:-.03em}
+.s-statement .big::before{content:"> ";color:var(--red)}
+
+/* Werkstatt: Punktraster, Aquamarin als Zweitfarbe */
+.s-auftrag{background:#111615;color:var(--ink)}
+.s-auftrag::before{opacity:1;background-image:radial-gradient(rgba(111,195,178,.22) 1px,transparent 1.6px);background-size:32px 32px}
+.s-auftrag .wk .wn{background:var(--red);color:var(--paper);border-radius:0;font-family:var(--ui)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--teal-d);letter-spacing:.04em;text-transform:lowercase}
+.s-auftrag h2 em{color:var(--red)}
+.s-auftrag .panel{border-radius:0;background:rgba(30,29,26,.8);border:var(--doppel)}
+.s-auftrag p,.s-auftrag li{color:var(--ink)}
+.s-auftrag .meta span{background:transparent;border:1px solid var(--teal);color:var(--teal-d);border-radius:0;font:600 20px/1 var(--ui);text-transform:lowercase}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--yellow)}
+.s-auftrag ul.dots li::before{background:none;color:var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--red);font-size:92px;letter-spacing:-.05em}
+.card.t .zahl{color:var(--teal-d)}.card.y .zahl{color:var(--yellow)}
+.zahl small{color:var(--ink2);font:400 30px/1 var(--ui)}
+.zl{color:var(--ink2);font:400 22px/1.35 var(--ui)}
+.bars .bz{color:var(--ink);font:400 24px/1 var(--ui)}
+.bars .bt{background:var(--paper2);height:30px;border:1px solid var(--sand);border-radius:0}
+.bars .bt i{background:repeating-linear-gradient(90deg,var(--red) 0 16px,transparent 16px 20px)}
+.bars .bz.t .bt i{background:repeating-linear-gradient(90deg,var(--teal) 0 16px,transparent 16px 20px)}
+.bars .bv{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:30px}
+
+.lesehilfe{background:rgba(28,27,24,.95);color:var(--ink2);border-left:4px solid var(--red);font-family:var(--ui)}
+.lesehilfe b{color:var(--red)}.lesehilfe .lh{color:var(--red);font-family:var(--ui)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(12,11,10,.95);color:var(--ink2);border-left-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kurz{color:var(--ink2)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:0}
+.pointe{background:var(--card);color:var(--ink);border:1px solid var(--red);border-radius:0;font-family:var(--ui)}
+.pointe b{background:var(--red);color:var(--paper);border-radius:0;letter-spacing:.04em}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow);color:var(--paper)}
+#progress{background:var(--red);height:4px}
+.hl{background:linear-gradient(transparent 60%,rgba(255,176,0,.35) 60%)}
+.mark{background-image:linear-gradient(rgba(255,215,94,.5),rgba(255,215,94,.5))}
+.gl{text-decoration-color:var(--red)}
+.gl:hover{background:var(--red-l)}
+a.qo,a.ql:hover{color:var(--red)}
+
+/* Flächen, die basis.css mit --teal-d füllt: hier dunkel halten */
+.flip .fb,#pnotes .nz{background:#1F4A43}
+/* Heller Akzentgrund + --ink (hell) ergäbe hell auf hell: hier dunkle Schrift */
+ol.steps.y>li::before,a.formlink,#notes .nb .lbl.z,#pnotes .np,.ia-ampel .ia-gelb button{color:#141311}

@@ -2,6 +2,7 @@
 
 ## 2026-10-16
 
+- **Zehn neue Stile** (jetzt 20, je mit eigenem Schriftset, OFL, lokal): Herbarium (naturkundlicher Atlas), Nordisch (skandinavischer Katalog), Magazin (Lifestyle-Editorial), Galerie (White Cube), Schweizer Typografie, Zeitung, Linolschnitt, Beton (Web-Brutalismus), Konsole (Terminal, dunkel), Blaupause (technische Zeichnung, dunkel). Alle mit handgezeichneten Vektorbeispielen; Startseite in vier Gruppen geordnet (warm · editorial · grafisch · dunkel).
 - **Live-Mitmachen (Server-Modus, optional):** `live.an` erzeugt eine Teilnehmerfassung (`teilnehmer.html`, ohne Notizen, Pointen, Lösungen und Referentenfolien) und den Server-Teil `live/api.php` (PHP 8, JSON-Dateien, keine Datenbank). Teilnehmer*innen kommen per QR-Code der Startseite, folgen dem Vortrag, melden Stimmung (sechs schaltbare Kategorien), schicken Hinweise, drücken „Fertig“ und beantworten Bausteine. Vortragende melden sich mit Passwort an (`QP_LIVE_PASSWORT` oder erzeugtes Startpasswort); Badge und Aufpoppen für Hinweise, Live-Panel (`A`) mit Übersicht, Hinweisen (auf die Folie legen), Ergebnissen mit Freigabe, Verlauf mit Export und Einstellungen. Doku: `docs/LIVE.md`.
 - **Neuer Baustein `ia-umfrage`** (Einfach-/Mehrfachwahl mit Balken, optional richtige Antwort); `ia-schaetz`, `ia-quiz`, `ia-wolke`, `ia-ampel`, `ia-sort` arbeiten im Server-Modus mit den Antworten aller.
 - **Presenter:** Nach Tastendruck erscheint kurz nur die Weiter-Schaltfläche mit den Teilschritten; ein angeklickter Baustein-Knopf blockiert die Tastatur nicht mehr.

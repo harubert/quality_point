@@ -1,0 +1,151 @@
+/* ==========================================================
+   STIL „Nordisch“ – skandinavischer Möbelkatalog, Wohnraum mit viel Luft
+   Warmes Hellgrau, weiches Schwarz, Staubblau, Ton, Moos · Manrope + Crimson Pro (Kursive)
+   Runde Ecken, Haarlinien statt Schatten, Pillen-Etiketten, keine Verläufe, keine Texturen.
+   ========================================================== */
+:root{
+  --paper:#EFEDE8; --paper2:#E4E1DA; --card:#F8F7F3; --sand:#D6D2C9;
+  --ink:#2A2A28; --ink2:#4C4C48; --ink3:#646460;
+  --red:#A96044; --red-l:#EEDDD5;
+  --teal:#5E7E99; --teal-d:#3F5A70; --teal-l:#DEE5EB;
+  --yellow:#C9A86A; --yellow-l:#F0E7D3;
+  --coral:#76845F; --coral-l:#E2E5D8;
+  --night:#2F3330;
+  --serif:"Manrope","Segoe UI",system-ui,sans-serif;
+  --accent:"Crimson Pro",Georgia,serif;
+  --lesen:"Crimson Pro",Georgia,serif;
+  --ui:"Manrope","Segoe UI",system-ui,sans-serif;
+  --sans:"Manrope","Segoe UI",system-ui,sans-serif;
+  --haar:1px solid var(--sand);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:22px; --radius-s:10px; --schatten:rgba(42,42,40,.18); --auf-dunkel:#EFEDE8; --buehne:#23262a; --panel:#F3F1EC;
+}
+html,body{background:#23262a}
+
+/* Glatte Fläche, keine Textur, breiter Rand */
+.slide{background:var(--paper);padding:88px 130px 116px}
+.slide::before{background:none}
+.slide footer{color:var(--ink3);left:130px;right:130px}
+.slide footer .chap{letter-spacing:.14em;font-size:17px}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.025em}
+h1,h2{font-weight:600}
+h2{font-size:70px;line-height:1.06}
+h3{font-weight:600;font-size:34px;letter-spacing:-.015em}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:500;color:var(--red);letter-spacing:0;font-size:1.08em}
+.kick{font:600 21px/1 var(--ui);letter-spacing:.2em;color:var(--teal)}
+.kick::before{width:10px;height:10px;border-radius:50%}
+.lead{color:var(--ink2)}
+p,li,td{color:var(--ink)}
+
+/* Karten: Haarlinie, kaum Schatten */
+.card{background:var(--card);border-radius:var(--radius);border:var(--haar);box-shadow:0 1px 2px rgba(42,42,40,.04),0 12px 28px -24px var(--schatten);padding:30px 34px}
+.card.t{border-top:3px solid var(--teal)}.card.c{border-top:3px solid var(--coral)}.card.r{border-top:3px solid var(--red)}.card.y{border-top:3px solid var(--yellow)}
+.card .num{font:600 56px/1 var(--serif);color:var(--teal);letter-spacing:-.03em}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.tag{border-radius:999px;background:var(--card);border:var(--haar);color:var(--ink2);font-weight:600;letter-spacing:.12em;font-size:18px;padding:10px 16px}
+.tag.c{background:var(--coral-l);border-color:transparent;color:#4A5538}.tag.r{background:var(--red-l);border-color:transparent;color:#6E3A25}.tag.y{background:var(--yellow-l);border-color:transparent;color:#6B5323}
+.box{border-radius:var(--radius)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border:var(--haar);border-left:var(--haar);box-shadow:none}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:#6E3A25}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:#6B5323}
+.bh{font-weight:700;letter-spacing:.16em;font-size:19px}
+.bh i{width:12px;height:12px}
+.bh i span{display:none}
+
+.quote{color:var(--ink);padding-left:40px;border-left:2px solid var(--red)}
+.quote::before{content:none}
+.quote cite{color:var(--ink3);font-size:22px;letter-spacing:.04em}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{background:transparent;border-radius:0;box-shadow:none}
+.tbl th{background:transparent;color:var(--ink3);border-bottom:var(--haar);font-weight:700;letter-spacing:.14em;font-size:18px}
+.tbl td{border-top:var(--haar)}
+.tbl tr:nth-child(even) td{background:transparent}
+.tbl td:first-child{font-weight:600}
+
+ul.dots li::before{width:9px;height:9px;top:.62em;background:var(--coral)}
+ol.steps>li::before{background:transparent;color:var(--ink);border:1.5px solid var(--ink);font:600 24px/53px var(--ui)}
+ol.steps.red>li::before{background:transparent;color:var(--red);border-color:var(--red)}
+.sb{background:var(--teal)}
+.wcard{border:var(--haar);box-shadow:none}
+.bub{border:var(--haar);box-shadow:none}.bub.r{background:var(--teal-l);border-color:transparent}.bub.x{background:var(--yellow-l);border-color:transparent}
+.arrow{color:var(--ink3)}
+
+/* Bilder wie Katalogfotos: weicher Rand, kein Winkel */
+.foto{background:var(--card);padding:12px 12px 14px;border:var(--haar);border-radius:18px;box-shadow:none;--r:0deg}
+.foto img{border-radius:10px}
+.foto .cap{color:var(--ink3);font-weight:500}
+.zettel{background:var(--paper2);border-radius:16px;box-shadow:none;color:var(--ink)}
+
+/* Titel: Bild als gerundete Tafel rechts, Text links */
+.s-title .hero{top:80px;right:130px;width:780px;height:920px;border-radius:28px;-webkit-mask-image:none;mask-image:none}
+.s-title .tt{left:130px;width:820px}
+.s-title h1{font-size:104px;line-height:1;letter-spacing:-.035em;font-weight:600}
+.s-title .sub{color:var(--ink2);font-size:34px}
+.s-title .who{left:130px;color:var(--ink2)}
+.s-title .who b{color:var(--ink);font-weight:600}
+
+/* Kapitel: helle Fläche, Bild als Tafel, große stille Zahl */
+.s-chapter{background:var(--paper);color:var(--ink)}
+.s-chapter .hero{left:auto;right:130px;top:80px;width:760px;height:920px;border-radius:28px}
+.s-chapter .bignum{right:auto;left:110px;bottom:auto;top:-40px;font:800 420px/1 var(--serif);color:var(--paper2);letter-spacing:-.06em}
+.s-chapter .kick{color:var(--teal)}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--red)}
+.s-chapter .lead{color:var(--ink2)}
+.s-chapter .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .toc div b{color:var(--teal)}
+.etikett{left:130px;width:820px;background:var(--card);border:var(--haar);border-radius:28px;box-shadow:none;padding:56px 60px 50px}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{font-size:80px}
+.s-chapter .etikett .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--teal);font-family:var(--ui);font-weight:700}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap,.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink3);text-shadow:none}
+
+/* Dunkel: weiches Graugrün */
+.s-dark{background:var(--night);color:var(--auf-dunkel)}
+.s-dark h2,.s-dark h3{color:var(--auf-dunkel)}.s-dark h2 em{color:#D9A58D}
+.s-dark .lead{color:#C9CBC4}
+.s-dark .kick{color:#9DB4C8}
+.s-dark .card{background:#3B403C;color:var(--auf-dunkel);border-color:rgba(239,237,232,.14);box-shadow:none}
+.s-dark .card h3{color:var(--auf-dunkel)}
+.s-dark .card p,.s-dark .card li{color:#DADBD5}
+.s-dark .quote{color:var(--auf-dunkel);border-left-color:#D9A58D}.s-dark .ueb{color:#C9CBC4}.s-dark .ueb::before{color:#9DB4C8}
+.s-dark footer,.s-dark footer .src::before,.s-dark footer .pg{color:#A4A7A0}
+
+.s-statement .big{font-weight:600;font-size:88px;line-height:1.1;letter-spacing:-.03em}
+
+/* Werkstatt: Staubblau, helle Konturen */
+.s-auftrag{background:var(--teal-d);color:#EFEDE8;padding:88px 130px 116px}
+.s-auftrag::before{background-image:none;opacity:0}
+.s-auftrag .wk .wn{background:var(--paper);color:var(--teal-d);border-radius:999px;font-weight:700}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:#C9D6E0}
+.s-auftrag h2 em{color:#EBCFA3}
+.s-auftrag p,.s-auftrag li{color:#EFEDE8}
+.s-auftrag .panel{border-radius:var(--radius);background:rgba(239,237,232,.07);border:1px solid rgba(239,237,232,.16)}
+.s-auftrag .meta span{background:transparent;border:1px solid rgba(239,237,232,.4);color:#EFEDE8}
+.s-auftrag ol.steps>li::before{background:transparent;color:#EFEDE8;border-color:#EFEDE8}
+.s-auftrag ul.dots li::before{background:#EBCFA3}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:-.04em}
+.card.r .zahl{color:var(--red)}.card.t .zahl{color:var(--teal)}.card.y .zahl{color:#8A6A2E}
+.zahl small{color:var(--ink3);font-family:var(--ui);font-size:28px;font-weight:500}
+.zl{color:var(--ink2)}
+.bars .bz{font:500 24px/1 var(--ui);color:var(--ink2)}
+.bars .bt{background:var(--paper2);height:20px;border-radius:999px}
+.bars .bt i{background:var(--red);border-radius:999px}
+.bars .bz.t .bt i{background:var(--teal)}
+.bars .bv{font:600 28px/1 var(--ui);color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border:var(--haar);border-left:3px solid var(--teal);border-radius:12px;left:130px;right:130px}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--teal);font-family:var(--ui)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(47,51,48,.96);color:#DADBD5;border-color:rgba(239,237,232,.14);border-left-color:#EBCFA3}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:#EBCFA3}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d)}
+.pointe{background:var(--card);border:var(--haar);box-shadow:none;color:var(--ink)}
+.pointe b{background:var(--red)}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow-l);color:var(--ink)}
+#progress{background:var(--teal);height:4px}
+.hl{background:linear-gradient(transparent 62%,var(--yellow-l) 62%)}

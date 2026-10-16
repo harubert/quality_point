@@ -1,0 +1,65 @@
+{
+  "id": "beton",
+  "name": "Beton",
+  "beschreibung": "Web-Brutalismus: rohes Hellgrau, Schwarz und Weiß mit einem einzigen Säuregelb, 3-px-Rahmen, harte Versatzschatten, Null Rundung, Schreibmaschinen-Mono für Text und Etiketten, Anton-Versalien als Schlagzeile.",
+  "stimmung": "roh, direkt, laut",
+  "passt_zu": [
+    "Jugendliche und junge Erwachsene",
+    "Medienkritik und Provokation",
+    "Workshops, Hackathons, Projekttage",
+    "Digitale Kultur und Netzthemen"
+  ],
+  "schriftset": "beton",
+  "farben": {
+    "paper": "#E8E7E2",
+    "paper2": "#D9D8D2",
+    "card": "#FFFFFF",
+    "ink": "#0A0A0A",
+    "ink2": "#2A2A2A",
+    "ink3": "#555555",
+    "red": "#111111",
+    "teal": "#3A3A3A",
+    "teal-d": "#111111",
+    "yellow": "#F2E600",
+    "coral": "#111111"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Anton",
+      "achsen": "wght 400 (ein Schnitt, Versalien)"
+    },
+    "akzent": {
+      "familie": "Space Mono",
+      "achsen": "ital 1, wght 700 – auf gelbem Balken"
+    },
+    "lesen": {
+      "familie": "Gelasio",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "Space Mono",
+      "achsen": "ital 0..1, wght 400/700"
+    }
+  },
+  "google_fonts": [
+    "Anton",
+    "Space Mono:ital,wght@0,400;0,700;1,400;1,700",
+    "Gelasio:ital@1"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Raw brutalist graphic illustration, thick black outlines, flat fills in light concrete grey, white and one acid yellow, hard black offset shadows, no gradients, no rounded corners, deliberately crude and bold like a photocopied zine or an early web page. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Konturen stroke 6–8 px in #0A0A0A mit stroke-linejoin miter, Flächen #FFFFFF, #D9D8D2 und ein Säuregelb #F2E600 auf #E8E7E2. Jeder Block bekommt einen harten Versatzschatten (gleiche Form um 12–16 px nach rechts unten verschoben, schwarz, hinter dem Objekt). Keine Rundungen, keine Verläufe, keine Transparenz; grobe Schraffuren als <pattern> mit 4-px-Linien. Figuren als eckige Silhouetten ohne Gesicht.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/beton.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Dicke Konturen, Flächen und Versatzschatten sind reine Vektorgrafik – rohe SVGs passen besser zum Brutalismus als jedes KI-Bild."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "linol",
+  "name": "Linol",
+  "beschreibung": "Linolschnitt auf Cremepapier: Druckschwarz plus eine Schmuckfarbe Indigo, raue Schnittkanten an Karten und Balken, Druckkorn, schwere Plakatschrift; dunkle Folien als Negativdruck.",
+  "stimmung": "kraftvoll, handgemacht, grafisch",
+  "passt_zu": [
+    "Kunst- und Werkunterricht",
+    "Plakate, Kampagnen, Thesen",
+    "Medienkritik und Haltung",
+    "Projekttage und Workshops"
+  ],
+  "schriftset": "linol",
+  "farben": {
+    "paper": "#F4ECD8",
+    "paper2": "#E9DFC6",
+    "card": "#FBF5E6",
+    "ink": "#161412",
+    "ink2": "#2E2A26",
+    "ink3": "#58524A",
+    "red": "#2A3F85",
+    "teal": "#223570",
+    "teal-d": "#1A2A5C",
+    "yellow": "#F1E5C2",
+    "coral": "#2A3F85"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Alfa Slab One",
+      "achsen": "wght 400 (einziger Schnitt), Versalien"
+    },
+    "akzent": {
+      "familie": "Bitter",
+      "achsen": "ital 1, wght 700"
+    },
+    "lesen": {
+      "familie": "Bitter",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "Work Sans",
+      "achsen": "wght 400..700, ital 400"
+    }
+  },
+  "google_fonts": [
+    "Alfa Slab One",
+    "Bitter:ital,wght@1,400..700",
+    "Work Sans:ital,wght@0,400..700;1,400"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Hand-carved linocut print, two-colour block print in solid black ink and one indigo blue spot colour on cream paper, bold simplified shapes, rough carved edges, visible white gouge marks and cut lines for texture, uneven ink coverage, folk-art poster feel, no halftone, no gradients. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Nur Schwarz #161412 und Indigo #2A3F85 auf Creme #F4ECD8, keine weiteren Farben, keine Verläufe. Flächen ohne Kontur; alle Formen durch einen SVG-Filter aus feTurbulence (baseFrequency .02–.04) + feDisplacementMap (scale 6–10) rau schneiden. Binnenzeichnung als helle, in die Fläche „geschnittene“ Striche in Papierfarbe (stroke #F4ECD8, 4–8 px, leicht unregelmäßig). Druckkorn über alles als feTurbulence-Rechteck (alpha .08–.12). Indigo als zweite Druckplatte wenige Pixel versetzt.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/linol.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Flächen, zwei Druckfarben und raue Kanten per Filter – das ist genau das, was SVG gut kann; ein Bildgenerator bringt hier keinen Mehrwert."
+  }
+}

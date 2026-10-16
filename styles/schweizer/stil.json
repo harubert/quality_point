@@ -1,0 +1,63 @@
+{
+  "id": "schweizer",
+  "name": "Schweizer Typografie",
+  "beschreibung": "International Typographic Style: fast weißes Blatt, Tiefschwarz und ein einziges Signalrot, sichtbares Zwölferraster aus Haarlinien, enge schwere Grotesk-Titel im Flattersatz, Linien statt Kästen, keine Rundungen.",
+  "stimmung": "klar, streng, selbstbewusst",
+  "passt_zu": [
+    "Hochschullehre und Vorlesungen",
+    "Gestaltung und Typografie",
+    "Thesen und Argumentationen",
+    "Zahlen, Fahrpläne, Übersichten"
+  ],
+  "schriftset": "schweiz",
+  "farben": {
+    "paper": "#F7F7F4",
+    "paper2": "#ECECE8",
+    "card": "#FFFFFF",
+    "ink": "#111111",
+    "ink2": "#333333",
+    "ink3": "#5C5C5C",
+    "red": "#E30613",
+    "teal": "#3A3A3A",
+    "teal-d": "#111111",
+    "yellow": "#E2E2DC",
+    "coral": "#E30613"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Host Grotesk",
+      "achsen": "wght 400..800 (Titel: 700, Laufweite -.035em)"
+    },
+    "akzent": {
+      "familie": "Host Grotesk",
+      "achsen": "wght 700, aufrecht – Akzent allein durch Signalrot"
+    },
+    "lesen": {
+      "familie": "Host Grotesk",
+      "achsen": "ital 1, wght 400..500 (Oblique)"
+    },
+    "ui": {
+      "familie": "Host Grotesk",
+      "achsen": "wght 400..700, tabellarische Ziffern"
+    }
+  },
+  "google_fonts": [
+    "Host Grotesk:ital,wght@0,400..800;1,400..500"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Swiss International Typographic Style poster illustration, strictly geometric flat shapes on near-white paper, only black, white and one signal red, visible thin grid lines, large circles and rectangles, generous white space, objective and precise, mid-century Zurich poster design. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Nur #111111, #E30613 und Weiß auf #F7F7F4. Geometrische Grundformen ohne Kontur (rect, circle, polygon), exakt an einem Raster aus 12 Spalten ausgerichtet; das Raster selbst als Haarlinien (stroke 1 px, opacity .1) sichtbar lassen. Figuren aus Kreis und Rechteck, keine Gesichter. Keine Verläufe, keine Schatten, keine Texturen; viel Leerraum im linken Drittel.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/schweiz.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "voll",
+    "hinweis": "Geometrie, Raster und Flächen in Schwarz-Rot sind als SVG das Original – ein Bildgenerator bringt hier nichts dazu."
+  }
+}

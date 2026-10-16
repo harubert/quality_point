@@ -1,0 +1,65 @@
+{
+  "id": "magazin",
+  "name": "Magazin",
+  "beschreibung": "Lifestyle-Editorial wie in Kinfolk oder Monocle: warmes Offwhite, Anthrazit, gedämpfte Terrakotta und Salbei, kontrastreiche Caslon-Titel mit Kursive, Kapitälchen-Etiketten, Haarlinien, Pull-Quotes und Fotos im warmen Duoton.",
+  "stimmung": "ruhig, kultiviert, warm",
+  "passt_zu": [
+    "Elternabende und Vorträge",
+    "Kultur-, Lese- und Buchthemen",
+    "Porträts und Fallgeschichten",
+    "Fortbildungen mit Fotos"
+  ],
+  "schriftset": "magazin",
+  "farben": {
+    "paper": "#F5F0E8",
+    "paper2": "#EBE4D8",
+    "card": "#FBF8F2",
+    "ink": "#2B2A28",
+    "ink2": "#4A4743",
+    "ink3": "#6E6962",
+    "red": "#B04E33",
+    "teal": "#5F7357",
+    "teal-d": "#3E4D39",
+    "yellow": "#B8893A",
+    "coral": "#B8766A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Libre Caslon Display",
+      "achsen": "wght 400 (ein Schnitt); Zwischentitel in Libre Caslon Text 700"
+    },
+    "akzent": {
+      "familie": "Libre Caslon Text",
+      "achsen": "ital 1, wght 400"
+    },
+    "lesen": {
+      "familie": "Libre Caslon Text",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "DM Sans",
+      "achsen": "opsz 9..40, wght 400..600; ital 1 400"
+    }
+  },
+  "google_fonts": [
+    "Libre Caslon Display",
+    "Libre Caslon Text:ital,wght@0,400;0,700;1,400",
+    "DM Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Quiet lifestyle magazine photography in the manner of a Scandinavian interior editorial, soft natural window light, warm off-white walls, linen, wood and ceramics, muted terracotta and sage tones, shallow depth of field, calm and uncluttered, children only from behind or from a distance. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Flache, konturlose Formen in wenigen gedämpften Farben: #B04E33 (Terrakotta), #5F7357 (Salbei), #B8893A (Ocker), #2B2A28 (Anthrazit) auf #F5F0E8; Töne über opacity .35–.9 abstufen. Weiche, leicht asymmetrische Rundungen (Keramik, Pflanzenblätter, Stoff), Figuren ohne Gesicht als ruhige Silhouetten. Ein Haarlinienrahmen (stroke 1 px, #2B2A28, opacity .4) um die Komposition; keine Schatten, keine Verläufe, viel Luft.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/magazin.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Flache Editorial-Illustration in Terrakotta und Salbei wirkt gut; die eigentliche Magazin-Stimmung lebt aber von ruhigen Fotos, die nur ein Bildgenerator oder eigene Aufnahmen liefern."
+  }
+}

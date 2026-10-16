@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Brutalistische Blöcke: Smartphone mit Balken, Lautsprecher-Trichter, Würfel</title>
+  <defs>
+    <pattern id="schraff" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="4" height="14" fill="#0A0A0A"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#E8E7E2"/>
+  <rect x="400" y="740" width="800" height="60" fill="url(#schraff)"/>
+  <rect x="400" y="736" width="800" height="8" fill="#0A0A0A"/>
+  <!-- Smartphone -->
+  <rect x="634" y="134" width="300" height="560" fill="#0A0A0A"/>
+  <rect x="620" y="120" width="300" height="560" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="650" y="160" width="240" height="420" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="680" y="200" width="180" height="22" fill="#0A0A0A"/>
+  <rect x="680" y="240" width="120" height="22" fill="#0A0A0A"/>
+  <rect x="680" y="300" width="180" height="120" fill="url(#schraff)" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="680" y="450" width="80" height="22" fill="#0A0A0A"/>
+  <rect x="680" y="490" width="150" height="22" fill="#0A0A0A"/>
+  <rect x="740" y="610" width="60" height="40" fill="#0A0A0A"/>
+  <!-- Lautsprecher-Trichter -->
+  <polygon points="954,324 1174,254 1174,534 954,464" fill="#0A0A0A"/>
+  <polygon points="940,310 1160,240 1160,520 940,450" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="1150" y="300" width="36" height="160" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <g stroke="#0A0A0A" stroke-width="7" fill="none"><path d="M990 350 L1110 330M990 410 L1110 430"/></g>
+  <!-- Würfel -->
+  <rect x="434" y="534" width="160" height="160" fill="#0A0A0A"/>
+  <rect x="420" y="520" width="160" height="160" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="460" y="560" width="80" height="80" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="984" y="594" width="120" height="100" fill="#0A0A0A"/>
+  <rect x="970" y="580" width="120" height="100" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+</svg>

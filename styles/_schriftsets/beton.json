@@ -1,0 +1,41 @@
+{
+  "id": "beton",
+  "name": "Beton",
+  "standard_fuer_stil": "beton",
+  "beschreibung": "Anton als schmale, schwere Plakatschrift für Titel, Space Mono als rohe Schreibmaschinen-Mono für Fließtext, Kicker und Etiketten, Gelasio Italic als nüchterne Buch-Kursive für Zitate.",
+  "titel": {
+    "familie": "Anton",
+    "achsen": "wght 400 (ein Schnitt, Versalien)",
+    "fallback": "Impact,\"Arial Narrow\",sans-serif"
+  },
+  "akzent": {
+    "familie": "Space Mono",
+    "achsen": "ital 1, wght 700",
+    "fallback": "\"Courier New\",monospace"
+  },
+  "lesen": {
+    "familie": "Gelasio",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Space Mono",
+    "achsen": "ital 0..1, wght 400/700",
+    "fallback": "\"Courier New\",monospace"
+  },
+  "familien": [
+    "Anton",
+    "Gelasio",
+    "Space Mono"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Anton\",Impact,\"Arial Narrow\",sans-serif",
+    "--accent": "\"Space Mono\",\"Courier New\",monospace",
+    "--lesen": "\"Gelasio\",Georgia,serif",
+    "--ui": "\"Space Mono\",\"Courier New\",monospace",
+    "--sans": "\"Space Mono\",\"Courier New\",monospace"
+  },
+  "fonts_css": "fonts/beton.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Gelasio:ital@1&display=swap"
+}

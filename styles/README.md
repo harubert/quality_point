@@ -1,6 +1,6 @@
 # Stile und Schriftsets
 
-Zehn Stile für Quality-Point-Folien (1920×1080) und zehn frei kombinierbare Schriftsets. Alles liegt lokal –
+Zwanzig Stile für Quality-Point-Folien (1920×1080) und zwanzig frei kombinierbare Schriftsets. Alles liegt lokal –
 zur Laufzeit werden keine Schriften oder Bilder aus dem Netz geladen.
 
 **Auswahl ansehen:** `styles/index.html` im Browser öffnen. Die Seite ist zugleich das Onboarding: Ablauf in vier Schritten, die drei Bilder-Wege mit Kosten und Grenzen, dann alle Stile (Mini-Folien, Klick = alle acht Musterfolien groß). Neu bauen: `python styles/_werkzeuge/vorschau_bauen.py`.
@@ -21,6 +21,16 @@ zur Laufzeit werden keine Schriften oder Bilder aus dem Netz geladen.
 | ![](bauhaus/vorschau.webp) | `bauhaus` | sachlich, mutig, strukturiert | grotesk | Gestaltung, Modelle, Daten |
 | ![](journal/vorschau.webp) | `journal` | seriös, ruhig, präzise | journal | Forschung, Tagungen, Statistik |
 | ![](comic/vorschau.webp) | `comic` | laut, witzig, dynamisch | comic | Einstiege, Jugendliche, Medienkritik |
+| ![](herbarium/vorschau.webp) | `herbarium` | ruhig, gesammelt, naturkundlich | herbarium | Sachunterricht und Natur, Bibliotheks- und Lesethemen, Sammlungen, Material- und Methodenkoffer |
+| ![](nordisch/vorschau.webp) | `nordisch` | ruhig, aufgeräumt, freundlich | nordisch | Elementar- und Primarpädagogik, Schulentwicklung und Konzepte, Elternabende und Beratung |
+| ![](magazin/vorschau.webp) | `magazin` | ruhig, kultiviert, warm | magazin | Elternabende und Vorträge, Kultur-, Lese- und Buchthemen, Porträts und Fallgeschichten |
+| ![](galerie/vorschau.webp) | `galerie` | still, konzentriert, kuratiert | galerie | Kunst, Fotografie, Bildkompetenz, Museums- und Kulturvermittlung, Portfolio- und Projektpräsentationen |
+| ![](schweizer/vorschau.webp) | `schweizer` | klar, streng, selbstbewusst | schweiz | Hochschullehre und Vorlesungen, Gestaltung und Typografie, Thesen und Argumentationen |
+| ![](zeitung/vorschau.webp) | `zeitung` | sachlich, dringlich, dokumentarisch | zeitung | Nachrichten, Fake News, Quellenkritik, Journalismus und Schülerzeitung, Politische Bildung |
+| ![](linol/vorschau.webp) | `linol` | kraftvoll, handgemacht, grafisch | linol | Kunst- und Werkunterricht, Plakate, Kampagnen, Thesen, Medienkritik und Haltung |
+| ![](beton/vorschau.webp) | `beton` | roh, direkt, laut | beton | Jugendliche und junge Erwachsene, Medienkritik und Provokation, Workshops, Hackathons, Projekttage |
+| ![](konsole/vorschau.webp) | `konsole` | technisch, konzentriert, nerdig (dunkel) | konsole | Informatik und Coding-Unterricht, Algorithmen, KI und Datenschutz, Making, Robotik, Tüfteln |
+| ![](blaupause/vorschau.webp) | `blaupause` | präzise, konstruktiv, ingenieurhaft (dunkel) | blaupause | Technik, Making und Werken, Planung und Unterrichtsentwürfe, Modelle, Abläufe, Architektur von Systemen |
 
 Jeder Ordner `styles/<id>/` enthält:
 
@@ -67,8 +77,18 @@ lokalen Dateien. Ein Set mit einem anderen Stil kombinieren: dessen `fonts/<id>.
 | grotesk | Jost | Jost Italic | Libre Franklin | Libre Franklin | bauhaus |
 | journal | Literata | Newsreader | Literata | Public Sans | journal |
 | comic | Bangers | Titan One | Shantell Sans | Shantell Sans | comic |
+| beton | Anton | Space Mono | Gelasio | Space Mono | beton |
+| blaupause | Rajdhani | Saira | Saira | Saira | blaupause |
+| galerie | Hanken Grotesk | Spectral | Spectral | Hanken Grotesk | galerie |
+| herbarium | Cormorant Garamond | Cormorant Garamond | EB Garamond | Alegreya Sans | herbarium |
+| konsole | Martian Mono | JetBrains Mono | Fira Sans | JetBrains Mono | konsole |
+| linol | Alfa Slab One | Bitter | Bitter | Work Sans | linol |
+| magazin | Libre Caslon Display | Libre Caslon Text | Libre Caslon Text | DM Sans | magazin |
+| nordisch | Manrope | Crimson Pro | Crimson Pro | Manrope | nordisch |
+| schweiz | Host Grotesk | Host Grotesk | Host Grotesk | Host Grotesk | schweizer |
+| zeitung | Oswald | PT Serif | PT Serif | Barlow Semi Condensed | zeitung |
 
-**Lizenzen:** alle 31 Familien stehen unter der **SIL Open Font License 1.1** (geprüft gegen den Ordner
+**Lizenzen:** alle Familien stehen unter der **SIL Open Font License 1.1** (geprüft gegen den Ordner
 `ofl/` von [google/fonts](https://github.com/google/fonts) mit `python styles/_werkzeuge/schriften_holen.py --lizenz`).
 Die OFL erlaubt Weitergabe und Einbetten, auch kommerziell; die Schriften dürfen nicht einzeln verkauft werden,
 und abgeleitete Schriften dürfen die reservierten Namen nicht tragen. Lizenztexte: <https://openfontlicense.org>.

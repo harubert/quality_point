@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Schweizer Raster: rote Scheibe, Tablet mit Textzeilen, Kind von hinten, Bücherstapel</title>
+  <rect width="1200" height="800" fill="#F7F7F4"/>
+  <!-- sichtbares Zwölferraster -->
+  <g stroke="#111" stroke-width="1" opacity=".11">
+    <path d="M100 0V800M200 0V800M300 0V800M400 0V800M500 0V800M600 0V800M700 0V800M800 0V800M900 0V800M1000 0V800M1100 0V800"/>
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200M0 700H1200"/>
+  </g>
+  <!-- rote Scheibe -->
+  <circle cx="900" cy="260" r="190" fill="#E30613"/>
+  <!-- Tablet mit Textzeilen -->
+  <rect x="500" y="360" width="420" height="300" fill="#111"/>
+  <rect x="524" y="384" width="372" height="252" fill="#F7F7F4"/>
+  <rect x="556" y="420" width="220" height="16" fill="#111"/>
+  <rect x="556" y="452" width="280" height="16" fill="#111"/>
+  <rect x="556" y="484" width="160" height="16" fill="#111"/>
+  <rect x="556" y="530" width="84" height="84" fill="#E30613"/>
+  <rect x="664" y="530" width="172" height="16" fill="#111"/>
+  <rect x="664" y="562" width="120" height="16" fill="#111"/>
+  <!-- Kind von hinten, geometrisch -->
+  <circle cx="1040" cy="560" r="48" fill="#111"/>
+  <rect x="980" y="620" width="120" height="180" fill="#111"/>
+  <rect x="940" y="640" width="40" height="22" fill="#111"/>
+  <!-- Bücherstapel -->
+  <rect x="400" y="700" width="300" height="30" fill="#111"/>
+  <rect x="420" y="736" width="260" height="30" fill="#E30613"/>
+  <rect x="400" y="772" width="300" height="28" fill="#111"/>
+  <!-- Stift -->
+  <rect x="740" y="690" width="200" height="14" fill="#111"/>
+  <polygon points="940,690 968,697 940,704" fill="#E30613"/>
+</svg>

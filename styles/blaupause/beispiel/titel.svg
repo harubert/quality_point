@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Blaupause: Tablet in Vorder- und Seitenansicht mit Maßlinien, Kind als Linienfigur, Bücherstapel</title>
+  <defs>
+    <pattern id="fein" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#F2F6FB" stroke-width="1" opacity=".09"/>
+    </pattern>
+    <pattern id="grob" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#F2F6FB" stroke-width="1" opacity=".2"/>
+    </pattern>
+    <pattern id="schraff" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 0V12" stroke="#F2F6FB" stroke-width="1.5" opacity=".55"/>
+    </pattern>
+    <marker id="pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#F2F6FB"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="800" fill="#123C7F"/>
+  <rect width="1200" height="800" fill="url(#fein)"/>
+  <rect width="1200" height="800" fill="url(#grob)"/>
+  <g fill="none" stroke="#F2F6FB" stroke-width="2.5" stroke-linejoin="round">
+    <!-- Tablet, Vorderansicht -->
+    <rect x="600" y="160" width="440" height="300" rx="12"/>
+    <rect x="626" y="186" width="388" height="248"/>
+    <circle cx="820" cy="172" r="4"/>
+    <!-- Seitenansicht -->
+    <rect x="1086" y="160" width="26" height="300" rx="6"/>
+    <!-- Bücherstapel, Schrägbild -->
+    <path d="M640 560 H900 L940 530 H680 Z M640 560 V600 H900 V560 M900 600 L940 570 V530"/>
+    <path d="M660 600 H920 L960 570 H700 Z M660 600 V640 H920 V600 M920 640 L960 610 V570"/>
+    <path d="M630 640 H890 L930 610 H670 Z M630 640 V680 H890 V640 M890 680 L930 650 V610"/>
+    <!-- Linienfigur ohne Gesicht -->
+    <circle cx="500" cy="500" r="40"/>
+    <path d="M460 560 Q500 540 540 560 L556 680 H444 Z"/>
+    <path d="M540 580 L600 540 M460 580 L420 650 M470 680 V760 M530 680 V760"/>
+    <!-- Stift -->
+    <path d="M620 720 H960 L1000 735 L960 750 H620 Z M960 720 V750"/>
+  </g>
+  <!-- Schraffur im Bildschirm und Kreidegelb -->
+  <rect x="626" y="186" width="388" height="248" fill="url(#schraff)"/>
+  <rect x="660" y="220" width="200" height="24" fill="#123C7F" stroke="#F2F6FB" stroke-width="1.5"/>
+  <circle cx="1000" cy="400" r="26" fill="#F7DC6F" opacity=".85"/>
+  <rect x="660" y="600" width="260" height="40" fill="#F7DC6F" opacity=".25"/>
+  <!-- Mittellinien gestrichelt -->
+  <g stroke="#F2F6FB" stroke-width="1.2" stroke-dasharray="12 7" opacity=".55">
+    <path d="M820 120 V500 M560 310 H1140"/>
+  </g>
+  <!-- Maßlinien mit Pfeilspitzen -->
+  <g stroke="#F2F6FB" stroke-width="1.5" fill="none">
+    <path d="M600 100 V128 M1040 100 V128" opacity=".7"/>
+    <path d="M604 114 H1036" marker-start="url(#pf)" marker-end="url(#pf)"/>
+    <path d="M1150 160 H1178 M1150 460 H1178" opacity=".7"/>
+    <path d="M1164 164 V456" marker-start="url(#pf)" marker-end="url(#pf)"/>
+    <path d="M620 770 V790 M1000 770 V790" opacity=".7"/>
+    <path d="M624 780 H996" marker-start="url(#pf)" marker-end="url(#pf)"/>
+  </g>
+</svg>

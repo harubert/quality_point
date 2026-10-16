@@ -12,8 +12,10 @@ from pathlib import Path
 
 STYLES = Path(__file__).resolve().parent.parent
 VS = STYLES / "_vorschau"
-REIHENFOLGE = ["papiertheater", "fibel", "gouache", "knetwerk", "nachtprogramm", "riso",
-               "tafelkreide", "bauhaus", "journal", "comic"]
+REIHENFOLGE = ["papiertheater", "fibel", "gouache", "knetwerk", "herbarium", "nordisch",          # warm, erzählend, Kinder
+               "magazin", "journal", "galerie", "schweizer", "bauhaus", "zeitung",                 # editorial, akademisch, sachlich
+               "riso", "linol", "comic", "beton",                                                  # grafisch, laut
+               "nachtprogramm", "tafelkreide", "konsole", "blaupause"]                             # dunkel
 BROWSER = [r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
            r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
            r"C:\Program Files\Google\Chrome\Application\chrome.exe",

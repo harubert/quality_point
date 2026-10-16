@@ -1,0 +1,41 @@
+{
+  "id": "linol",
+  "name": "Linol",
+  "standard_fuer_stil": "linol",
+  "beschreibung": "Alfa Slab One als schwere, wie geschnitten wirkende Plakatschrift, Bitter Kursive (Slab) für Akzente und Lesetext, Work Sans als klare Sans für Fließtext und Oberfläche.",
+  "titel": {
+    "familie": "Alfa Slab One",
+    "achsen": "wght 400 (einziger Schnitt)",
+    "fallback": "\"Rockwell Extra Bold\",Impact,serif"
+  },
+  "akzent": {
+    "familie": "Bitter",
+    "achsen": "ital 1, wght 400..700 (Akzent: 700)",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Bitter",
+    "achsen": "ital 1, wght 400..700 (Lesen: 400)",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Work Sans",
+    "achsen": "wght 400..700, ital 400",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Alfa Slab One",
+    "Bitter",
+    "Work Sans"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Alfa Slab One\",\"Rockwell Extra Bold\",Impact,serif",
+    "--accent": "\"Bitter\",Georgia,serif",
+    "--lesen": "\"Bitter\",Georgia,serif",
+    "--ui": "\"Work Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Work Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/linol.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:ital,wght@1,400..700&family=Work+Sans:ital,wght@0,400..700;1,400&display=swap"
+}

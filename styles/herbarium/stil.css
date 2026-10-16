@@ -1,0 +1,161 @@
+/* ==========================================================
+   STIL „Herbarium“ – Tafeln eines alten botanischen Atlas
+   Elfenbein, Sepiagrün, Salbei, Ocker, Rost · Cormorant Garamond + EB Garamond (Kursive) + Alegreya Sans
+   Faserpapier, doppelter Haarlinien-Rahmen je Tafel, Etikettkarten mit Stecknadeln, Kapitälchen, kursive Legenden.
+   ========================================================== */
+:root{
+  --paper:#F3EEDF; --paper2:#E9E2CC; --card:#FBF8EE; --sand:#CFC6A8;
+  --ink:#2E3A2A; --ink2:#4A5443; --ink3:#5F6856;
+  --red:#A4482B; --red-l:#F0DDD2;
+  --teal:#557052; --teal-d:#344A33; --teal-l:#DEE4D3;
+  --yellow:#C9972B; --yellow-l:#F3E7C6;
+  --coral:#B8673A; --coral-l:#F1DFD0;
+  --night:#2A3326;
+  --serif:"Cormorant Garamond",Garamond,Georgia,serif;
+  --accent:"Cormorant Garamond",Garamond,Georgia,serif;
+  --lesen:"EB Garamond",Garamond,Georgia,serif;
+  --ui:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  --haar:1px solid var(--sand);
+  --nadel:radial-gradient(circle at 36% 34%,#F8EEDD 0 16%,var(--red) 18% 100%);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:2px; --radius-s:2px; --schatten:rgba(46,58,42,.35); --auf-dunkel:#F3EEDF; --buehne:#1f261c; --panel:#F7F3E6;
+}
+html,body{background:#1f261c}
+
+/* Faserpapier (Korn + liegende Fasern) und doppelter Tafelrahmen */
+.slide{background:var(--paper)}
+.slide::before{opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .26 0 0 0 0 .12 0 0 0 .16 0'/%3E%3C/filter%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .6' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .1 -.02'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");background-size:260px 260px}
+.slide::after{content:"";position:absolute;inset:30px;border:1px solid var(--sand);outline:1px solid var(--sand);outline-offset:5px;pointer-events:none}
+.slide footer{color:var(--ink3)}
+.slide footer .chap{font-variant:small-caps;text-transform:none;letter-spacing:.1em;font-size:21px;font-weight:700}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.005em}
+h1,h2{font-weight:600}
+h2{font-size:78px;line-height:1.04}
+h3{font-weight:600;font-size:40px}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:600;color:var(--red)}
+.kick{font:500 26px/1 var(--ui);letter-spacing:.14em;text-transform:none;font-variant:small-caps;color:var(--teal)}
+.kick::before{height:1px;width:56px;border-radius:0}
+.lead{color:var(--ink2);font-family:var(--serif);font-size:38px;font-weight:500;line-height:1.3}
+p,li,td{color:var(--ink)}
+
+/* Karten als Belegetiketten: Haarlinie, zwei Stecknadeln; .tape = gummierter Papierstreifen */
+.card{background:var(--card);border-radius:2px;border:var(--haar);box-shadow:0 1px 0 var(--sand),0 16px 30px -26px var(--schatten);padding:30px 34px 26px}
+.card::before,.card::after{content:"";position:absolute;top:11px;width:13px;height:13px;border-radius:50%;background:var(--nadel);box-shadow:1px 2px 3px rgba(46,58,42,.4)}
+.card::before{left:13px}.card::after{right:13px}
+.card.t{border-top:3px solid var(--teal)}.card.c{border-top:3px solid var(--coral)}.card.r{border-top:3px solid var(--red)}.card.y{border-top:3px solid var(--yellow)}
+.card .num{font:600 60px/1 var(--serif);color:var(--teal)}
+.card.tape::before{left:50%;top:-13px;width:150px;height:28px;border-radius:0;background:rgba(233,226,204,.9);border:1px solid rgba(207,198,168,.8);transform:translateX(-50%) rotate(-2deg);box-shadow:none}
+.card.tape::after{display:none}
+.tag{border-radius:2px;background:transparent;border:1px solid var(--teal);color:var(--teal-d);font-variant:small-caps;text-transform:none;letter-spacing:.12em;font-weight:700;font-size:23px;padding:7px 14px}
+.tag.c{border-color:var(--coral);color:#7A3E1E}.tag.r{border-color:var(--red);color:var(--red)}.tag.y{border-color:var(--yellow);color:#7A5A12}
+.box{border-radius:2px}
+.box.def{background:var(--teal-l);border:var(--haar)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border:var(--haar);border-left:4px solid var(--teal);box-shadow:none}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:#7A5A12}
+.bh{font-variant:small-caps;text-transform:none;letter-spacing:.14em;font-weight:700;font-size:25px}
+.bh i{width:34px;height:34px}
+.bh i span{font-size:22px}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--coral);font-weight:500}
+.quote cite{color:var(--ink3);font-variant:small-caps;letter-spacing:.08em;font-size:25px}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal);font-variant:small-caps;text-transform:none;letter-spacing:.1em;font-size:.72em}
+
+table.tbl{background:var(--card);border-radius:0;box-shadow:none;border:var(--haar)}
+.tbl th{background:var(--paper2);color:var(--ink);font-variant:small-caps;text-transform:none;letter-spacing:.12em;font-weight:700;font-size:25px;border-bottom:1px solid var(--teal)}
+.tbl.compact th{font-size:23px}
+.tbl td{border-top:var(--haar)}
+.tbl tr:nth-child(even) td{background:#F7F3E6}
+.tbl td:first-child{font-family:var(--serif);font-weight:700;font-size:1.1em}
+
+ul.dots li::before{width:11px;height:11px;top:.58em;background:transparent;border:2px solid var(--coral)}
+ol.steps>li::before{background:transparent;color:var(--teal);border:1px solid var(--teal);font:600 30px/54px var(--serif)}
+ol.steps.red>li::before{background:transparent;color:var(--red);border-color:var(--red)}
+.sb{background:var(--red);border-radius:2px;font-family:var(--serif);font-weight:700}
+.wcard{border:var(--haar);border-radius:2px;box-shadow:5px 5px 0 var(--paper2)}
+.bub{border:var(--haar);box-shadow:none;border-radius:2px}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--teal)}
+
+/* Fotos als aufgesteckte Belege, Legende kursiv */
+.foto{background:var(--card);padding:16px 16px 12px;border:var(--haar);box-shadow:0 12px 26px -20px var(--schatten);--r:-1deg;transform:rotate(var(--r,0deg))}
+.foto::before,.foto::after{content:"";position:absolute;top:8px;width:13px;height:13px;border-radius:50%;background:var(--nadel);box-shadow:1px 2px 3px rgba(46,58,42,.4);z-index:2}
+.foto::before{left:9px}.foto::after{right:9px}
+.foto img{filter:sepia(.35) saturate(.85)}
+.foto .cap{font:italic 400 22px/1.3 var(--lesen);color:var(--ink2)}
+.zettel{background:var(--paper2);border:var(--haar);box-shadow:none;color:var(--ink);transform:rotate(var(--r,0deg))}
+
+/* Titel: Tafel I */
+.s-title .hero{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%);mask-image:linear-gradient(90deg,transparent 0,#000 34%);filter:sepia(.25) saturate(.9)}
+.s-title h1{font-size:120px;line-height:.98}
+.s-title .sub{color:var(--ink2);font-family:var(--serif);font-size:40px;font-weight:500}
+.s-title .who{color:var(--ink2)}
+.s-title .who b{color:var(--ink);font-family:var(--serif);font-weight:700;font-size:36px}
+.s-title .kick{color:var(--red)}
+
+/* Kapitel: Salbeigrün, Etikett mit Nadeln und innerer Haarlinie */
+.s-chapter{background:var(--teal-d);color:var(--auf-dunkel)}
+.s-chapter::before{opacity:.45}
+.s-chapter::after,.s-dark::after,.s-auftrag::after{border-color:rgba(243,238,223,.3);outline-color:rgba(243,238,223,.3)}
+.s-chapter .bignum{font-weight:500;color:rgba(243,238,223,.1)}
+.s-chapter .lead{color:rgba(243,238,223,.85)}
+.etikett{background:var(--card);border:var(--haar);border-radius:2px;outline:1px solid var(--sand);outline-offset:-9px;box-shadow:0 1px 0 var(--sand),0 30px 50px -30px rgba(0,0,0,.6);transform:translateY(-54%) rotate(-.4deg)}
+.etikett::before,.etikett::after{content:"";position:absolute;top:14px;width:15px;height:15px;border-radius:50%;background:var(--nadel);box-shadow:1px 2px 3px rgba(46,58,42,.45)}
+.etikett::before{left:16px}.etikett::after{right:16px}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{font-size:88px}
+.s-chapter .etikett .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-weight:700;font-size:26px}
+/* Kapitelbilder sind helle Tafeln: Fußzeile dunkel statt weiß */
+.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink3);text-shadow:none}
+
+/* Dunkel: Moosgrün-Sepia, Ocker als Akzent (Rost/Salbei wären hier zu dunkel) */
+.s-dark{background:var(--night);color:var(--auf-dunkel)}
+.s-dark::before{opacity:.35}
+.s-dark h2,.s-dark h3{color:var(--auf-dunkel)}.s-dark h2 em{color:var(--yellow)}
+.s-dark .lead{color:#D9D6C4}
+.s-dark .kick{color:#A9B99E}
+.s-dark p,.s-dark li{color:var(--auf-dunkel)}
+.s-dark .card{background:#36412F;color:var(--auf-dunkel);border-color:rgba(243,238,223,.22);box-shadow:none}
+.s-dark .card h3{color:var(--auf-dunkel)}
+.s-dark .card p,.s-dark .card li{color:#E4E1D0}
+.s-dark .quote{color:var(--auf-dunkel)}.s-dark .quote::before{color:var(--yellow)}.s-dark .ueb{color:#D9D6C4}.s-dark .ueb::before{color:var(--yellow)}
+.s-dark ul.dots li::before{border-color:var(--yellow)}
+
+.s-statement .big{font-weight:500;font-size:98px;line-height:1.1}
+
+/* Werkstatt: Sepiabraun, Ocker-Etiketten, Rahmen wie Belegmappe */
+.s-auftrag{background:#3A3A2A;color:var(--auf-dunkel)}
+.s-auftrag::before{opacity:.35}
+.s-auftrag .wk .wn{background:var(--yellow);color:var(--ink);border-radius:2px;font-family:var(--serif);font-weight:700;font-size:34px}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--yellow);font-variant:small-caps;text-transform:none;letter-spacing:.14em;font-size:27px}
+.s-auftrag h2 em{color:var(--yellow)}
+.s-auftrag p,.s-auftrag li{color:var(--auf-dunkel)}
+.s-auftrag .panel{border-radius:2px;background:rgba(243,238,223,.05);border:1px solid rgba(243,238,223,.35);outline:1px solid rgba(243,238,223,.18);outline-offset:-7px}
+.s-auftrag .meta span{background:transparent;border:1px solid rgba(201,151,43,.7);color:#E8D7A8;border-radius:2px;font-variant:small-caps;text-transform:none;letter-spacing:.08em;font-size:24px}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--yellow);border-color:var(--yellow)}
+.s-auftrag ul.dots li::before{background:transparent;border-color:var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:600;color:var(--red)}
+.card.t .zahl{color:var(--teal)}.card.y .zahl{color:#7A5A12}
+.zahl small{color:var(--ink2);font-family:var(--lesen);font-style:italic}
+.zl{color:var(--ink2);font-family:var(--lesen);font-style:italic;font-size:27px}
+.bars .bz{font:500 26px/1 var(--ui);color:var(--ink2)}
+.bars .bt{background:var(--paper2);height:30px;border:var(--haar);border-radius:0}
+.bars .bt i{background:repeating-linear-gradient(135deg,var(--red) 0 3px,transparent 3px 8px),var(--red-l);box-shadow:inset 0 0 0 1px var(--red)}
+.bars .bz.t .bt i{background:repeating-linear-gradient(135deg,var(--teal) 0 3px,transparent 3px 8px),var(--teal-l);box-shadow:inset 0 0 0 1px var(--teal)}
+.bars .bv{font:700 34px/1 var(--serif);color:var(--ink)}
+
+.lesehilfe{background:rgba(251,248,238,.96);color:var(--ink2);border-left:3px solid var(--teal);border-top:var(--haar);border-bottom:var(--haar);font-family:var(--ui)}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--red);font-family:var(--serif);font-weight:700}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(42,51,38,.95);color:#E4E1D0;border-left-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:2px}
+.pointe{background:var(--card);border:var(--haar);border-radius:2px;box-shadow:0 1px 0 var(--sand);color:var(--ink);font-family:var(--lesen);font-style:italic;font-size:29px}
+.pointe b{background:var(--red);border-radius:2px;font-style:normal;font-variant:small-caps;text-transform:none;letter-spacing:.1em;font-size:20px}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow-l);color:var(--ink)}
+#progress{background:var(--red);height:3px}
+.hl{background:linear-gradient(transparent 60%,var(--yellow-l) 60%)}

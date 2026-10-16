@@ -1,0 +1,177 @@
+/* ==========================================================
+   STIL „Linol“ – Linolschnitt / Holzschnitt, Handdruck
+   Cremepapier, Druckschwarz, eine Schmuckfarbe Indigo · Alfa Slab One + Bitter (Kursive) + Work Sans
+   Raue Schnittkanten (feTurbulence + feDisplacementMap auf Flächen), Druckkorn, Negativdruck auf dunklen Folien.
+   ========================================================== */
+:root{
+  --paper:#F4ECD8; --paper2:#E9DFC6; --card:#FBF5E6; --sand:#D3C8AC;
+  --ink:#161412; --ink2:#2E2A26; --ink3:#58524A;
+  --red:#2A3F85; --red-l:#D7DCEE;
+  --teal:#223570; --teal-d:#1A2A5C; --teal-l:#D7DCEE;
+  --yellow:#F1E5C2; --yellow-l:#EFE3BF;
+  --coral:#2A3F85; --coral-l:#D7DCEE;
+  --night:#161412;
+  --serif:"Alfa Slab One","Rockwell Extra Bold",Impact,serif;
+  --accent:"Bitter",Georgia,serif;
+  --lesen:"Bitter",Georgia,serif;
+  --ui:"Work Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"Work Sans","Segoe UI",system-ui,sans-serif;
+  /* Schnittkanten: grob (Rahmen), mittel (Fläche), fein (Balken, Etiketten) */
+  --rau:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='r' x='-6%25' y='-6%25' width='112%25' height='112%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.03' numOctaves='3' seed='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='9' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/svg%3E#r");
+  --rau2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='r' x='-6%25' y='-6%25' width='112%25' height='112%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.03' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='7' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/svg%3E#r");
+  --rau-fein:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='r' x='-6%25' y='-20%25' width='112%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2' seed='2'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='5' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/svg%3E#r");
+  --korn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .07 0 0 0 0 .06 0 0 0 .22 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --korn-hell:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .95 0 0 0 0 .92 0 0 0 0 .84 0 0 0 .2 -.07'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(22,20,18,.5); --auf-dunkel:#F4ECD8; --auf-akzent:#F4ECD8; --buehne:#0f0e0d; --panel:#F7F0DE;
+}
+html,body{background:#0f0e0d}
+
+/* Cremepapier mit Druckkorn */
+.slide{background:var(--paper)}
+.slide::before{opacity:.6;background-image:var(--korn);background-size:220px 220px}
+.slide footer{color:var(--ink3);font-weight:500}
+.slide footer .chap{letter-spacing:.14em}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--ink);letter-spacing:.01em}
+h2{font-size:70px;line-height:1.04;text-transform:uppercase}
+h3{font-size:34px;line-height:1.15;text-transform:uppercase;letter-spacing:.02em}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:700;color:var(--red);text-transform:none;letter-spacing:0}
+.kick{font:700 22px/1 var(--ui);letter-spacing:.2em;color:var(--ink)}
+.kick::before{width:54px;height:14px;border-radius:0;background:var(--ink);filter:var(--rau-fein)}
+.lead{color:var(--ink2);font-weight:500}
+p,li,td{color:var(--ink)}
+
+/* Karten: schwarzer Rahmen und Cremefläche, beide mit geschnittener Kante (Pseudoelemente, Text bleibt scharf) */
+.card{background:transparent;border-radius:0;box-shadow:none;isolation:isolate;padding:30px 34px}
+.card::before{content:"";position:absolute;inset:-7px;background:var(--ink);z-index:-2;filter:var(--rau)}
+.card::after{content:"";position:absolute;inset:0;background:var(--card);z-index:-1;filter:var(--rau2)}
+.card.t,.card.c,.card.r,.card.y{border-top:0}
+.card.t::before,.card.c::before,.card.r::before{background:var(--red)}
+.card.tape{border-top:14px solid var(--red)}
+.card .num{color:var(--red);font-family:var(--serif);font-weight:400}
+.tag{border-radius:0;background:var(--ink);color:var(--paper);font-weight:700;letter-spacing:.14em;filter:var(--rau-fein)}
+.tag.c,.tag.r{background:var(--red);color:var(--paper)}.tag.y{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 3px var(--ink);filter:none}
+.box{border-radius:0}
+.box.def{background:var(--red-l);outline:3px solid var(--red)}.box.def .bh{color:var(--red)}
+.box.res{background:var(--card);border-left:14px solid var(--ink);box-shadow:none;outline:3px solid var(--ink)}
+.box.tip{background:var(--card);border-left:14px solid var(--red);outline:3px solid var(--red)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--paper2);outline:3px solid var(--ink)}.box.daz .bh{color:var(--ink)}
+.bh{font-weight:700;letter-spacing:.16em}
+.bh i{border-radius:0}
+.bh i span{font-family:var(--serif);font-weight:400}
+
+.quote{color:var(--ink)}
+.quote::before{color:var(--red);font-size:200px;top:-44px}
+.quote cite{color:var(--ink3);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:22px}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--red)}
+
+table.tbl{background:var(--card);border-radius:0;box-shadow:none;outline:3px solid var(--ink)}
+.tbl th{background:var(--ink);color:var(--paper);font-weight:700;letter-spacing:.1em}
+.tbl td{border-top:2px solid var(--ink)}
+.tbl tr:nth-child(even) td{background:var(--paper2)}
+
+ul.dots li::before{width:16px;height:16px;border-radius:0;background:var(--ink);top:.5em;transform:rotate(8deg)}
+ol.steps>li::before{background:var(--ink);color:var(--paper);border-radius:0;font:400 28px/56px var(--serif);filter:var(--rau-fein)}
+ol.steps.red>li::before{background:var(--red)}
+ol.steps.y>li::before{background:var(--paper2);color:var(--ink);box-shadow:inset 0 0 0 3px var(--ink)}
+.sb{background:var(--red);border-radius:0;font-family:var(--serif);font-weight:400;color:var(--paper)}
+.wcard{border:4px solid var(--ink);border-radius:0;box-shadow:10px 10px 0 var(--red)}
+.wcard .w{font-family:var(--serif);font-weight:400}
+.bub{border:3px solid var(--ink);box-shadow:none;border-radius:0}.bub.r{background:var(--red-l)}.bub.x{background:var(--paper2)}
+.arrow{color:var(--red)}
+
+/* Fotos als kontrastreicher Schwarzweißdruck; Zettel = Indigo-Druckfläche */
+.foto{background:var(--card);padding:12px 12px 10px;box-shadow:none;outline:4px solid var(--ink);--r:-1deg;transform:rotate(var(--r,0deg))}
+.foto img{filter:grayscale(1) contrast(1.25)}
+.foto .cap{font:italic 400 21px/1.3 var(--lesen);color:var(--ink2)}
+.zettel{background:transparent;position:relative;isolation:isolate;color:var(--paper);box-shadow:none;transform:rotate(var(--r,0deg));font-weight:500}
+.zettel::before{content:"";position:absolute;inset:0;background:var(--red);z-index:-1;filter:var(--rau2)}
+
+/* Titel: Plakat */
+.s-title .hero{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%);mask-image:linear-gradient(90deg,transparent 0,#000 36%);filter:contrast(1.08)}
+.s-title .tt{width:980px}
+.s-title h1{font-size:102px;line-height:.98;text-transform:uppercase;font-weight:400}
+.s-title .sub{color:var(--ink2);font-family:var(--lesen);font-style:italic;font-size:38px}
+.s-title .who{color:var(--ink2)}
+.s-title .who b{color:var(--ink);font-weight:700}
+.s-title .kick{color:var(--red)}.s-title .kick::before{background:var(--red)}
+
+/* Kapitel: Indigo-Vollfläche, Etikett als geschnittener Block */
+.s-chapter{background:var(--red);color:var(--paper)}
+.s-chapter::before{opacity:.5;background-image:var(--korn-hell)}
+.s-chapter .bignum{font-weight:400;color:rgba(244,236,216,.14)}
+.s-chapter .kick{color:var(--paper)}.s-chapter .kick::before{background:var(--paper)}
+.s-chapter h2{color:var(--paper)}.s-chapter h2 em{color:var(--paper);text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:10px}
+.s-chapter .lead{color:rgba(244,236,216,.85)}
+.s-chapter .toc div{border-top:3px solid rgba(244,236,216,.45);color:var(--paper)}
+.s-chapter .toc div b{color:var(--paper);font-weight:400}
+.etikett{background:transparent;border-radius:0;box-shadow:none;isolation:isolate;transform:translateY(-54%) rotate(-.6deg)}
+.etikett::before{content:"";position:absolute;inset:-9px;background:var(--ink);z-index:-2;filter:var(--rau)}
+.etikett::after{content:"";position:absolute;inset:0;background:var(--card);z-index:-1;filter:var(--rau2)}
+.s-chapter .etikett .kick{color:var(--ink)}.s-chapter .etikett .kick::before{background:var(--ink)}
+.s-chapter .etikett h2{color:var(--ink);font-size:82px}
+.s-chapter .etikett h2 em{color:var(--red);text-decoration:none}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:3px solid var(--ink);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-weight:400}
+/* Kapitelbilder sind Drucke auf Cremepapier: Fußzeile dunkel statt weiß */
+.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink3);text-shadow:none}
+
+/* Dunkel: Negativdruck – Creme auf Schwarz, Indigo nur hell aufgehellt */
+.s-dark{background:var(--night);color:var(--paper)}
+.s-dark::before{opacity:.5;background-image:var(--korn-hell)}
+.s-dark h2,.s-dark h3{color:var(--paper)}.s-dark h2 em{color:#9DAEE8}
+.s-dark .lead{color:#E0D8C4}
+.s-dark .kick{color:var(--paper)}.s-dark .kick::before{background:var(--paper)}
+.s-dark p,.s-dark li{color:var(--paper)}
+.s-dark .card{color:var(--paper)}
+.s-dark .card::before{background:var(--paper)}
+.s-dark .card::after{background:#232019}
+.s-dark .card h3{color:var(--paper)}
+.s-dark .card p,.s-dark .card li{color:#E8E0CC}
+.s-dark .quote{color:var(--paper)}.s-dark .quote::before{color:#9DAEE8}.s-dark .ueb{color:#E0D8C4}.s-dark .ueb::before{color:#9DAEE8}
+.s-dark ul.dots li::before{background:var(--paper)}
+
+.s-statement .big{font-weight:400;font-size:88px;line-height:1.06;text-transform:uppercase;letter-spacing:.01em}
+.s-statement .big em{text-transform:none;font-size:1.04em}
+
+/* Werkstatt: tiefes Indigo, Creme-Druck */
+.s-auftrag{background:var(--teal-d);color:var(--paper)}
+.s-auftrag::before{opacity:.45;background-image:var(--korn-hell)}
+.s-auftrag .wk .wn{background:var(--paper);color:var(--teal-d);border-radius:0;font-family:var(--serif);font-weight:400;filter:var(--rau-fein)}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--paper);font-weight:700}
+.s-auftrag h2 em{color:#9DAEE8}
+.s-auftrag p,.s-auftrag li{color:var(--paper)}
+.s-auftrag .panel{border-radius:0;background:transparent;border:0;position:relative;isolation:isolate}
+.s-auftrag .panel::before{content:"";position:absolute;inset:0;border:4px solid var(--paper);z-index:-1;filter:var(--rau2)}
+.s-auftrag .meta span{background:var(--paper);color:var(--teal-d);border-radius:0;font-weight:700}
+.s-auftrag ol.steps>li::before{background:var(--paper);color:var(--teal-d)}
+.s-auftrag ul.dots li::before{background:var(--paper)}
+
+.zahl{font-family:var(--serif);font-weight:400;color:var(--ink);letter-spacing:0}
+.card.r .zahl,.card.t .zahl{color:var(--red)}
+.zahl small{color:var(--ink2);font-family:var(--lesen);font-style:italic;font-size:36px}
+.zl{color:var(--ink2);font-weight:500}
+.bars .bz{font:700 23px/1 var(--ui);color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+.bars .bt{background:var(--paper2);height:40px;border-radius:0;outline:3px solid var(--ink);outline-offset:-3px}
+.bars .bt i{background:var(--ink);filter:var(--rau-fein)}
+.bars .bz.t .bt i{background:var(--red)}
+.bars .bv{font:400 32px/1 var(--serif);color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border-left:10px solid var(--ink);outline:3px solid var(--ink);font-weight:500}
+.lesehilfe b{color:var(--ink)}.lesehilfe .lh{color:var(--red);font-family:var(--serif)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:#232019;color:#E8E0CC;border-left-color:var(--paper);outline-color:var(--paper)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--paper)}
+.uf .uf-kz{background:var(--red-l);color:var(--teal-d);border-radius:0}
+.pointe{background:var(--card);border-radius:0;box-shadow:none;outline:3px solid var(--ink);color:var(--ink);font-weight:500}
+.pointe b{background:var(--red);border-radius:0;color:var(--paper)}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--paper);outline-color:var(--paper)}
+#progress{background:var(--red);height:6px}
+.hl{background:linear-gradient(transparent 58%,var(--red-l) 58%)}
+.mark{background-image:linear-gradient(var(--red-l),var(--red-l))}
+/* Creme-„Gelb“ auf Cremepapier wäre unsichtbar: Knöpfe und Notiz-Etikett in Schwarz */
+a.formlink{background:var(--ink);color:var(--paper)}
+a.formlink:hover{background:var(--red)}
+#notes .nb .lbl.z{background:var(--ink);color:var(--paper)}

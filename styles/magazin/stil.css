@@ -1,0 +1,164 @@
+/* ==========================================================
+   STIL „Magazin“ – Lifestyle-Editorial (Kinfolk, Monocle)
+   Warmes Offwhite, Anthrazit, Terrakotta und Salbei · Libre Caslon Display/Text + DM Sans
+   Doppelte Kopflinie, Kapitälchen-Etiketten, Haarlinien, Pull-Quotes, Fotos als warmer Duoton.
+   ========================================================== */
+:root{
+  --paper:#F5F0E8; --paper2:#EBE4D8; --card:#FBF8F2; --sand:#D8CFC2;
+  --ink:#2B2A28; --ink2:#4A4743; --ink3:#6E6962;
+  --red:#B04E33; --red-l:#F1DCD3;
+  --teal:#5F7357; --teal-d:#3E4D39; --teal-l:#E1E5DA;
+  --yellow:#B8893A; --yellow-l:#F0E5D0;
+  --coral:#B8766A; --coral-l:#F0DFD9;
+  --night:#2B2A28;
+  --serif:"Libre Caslon Display","Big Caslon",Georgia,serif;
+  --accent:"Libre Caslon Text",Georgia,serif;
+  --lesen:"Libre Caslon Text",Georgia,serif;
+  --ui:"DM Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"DM Sans","Segoe UI",system-ui,sans-serif;
+  --haar:1px solid var(--sand);
+  --kapital:500 18px/1 var(--ui);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(43,42,40,.25); --auf-dunkel:#F5F0E8; --buehne:#3a3835;
+}
+html,body{background:#3a3835}
+
+/* Warmes Papier mit feinem Korn, doppelte Kopflinie wie im Heft */
+.slide{background:var(--paper);padding:104px 120px 120px}
+.slide::before{opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .22 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:240px 240px}
+.slide::after{content:"";position:absolute;left:120px;right:120px;top:58px;height:5px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);pointer-events:none}
+.slide footer{left:120px;right:120px;border-top:var(--haar);padding-top:12px;color:var(--ink3)}
+.slide footer .chap{letter-spacing:.24em;font-size:17px;font-weight:500}
+.slide footer .pg{font-family:var(--accent);font-weight:400;font-size:24px}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:400;letter-spacing:-.01em}
+h2{font-size:80px;line-height:1.02;margin-bottom:32px}
+h3{font-family:var(--accent);font-weight:700;font-size:34px;letter-spacing:0}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:400;color:var(--red)}
+.kick{font:var(--kapital);letter-spacing:.3em;color:var(--teal);gap:16px}
+.kick::before{width:40px;height:1px;border-radius:0}
+.lead{color:var(--ink2);font-family:var(--accent);font-size:33px;line-height:1.4}
+p,li,td{color:var(--ink)}
+
+/* Karten: Hauchrahmen, doppelte Linie oben in der Akzentfarbe */
+.card{background:var(--card);border-radius:0;box-shadow:none;border:var(--haar);padding:28px 32px}
+.card.t{border-top:7px double var(--teal)}.card.c{border-top:7px double var(--coral)}.card.r{border-top:7px double var(--red)}.card.y{border-top:7px double var(--yellow)}
+.card .num{font:400 58px/1 var(--serif);color:var(--red)}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.tag{border-radius:0;background:transparent;border:1px solid var(--teal);color:var(--teal-d);font:var(--kapital);letter-spacing:.22em;padding:8px 12px}
+.tag.c{border-color:var(--coral);color:#8E5247;background:transparent}.tag.r{border-color:var(--red);color:var(--red);background:transparent}.tag.y{border-color:var(--yellow);color:#7F5B1F;background:transparent}
+.box{border-radius:0;border:var(--haar)}
+.box.def{background:var(--teal-l);border-color:transparent}.box.def .bh{color:var(--teal-d)}
+.box.res{background:var(--card);border-left:7px double var(--teal);box-shadow:none}
+.box.tip{background:var(--red-l);border-color:transparent}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l);border-color:transparent}.box.daz .bh{color:#7F5B1F}
+.bh{font:var(--kapital);letter-spacing:.26em}
+.bh i{width:30px;height:30px}
+.bh i span{font:700 16px/1 var(--ui)}
+
+/* Pull-Quote: Haarlinie oben, Kursive, Kapitälchen-Quelle */
+.quote{color:var(--ink);padding:30px 0 0;border-top:1px solid var(--ink);font-weight:400}
+.quote::before{content:none}
+.quote cite{font:var(--kapital);letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-top:22px}
+.quote cite::before{content:"— "}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal);letter-spacing:.2em}
+
+table.tbl{background:transparent;border-radius:0;box-shadow:none;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+.tbl th{background:transparent;color:var(--ink);border-bottom:var(--haar);font:var(--kapital);letter-spacing:.22em;padding:16px 22px}
+.tbl td{border-top:var(--haar)}
+.tbl td:first-child{font-family:var(--lesen);font-style:italic;font-weight:400}
+.tbl tr:nth-child(even) td{background:transparent}
+
+ul.dots li::before{width:7px;height:7px;top:.62em;background:var(--red)}
+ol.steps>li::before{background:transparent;color:var(--red);border-radius:0;font:400 46px/50px var(--serif);text-align:left}
+ol.steps.red>li::before{background:transparent;color:var(--teal)}
+.sb{background:var(--red);border-radius:0;font-family:var(--serif);font-weight:400}
+.wcard{border:var(--haar);border-radius:0;box-shadow:none}
+.wcard .w{font-family:var(--serif);font-weight:400}
+.bub{border:var(--haar);box-shadow:none;border-radius:0}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--teal)}
+
+/* Fotos als warmer Duoton, Legende in Kapitälchen */
+.foto{background:transparent;padding:0;box-shadow:none;--r:0deg}
+.foto img{filter:grayscale(1) sepia(.55) saturate(1.35) contrast(1.05)}
+.foto .cap{margin:0;padding:12px 0 8px;font:var(--kapital);letter-spacing:.14em;text-transform:uppercase;line-height:1.4;color:var(--ink3);border-bottom:var(--haar)}
+.zettel{background:var(--card);border:var(--haar);border-top:7px double var(--yellow);--r:0deg;box-shadow:none;font-style:italic;color:var(--ink)}
+
+/* Titel: Bild als ganze rechte Seite, Titel in Caslon */
+.s-title{padding:0}
+.s-title::after{right:1040px}
+.s-title .hero{width:920px;height:1080px;-webkit-mask-image:none;mask-image:none;filter:saturate(.8)}
+.s-title .tt{left:120px;top:190px;width:800px}
+.s-title h1{font-size:104px;line-height:1;letter-spacing:-.015em;margin:30px 0 34px}
+.s-title .sub{color:var(--ink2);font-family:var(--accent);font-style:italic;font-size:34px}
+.s-title .who{left:120px;color:var(--ink2);border-top:var(--haar);padding-top:14px;width:600px}
+.s-title .who b{color:var(--ink);font-family:var(--accent);font-weight:700}
+
+/* Kapitel: ganzseitiges Bild, Etikett als kleine Heftseite */
+.s-chapter{background:var(--paper2);color:var(--ink)}
+.s-chapter .hero{filter:saturate(.8)}
+.s-chapter .bignum{font:400 560px/1 var(--serif);color:rgba(255,255,255,.18);right:70px;bottom:-60px}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--red)}
+.etikett{background:var(--card);border:var(--haar);border-radius:0;box-shadow:0 40px 70px -30px rgba(43,42,40,.5);transform:translateY(-54%);padding:52px 60px 48px}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink);font-size:82px}
+.s-chapter .etikett h2 em{color:var(--red)}
+.s-chapter .etikett .lead{color:var(--ink2);font-family:var(--accent)}
+.s-chapter .etikett .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--red);font-family:var(--accent);font-style:italic}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap,
+.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink2);text-shadow:none}
+
+/* Dunkel: Anthrazit mit Creme, Linien hell */
+.s-dark{background:var(--ink);color:var(--paper)}
+.s-dark::before{opacity:.35}
+.s-dark::after{border-color:#CFC9BE}
+.s-dark h2,.s-dark h3{color:var(--paper)}.s-dark h2 em{color:#E1A48D}
+.s-dark .lead{color:#D9D2C6}
+.s-dark .kick{color:#AEBEA6}
+.s-dark p,.s-dark li{color:var(--paper)}
+.s-dark .card{background:transparent;color:var(--paper);border-color:rgba(245,240,232,.35);border-top:7px double #CFC9BE}
+.s-dark .card h3{color:var(--paper)}
+.s-dark .card p,.s-dark .card li{color:#E4DED2}
+.s-dark .quote{color:var(--paper);border-top-color:#CFC9BE}.s-dark .ueb{color:#D9D2C6}.s-dark .ueb::before{color:#AEBEA6}
+.s-dark footer{border-top-color:rgba(245,240,232,.3)}
+.s-dark footer,.s-dark footer .src::before,.s-dark footer .pg,.s-dark footer .chap{color:#B9B3A8}
+
+.s-statement .big{font-weight:400;font-size:92px;line-height:1.1;letter-spacing:-.01em}
+
+/* Werkstatt: Salbeidunkel, Creme, Caslon-Ziffern */
+.s-auftrag{background:var(--teal-d);color:var(--paper);padding:104px 120px 120px}
+.s-auftrag::before{opacity:.3;background-image:none}
+.s-auftrag::after{border-color:#C9D2C4}
+.s-auftrag .wk .wn{background:var(--paper);color:var(--teal-d);border-radius:0;font-family:var(--serif);font-weight:400;font-size:32px}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:#E3C98A;letter-spacing:.26em;font-weight:500}
+.s-auftrag h2 em{color:#E3C98A}
+.s-auftrag p,.s-auftrag li{color:var(--paper)}
+.s-auftrag .panel{border-radius:0;background:transparent;border:0;border-top:1px solid rgba(245,240,232,.55);padding:24px 0}
+.s-auftrag .meta span{background:transparent;border:1px solid rgba(245,240,232,.6);color:var(--paper);border-radius:0;font:var(--kapital);letter-spacing:.2em;text-transform:uppercase}
+.s-auftrag ol.steps>li::before{background:transparent;color:#E3C98A}
+.s-auftrag ul.dots li::before{background:#E3C98A}
+.s-auftrag footer{border-top-color:rgba(245,240,232,.3)}
+.s-auftrag footer,.s-auftrag footer .src::before,.s-auftrag footer .pg,.s-auftrag footer .chap{color:#C9D2C4}
+
+.zahl{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:112px}
+.card.r .zahl{color:var(--red)}.card.t .zahl{color:var(--teal)}.card.y .zahl{color:#7F5B1F}
+.zahl small{color:var(--ink3);font:var(--kapital);letter-spacing:.14em;text-transform:uppercase;margin-left:10px}
+.zl{color:var(--ink2);font-family:var(--accent);font-style:italic;font-size:26px}
+.bars .bz{font:500 24px/1 var(--ui);color:var(--ink2)}
+.bars .bt{background:var(--paper2);height:18px;border-radius:0}
+.bars .bt i{background:var(--ink)}
+.bars .bz.t .bt i{background:var(--teal)}
+.bars .bv{font:400 32px/1 var(--serif);color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border-left:1px solid var(--ink);border-top:var(--haar);left:120px;right:120px;font-family:var(--ui)}
+.lesehilfe b{color:var(--teal-d)}.lesehilfe .lh{color:var(--red);font-family:var(--accent);font-style:italic}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(43,42,40,.94);color:#E4DED2;border-left-color:#E3C98A}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:#E3C98A}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:0}
+.pointe{background:var(--card);border:1px solid var(--ink);border-radius:0;color:var(--ink)}
+.pointe b{background:var(--red);border-radius:0;letter-spacing:.2em}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--card)}
+#progress{background:var(--red);height:3px}
+.hl{background:linear-gradient(transparent 62%,var(--yellow-l) 62%)}

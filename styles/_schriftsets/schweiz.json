@@ -1,0 +1,39 @@
+{
+  "id": "schweiz",
+  "name": "Schweiz",
+  "standard_fuer_stil": "schweizer",
+  "beschreibung": "Host Grotesk als neutrale Neo-Grotesk für alles: Titel eng und schwer, Fließtext ruhig, Zitate in der schräg gestellten Grotesk (Oblique) statt einer Antiqua-Kursive.",
+  "titel": {
+    "familie": "Host Grotesk",
+    "achsen": "wght 400..800 (Titel: 700, enge Laufweite)",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "akzent": {
+    "familie": "Host Grotesk",
+    "achsen": "wght 700, aufrecht; Akzent allein durch Signalrot",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "lesen": {
+    "familie": "Host Grotesk",
+    "achsen": "ital 1, wght 400..500 (Oblique)",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "ui": {
+    "familie": "Host Grotesk",
+    "achsen": "wght 400..700, tabellarische Ziffern",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "familien": [
+    "Host Grotesk"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Host Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--accent": "\"Host Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--lesen": "\"Host Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--ui": "\"Host Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--sans": "\"Host Grotesk\",\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "fonts_css": "fonts/schweiz.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,400..800;1,400..500&display=swap"
+}

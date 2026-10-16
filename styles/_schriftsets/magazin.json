@@ -1,0 +1,41 @@
+{
+  "id": "magazin",
+  "name": "Magazin",
+  "standard_fuer_stil": "magazin",
+  "beschreibung": "Libre Caslon Display als kontrastreiche Titel-Antiqua, Libre Caslon Text mit klassischer Kursive für Akzente und Zitate, DM Sans als leise Grotesk für Beschriftungen und Fließtext.",
+  "titel": {
+    "familie": "Libre Caslon Display",
+    "achsen": "wght 400 (ein Schnitt, hohe Strichkontraste); Zwischentitel in Libre Caslon Text 700",
+    "fallback": "\"Big Caslon\",Georgia,serif"
+  },
+  "akzent": {
+    "familie": "Libre Caslon Text",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Libre Caslon Text",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "DM Sans",
+    "achsen": "opsz 9..40, wght 400..600; ital 1 400",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "DM Sans",
+    "Libre Caslon Display",
+    "Libre Caslon Text"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Libre Caslon Display\",\"Big Caslon\",Georgia,serif",
+    "--accent": "\"Libre Caslon Text\",Georgia,serif",
+    "--lesen": "\"Libre Caslon Text\",Georgia,serif",
+    "--ui": "\"DM Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"DM Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/magazin.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400&display=swap"
+}

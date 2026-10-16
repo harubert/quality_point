@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Linolschnitt in Schwarz und Indigo: Kind mit Tablet vor rundem Indigo-Druck, Bücher am Boden</title>
+  <defs>
+    <filter id="rau" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="5"/><feDisplacementMap in="SourceGraphic" scale="8" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="rau2" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="11"/><feDisplacementMap in="SourceGraphic" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="korn" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 .08 0 0 0 0 .07 0 0 0 0 .06 0 0 0 .2 -.06"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#F4ECD8"/>
+  <!-- Indigo-Platte -->
+  <g filter="url(#rau)">
+    <circle cx="870" cy="400" r="300" fill="#2A3F85"/>
+    <rect x="590" y="706" width="560" height="50" fill="#2A3F85"/>
+  </g>
+  <!-- Schwarz-Platte: Figur, Bücher -->
+  <g filter="url(#rau2)" fill="#161412">
+    <circle cx="866" cy="232" r="76"/>
+    <path d="M770 330 C800 300 930 300 960 330 L1010 700 H720 Z"/>
+    <path d="M736 440 L680 520 L700 540 L760 470 Z"/>
+    <path d="M996 440 L1050 520 L1030 540 L970 470 Z"/>
+    <path d="M520 648 L690 640 L694 690 L524 698 Z"/>
+    <path d="M540 696 L700 690 L704 740 L544 746 Z"/>
+    <path d="M1040 640 L1150 636 L1152 700 L1042 704 Z"/>
+  </g>
+  <!-- Tablet in den Händen: Indigo mit Papierrahmen -->
+  <g filter="url(#rau2)">
+    <rect x="752" y="446" width="226" height="156" rx="10" fill="#F4ECD8"/>
+    <rect x="770" y="462" width="190" height="124" rx="4" fill="#2A3F85"/>
+    <path d="M800 560 L830 520 L856 544 L892 494 L930 560 Z" fill="#F4ECD8"/>
+    <circle cx="812" cy="492" r="12" fill="#F4ECD8"/>
+  </g>
+  <!-- Schnittlinien in Papierfarbe: Haar, Kleidung, Buchrücken -->
+  <g filter="url(#rau2)" stroke="#F4ECD8" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M812 206 C830 176 870 168 906 184 M824 190 C840 168 876 160 912 170"/>
+    <path d="M790 352 C830 340 900 340 940 352"/>
+    <path d="M780 620 L776 680 M960 620 L964 680 M840 640 L838 690 M900 640 L902 690"/>
+    <path d="M560 660 L560 684 M600 658 L600 684 M640 656 L640 682"/>
+    <path d="M580 708 L580 732 M630 706 L630 730 M680 704 L680 728"/>
+    <path d="M1060 656 L1134 654 M1060 676 L1120 674"/>
+  </g>
+  <!-- Druckkorn -->
+  <rect width="1200" height="800" filter="url(#korn)"/>
+</svg>

@@ -1,0 +1,64 @@
+{
+  "id": "galerie",
+  "name": "Galerie",
+  "beschreibung": "White Cube: reinweiße Wände, Anthrazit und Mittelgrau, ein Zinnoberrot als einziger Akzent, große Ränder, kleine Wandtext-Marken, Haarlinien, Bilder mit breitem Passepartout und knappen Legenden; neutrale Grotesk mit Spectral-Kursive.",
+  "stimmung": "still, konzentriert, kuratiert",
+  "passt_zu": [
+    "Kunst, Fotografie, Bildkompetenz",
+    "Museums- und Kulturvermittlung",
+    "Portfolio- und Projektpräsentationen",
+    "Design- und Architekturthemen"
+  ],
+  "schriftset": "galerie",
+  "farben": {
+    "paper": "#FFFFFF",
+    "paper2": "#F1F1F0",
+    "card": "#FFFFFF",
+    "ink": "#222222",
+    "ink2": "#4A4A4A",
+    "ink3": "#6E6E6E",
+    "red": "#CF3A1B",
+    "teal": "#7A7A7A",
+    "teal-d": "#3C3C3C",
+    "yellow": "#E3DCCB",
+    "coral": "#CF3A1B"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Hanken Grotesk",
+      "achsen": "wght 300..700 (Titel: 500, große Zahlen 300)"
+    },
+    "akzent": {
+      "familie": "Spectral",
+      "achsen": "ital 1, wght 500"
+    },
+    "lesen": {
+      "familie": "Spectral",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "Hanken Grotesk",
+      "achsen": "wght 300..700 (UI: 400/500, gesperrte Beschriftungen), ital 400"
+    }
+  },
+  "google_fonts": [
+    "Hanken Grotesk:ital,wght@0,300..700;1,400",
+    "Spectral:ital,wght@1,400;1,500"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Photograph of a quiet white cube gallery space, pure white walls with even museum lighting, a single framed work or object presented with generous empty wall around it, pale concrete floor, charcoal and mid grey tones, one small vermilion red element, minimal, calm, carefully composed. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Weiße Wand #FFFFFF, Boden als Fläche #F1F1F0 mit Haarlinie #E2E2E0; Objekte in Anthrazit #222222 und Grau #6E6E6E/#BDBDBB, nur ein Element in Zinnober #CF3A1B (Punkt, Quadrat, kleines Schild). Rahmen als dünne Rechtecke (stroke 2 px) mit breitem weißem Passepartout, Bilder darin stark vereinfacht (Flächen, höchstens drei Grautöne). Kleine Wandschilder als Rechtecke 60×24 ohne Text. Figuren ohne Gesicht als Silhouetten. Keine Schatten, keine Texturen, keine Verläufe; mindestens die Hälfte der Fläche bleibt leer.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/galerie.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Reduzierte Raum- und Rahmengrafiken funktionieren in SVG sehr gut; wer echte Exponate oder Raumfotos zeigen will, ist mit Bildgenerator oder eigenen Fotos besser bedient."
+  }
+}

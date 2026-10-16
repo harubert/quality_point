@@ -1,0 +1,41 @@
+{
+  "id": "zeitung",
+  "name": "Zeitung",
+  "standard_fuer_stil": "zeitung",
+  "beschreibung": "Oswald (schmale, schwere Schlagzeilen-Grotesk) für Titel, PT Serif als Zeitungs-Serif für Fließtext und Kursive, Barlow Semi Condensed als kompakte Sans für Dachzeile, Fußzeile und Etiketten.",
+  "titel": {
+    "familie": "Oswald",
+    "achsen": "wght 400..700 (Titel: 700)",
+    "fallback": "\"Arial Narrow\",Impact,sans-serif"
+  },
+  "akzent": {
+    "familie": "PT Serif",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "PT Serif",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Barlow Semi Condensed",
+    "achsen": "wght 400/500/600",
+    "fallback": "\"Arial Narrow\",\"Segoe UI\",sans-serif"
+  },
+  "familien": [
+    "Barlow Semi Condensed",
+    "Oswald",
+    "PT Serif"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Oswald\",\"Arial Narrow\",Impact,sans-serif",
+    "--accent": "\"PT Serif\",Georgia,serif",
+    "--lesen": "\"PT Serif\",Georgia,serif",
+    "--ui": "\"Barlow Semi Condensed\",\"Arial Narrow\",\"Segoe UI\",sans-serif",
+    "--sans": "\"PT Serif\",Georgia,serif"
+  },
+  "fonts_css": "fonts/zeitung.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Oswald:wght@400..700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Barlow+Semi+Condensed:wght@400;500;600&display=swap"
+}

@@ -1,0 +1,159 @@
+/* ==========================================================
+   STIL „Galerie“ – White Cube, Ausstellungsraum
+   Reinweiß, Anthrazit, Mittelgrau, ein Zinnoberrot · Hanken Grotesk + Spectral (Kursive)
+   Große Ränder, Wandtext-Marken (kleines rotes Quadrat), Haarlinien, Bilder mit breitem Passepartout, keine Schatten.
+   ========================================================== */
+:root{
+  --paper:#FFFFFF; --paper2:#F1F1F0; --card:#FFFFFF; --sand:#E2E2E0;
+  --ink:#222222; --ink2:#4A4A4A; --ink3:#6E6E6E;
+  --red:#CF3A1B; --red-l:#F8E2DC;
+  --teal:#7A7A7A; --teal-d:#3C3C3C; --teal-l:#EDEDEC;
+  --yellow:#E3DCCB; --yellow-l:#F3F0E8;
+  --coral:#CF3A1B; --coral-l:#F8E2DC;
+  --night:#1A1A1A;
+  --serif:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --accent:"Spectral",Georgia,serif;
+  --lesen:"Spectral",Georgia,serif;
+  --ui:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --haar:1px solid var(--sand);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(34,34,34,.14); --auf-dunkel:#F4F4F2; --buehne:#2b2b2b; --panel:#F7F7F6;
+}
+html,body{background:#2b2b2b}
+
+/* Weiße Wand, breiter Rand, keine Textur */
+.slide{background:var(--paper);padding:104px 160px 120px}
+.slide::before{background:none}
+.slide footer{left:160px;right:160px;color:var(--ink3);font-size:19px}
+.slide footer .chap{letter-spacing:.2em;font-size:16px;font-weight:500}
+.slide footer .src::before,.slide footer .pg{color:var(--ink2);font-weight:500}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.02em}
+h1,h2{font-weight:500}
+h2{font-size:72px;line-height:1.06;margin-bottom:34px}
+h3{font-weight:500;font-size:34px;letter-spacing:-.01em}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:500;color:var(--red);letter-spacing:0}
+/* Wandtext-Marke: kleines rotes Quadrat statt Balken */
+.kick{font:500 20px/1 var(--ui);letter-spacing:.24em;color:var(--ink3)}
+.kick::before{width:12px;height:12px;border-radius:0;background:var(--red)}
+.lead{color:var(--ink2);font-size:32px}
+p,li,td{color:var(--ink)}
+
+/* Karten wie Wandschilder: Haarlinie, keine Schatten, Nummer klein und gesperrt */
+.card{background:var(--card);border-radius:0;box-shadow:none;border:var(--haar);padding:30px 34px 28px}
+.card.t{border-top:2px solid var(--ink)}.card.c{border-top:2px solid var(--red)}.card.r{border-top:2px solid var(--red)}.card.y{border-top:2px solid var(--sand)}
+.card h3{font-weight:500}
+.card .num{font:400 24px/1 var(--ui);letter-spacing:.2em;color:var(--ink3);margin-bottom:22px}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.tag{border-radius:0;background:transparent;border:1px solid var(--ink3);color:var(--ink2);font-weight:500;letter-spacing:.18em;font-size:17px;padding:9px 14px}
+.tag.c,.tag.r{border-color:var(--red);color:var(--red)}.tag.y{border-color:var(--sand);background:var(--yellow-l);color:var(--ink2)}
+.box{border-radius:0}
+.box.def{background:var(--paper2)}.box.def .bh{color:var(--ink)}
+.box.res{background:var(--card);border:var(--haar);border-left:2px solid var(--ink);box-shadow:none}
+.box.tip{background:var(--card);border:var(--haar);border-left:2px solid var(--red)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:var(--ink)}
+.bh{font-weight:500;letter-spacing:.2em;font-size:18px}
+.bh i{display:none}
+
+/* Zitat: kurzer roter Strich statt Anführungszeichen */
+.quote{color:var(--ink);padding-left:0}
+.quote::before{content:"";position:static;display:block;width:64px;height:2px;background:var(--red);margin-bottom:30px}
+.quote cite{color:var(--ink3);font-size:20px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--ink3)}
+
+table.tbl{background:transparent;border-radius:0;box-shadow:none;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.tbl th{background:transparent;color:var(--ink3);border-bottom:var(--haar);font-weight:500;letter-spacing:.18em;font-size:17px}
+.tbl td{border-top:var(--haar)}
+.tbl tr:nth-child(even) td{background:transparent}
+.tbl td:first-child{font-weight:500}
+
+ul.dots li::before{width:8px;height:8px;top:.62em;border-radius:0;background:var(--ink)}
+ol.steps>li::before{background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:0;font:400 26px/54px var(--ui)}
+ol.steps.red>li::before{background:transparent;color:var(--red);border-color:var(--red)}
+.sb{background:var(--ink);border-radius:0;font-weight:500}
+.wcard{border:var(--haar);border-radius:0;box-shadow:none}
+.wcard .w{font-weight:500}
+.bub{border:var(--haar);box-shadow:none;border-radius:0}.bub.r{background:var(--paper2);border-color:transparent}.bub.x{background:var(--yellow-l);border-color:transparent}
+.arrow{color:var(--ink3)}
+
+/* Bilder mit Passepartout, Legende wie Wandschild */
+.foto{background:var(--card);padding:30px 30px 22px;border:var(--haar);box-shadow:none;--r:0deg;gap:16px}
+.foto .cap{font:400 18px/1.35 var(--ui);color:var(--ink3);letter-spacing:.02em;padding-left:22px;position:relative}
+.foto .cap::before{content:"";position:absolute;left:0;top:7px;width:10px;height:10px;background:var(--red)}
+.zettel{background:var(--paper2);box-shadow:none;color:var(--ink);font-size:28px}
+
+/* Titel: Bild als gehängtes Werk rechts, Text links */
+.s-title .hero{top:240px;right:160px;width:800px;height:534px;-webkit-mask-image:none;mask-image:none}
+.s-title .tt{left:160px;top:200px;width:780px}
+.s-title h1{font-size:100px;line-height:1;font-weight:500;letter-spacing:-.03em}
+.s-title .sub{color:var(--ink2);font-size:32px}
+.s-title .who{left:160px;color:var(--ink2)}
+.s-title .who b{color:var(--ink);font-weight:500}
+.s-title .kick{color:var(--ink3)}
+
+/* Kapitel: weiße Wand, Bild gerahmt, Raumnummer groß und blass */
+.s-chapter{background:var(--paper);color:var(--ink)}
+.s-chapter .hero{left:auto;right:160px;top:286px;width:760px;height:507px}
+.s-chapter .bignum{right:auto;left:150px;bottom:auto;top:60px;font:300 420px/1 var(--serif);color:var(--paper2);letter-spacing:-.06em}
+.s-chapter .kick{color:var(--ink3)}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--red)}
+.s-chapter .lead{color:var(--ink2)}
+.s-chapter .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .toc div b{color:var(--red)}
+.etikett{left:160px;width:820px;background:var(--card);border:var(--haar);border-radius:0;box-shadow:none;padding:56px 60px 50px;transform:translateY(-50%)}
+.s-chapter .etikett .kick{color:var(--ink3)}
+.s-chapter .etikett h2{font-size:80px;font-weight:500}
+.s-chapter .etikett .toc div{border-top:var(--haar);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--ink3);font-family:var(--ui);font-weight:500;letter-spacing:.1em;font-size:20px}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap,.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink3);text-shadow:none}
+
+/* Dunkel: Black Box */
+.s-dark{background:var(--night);color:var(--auf-dunkel)}
+.s-dark h2,.s-dark h3{color:var(--auf-dunkel)}.s-dark h2 em{color:#F08A6E}
+.s-dark .lead{color:#C8C8C6}
+.s-dark .kick{color:#A9A9A7}
+.s-dark p,.s-dark li{color:var(--auf-dunkel)}
+.s-dark .card{background:#242424;color:var(--auf-dunkel);border-color:rgba(244,244,242,.16)}
+.s-dark .card h3{color:var(--auf-dunkel)}
+.s-dark .card p,.s-dark .card li{color:#D6D6D4}
+.s-dark .quote{color:var(--auf-dunkel)}.s-dark .quote::before{background:#F08A6E}.s-dark .ueb{color:#C8C8C6}.s-dark .ueb::before{color:#A9A9A7}
+.s-dark footer,.s-dark footer .src::before,.s-dark footer .pg,.s-dark footer .chap{color:#9A9A98}
+
+.s-statement .big{font-weight:500;font-size:88px;line-height:1.1;letter-spacing:-.03em}
+
+/* Werkstatt: Anthrazit, Haarlinien hell */
+.s-auftrag{background:#2B2B2B;color:var(--auf-dunkel);padding:104px 160px 120px}
+.s-auftrag::before{background-image:none;opacity:0}
+.s-auftrag .wk .wn{background:var(--red);color:#fff;border-radius:0;font-weight:500;letter-spacing:.1em}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:#BDBDBB;font-weight:500;letter-spacing:.2em}
+.s-auftrag h2{font-weight:500}.s-auftrag h2 em{color:#F08A6E}
+.s-auftrag p,.s-auftrag li{color:var(--auf-dunkel)}
+.s-auftrag .panel{border-radius:0;background:transparent;border:0;border-top:1px solid rgba(244,244,242,.5);padding:24px 0}
+.s-auftrag .meta span{background:transparent;border:1px solid rgba(244,244,242,.5);color:var(--auf-dunkel);border-radius:0;letter-spacing:.1em}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--auf-dunkel);border-color:var(--auf-dunkel)}
+.s-auftrag ul.dots li::before{background:var(--auf-dunkel)}
+.s-auftrag footer,.s-auftrag footer .src::before,.s-auftrag footer .pg,.s-auftrag footer .chap{color:#9A9A98}
+
+.zahl{font-family:var(--serif);font-weight:300;color:var(--ink);letter-spacing:-.04em}
+.card.r .zahl{color:var(--red)}
+.zahl small{color:var(--ink3);font-family:var(--ui);font-size:28px;font-weight:400}
+.zl{color:var(--ink2);font-weight:400}
+.bars .bz{font:400 24px/1 var(--ui);color:var(--ink2)}
+.bars .bt{background:var(--paper2);height:22px;border-radius:0}
+.bars .bt i{background:var(--ink)}
+.bars .bz.t .bt i{background:var(--red)}
+.bars .bv{font:500 28px/1 var(--ui);color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border:var(--haar);border-left:2px solid var(--ink);left:160px;right:160px;font-weight:400}
+.lesehilfe b{color:var(--ink)}.lesehilfe .lh{color:var(--red);font-family:var(--ui);font-weight:500}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:#242424;color:#D6D6D4;border-color:rgba(244,244,242,.16);border-left-color:#F08A6E}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--auf-dunkel)}
+.uf .uf-kz{background:var(--paper2);color:var(--ink2);border-radius:0}
+.pointe{background:var(--card);border:var(--haar);border-radius:0;box-shadow:none;color:var(--ink);font-weight:400}
+.pointe b{background:var(--red);border-radius:0;font-weight:500}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--card);color:var(--ink)}
+#progress{background:var(--red);height:3px}
+.hl{background:linear-gradient(transparent 62%,var(--yellow-l) 62%)}
+.mark{background-image:linear-gradient(var(--red-l),var(--red-l))}

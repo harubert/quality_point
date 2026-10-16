@@ -1,0 +1,65 @@
+{
+  "id": "zeitung",
+  "name": "Zeitung",
+  "beschreibung": "Tageszeitung: Zeitungspapier in Grau-Beige, Druckschwarz, ein Rot als einziger Akzent, schwere schmale Schlagzeilen in Oswald, Serifen-Fließtext, Doppellinien, Spaltenstege, Dachzeile, gerahmte Etiketten, Graustufen-Fotos.",
+  "stimmung": "sachlich, dringlich, dokumentarisch",
+  "passt_zu": [
+    "Nachrichten, Fake News, Quellenkritik",
+    "Journalismus und Schülerzeitung",
+    "Politische Bildung",
+    "Zeitgeschichte und Dokumentation"
+  ],
+  "schriftset": "zeitung",
+  "farben": {
+    "paper": "#E8E3D8",
+    "paper2": "#DDD7CA",
+    "card": "#F3EFE6",
+    "ink": "#141414",
+    "ink2": "#333331",
+    "ink3": "#5A5852",
+    "red": "#B5121B",
+    "teal": "#3A3A38",
+    "teal-d": "#1E1E1E",
+    "yellow": "#CDA64B",
+    "coral": "#9A2E27"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Oswald",
+      "achsen": "wght 400..700 (Schlagzeilen: 700, Titel in Versalien)"
+    },
+    "akzent": {
+      "familie": "PT Serif",
+      "achsen": "ital 1, wght 400"
+    },
+    "lesen": {
+      "familie": "PT Serif",
+      "achsen": "ital 1, wght 400; Fließtext aufrecht 400/700"
+    },
+    "ui": {
+      "familie": "Barlow Semi Condensed",
+      "achsen": "wght 400/500/600 (Dachzeile, Fußzeile, Etiketten)"
+    }
+  },
+  "google_fonts": [
+    "Oswald:wght@400..700",
+    "PT Serif:ital,wght@0,400;0,700;1,400",
+    "Barlow Semi Condensed:wght@400;500;600"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Black and white newspaper press photograph, documentary style, grainy halftone-free monochrome with strong contrast on slightly yellowed newsprint, natural available light, candid everyday scene, one small element in deep red as the only colour accent, printed-paper texture. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Graustufen: Schwarz #141414, Dunkelgrau #5A5852, Hellgrau #B9B3A6 auf Zeitungsbeige #E8E3D8; genau ein Element in Rot #B5121B (Stempel, Kreis, Markierung). Schattierung über <pattern> mit feinen parallelen Linien (Strichstärke 1–1.5 px, Abstand 4–5 px, 45°) wie im Zeitungsdruck. Textblöcke und Spalten als graue Balken andeuten, Fotos als gerahmte Rechtecke mit schwarzer 2-px-Linie. Papierkorn per feTurbulence (alpha .1). Keine Farbverläufe, keine Halbtonpunkte.",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/zeitung.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Schwarzweiß-Grafiken mit Linienschraffur tragen den Stil; echte Pressefotos in Graustufen (per Bildgenerator oder eigene Fotos) wirken aber authentischer."
+  }
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Bernstein-Terminal: Tablet mit Balkendiagramm und Zeilen, Stift, Cursorblock</title>
+  <defs>
+    <pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" opacity=".28"/>
+    </pattern>
+    <pattern id="punkte" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="16" cy="16" r="1.4" fill="#6FC3B2" opacity=".5"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#141311"/>
+  <rect x="400" width="800" height="800" fill="url(#punkte)"/>
+  <ellipse cx="900" cy="400" rx="260" ry="300" fill="#FFB000" opacity=".14" filter="url(#glow)"/>
+  <!-- Tablet hochkant -->
+  <rect x="740" y="100" width="340" height="560" rx="10" fill="#0C0B0A" stroke="#FFB000" stroke-width="4"/>
+  <rect x="766" y="130" width="288" height="500" fill="#0C0B0A" stroke="#FFB000" stroke-width="1.5" opacity=".6"/>
+  <g fill="#FFB000">
+    <rect x="790" y="160" width="24" height="12" opacity=".95"/>
+    <rect x="826" y="160" width="160" height="12" opacity=".85"/>
+    <rect x="790" y="188" width="220" height="12" opacity=".5"/>
+    <rect x="790" y="216" width="140" height="12" opacity=".5"/>
+  </g>
+  <g fill="#FFB000" opacity=".9">
+    <rect x="800" y="430" width="30" height="110"/>
+    <rect x="846" y="370" width="30" height="170"/>
+    <rect x="892" y="320" width="30" height="220"/>
+    <rect x="938" y="400" width="30" height="140"/>
+    <rect x="984" y="460" width="30" height="80"/>
+  </g>
+  <rect x="892" y="320" width="30" height="220" fill="#6FC3B2" opacity=".9"/>
+  <path d="M790 540 H1030" stroke="#FFB000" stroke-width="2" opacity=".7"/>
+  <g fill="#FFB000"><rect x="790" y="570" width="24" height="12" opacity=".95"/><rect x="826" y="570" width="110" height="12" opacity=".85"/><rect x="790" y="598" width="24" height="14"/></g>
+  <!-- Stift, liegend -->
+  <g transform="rotate(-18 560 640)">
+    <rect x="420" y="628" width="300" height="26" fill="#0C0B0A" stroke="#FFB000" stroke-width="3"/>
+    <polygon points="720,628 760,641 720,654" fill="#FFB000"/>
+    <rect x="420" y="628" width="40" height="26" fill="#6FC3B2" opacity=".7"/>
+  </g>
+  <!-- Blöcke am Boden -->
+  <rect x="1100" y="580" width="60" height="60" fill="none" stroke="#FFB000" stroke-width="3"/>
+  <rect x="1100" y="660" width="60" height="60" fill="#FFB000" opacity=".5" stroke="#FFB000" stroke-width="3"/>
+  <path d="M400 720 H1200" stroke="#FFB000" stroke-width="2" opacity=".5"/>
+  <rect width="1200" height="800" fill="url(#scan)"/>
+</svg>

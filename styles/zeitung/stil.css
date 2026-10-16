@@ -1,0 +1,174 @@
+/* ==========================================================
+   STIL „Zeitung“ – Tageszeitung auf Zeitungspapier
+   Zeitungsgrau-Beige, Druckschwarz, ein Rot · Oswald + PT Serif (Text, Kursive) + Barlow Semi Condensed
+   Doppellinie im Kopf, Spaltenstege, Dachzeile mit Linie, gerahmte Etiketten, Graustufen-Fotos, Initial im Zitat.
+   ========================================================== */
+:root{
+  --paper:#E8E3D8; --paper2:#DDD7CA; --card:#F3EFE6; --sand:#B9B3A6;
+  --ink:#141414; --ink2:#333331; --ink3:#5A5852;
+  --red:#B5121B; --red-l:#EBD2CD;
+  --teal:#3A3A38; --teal-d:#1E1E1E; --teal-l:#D9D4C8;
+  --yellow:#CDA64B; --yellow-l:#ECE0BC;
+  --coral:#9A2E27; --coral-l:#E6CFC9;
+  --night:#1C1B19;
+  --serif:"Oswald","Arial Narrow",Impact,sans-serif;
+  --accent:"PT Serif",Georgia,serif;
+  --lesen:"PT Serif",Georgia,serif;
+  --ui:"Barlow Semi Condensed","Arial Narrow","Segoe UI",sans-serif;
+  --sans:"PT Serif",Georgia,serif;
+  --linie:1px solid var(--ink);
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(20,20,20,.3); --auf-dunkel:#E8E3D8; --buehne:#262522; --panel:#EFEBE1;
+}
+html,body{background:#262522}
+
+/* Zeitungspapier: feines Korn, Doppellinie im Kopf, Fußlinie */
+.slide{background:var(--paper);padding:96px 120px 116px}
+.slide::before{opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .19 0 0 0 0 .17 0 0 0 .14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
+.slide::after{content:"";position:absolute;left:120px;right:120px;top:52px;height:6px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);pointer-events:none}
+.slide footer{border-top:var(--linie);padding-top:10px;color:var(--ink3)}
+.slide footer .chap{font-size:19px;letter-spacing:.12em}
+.slide footer .src::before,.slide footer .pg{color:var(--ink)}
+
+h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.005em}
+h1,h2{font-weight:700}
+h2{font-size:86px;line-height:.98}
+h3{font-weight:600;font-size:36px;letter-spacing:0}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:400;color:var(--red);letter-spacing:0;font-size:.92em}
+/* Dachzeile mit auslaufender Linie */
+.kick{font:600 22px/1 var(--ui);letter-spacing:.18em;color:var(--ink)}
+.kick::before{width:36px;height:3px;border-radius:0;background:var(--red)}
+.kick::after{content:"";flex:1;height:1px;background:var(--sand)}
+.lead{color:var(--ink2);font-size:32px}
+p,li,td{color:var(--ink)}
+/* Spaltenstege zwischen den Rasterspalten */
+.g2,.g3{position:relative}
+.g2::before,.g3::before,.g3::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--sand);pointer-events:none}
+.g2::before{left:50%}
+.g3::before{left:calc(33.333% - 6px)}.g3::after{left:calc(66.667% + 6px)}
+
+/* Karten: Kasten mit Linie oben und unten, .tape = doppelt gerahmt */
+.card{background:var(--card);border-radius:0;box-shadow:none;border-top:var(--linie);border-bottom:var(--linie);padding:24px 30px}
+.card.t{border-top:4px solid var(--ink)}.card.c{border-top:4px solid var(--coral)}.card.r{border-top:4px solid var(--red)}.card.y{border-top:4px solid var(--yellow)}
+.card .num{font:700 60px/1 var(--serif);color:var(--ink)}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.card.tape{border:var(--linie);outline:1px solid var(--ink);outline-offset:3px}
+.tag{border-radius:0;background:transparent;border:var(--linie);color:var(--ink);font-weight:600;letter-spacing:.14em;font-size:18px;padding:8px 12px}
+.tag.c{border-color:var(--coral);color:var(--coral)}.tag.r{border-color:var(--red);color:var(--red)}.tag.y{background:var(--yellow-l);border-color:var(--yellow-l);color:var(--ink)}
+.box{border-radius:0}
+.box.def{background:var(--teal-l);border-top:var(--linie)}.box.def .bh{color:var(--ink)}
+.box.res{background:var(--card);border:var(--linie);box-shadow:none}
+.box.tip{background:var(--card);border:var(--linie);border-top:6px solid var(--red)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l);border-top:var(--linie)}.box.daz .bh{color:var(--ink)}
+.bh{font-weight:600;letter-spacing:.16em;font-size:20px}
+.bh i{border-radius:0;width:30px;height:30px}
+.bh i span{font-family:var(--ui);font-size:20px}
+
+/* Zitat mit Initial statt Anführungszeichen */
+.quote{color:var(--ink);padding-left:0;line-height:1.3}
+.quote::before{content:none}
+.quote::first-letter{float:left;font:700 3em/.78 var(--serif);color:var(--red);margin:.06em .14em 0 0}
+.quote cite{color:var(--ink3);font-size:21px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;clear:left}
+.ueb{color:var(--ink2);clear:left}
+.ueb::before{color:var(--red)}
+
+table.tbl{background:transparent;border-radius:0;box-shadow:none;border-top:3px solid var(--ink);border-bottom:var(--linie)}
+.tbl th{background:transparent;color:var(--ink);border-bottom:var(--linie);font-weight:600;letter-spacing:.1em;font-size:19px}
+.tbl td{border-top:1px solid var(--sand)}
+.tbl tr:nth-child(even) td{background:transparent}
+.tbl td:first-child{font-weight:700}
+
+ul.dots li::before{width:10px;height:10px;top:.6em;border-radius:0;background:var(--ink)}
+ol.steps>li::before{background:var(--ink);color:var(--paper);border-radius:0;font:600 28px/56px var(--serif)}
+ol.steps.red>li::before{background:var(--red)}
+.sb{background:var(--red);border-radius:0;font-family:var(--serif);font-weight:600}
+.wcard{border:var(--linie);border-radius:0;box-shadow:none;outline:1px solid var(--ink);outline-offset:3px}
+.wcard .w{font-family:var(--serif);font-weight:600}
+.bub{border:1px solid var(--sand);box-shadow:none;border-radius:0}.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--red)}
+
+/* Fotos in Graustufen, Legende kursiv */
+.foto{background:var(--card);padding:0 0 10px;border:var(--linie);box-shadow:none;--r:0deg}
+.foto img{filter:grayscale(1) contrast(1.08)}
+.foto .cap{font:italic 400 20px/1.3 var(--lesen);color:var(--ink2);padding:0 12px}
+.zettel{background:var(--yellow-l);border:1px solid var(--sand);box-shadow:none;color:var(--ink);font-size:28px}
+
+/* Titel: Titelseite */
+.s-title::after{left:120px;right:auto;width:880px;top:70px}
+.s-title .hero{filter:grayscale(1) contrast(1.05);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%)}
+.s-title .tt{top:200px}
+.s-title h1{font-size:128px;line-height:.92;text-transform:uppercase;letter-spacing:-.01em}
+.s-title .sub{color:var(--ink2);font-family:var(--lesen);font-size:34px}
+.s-title .who{color:var(--ink2);font-family:var(--ui);border-top:var(--linie);padding-top:14px}
+.s-title .who b{color:var(--ink);font-family:var(--ui);font-weight:600}
+
+/* Kapitel: schwarze Seite, Bild grau, Etikett doppelt gerahmt */
+.s-chapter{background:var(--ink);color:var(--auf-dunkel)}
+.s-chapter::after{border-color:rgba(232,227,216,.5)}
+.s-chapter .hero{filter:grayscale(1) contrast(1.05)}
+.s-chapter .bignum{font-weight:700;color:rgba(232,227,216,.12)}
+.s-chapter .kick{color:var(--auf-dunkel)}.s-chapter .kick::after{background:rgba(232,227,216,.3)}
+.s-chapter h2 em{color:#F2B8B0}
+.s-chapter .toc div b{color:#F2B8B0}
+.etikett{background:var(--card);border:var(--linie);outline:1px solid var(--ink);outline-offset:4px;border-radius:0;box-shadow:0 30px 50px -30px rgba(0,0,0,.7)}
+.s-chapter .etikett .kick{color:var(--ink)}.s-chapter .etikett .kick::after{background:var(--sand)}
+.s-chapter .etikett h2{font-size:92px}
+.s-chapter .etikett .toc div{border-top:1px solid var(--sand);color:var(--ink2);font-family:var(--ui)}
+.s-chapter .etikett .toc div b{color:var(--red);font-family:var(--serif);font-weight:600}
+/* Kapitelbilder sind helles Zeitungspapier: Fußzeile dunkel statt weiß */
+.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink3);text-shadow:none}
+
+/* Dunkel: Negativseite */
+.s-dark{background:var(--night);color:var(--auf-dunkel)}
+.s-dark::before{opacity:.25}
+.s-dark::after{border-color:rgba(232,227,216,.55)}
+.s-dark h2,.s-dark h3{color:var(--auf-dunkel)}.s-dark h2 em{color:#F2B8B0}
+.s-dark .lead{color:#CFCABF}
+.s-dark .kick{color:var(--auf-dunkel)}.s-dark .kick::after{background:rgba(232,227,216,.3)}
+.s-dark p,.s-dark li{color:var(--auf-dunkel)}
+.s-dark .g2::before,.s-dark .g3::before,.s-dark .g3::after,.s-auftrag .g2::before,.s-auftrag .g3::before,.s-auftrag .g3::after{background:rgba(232,227,216,.25)}
+.s-dark .card{background:#2A2926;color:var(--auf-dunkel);border-color:var(--auf-dunkel)}
+.s-dark .card h3{color:var(--auf-dunkel)}
+.s-dark .card p,.s-dark .card li{color:#DAD5CA}
+.s-dark .quote{color:var(--auf-dunkel)}.s-dark .quote::first-letter{color:#F2B8B0}.s-dark .ueb{color:#CFCABF}.s-dark .ueb::before{color:#F2B8B0}
+.s-dark footer{border-top-color:rgba(232,227,216,.4)}
+.s-dark footer,.s-dark footer .src::before,.s-dark footer .pg,.s-dark footer .chap{color:#B9B3A6}
+
+.s-statement .big{font-weight:700;font-size:100px;line-height:1;letter-spacing:-.01em}
+.s-statement .big em{font-size:.9em}
+
+/* Werkstatt: Anzeigenseite auf Schwarz */
+.s-auftrag{background:#22211F;color:var(--auf-dunkel);padding:96px 120px 116px}
+.s-auftrag::before{background-image:none;opacity:0}
+.s-auftrag::after{border-color:rgba(232,227,216,.55)}
+.s-auftrag .wk .wn{background:var(--red);color:#fff;border-radius:0;font-family:var(--serif);font-weight:600;letter-spacing:.06em}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:#D9C27A}
+.s-auftrag h2 em{color:#F2B8B0}
+.s-auftrag p,.s-auftrag li{color:var(--auf-dunkel)}
+.s-auftrag .panel{border-radius:0;background:transparent;border:0;border-top:3px solid var(--auf-dunkel);padding:22px 0}
+.s-auftrag .meta span{background:transparent;border:1px solid rgba(232,227,216,.6);color:var(--auf-dunkel);border-radius:0;text-transform:uppercase;letter-spacing:.1em;font-weight:600;font-size:19px}
+.s-auftrag ol.steps>li::before{background:var(--auf-dunkel);color:var(--ink)}
+.s-auftrag ul.dots li::before{background:var(--auf-dunkel)}
+.s-auftrag footer{border-top-color:rgba(232,227,216,.4)}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.card.r .zahl{color:var(--red)}
+.zahl small{color:var(--ink2);font-family:var(--ui);font-size:32px;font-weight:500}
+.zl{color:var(--ink2);font-family:var(--lesen);font-size:24px}
+.bars .bz{font:500 25px/1 var(--ui);color:var(--ink)}
+.bars .bt{background:var(--paper2);height:30px;border:1px solid var(--sand)}
+.bars .bt i{background:var(--ink)}
+.bars .bz.t .bt i{background:var(--red)}
+.bars .bv{font:600 30px/1 var(--serif);color:var(--ink)}
+
+.lesehilfe{background:var(--card);color:var(--ink2);border:var(--linie);border-left:6px solid var(--red);font-family:var(--ui);font-size:22px}
+.lesehilfe b{color:var(--ink)}.lesehilfe .lh{color:var(--red);font-family:var(--serif)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:#2A2926;color:#DAD5CA;border-color:rgba(232,227,216,.5);border-left-color:var(--red)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--auf-dunkel)}
+.uf .uf-kz{background:var(--teal-l);color:var(--ink);border-radius:0}
+.pointe{background:var(--card);border:var(--linie);border-radius:0;box-shadow:none;color:var(--ink);font-family:var(--lesen)}
+.pointe b{background:var(--red);border-radius:0;font-family:var(--ui)}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--card)}
+#progress{background:var(--red);height:4px}
+.hl{background:linear-gradient(transparent 60%,var(--yellow-l) 60%)}
+.mark{background-image:linear-gradient(var(--yellow-l),var(--yellow-l))}

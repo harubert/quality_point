@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Naturkundliche Tafel: Tablet als aufgesteckter Beleg mit Zweig, Bücher, Stift, Lupe und Etikett</title>
+  <defs>
+    <pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 3H6" stroke="#2E3A2A" stroke-width=".9" opacity=".45"/></pattern>
+    <pattern id="h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><path d="M0 2.5H5" stroke="#2E3A2A" stroke-width=".7" opacity=".4"/></pattern>
+    <filter id="korn" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .3 0 0 0 0 .26 0 0 0 0 .12 0 0 0 .12 0"/></filter>
+    <g id="blatt"><path d="M0 0 C-15 -22 -15 -58 0 -78 C15 -58 15 -22 0 0 Z" fill="#557052" fill-opacity=".55"/><path d="M0 -4 V-74 M0 -30 C-8 -36 -11 -44 -12 -52 M0 -30 C8 -36 11 -44 12 -52 M0 -50 C-6 -55 -8 -60 -9 -66 M0 -50 C6 -55 8 -60 9 -66" stroke-width="1.2"/></g>
+    <g id="nadel"><circle r="6.5" fill="#A4482B" stroke="none"/><circle cx="-2" cy="-2" r="2" fill="#F8EEDD" stroke="none"/></g>
+  </defs>
+  <rect width="1200" height="800" fill="#F3EEDF"/>
+  <rect width="1200" height="800" filter="url(#korn)"/>
+  <!-- doppelter Tafelrahmen -->
+  <g fill="none" stroke="#CFC6A8" stroke-width="1"><rect x="24" y="24" width="1152" height="752"/><rect x="31" y="31" width="1138" height="738"/></g>
+  <g fill="none" stroke="#2E3A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tablet als Beleg: Schraffurschatten, Fläche, Bildschirm -->
+    <rect x="574" y="166" width="380" height="500" rx="18" fill="url(#h)" stroke="none"/>
+    <rect x="560" y="150" width="380" height="500" rx="18" fill="#FBF8EE"/>
+    <rect x="584" y="186" width="332" height="420" rx="4" fill="#E9E2CC"/>
+    <circle cx="750" cy="630" r="7"/>
+    <!-- Blatt auf dem Bildschirm -->
+    <path d="M750 560 C690 500 680 380 750 262 C820 380 810 500 750 560 Z" fill="#557052" fill-opacity=".55"/>
+    <path d="M750 556 V268 M750 480 C720 462 705 432 700 402 M750 480 C780 462 795 432 800 402 M750 404 C728 390 716 366 712 340 M750 404 C772 390 784 366 788 340 M750 334 C736 324 728 308 726 292 M750 334 C764 324 772 308 774 292" stroke-width="1.3"/>
+    <!-- Zweig quer über die Tafel -->
+    <path d="M470 726 C560 646 640 566 740 474 C800 420 840 404 900 384" stroke-width="2.6"/>
+    <use xlink:href="#blatt" transform="translate(548 656) rotate(-42)"/>
+    <use xlink:href="#blatt" transform="translate(604 600) rotate(44)"/>
+    <use xlink:href="#blatt" transform="translate(668 540) rotate(-46)"/>
+    <use xlink:href="#blatt" transform="translate(736 480) rotate(38)"/>
+    <use xlink:href="#blatt" transform="translate(802 428) rotate(-52)"/>
+    <use xlink:href="#blatt" transform="translate(858 400) rotate(30)"/>
+    <!-- Bücher -->
+    <rect x="905" y="600" width="235" height="46" fill="#C9972B" fill-opacity=".55"/>
+    <rect x="905" y="600" width="235" height="46" fill="url(#h2)" stroke="none"/>
+    <rect x="920" y="646" width="230" height="44" fill="#A4482B" fill-opacity=".5"/>
+    <path d="M912 612 H1132 M912 634 H1132 M928 658 H1142 M928 678 H1142" stroke-width=".9" opacity=".6"/>
+    <path d="M905 600 L930 592 L1165 592 L1140 600" fill="#FBF8EE"/>
+    <!-- Stift -->
+    <g transform="rotate(52 1060 220)">
+      <rect x="950" y="211" width="210" height="18" rx="3" fill="#C9972B" fill-opacity=".7"/>
+      <path d="M1160 211 L1194 220 L1160 229 Z" fill="#FBF8EE"/>
+      <path d="M1184 217 L1194 220 L1184 223 Z" fill="#2E3A2A"/>
+      <path d="M956 214 H1156 M956 226 H1156" stroke-width=".8" opacity=".5"/>
+      <rect x="950" y="211" width="22" height="18" fill="#A4482B" fill-opacity=".7"/>
+    </g>
+    <!-- Lupe -->
+    <path d="M1084 484 L1146 546" stroke-width="13"/>
+    <path d="M1084 484 L1146 546" stroke-width="6" stroke="#C9972B"/>
+    <circle cx="1040" cy="440" r="60" fill="#FBF8EE" fill-opacity=".65" stroke-width="2.8"/>
+    <circle cx="1040" cy="440" r="50" stroke-width="1" opacity=".55"/>
+    <path d="M1004 420 C1012 400 1030 392 1048 394" stroke-width="1.2" opacity=".6"/>
+    <!-- Etikett mit Schreiblinien -->
+    <g transform="rotate(-2 790 720)">
+      <rect x="640" y="680" width="300" height="80" fill="#FBF8EE" stroke="#CFC6A8" stroke-width="1"/>
+      <rect x="648" y="688" width="284" height="64" stroke="#CFC6A8" stroke-width="1"/>
+      <path d="M668 712 H912 M668 728 H880 M668 744 H900" stroke="#CFC6A8" stroke-width="1.3"/>
+    </g>
+    <!-- Nadeln -->
+    <use xlink:href="#nadel" x="574" y="164"/><use xlink:href="#nadel" x="926" y="164"/>
+    <use xlink:href="#nadel" x="657" y="694"/><use xlink:href="#nadel" x="923" y="686"/>
+  </g>
+</svg>

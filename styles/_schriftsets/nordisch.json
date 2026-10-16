@@ -1,0 +1,40 @@
+{
+  "id": "nordisch",
+  "name": "Nordisch",
+  "standard_fuer_stil": "nordisch",
+  "beschreibung": "Manrope (weiche, geometrisch-humanistische Sans) für Titel, Text und Oberfläche, Crimson Pro Kursive als ruhiger Lesetext und für Akzentwörter.",
+  "titel": {
+    "familie": "Manrope",
+    "achsen": "wght 400..800 (Titel: 600)",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "akzent": {
+    "familie": "Crimson Pro",
+    "achsen": "ital 1, wght 400..600 (Akzent: 500)",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Crimson Pro",
+    "achsen": "ital 1, wght 400..600 (Lesen: 400)",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Manrope",
+    "achsen": "wght 400..800 (UI: 500)",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Crimson Pro",
+    "Manrope"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Manrope\",\"Segoe UI\",system-ui,sans-serif",
+    "--accent": "\"Crimson Pro\",Georgia,serif",
+    "--lesen": "\"Crimson Pro\",Georgia,serif",
+    "--ui": "\"Manrope\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Manrope\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/nordisch.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Crimson+Pro:ital,wght@1,400..600&display=swap"
+}

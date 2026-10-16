@@ -17,6 +17,7 @@ Du sagst Claude Code, worum es geht und womit gearbeitet werden soll. Quality Po
 - **Referentenansicht** mit Notizen, Timer und Zwei-Bildschirm-Modus
 - **Quellenverzeichnis** (APA 7) mit Sprung von der Folie zur Quelle und zurück
 - **Glossar**, auf den Folien anklickbar
+- **20 Stile × 20 Schriftsets** (von Papiertheater bis Blaupause, alle Schriften lokal, OFL) – Auswahl auf der Startseite `styles/index.html`
 - auf Wunsch: **Landingpage**, **Fachartikel** (über [claude-research](https://github.com/harubert/claude-research)), **Lehrplan-Bezug**, **Unterrichtsmaterial als Word** (Feinziele, didaktische Analyse nach Klafki, Lösungen mit Begründung), **Handout als PDF** (Kernaussagen, Fragestellungen zur eigenen Kompetenzentwicklung, Literatur, QR-Code), **Live-Mitmachen auf dem eigenen Server** (Teilnehmerfassung per QR-Code, Stimmungsbarometer, Hinweise, Umfragen – PHP, keine Datenbank; [docs/LIVE.md](docs/LIVE.md)), **Werkstatt-Aufträge**, **Video-Inhaltsangaben**, **Interaktionsbausteine**
 
 Der Anspruch steckt im Namen: Jede Zahl braucht eine Quelle und eine Bezugsgruppe, jedes Bild eine Herkunft, jede Folie muss die automatische Layoutprüfung bestehen. Was nicht belegt ist, wird gekennzeichnet oder weggelassen.
@@ -26,7 +27,7 @@ Der Anspruch steckt im Namen: Jede Zahl braucht eine Quelle und eine Bezugsgrupp
 | ![Referentenansicht](docs/bilder/referentenansicht.png) | ![Übersicht mit Suche](docs/bilder/uebersicht.png) |
 | Referentenansicht (`P`) | Übersicht mit Suche (`O`) |
 | ![Stilauswahl](docs/bilder/stilauswahl.png) | ![Interaktionsbaustein](docs/bilder/interaktion.png) |
-| Startseite: Ablauf, Bilder-Wege, 10 Stile × 10 Schriftsets | Interaktionsbaustein „Echt oder Fake“ |
+| Startseite: Ablauf, Bilder-Wege, 20 Stile × 20 Schriftsets | Interaktionsbaustein „Echt oder Fake“ |
 
 ## Der Inhaltsschalter
 
@@ -136,6 +137,7 @@ You tell Claude Code what the talk is about and what to work with. Quality Point
 - **Presenter view** with notes, timer and dual-screen mode
 - **Reference list** (APA 7) with jump from slide to source and back
 - **Glossary**, clickable on the slides
+- **20 styles × 20 font sets** (from paper theatre to blueprint, all fonts local, OFL) – picker on the start page `styles/index.html`
 - optionally: **landing page**, **scholarly article** (via [claude-research](https://github.com/harubert/claude-research)), **curriculum links**, **teaching materials as Word files** (learning objectives, didactic analysis after Klafki, answer keys with reasoning), **PDF handout** (key messages, self-study questions, references, QR code), **live audience response on your own server** (participant version via QR code, mood barometer, hints, polls – PHP, no database; [docs/LIVE.md](docs/LIVE.md)), **workshop tasks**, **video summaries**, **interactive widgets**
 
 The name is the promise: every figure needs a source and a reference group, every image a provenance, every slide must pass the automated layout check. Anything that cannot be verified is labelled or left out.

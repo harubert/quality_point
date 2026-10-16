@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Zeitungsgrafik in Graustufen: Kind liest eine aufgeschlagene Zeitung, Tablet auf dem Tisch, roter Stempel</title>
+  <defs>
+    <pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 2.5H5" stroke="#141414" stroke-width="1.1" opacity=".55"/></pattern>
+    <pattern id="h2" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 2H4" stroke="#141414" stroke-width="1.4" opacity=".75"/></pattern>
+    <filter id="korn" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 .2 0 0 0 0 .19 0 0 0 0 .17 0 0 0 .12 0"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="#E8E3D8"/>
+  <rect width="1200" height="800" filter="url(#korn)"/>
+  <!-- Tischkante -->
+  <path d="M420 660 H1180" stroke="#141414" stroke-width="2"/>
+  <!-- Kind hinter der Zeitung (ohne Gesicht): Kopf und Schultern -->
+  <circle cx="820" cy="190" r="66" fill="#B9B3A6"/>
+  <circle cx="820" cy="190" r="66" fill="url(#h)"/>
+  <path d="M754 182 C760 120 880 120 886 182 C856 164 784 164 754 182 Z" fill="#141414"/>
+  <path d="M640 330 C680 262 960 262 1000 330 L1000 400 H640 Z" fill="#5A5852"/>
+  <path d="M640 330 C680 262 960 262 1000 330 L1000 400 H640 Z" fill="url(#h2)"/>
+  <!-- Zeitung -->
+  <g transform="rotate(-3 820 440)">
+    <rect x="560" y="250" width="520" height="380" fill="#F3EFE6" stroke="#141414" stroke-width="2"/>
+    <path d="M820 250 V630" stroke="#141414" stroke-width="1"/>
+    <!-- Kopf der Zeitung: Balken und Doppellinie -->
+    <rect x="584" y="272" width="200" height="34" fill="#141414"/>
+    <path d="M584 318 H1056" stroke="#141414" stroke-width="3"/>
+    <path d="M584 325 H1056" stroke="#141414" stroke-width="1"/>
+    <!-- Schlagzeile -->
+    <rect x="584" y="340" width="460" height="22" fill="#5A5852"/>
+    <rect x="584" y="370" width="320" height="22" fill="#5A5852"/>
+    <!-- Foto mit Schraffur -->
+    <rect x="584" y="410" width="220" height="150" fill="#B9B3A6" stroke="#141414" stroke-width="2"/>
+    <rect x="584" y="410" width="220" height="150" fill="url(#h)"/>
+    <path d="M600 540 L660 470 L700 510 L740 450 L790 540 Z" fill="#5A5852"/>
+    <!-- Spalten als Zeilen -->
+    <g fill="#5A5852">
+      <rect x="836" y="410" width="100" height="6"/><rect x="836" y="424" width="96" height="6"/><rect x="836" y="438" width="100" height="6"/><rect x="836" y="452" width="90" height="6"/><rect x="836" y="466" width="100" height="6"/><rect x="836" y="480" width="80" height="6"/>
+      <rect x="954" y="410" width="100" height="6"/><rect x="954" y="424" width="92" height="6"/><rect x="954" y="438" width="100" height="6"/><rect x="954" y="452" width="96" height="6"/><rect x="954" y="466" width="100" height="6"/><rect x="954" y="480" width="70" height="6"/>
+      <rect x="836" y="520" width="218" height="12"/>
+      <rect x="836" y="542" width="100" height="6"/><rect x="836" y="556" width="96" height="6"/><rect x="836" y="570" width="100" height="6"/><rect x="836" y="584" width="76" height="6"/>
+      <rect x="954" y="542" width="100" height="6"/><rect x="954" y="556" width="88" height="6"/><rect x="954" y="570" width="100" height="6"/><rect x="954" y="584" width="60" height="6"/>
+      <rect x="584" y="580" width="220" height="6"/><rect x="584" y="594" width="200" height="6"/><rect x="584" y="608" width="210" height="6"/>
+    </g>
+    <path d="M945 410 V600" stroke="#B9B3A6" stroke-width="1"/>
+    <!-- roter Stempel: einziger Farbakzent -->
+    <g transform="rotate(-14 1000 300)">
+      <circle cx="1000" cy="300" r="30" fill="none" stroke="#B5121B" stroke-width="5"/>
+      <circle cx="1000" cy="300" r="20" fill="none" stroke="#B5121B" stroke-width="2"/>
+      <circle cx="1000" cy="300" r="7" fill="#B5121B"/>
+    </g>
+  </g>
+  <!-- Hände -->
+  <path d="M566 600 C540 596 526 622 548 640 C560 650 590 646 600 636 Z" fill="#B9B3A6" stroke="#141414" stroke-width="2"/>
+  <path d="M1070 580 C1098 576 1112 602 1090 620 C1078 630 1048 626 1040 616 Z" fill="#B9B3A6" stroke="#141414" stroke-width="2"/>
+  <!-- Tablet auf dem Tisch -->
+  <g transform="rotate(-7 1000 710)">
+    <rect x="880" y="672" width="240" height="90" rx="8" fill="#141414"/>
+    <rect x="896" y="684" width="208" height="66" rx="3" fill="#F3EFE6"/>
+    <rect x="906" y="694" width="70" height="46" fill="#B9B3A6"/>
+    <rect x="906" y="694" width="70" height="46" fill="url(#h)"/>
+    <g fill="#5A5852"><rect x="986" y="696" width="108" height="8"/><rect x="986" y="712" width="100" height="5"/><rect x="986" y="724" width="108" height="5"/><rect x="986" y="736" width="80" height="5"/></g>
+  </g>
+  <!-- Stift -->
+  <path d="M520 700 L760 690" stroke="#141414" stroke-width="12" stroke-linecap="round"/>
+  <path d="M520 700 L760 690" stroke="#B9B3A6" stroke-width="7" stroke-linecap="round"/>
+  <path d="M760 690 L790 688 L762 702 Z" fill="#141414"/>
+</svg>

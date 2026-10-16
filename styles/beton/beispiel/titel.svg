@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <title>Brutalistische Blöcke: Tablet mit gelbem Bildschirm, Bauklötze, eckige Figur, Stift</title>
+  <defs>
+    <pattern id="schraff" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="4" height="14" fill="#0A0A0A"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#E8E7E2"/>
+  <!-- Boden mit Schraffur -->
+  <rect x="400" y="740" width="800" height="60" fill="url(#schraff)"/>
+  <rect x="400" y="736" width="800" height="8" fill="#0A0A0A"/>
+  <!-- Tablet: Schatten, Block, Bildschirm -->
+  <rect x="534" y="114" width="440" height="320" fill="#0A0A0A"/>
+  <rect x="520" y="100" width="440" height="320" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="560" y="140" width="360" height="200" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <polygon points="700,190 700,290 790,240" fill="#0A0A0A"/>
+  <rect x="560" y="360" width="140" height="24" fill="#0A0A0A"/>
+  <rect x="720" y="360" width="60" height="24" fill="#0A0A0A"/>
+  <!-- Bauklötze -->
+  <rect x="434" y="594" width="140" height="140" fill="#0A0A0A"/>
+  <rect x="420" y="580" width="140" height="140" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="574" y="594" width="140" height="140" fill="#0A0A0A"/>
+  <rect x="560" y="580" width="140" height="140" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="504" y="454" width="140" height="140" fill="#0A0A0A"/>
+  <rect x="490" y="440" width="140" height="140" fill="url(#schraff)" stroke="#0A0A0A" stroke-width="7"/>
+  <!-- eckige Figur ohne Gesicht -->
+  <rect x="1014" y="314" width="100" height="100" fill="#0A0A0A"/>
+  <rect x="1000" y="300" width="100" height="100" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="984" y="434" width="160" height="300" fill="#0A0A0A"/>
+  <rect x="970" y="420" width="160" height="300" fill="#F2E600" stroke="#0A0A0A" stroke-width="7"/>
+  <rect x="900" y="440" width="70" height="46" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <!-- Stift -->
+  <rect x="754" y="614" width="180" height="44" fill="#0A0A0A"/>
+  <rect x="740" y="600" width="180" height="44" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="7"/>
+  <polygon points="920,600 962,622 920,644" fill="#0A0A0A"/>
+</svg>

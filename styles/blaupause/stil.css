@@ -1,0 +1,172 @@
+/* ==========================================================
+   STIL „Blaupause“ – technische Zeichnung auf Lichtpauspapier (dunkel)
+   Preußischblau, weiße Linien, Kreidegelb, Hellcyan · Rajdhani (Versalien) + Saira (+ Kursive)
+   Feinraster 40 px und Hauptraster 200 px, Maßlinien mit Pfeilspitzen, Schraffuren, Fotos als Cyanotypie.
+   ========================================================== */
+:root{
+  --paper:#123C7F; --paper2:#0F3470; --card:#1A4A99; --sand:rgba(242,246,251,.3);
+  --ink:#F2F6FB; --ink2:#D7E3F4; --ink3:#AFC6E6;
+  --red:#FFB07C; --red-l:rgba(255,176,124,.16);
+  --teal:#8FD8FF; --teal-d:#C8ECFF; --teal-l:rgba(143,216,255,.14);
+  --yellow:#F7DC6F; --yellow-l:rgba(247,220,111,.16);
+  --coral:#FF9F80; --coral-l:rgba(255,159,128,.16);
+  --night:#0B2A5C;
+  --serif:"Rajdhani",Bahnschrift,"Arial Narrow",sans-serif;
+  --accent:"Saira",Bahnschrift,Arial,sans-serif;
+  --lesen:"Saira",Bahnschrift,Arial,sans-serif;
+  --ui:"Saira",Bahnschrift,Arial,sans-serif;
+  --sans:"Saira",Bahnschrift,Arial,sans-serif;
+  --linie:rgba(242,246,251,.8);
+  --strich:1.5px solid var(--linie);
+  --raster:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  --mass:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1680' height='24' fill='none' stroke='%23F2F6FB' stroke-width='1.5'%3E%3Cpath d='M1 12H1679M1 0v24M1679 0v24M840 4v16'/%3E%3Cpath d='M1 12l16-6v12zM1679 12l-16-6v12z' fill='%23F2F6FB' stroke='none'/%3E%3C/svg%3E");
+  /* optionale Tokens (engine/TOKENS.md) */
+  --radius:0; --radius-s:0; --schatten:rgba(0,0,0,.6); --auf-dunkel:#F2F6FB; --auf-akzent:#0B2A5C; --buehne:#061634; --ui-dunkel:#081F45; --panel:#0F3470;
+}
+html,body{background:#061634}
+
+/* Pauspapier: Raster, Maßlinie oben, Schriftfeld unten */
+.slide{background:var(--paper) radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.06),transparent 75%);color:var(--ink);padding:96px 120px 120px}
+.slide::before{opacity:1;background-image:var(--raster);background-size:200px 200px,200px 200px,40px 40px,40px 40px}
+.slide::after{content:"";position:absolute;left:120px;right:120px;top:40px;height:24px;background:var(--mass) center/100% 100% no-repeat;opacity:.6;pointer-events:none}
+.slide footer{left:120px;right:120px;bottom:30px;border-top:var(--strich);padding-top:10px;color:var(--ink3);font:400 19px/1.3 var(--ui);letter-spacing:.06em;text-transform:uppercase}
+.slide footer .chap{letter-spacing:.12em;color:var(--ink2);font-size:17px}
+.slide footer .src::before{color:var(--ink2)}
+.slide footer .pg{color:var(--ink);border:var(--strich);padding:4px 14px;font-family:var(--serif);font-weight:700;font-size:22px}
+
+h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.03em}
+h2{font-size:84px;line-height:.98;margin-bottom:30px}
+h3{font-weight:600;font-size:38px;letter-spacing:.04em}
+h2 em,h1 em,.s-statement .big em{font-family:var(--accent);font-style:italic;font-weight:500;color:var(--yellow);text-transform:none;letter-spacing:0;font-size:.92em}
+.kick{font:600 22px/1 var(--ui);letter-spacing:.24em;color:var(--teal)}
+.kick::before{height:2px;border-radius:0;box-shadow:-4px 0 0 currentColor,4px 0 0 currentColor}
+.lead{color:var(--ink2)}
+p,li,td,th{color:inherit}
+
+/* Karten: weiß gezeichnete Kästen, Hilfslinie gestrichelt außen */
+.card{background:rgba(255,255,255,.05);border:var(--strich);border-radius:0;box-shadow:none;padding:26px 30px}
+.card::after{content:"";position:absolute;inset:-8px;border:1px dashed rgba(242,246,251,.28);pointer-events:none}
+.card h3{color:var(--ink)}
+.card.t{border-top:5px solid var(--teal)}.card.c{border-top:5px solid var(--coral)}.card.r{border-top:5px solid var(--red)}.card.y{border-top:5px solid var(--yellow)}
+.card .num{color:var(--yellow);font-family:var(--serif);font-weight:700}
+.card.tape::before,.foto::before,.etikett::before{content:none}
+.tag{border-radius:0;background:transparent;border:1px solid var(--teal);color:var(--teal-d);font:600 18px/1 var(--ui);letter-spacing:.16em}
+.tag.c{background:transparent;border-color:var(--coral);color:var(--coral)}.tag.r{background:transparent;border-color:var(--red);color:var(--red)}.tag.y{background:transparent;border-color:var(--yellow);color:var(--yellow)}
+.box{border-radius:0;border:var(--strich)}
+.box.def{background:var(--teal-l)}.box.def .bh{color:var(--teal-d)}
+.box.res{background:rgba(255,255,255,.05);border-left:6px solid var(--teal);box-shadow:none}
+.box.tip{background:var(--red-l)}.box.tip .bh{color:var(--red)}
+.box.daz{background:var(--yellow-l)}.box.daz .bh{color:var(--yellow)}
+.bh{font:600 20px/1.2 var(--ui);letter-spacing:.18em}
+.bh i{border-radius:0;width:34px;height:34px}
+.bh i span{font:700 20px/1 var(--serif)}
+
+.quote{color:var(--ink);font-weight:400}
+.quote::before{color:var(--yellow);font:700 170px/1 var(--serif);top:-26px}
+.quote cite{color:var(--ink3);font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.ueb{color:var(--ink2)}
+.ueb::before{color:var(--teal)}
+
+table.tbl{background:transparent;border:var(--strich);border-radius:0;box-shadow:none}
+.tbl th{background:rgba(255,255,255,.12);color:var(--ink);font:700 21px/1.2 var(--serif);letter-spacing:.12em;border-bottom:var(--strich)}
+.tbl td{border-top:1px solid rgba(242,246,251,.3);color:var(--ink)}
+.tbl td+td,.tbl th+th{border-left:1px solid rgba(242,246,251,.3)}
+.tbl tr:nth-child(even) td{background:transparent}
+
+ul.dots li::before{width:12px;height:12px;border-radius:0;background:transparent;border:2px solid var(--yellow);transform:rotate(45deg);top:.5em;left:8px}
+ol.steps>li::before{background:transparent;color:var(--yellow);border:2px solid var(--yellow);border-radius:0;font:700 28px/52px var(--serif)}
+ol.steps.red>li::before{background:transparent;color:var(--coral);border-color:var(--coral)}
+.sb{background:var(--yellow);color:#0B2A5C;border-radius:0;font-family:var(--serif)}
+.wcard{background:transparent;border:var(--strich);border-radius:0;box-shadow:none}
+.wcard .w{font-family:var(--serif);text-transform:uppercase;letter-spacing:.04em}
+.wcard .ex{color:var(--ink2)}
+.bub{background:rgba(255,255,255,.05);color:var(--ink);border:var(--strich);border-radius:0;box-shadow:none}
+.bub.r{background:var(--teal-l)}.bub.x{background:var(--yellow-l)}
+.arrow{color:var(--yellow)}
+
+/* Bilder als Cyanotypie: Graustufen, auf das Blau gelegt */
+.foto{background:transparent;padding:0;border:var(--strich);box-shadow:none;--r:0deg;gap:0}
+.foto img{filter:grayscale(1) brightness(1.08) contrast(1.1);mix-blend-mode:screen;opacity:.92}
+.foto .cap{color:var(--ink3);font:500 17px/1.3 var(--ui);letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border-top:var(--strich);margin:0}
+.zettel{background:transparent;color:var(--yellow);border:1.5px dashed var(--yellow);box-shadow:none;--r:0deg;font-family:var(--lesen);font-style:italic}
+
+/* Titel: Zeichnung rechts, Schriftfeld links unten */
+.s-title{padding:0}
+.s-title::after{right:1040px}
+.s-title .hero{mix-blend-mode:screen;filter:grayscale(1) contrast(1.1);opacity:.95}
+.s-title .tt{top:160px;width:880px}
+.s-title h1{font-size:122px;line-height:.92;letter-spacing:.02em;margin:26px 0 30px}
+.s-title .sub{color:var(--ink2);font-size:32px;text-transform:none}
+.s-title .who{color:var(--ink2);border:var(--strich);padding:16px 22px;background:rgba(11,42,92,.65);width:620px}
+.s-title .who b{color:var(--ink);font-family:var(--serif);text-transform:uppercase;letter-spacing:.06em;font-size:30px}
+
+/* Kapitel: dunkleres Blau, Ziffer als Umrisslinie, Etikett mit Hilfslinien */
+.s-chapter{background:var(--night);color:var(--ink)}
+.s-chapter .hero{mix-blend-mode:screen;filter:grayscale(1) contrast(1.05);opacity:.7}
+.s-chapter .bignum{font-family:var(--serif);color:transparent;-webkit-text-stroke:2px rgba(242,246,251,.3);font-weight:700;letter-spacing:0}
+.s-chapter h2{color:var(--ink)}.s-chapter h2 em{color:var(--yellow)}
+.etikett{background:rgba(11,42,92,.9);border:var(--strich);border-radius:0;box-shadow:none;transform:translateY(-54%);padding:50px 58px 46px}
+.etikett::before{content:"";position:absolute;inset:-10px;border:1px dashed rgba(242,246,251,.3);pointer-events:none}
+.s-chapter .etikett .kick{color:var(--teal)}
+.s-chapter .etikett h2{color:var(--ink);font-size:84px}
+.s-chapter .etikett h2 em{color:var(--yellow)}
+.s-chapter .etikett .lead{color:var(--ink2)}
+.s-chapter .etikett .toc div{border-top:1px solid rgba(242,246,251,.45);color:var(--ink2)}
+.s-chapter .etikett .toc div b{color:var(--yellow);font-family:var(--serif);font-weight:700}
+.s-chapter footer,.s-chapter footer .src::before,.s-chapter footer .pg,.s-chapter footer .chap,
+.s-chapter:has(.hero) footer,.s-chapter:has(.hero) footer .src::before,.s-chapter:has(.hero) footer .pg,.s-chapter:has(.hero) footer .chap{color:var(--ink2);text-shadow:none}
+
+/* Dunkle Folie: tiefstes Blau, Raster bleibt */
+.s-dark{background:#081F45;color:var(--ink)}
+.s-dark::before{background-image:var(--raster);background-size:200px 200px,200px 200px,40px 40px,40px 40px;opacity:.8}
+.s-dark h2,.s-dark h3{color:var(--ink)}.s-dark h2 em{color:var(--yellow)}
+.s-dark .lead{color:var(--ink2)}
+.s-dark .kick{color:var(--teal)}
+.s-dark .card{background:rgba(255,255,255,.05);color:var(--ink);border:var(--strich)}
+.s-dark .card p,.s-dark .card li{color:var(--ink2)}
+.s-dark .quote{color:var(--ink)}.s-dark .ueb{color:var(--ink2)}.s-dark .ueb::before{color:var(--teal)}
+
+.s-statement .big{font-weight:700;font-size:104px;line-height:1;text-transform:uppercase;letter-spacing:.03em}
+
+/* Werkstatt: Hauptraster dichter, Gelb als Markierung */
+.s-auftrag{background:#0D3270;color:var(--ink);padding:96px 120px 120px}
+.s-auftrag::before{opacity:1;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:100px 100px}
+.s-auftrag .wk .wn{background:var(--yellow);color:#0B2A5C;border-radius:0;font-family:var(--serif);font-weight:700;font-size:32px}
+.s-auftrag .wk .wl,.s-auftrag .panel h4{color:var(--yellow);letter-spacing:.2em}
+.s-auftrag h2 em{color:var(--yellow)}
+.s-auftrag .panel{border-radius:0;background:rgba(255,255,255,.05);border:var(--strich)}
+.s-auftrag p,.s-auftrag li{color:var(--ink)}
+.s-auftrag .meta span{background:transparent;border:1px solid var(--yellow);color:var(--yellow);border-radius:0;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.s-auftrag ol.steps>li::before{background:transparent;color:var(--yellow);border-color:var(--yellow)}
+.s-auftrag ul.dots li::before{background:transparent;border-color:var(--yellow)}
+
+.zahl{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:120px;letter-spacing:.01em}
+.card.r .zahl{color:var(--red)}.card.t .zahl{color:var(--teal)}.card.y .zahl{color:var(--yellow)}
+.zahl small{color:var(--ink3);font:500 28px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase}
+.zl{color:var(--ink2);font:400 24px/1.35 var(--ui)}
+.bars .bz{color:var(--ink);font:500 24px/1 var(--ui)}
+.bars .bt{background:transparent;height:30px;border:var(--strich);border-radius:0}
+.bars .bt i{background:repeating-linear-gradient(135deg,var(--yellow) 0 6px,transparent 6px 13px)}
+.bars .bz.t .bt i{background:repeating-linear-gradient(135deg,var(--teal) 0 6px,transparent 6px 13px)}
+.bars .bv{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:36px}
+
+.lesehilfe{background:rgba(11,42,92,.95);color:var(--ink2);border-left:4px solid var(--yellow);border-top:var(--strich);font-family:var(--ui)}
+.lesehilfe b{color:var(--yellow)}.lesehilfe .lh{color:var(--yellow);font-family:var(--serif)}
+.s-dark .lesehilfe,.s-auftrag .lesehilfe{background:rgba(8,31,69,.96);color:var(--ink2);border-left-color:var(--yellow)}
+.s-dark .lesehilfe b,.s-auftrag .lesehilfe b{color:var(--yellow)}
+.uf .uf-kurz{color:var(--ink2)}
+.uf .uf-kz{background:var(--teal-l);color:var(--teal-d);border-radius:0}
+.pointe{background:#0B2A5C;color:var(--ink);border:var(--strich);border-radius:0}
+.pointe b{background:var(--yellow);color:#0B2A5C;border-radius:0;letter-spacing:.14em}
+.s-chapter .pointe,.s-dark .pointe,.s-auftrag .pointe{background:var(--yellow);color:#0B2A5C}
+#progress{background:var(--yellow);height:4px}
+.hl{background:linear-gradient(transparent 60%,rgba(247,220,111,.35) 60%)}
+.mark{background-image:linear-gradient(rgba(247,220,111,.55),rgba(247,220,111,.55))}
+.gl{text-decoration-color:var(--yellow)}
+.gl:hover{background:var(--yellow-l)}
+a.qo,a.ql:hover{color:var(--yellow)}
+
+/* Flächen, die basis.css mit --teal-d füllt: hier dunkel halten */
+.flip .fb,#pnotes .nz{background:#0B2A5C}
+/* Heller Akzentgrund + --ink (hell) ergäbe hell auf hell: hier dunkle Schrift */
+ol.steps.y>li::before,a.formlink,#notes .nb .lbl.z,#pnotes .np,.ia-ampel .ia-gelb button{color:#0B2A5C}

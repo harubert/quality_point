@@ -1,0 +1,65 @@
+{
+  "id": "herbarium",
+  "name": "Herbarium",
+  "beschreibung": "Tafeln eines alten botanischen Atlas: Elfenbein-Faserpapier, Sepiagrün, Salbei, Ocker und Rost, doppelte Haarlinien-Rahmen, Etikettkarten mit Stecknadeln, Kapitälchen und kursive Legenden in Garamond.",
+  "stimmung": "ruhig, gesammelt, naturkundlich",
+  "passt_zu": [
+    "Sachunterricht und Natur",
+    "Bibliotheks- und Lesethemen",
+    "Sammlungen, Material- und Methodenkoffer",
+    "Vorträge mit historischem Blick"
+  ],
+  "schriftset": "herbarium",
+  "farben": {
+    "paper": "#F3EEDF",
+    "paper2": "#E9E2CC",
+    "card": "#FBF8EE",
+    "ink": "#2E3A2A",
+    "ink2": "#4A5443",
+    "ink3": "#5F6856",
+    "red": "#A4482B",
+    "teal": "#557052",
+    "teal-d": "#344A33",
+    "yellow": "#C9972B",
+    "coral": "#B8673A"
+  },
+  "schriften": {
+    "titel": {
+      "familie": "Cormorant Garamond",
+      "achsen": "wght 500..700 (Titel: 600)"
+    },
+    "akzent": {
+      "familie": "Cormorant Garamond",
+      "achsen": "ital 1, wght 500..700 (Akzent: 600)"
+    },
+    "lesen": {
+      "familie": "EB Garamond",
+      "achsen": "ital 1, wght 400"
+    },
+    "ui": {
+      "familie": "Alegreya Sans",
+      "achsen": "wght 400/500/700, ital 400; Kicker und Etiketten in Kapitälchen"
+    }
+  },
+  "google_fonts": [
+    "Cormorant Garamond:ital,wght@0,500..700;1,500..700",
+    "EB Garamond:ital,wght@1,400",
+    "Alegreya Sans:ital,wght@0,400;0,500;0,700;1,400"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "bildprompt": "Antique natural history plate from a botanical atlas, fine sepia-green ink line engraving with delicate cross-hatching and soft watercolour washes in sage green, ochre and rust on ivory fibrous paper, specimens laid out like a herbarium sheet with a small pinned label, thin double hairline plate border, calm and scholarly. Composition: main subject on the right two thirds, a calm, plain, uncluttered area on the left third for text. No text, no letters, no numbers, no logos, no recognizable faces.",
+  "vektor_hinweise": "Feine Linien in Sepiagrün #2E3A2A (stroke 1.2–2.2 px, round caps) auf Elfenbein #F3EEDF; Schattierung durch Schraffur-<pattern> (parallele Linien, Abstand 4–6 px) statt Verläufe; Flächen sparsam in Salbei #557052, Ocker #C9972B und Rost #A4482B mit opacity .35–.7 (lasierend). Doppelter Haarlinien-Rahmen #CFC6A8 um die Tafel, ein Etikettkärtchen #FBF8EE mit zwei Nadelköpfen #A4482B. Blätter, Zweige und Ranken als Beiwerk; Papierkorn per feTurbulence (alpha .1).",
+  "dateien": {
+    "css": "stil.css",
+    "fonts": "../_schriftsets/fonts/herbarium.css",
+    "vorschau": "vorschau.webp",
+    "beispiele": "beispiel/"
+  },
+  "bilder": {
+    "vektor": "gut",
+    "hinweis": "Linienzeichnung mit Schraffur und Etikett gelingt als SVG; die lasierenden Aquarellwaschungen und das Alter des Papiers wirken mit Bildgenerator stimmungsvoller."
+  }
+}

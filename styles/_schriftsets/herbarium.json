@@ -1,0 +1,41 @@
+{
+  "id": "herbarium",
+  "name": "Herbarium",
+  "standard_fuer_stil": "herbarium",
+  "beschreibung": "Cormorant Garamond (Renaissance-Antiqua mit feinen Haarstrichen) für Titel und kursive Akzente, EB Garamond Kursive als Lesetext, Alegreya Sans als ruhige humanistische Sans für Beschriftungen.",
+  "titel": {
+    "familie": "Cormorant Garamond",
+    "achsen": "wght 500..700 (Titel: 600)",
+    "fallback": "Garamond,Georgia,serif"
+  },
+  "akzent": {
+    "familie": "Cormorant Garamond",
+    "achsen": "ital 1, wght 500..700 (Akzent: 600)",
+    "fallback": "Garamond,Georgia,serif"
+  },
+  "lesen": {
+    "familie": "EB Garamond",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Garamond,Georgia,serif"
+  },
+  "ui": {
+    "familie": "Alegreya Sans",
+    "achsen": "wght 400/500/700, ital 400",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "familien": [
+    "Alegreya Sans",
+    "Cormorant Garamond",
+    "EB Garamond"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Cormorant Garamond\",Garamond,Georgia,serif",
+    "--accent": "\"Cormorant Garamond\",Garamond,Georgia,serif",
+    "--lesen": "\"EB Garamond\",Garamond,Georgia,serif",
+    "--ui": "\"Alegreya Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--sans": "\"Alegreya Sans\",\"Segoe UI\",system-ui,sans-serif"
+  },
+  "fonts_css": "fonts/herbarium.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500..700;1,500..700&family=EB+Garamond:ital,wght@1,400&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+}

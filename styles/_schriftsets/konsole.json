@@ -1,0 +1,41 @@
+{
+  "id": "konsole",
+  "name": "Konsole",
+  "standard_fuer_stil": "konsole",
+  "beschreibung": "Martian Mono als breite, schwere Mono für Überschriften, JetBrains Mono für Fließtext, Kicker und Bedienelemente, Fira Sans Italic als gut lesbare Kursive für Zitate.",
+  "titel": {
+    "familie": "Martian Mono",
+    "achsen": "wght 700 (wdth 100)",
+    "fallback": "Consolas,\"Courier New\",monospace"
+  },
+  "akzent": {
+    "familie": "JetBrains Mono",
+    "achsen": "ital 1, wght 600",
+    "fallback": "Consolas,\"Courier New\",monospace"
+  },
+  "lesen": {
+    "familie": "Fira Sans",
+    "achsen": "ital 1, wght 400",
+    "fallback": "\"Segoe UI\",system-ui,sans-serif"
+  },
+  "ui": {
+    "familie": "JetBrains Mono",
+    "achsen": "ital 0..1, wght 400..800",
+    "fallback": "Consolas,\"Courier New\",monospace"
+  },
+  "familien": [
+    "Fira Sans",
+    "JetBrains Mono",
+    "Martian Mono"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Martian Mono\",Consolas,\"Courier New\",monospace",
+    "--accent": "\"JetBrains Mono\",Consolas,\"Courier New\",monospace",
+    "--lesen": "\"Fira Sans\",\"Segoe UI\",system-ui,sans-serif",
+    "--ui": "\"JetBrains Mono\",Consolas,\"Courier New\",monospace",
+    "--sans": "\"JetBrains Mono\",Consolas,\"Courier New\",monospace"
+  },
+  "fonts_css": "fonts/konsole.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Martian+Mono:wght@700&family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&family=Fira+Sans:ital@1&display=swap"
+}

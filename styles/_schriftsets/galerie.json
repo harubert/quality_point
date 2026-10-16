@@ -1,0 +1,40 @@
+{
+  "id": "galerie",
+  "name": "Galerie",
+  "standard_fuer_stil": "galerie",
+  "beschreibung": "Hanken Grotesk (neutrale, zurückhaltende Grotesk) für Titel, Text und Beschriftungen, Spectral Kursive als Lesetext und für Akzentwörter – wie Wandtext und Katalog im Museum.",
+  "titel": {
+    "familie": "Hanken Grotesk",
+    "achsen": "wght 300..700 (Titel: 500)",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "akzent": {
+    "familie": "Spectral",
+    "achsen": "ital 1, wght 400/500 (Akzent: 500)",
+    "fallback": "Georgia,serif"
+  },
+  "lesen": {
+    "familie": "Spectral",
+    "achsen": "ital 1, wght 400",
+    "fallback": "Georgia,serif"
+  },
+  "ui": {
+    "familie": "Hanken Grotesk",
+    "achsen": "wght 300..700 (UI: 400/500), ital 400",
+    "fallback": "\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "familien": [
+    "Hanken Grotesk",
+    "Spectral"
+  ],
+  "lizenz": "SIL Open Font License 1.1 (alle Familien)",
+  "css_variablen": {
+    "--serif": "\"Hanken Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--accent": "\"Spectral\",Georgia,serif",
+    "--lesen": "\"Spectral\",Georgia,serif",
+    "--ui": "\"Hanken Grotesk\",\"Helvetica Neue\",Arial,sans-serif",
+    "--sans": "\"Hanken Grotesk\",\"Helvetica Neue\",Arial,sans-serif"
+  },
+  "fonts_css": "fonts/galerie.css",
+  "google_fonts_api": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..700;1,400&family=Spectral:ital,wght@1,400;1,500&display=swap"
+}
