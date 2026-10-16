@@ -55,7 +55,7 @@
   "vektor_hinweise": "Nur zwei Farben: #FF4F9A und #1F3FBF auf #F6F1E6, Überlagerungen mit mix-blend-mode=\"multiply\" (ergibt Violett). Flächen ohne Kontur, je Farbebene 3–6 px gegeneinander versetzt (Passerversatz). Schattierung über <pattern> mit Rasterpunkten (r 2–4 px, Abstand 8–10 px).",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/riso.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

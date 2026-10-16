@@ -24,6 +24,9 @@ STANDARD = {
     'sperrliste_zusatz': [],         # weitere Regex-Muster, die im Paket nicht vorkommen dürfen
     'notizschutz': {},               # {"bis": "JJJJ-MM-TT"} + PIN in Umgebungsvariable QP_NOTIZ_PIN: Notizen im Paket nur mit PIN (werkzeuge/notizschutz.py)
     'seiten_zusatz': [],             # weitere Dateien/Ordner fürs Paket (z. B. "img/hero.webp")
+    'live': {                        # Server-Modus mit Mitmach-Funktionen (docs/LIVE.md); Passwort in Umgebungsvariable QP_LIVE_PASSWORT
+        'an': False, 'teilnehmer': 'teilnehmer.html', 'folgen': True, 'notizen': True, 'fertig': True,
+        'barometer': ['tempo', 'verstaendnis', 'relevanz', 'stimmung'], 'ergebnisse': 'freigabe'},
     'institutionen': {},             # Autorkürzel in Quellen -> {"anzeige": "UNESCO", "lang": "United Nations …"}
     'bis_leerzeichen': False,        # „12–17“ -> „12 – 17“ in Folien, Seiten und Word-Dateien
     'titelbild': '',                 # Bild der Startseite, z. B. img/titel.webp
@@ -80,6 +83,7 @@ def seiten(K):
     s = ['index.html', K['ausgabe'], 'glossar.html', 'quellen.html']
     if K['_artikel']: s.append('artikel.html')
     if K['lehrplan'].get('an'): s.append('lehrplan.html')
+    if K['live'].get('an'): s.append(K['live'].get('teilnehmer', 'teilnehmer.html'))
     return s
 
 
@@ -99,6 +103,10 @@ TEXTE = {
         'q_suche': 'Quelle suchen …', 'werke': 'Werke', 'geprueft': '✓ am Primärtext geprüft', 'ungeprueft': 'nicht verifiziert',
         'primaer': 'Primärquellen', 'abgerufen': 'abgerufen', 'alle': 'Alle', 'erstellt': 'Erstellt mit Quality Point',
         'im_unterricht': 'Im Unterricht', 'mat_laden': 'Arbeitsmaterial herunterladen (Word)',
+        'live_ref': '▶ Präsentation starten (Referent*in)', 'live_tn': 'Mitmachen (Teilnehmer*innen)', 'live_kick': 'Live dabei',
+        'live_h': 'Am eigenen Gerät <em>mitmachen</em>',
+        'live_t': 'QR-Code scannen oder die Adresse öffnen: Die Folien laufen mit, dazu Stimmungsbarometer, Fragen und Hinweise an die Vortragenden und Antworten bei Aufgaben. Anonym, ohne Anmeldung.',
+        'live_ref_t': 'Vortragende melden sich beim Start mit dem Passwort an; das Live-Panel öffnet die Taste A.',
     },
     'en': {
         'start': 'Home', 'praes': 'Presentation', 'artikel': 'Article', 'quellen': 'References', 'glossar': 'Glossary',
@@ -115,6 +123,10 @@ TEXTE = {
         'q_suche': 'Search references …', 'werke': 'works', 'geprueft': '✓ checked against primary text', 'ungeprueft': 'not verified',
         'primaer': 'Primary sources', 'abgerufen': 'retrieved', 'alle': 'All', 'erstellt': 'Made with Quality Point',
         'im_unterricht': 'In class', 'mat_laden': 'Download material (Word)',
+        'live_ref': '▶ Start presentation (presenter)', 'live_tn': 'Join (participants)', 'live_kick': 'Join live',
+        'live_h': 'Take part on your <em>own device</em>',
+        'live_t': 'Scan the QR code or open the address: the slides follow the talk, with a mood barometer, questions and hints to the presenter and answers to tasks. Anonymous, no sign-up.',
+        'live_ref_t': 'Presenters log in with the password at the start; key A opens the live panel.',
     },
 }
 

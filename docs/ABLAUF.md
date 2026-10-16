@@ -158,6 +158,7 @@ Preise ändern sich laufend; die Angaben sind Größenordnungen (Stand Herbst 20
 |---|---|
 | Nur lokal (empfohlen für den Anfang) | `python <quality_point>/engine/deploy.py <projekt>` erzeugt den Veröffentlichungsordner (`ziel` in `quality_point.json`, Standard `deployment/` neben dem Projekt) mit Präsentation, Begleitseiten, Schriften, Bildern und Materialien. Diesen Ordner kann man per USB-Stick, LMS-Upload oder Webspace weitergeben. |
 | Übergabe an Server/Webspace | Claude nennt Ordner und Dateien; hochgeladen wird nur nach ausdrücklicher Freigabe, z. B. durch eine eigene Server-Session der Person. |
+| Server mit Live-Mitmachen | Zusätzlich `teilnehmer.html` und `live/` (PHP, Datenordner). Teilnehmer*innen machen per QR-Code am eigenen Gerät mit (Barometer, Hinweise, Fertig, Umfragen, Aufgaben); Referent*in meldet sich mit Passwort an, Taste `A` öffnet das Live-Panel. Voraussetzungen, Datenschutz und Grenzen: `docs/LIVE.md`. Claude fragt das als eigene Frage „Betriebsart“ ab (SKILL.md, Block 7a). |
 
 **Zugangsschutz empfehlen**, sobald Zitatrecht genutzt wird (fremde Screenshots, Werbemotive, Zeitungsausschnitte): Passwortschutz per `.htaccess`, Kurs im Lernmanagementsystem oder ein nicht öffentlich verlinkter Ordner. Lokale Videokopien (`video_lokal/`) kommen nie ins Webpaket.
 

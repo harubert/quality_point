@@ -38,7 +38,8 @@ Projekt: `src/slides/*.html` (alphabetisch zusammengefügt), Bühne 1920 × 1080
 - SVG-Bausteine: `{{name}}` → `src/snippets/name.svg`.
 
 ## Interaktion (src/interaktion.js)
-`ia-schaetz` (`data-frage data-wert data-min data-max data-einheit data-schritt`), `ia-vergleich` (`data-a data-b data-la data-lb`), `ia-ausschnitt` (`data-img data-x data-y data-w data-h` in %), `ia-quiz` (`data-loesung="echt|fake" data-text`, Bild als Kind), `ia-sort` (`data-felder="A|B"`, Kinder `<span data-ziel="A">`), `ia-timer` (`data-min`), `ia-rad` (`data-items="a|b|c"`), `ia-wolke` (`data-frage`), `ia-karte` (`data-vorne data-hinten`), `ia-qr` (`data-url data-text`; ohne URL: diese Folie), `ia-ampel` (`data-frage`). Spotlight: Taste X.
+`ia-schaetz` (`data-frage data-wert data-min data-max data-einheit data-schritt`), `ia-vergleich` (`data-a data-b data-la data-lb`), `ia-ausschnitt` (`data-img data-x data-y data-w data-h` in %), `ia-quiz` (`data-loesung="echt|fake" data-text`, Bild als Kind), `ia-sort` (`data-felder="A|B"`, Kinder `<span data-ziel="A">`), `ia-timer` (`data-min`), `ia-rad` (`data-items="a|b|c"`), `ia-wolke` (`data-frage`), `ia-karte` (`data-vorne data-hinten`), `ia-qr` (`data-url data-text`; ohne URL: diese Folie), `ia-ampel` (`data-frage`), `ia-umfrage` (`data-frage data-optionen="A|B|C" data-mehrfach="0|1" data-richtig="B"`). Spotlight: Taste X.
+Live (quality_point.json `live.an`, docs/LIVE.md): `build.py` vergibt je Baustein `data-id` und je Folie `data-nr`; `data-ergebnis="sofort|freigabe|nie"` am Baustein steuert, wann Teilnehmer*innen Ergebnisse sehen; `data-fertig` an einer Folie zeigt Teilnehmer*innen den „Fertig“-Knopf (Werkstattfolien `.s-auftrag` automatisch); `data-nur="referent"` an einer Folie bzw. Klasse `nur-referent` an einem Element hält Inhalte aus `teilnehmer.html` heraus (die Folie ganz, das Element nur per CSS). Lösungen (`data-wert data-loesung data-richtig data-ziel`) entfernt `build.py` aus der Teilnehmerfassung.
 
 ## Projektdateien
 - **Pointen** `src/pointen*.txt`: Blöcke durch Leerzeile; Zeile 1 = `data-title`, `Z:` Zweck (Notizkopf), `P:` Pointe (Banner, Taste K). `#` = Kommentar.
@@ -53,4 +54,4 @@ Projekt: `src/slides/*.html` (alphabetisch zusammengefügt), Bühne 1920 × 1080
 → / Leertaste / Bild↓ weiter · ← / Bild↑ zurück · Umschalt+Pfeil ganze Folie · Pos1/Ende · Ziffern + Enter: Folie direkt ·
 B oder . schwarz · F Vollbild · P Referentenfenster · S zwei Bildschirme (Notizen hier, Folien auf Beamer) · V im Notizfenster große Folie ·
 Z Stifte · X Spotlight · N Notizleiste · +/− Notizschrift · O Übersicht mit Suche · H Hilfe · G Glossar · L Laserpointer · K Pointe-Banner aus/ein ·
-R Timer zurücksetzen · Esc schließt Ebenen. Adresse `#5.2` = Folie 5, Schritt 2; `?notes` öffnet Notizen; `?check` = Layoutprüfung (pruefen.py).
+R Timer zurücksetzen · A Live-Panel (Server-Modus) · Esc schließt Ebenen. Adresse `#5.2` = Folie 5, Schritt 2; `?notes` öffnet Notizen; `?check` = Layoutprüfung (pruefen.py).

@@ -57,7 +57,12 @@
     document.getElementById('progress').style.width=((cur+ (s._steps.length? step/(s._steps.length+1):0))/(N-1)*100)+'%';
     try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
     runCounts(s); renderNotes(); syncPopup(); navBtns(); if(typeof vinSync==='function') vinSync(); if(typeof zs!=='undefined'&&zs.on) zCanvas(slides[cur]);
+    document.dispatchEvent(new CustomEvent('qp-folie',{detail:{cur,step,nr:+(s.dataset.nr||cur+1)}}));   // für Live-Modul u. a.
   }
+  /* Presenter/Tastatur: die Steuerleiste ist dann meist ausgeblendet – kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen */
+  let peekT=null;
+  function peek(){ if(document.body.classList.contains('maus')) return; document.body.classList.add('peek'); clearTimeout(peekT); peekT=setTimeout(()=>document.body.classList.remove('peek'),1600); }
+  let lock=false;                                               // Teilnehmer-Modus: Navigation gesperrt, solange sie der Referentenfolie folgen
   /* Weiter/Zurück zeigen, was der nächste Klick bewirkt. Pfeile als SVG.
      Hat die Folie Teilschritte, ist die Weiter-Schaltfläche in n Felder geteilt und füllt sich Schritt für Schritt. */
   const SV=d=>'<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>';
@@ -195,9 +200,9 @@
     });
     slides.forEach(o=>{ if(o!==s) o.querySelectorAll('.count').forEach(el=>el._done=false); });
   }
-  function go(i,st){ i=Math.max(0,Math.min(N-1,i)); const ch=i!==cur; cur=i; step=st==null?0:st; if(ch&&!t0) t0=Date.now(); apply(); }
-  function next(){ const s=slides[cur]; if(!t0) t0=Date.now(); if(step<s._steps.length){ step++; apply(); } else if(cur<N-1) go(cur+1,0); }
-  function prev(){ if(step>0){ step--; apply(); } else if(cur>0) go(cur-1,slides[cur-1]._steps.length); }
+  function go(i,st,frei){ if(lock&&!frei) return; i=Math.max(0,Math.min(N-1,i)); const ch=i!==cur; cur=i; step=st==null?0:st; if(ch&&!t0) t0=Date.now(); apply(); }
+  function next(){ if(lock) return; const s=slides[cur]; if(!t0) t0=Date.now(); if(step<s._steps.length){ step++; apply(); } else if(cur<N-1) go(cur+1,0); }
+  function prev(){ if(lock) return; if(step>0){ step--; apply(); } else if(cur>0) go(cur-1,slides[cur-1]._steps.length); }
   function nextSlide(){ go(cur+1,0); } function prevSlide(){ go(cur-1,0); }
 
   /* ---- Notizen (Leiste) ---- */
@@ -378,8 +383,8 @@
     if(/^[0-9]$/.test(k)){ numBuf+=k; gt.textContent='Gehe zu Folie '+numBuf; gt.classList.add('on'); clearTimeout(numT); numT=setTimeout(()=>{numBuf='';gt.classList.remove('on');},2500); return; }
     if(k==='Enter'&&numBuf){ go(parseInt(numBuf,10)-1,0); numBuf=''; gt.classList.remove('on'); e.preventDefault(); return; }
     switch(k){
-      case 'ArrowRight': case 'PageDown': case ' ': case 'ArrowDown': e.shiftKey?nextSlide():next(); e.preventDefault(); break;
-      case 'ArrowLeft': case 'PageUp': case 'ArrowUp': case 'Backspace': e.shiftKey?prevSlide():prev(); e.preventDefault(); break;
+      case 'ArrowRight': case 'PageDown': case ' ': case 'ArrowDown': e.shiftKey?nextSlide():next(); peek(); e.preventDefault(); break;
+      case 'ArrowLeft': case 'PageUp': case 'ArrowUp': case 'Backspace': e.shiftKey?prevSlide():prev(); peek(); e.preventDefault(); break;
       case 'Home': go(0,0); break; case 'End': go(N-1,0); break;
       case 'n': case 'N': toggleNotes(); break;
       case 'p': case 'P': openPopup(); break;
@@ -502,7 +507,8 @@
   apply();
   if(location.search.includes('notes')) toggleNotes();
   if(document.fonts) document.fonts.ready.then(()=>{ measure(); });
-  window.deck={go,next,prev};
+  window.deck={go,next,prev,slides,N,cur:()=>cur,step:()=>step,title,setLock:v=>{ lock=!!v; document.body.classList.toggle('gesperrt',lock); },
+    goNr:(nr,st)=>{ let k=slides.findIndex(s=>+(s.dataset.nr||0)===nr); if(k<0){ k=slides.findIndex(s=>+(s.dataset.nr||0)>nr)-1; if(k<0) k=nr>N?N-1:0; } go(k,Math.min(st||0,slides[Math.max(0,k)]._steps.length),true); }};
   /* Foliensprung über die Adresse auch bei geöffneter Präsentation (#115 oder #115.2) */
   window.addEventListener('hashchange',()=>{
     const q=(location.hash||'').slice(1).split('.'), k=parseInt(q[0],10);

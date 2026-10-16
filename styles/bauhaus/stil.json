@@ -53,7 +53,7 @@
   "vektor_hinweise": "Ausschließlich circle, rect, polygon und Viertelkreise (path mit A-Bogen) in #C8281E, #F2C12E, #1D4E9E, #111111 auf #F4F1EA. Keine Konturen, keine Verläufe, keine Schatten. Komposition auf einem sichtbaren oder gedachten 200-px-Raster, asymmetrisch; Gegenstände maximal abstrahiert (Lupe = Ring + Balken).",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/grotesk.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

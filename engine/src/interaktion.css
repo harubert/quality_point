@@ -88,3 +88,24 @@
 /* Spotlight */
 #spot{position:fixed;inset:0;z-index:62;pointer-events:none;display:none;background:radial-gradient(circle var(--r,180px) at var(--x,50%) var(--y,50%),transparent 97%,rgba(0,0,0,.82) 100%)}
 #spot.on{display:block}
+/* Live-Ergebnisse (Server-Modus) und Umfrage */
+.ia-live{font:500 22px/1.35 var(--ui);color:var(--ink2);margin-top:12px}
+.ia-live b{color:var(--ink)}
+.ia-n{font:500 19px/1 var(--ui);color:var(--ink3);margin-top:8px}
+.ia-balken{display:grid;grid-template-columns:auto 1fr auto;gap:8px 16px;align-items:center;margin-top:12px}
+.ia-balken .ia-bz{display:contents}
+.ia-balken .ia-bl{font:500 22px/1.2 var(--ui);color:var(--ink)}
+.ia-balken .ia-bt{height:26px;background:var(--paper2);border-radius:6px;overflow:hidden}
+.ia-balken .ia-bt i{display:block;height:100%;width:0;background:var(--teal);transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.ia-balken .ia-bz.ok .ia-bt i{background:var(--gruen)} .ia-balken .ia-bz.nein .ia-bt i{background:var(--ink3)}
+.ia-balken .ia-bn{font:600 20px/1 var(--ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.ia-schaetz .ia-hist{position:absolute;left:0;right:0;top:-40px;height:40px;display:flex;align-items:flex-end;gap:2px;pointer-events:none}
+.ia-schaetz .ia-hist i{display:block;flex:1;background:color-mix(in srgb,var(--teal) 55%,transparent);border-radius:3px 3px 0 0;min-height:0;transition:height .5s}
+.ia-schaetz .ia-skala{margin-top:40px}
+.ia-umfrage{background:var(--card);padding:22px 28px;box-shadow:0 14px 30px -18px var(--schatten)}
+.ia-umfrage .ia-opt{display:flex;flex-wrap:wrap;gap:12px}
+.ia-umfrage .ia-opt button{background:var(--paper2);color:var(--ink);border:2px solid var(--sand);font-size:22px;padding:14px 20px}
+.ia-umfrage .ia-opt button i{font-style:normal;background:var(--card);border-radius:20px;padding:2px 10px;margin-left:8px;color:var(--ink2)}
+.ia-umfrage .ia-opt button.ok{border-color:var(--gruen);background:color-mix(in srgb,var(--gruen) 15%,var(--card))}
+[class^="ia-"] button.gewaehlt,[class*=" ia-"] button.gewaehlt{outline:4px solid var(--yellow);outline-offset:2px}
+.ia-ampel .ia-l button:not([title="eine Stimme dazu"]){width:auto;min-width:64px;border-radius:32px;font-size:20px;padding:0 18px}

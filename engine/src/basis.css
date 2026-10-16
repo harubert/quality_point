@@ -379,6 +379,10 @@ a.formlink:hover{background:var(--card)}
 #progress{position:fixed;left:0;top:0;height:5px;background:var(--red);z-index:20;transition:width .5s ease;width:0}
 #nav{position:fixed;right:18px;bottom:16px;z-index:30;display:flex;gap:10px;align-items:stretch;opacity:0;transition:opacity .3s}
 body.maus #nav,#nav:hover,#nav:focus-within,body.zeichnen #nav{opacity:.92}
+/* Tastatur/Presenter: kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen (engine.js peek) */
+body.peek:not(.maus) #nav{opacity:.92}
+body.peek:not(.maus) #nav button:not(#bX){opacity:0;pointer-events:none}
+#nav button{transition:opacity .25s}
 #nav button{position:relative;overflow:hidden;min-height:58px;min-width:62px;padding:8px 16px;font:600 17px/1 var(--ui);display:inline-flex;align-items:center;justify-content:center;
   background:color-mix(in srgb,var(--ui-dunkel) 85%,transparent);color:var(--auf-dunkel);border:1px solid rgba(255,255,255,.18);border-radius:10px;cursor:pointer}
 #nav button:hover{background:var(--teal)}

@@ -4,7 +4,7 @@
   styles/index.html              Auswahlseite: alle Stile als Mini-Folien + alle Schriftsets
   styles/<stil>/vorschau.webp    Bildschirmfoto (headless Edge/Chrome) für README   (Option --bilder)
 
-Aufruf:  python styles/_werkzeuge/vorschau_bauen.py [--bilder]
+Aufruf:  python styles/_werkzeuge/vorschau_bauen.py [--bilder [stil …]]
 Nur lokale Ressourcen – keine Aufrufe ins Netz. Grundgerüst: engine/src/basis.css (wie im Build).
 """
 import html, json, os, shutil, subprocess, sys, tempfile
@@ -126,7 +126,8 @@ addEventListener('resize',fit);fit();
 
 def seiten():
     stile = []
-    for sid in REIHENFOLGE:
+    alle = REIHENFOLGE + sorted(d.name for d in STYLES.iterdir() if d.is_dir() and not d.name.startswith("_") and d.name not in REIHENFOLGE)
+    for sid in alle:
         if not (STYLES / sid / "stil.json").exists():
             continue
         cfg = json.loads((STYLES / sid / "stil.json").read_text(encoding="utf-8"))
@@ -298,5 +299,6 @@ def bilder(stile):
 
 if __name__ == "__main__":
     stile = seiten()
-    if "--bilder" in sys.argv:
-        bilder(stile)
+    if "--bilder" in sys.argv:                       # optional nur bestimmte Stile: --bilder riso beton
+        nur = [a for a in sys.argv[1:] if not a.startswith("--")]
+        bilder([c for c in stile if not nur or c["id"] in nur])

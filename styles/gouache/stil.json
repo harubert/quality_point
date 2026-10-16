@@ -54,7 +54,7 @@
   "vektor_hinweise": "Organische Flächen mit Bezier-Kurven (keine geraden Kanten), Farben #2F5D46, #D9A94A, #C9776A, #1E2A33 auf #F3EAD9. Pinseltextur über <filter> mit feTurbulence (baseFrequency .04–.08) + feDisplacementMap (scale 6–10). Lichter als hellere, halbtransparente Kleckse; keine schwarzen Konturen.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/gouache.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

@@ -97,6 +97,19 @@ slides = quellen_link.process(slides)
 slides, GLOSSAR = glossar_link.process(slides)
 slides = _bis_slides(slides)
 
+# 4b. Nummern: data-nr je Folie (Reihenfolge der Referentenfassung – die Teilnehmerfassung folgt darüber)
+#     und data-id je Interaktionsbaustein (Antworten werden darunter gespeichert)
+_zn = [0]
+def _nr(m):
+    if ' data-nr=' in m.group(0): return m.group(0)
+    _zn[0] += 1; return m.group(0)[:-1] + f' data-nr="{_zn[0]}">'
+slides = re.sub(r'<section class="slide[^"]*"[^>]*>', _nr, slides)
+_zi = [0]
+def _id(m):
+    if ' data-id=' in m.group(0): return m.group(0)
+    _zi[0] += 1; return m.group(0)[:-1] + f' data-id="ia{_zi[0]}">'
+slides = re.sub(r'<div class="(?:[^"]* )?ia-[^"]*"[^>]*>', _id, slides)
+
 # 5. Stil: Schriften aus dem Schriftset des Stils nach <projekt>/fonts/ kopieren, CSS zusammensetzen
 #    Schriftset = Konfig „schriftset“ oder stil.json „schriftset“; Dateien liegen einmalig in styles/_schriftsets/fonts/
 STIL = K['_stil']
@@ -119,6 +132,8 @@ else:
 stil_css = rd(os.path.join(STIL, 'stil.css')) if os.path.exists(os.path.join(STIL, 'stil.css')) else ''
 css = fcss + '\n' + rd(er('src', 'basis.css')) + '\n' + rd(er('src', 'interaktion.css')) + '\n' + stil_css
 if os.path.exists('src/projekt.css'): css += '\n' + rd('src/projekt.css')   # projektspezifische Ergänzungen
+LIVE = K['live'] if K['live'].get('an') else None
+if LIVE: css += '\n' + rd(er('live', 'live.css'))
 
 # 6. Zusammensetzen
 data_js = ('const GLOSSAR=' + json.dumps(GLOSSAR, ensure_ascii=False) + ';\n'
@@ -126,13 +141,32 @@ data_js = ('const GLOSSAR=' + json.dumps(GLOSSAR, ensure_ascii=False) + ';\n'
            + 'const QUELLEN=' + json.dumps({r['id']: {'url': r['url'], 'kind': r['kind']} for r in quellen_link.REFS}, ensure_ascii=False) + ';\n')
 data_js = _bis(data_js)
 js = data_js + rd(er('src', 'engine.js')) + '\n' + ''.join(rd(v) + '\n' for v in sorted(glob.glob(er('src', 'vendor', '*.js')))) + rd(er('src', 'interaktion.js'))
-out = (rd(er('src', 'shell.html')).replace('{{TITEL}}', _h.escape(K['titel'])).replace('{{SPRACHE}}', _h.escape(K['sprache']))
-       .replace('{{CSS}}', css).replace('{{SLIDES}}', slides).replace('{{JS}}', js))
+if LIVE: js += '\nconst QP_LIVE=' + json.dumps({'api': 'live/api.php', 'teilnehmer': LIVE['teilnehmer']}, ensure_ascii=False) + ';\n' + rd(er('live', 'live.js'))
+shell = rd(er('src', 'shell.html')).replace('{{SPRACHE}}', _h.escape(K['sprache'])).replace('{{CSS}}', css).replace('{{JS}}', js)
+out = shell.replace('{{TITEL}}', _h.escape(K['titel'])).replace('{{SLIDES}}', slides)
 open(AUSGABE, 'w', encoding='utf-8').write(out)
+
+# 6b. Teilnehmerfassung (Server-Modus): ohne Notizen, Pointen und Folien mit data-nur="referent";
+#     Lösungen der Bausteine entfernt – sie kommen erst mit der Freigabe vom Server. Elemente mit Klasse nur-referent blendet CSS aus.
+if LIVE:
+    tn = re.sub(r'<section class="slide[^"]*"[^>]*data-nur="referent"[^>]*>.*?</section>\s*', '', slides, flags=re.S)
+    tn = re.sub(r'\s*<aside class="notes">.*?</aside>', '', tn, flags=re.S)
+    tn = re.sub(r'\s(?:data-zweck|data-pointe)="[^"]*"', '', tn)
+    def _tn_ia(m):
+        t = re.sub(r'\s(?:data-wert|data-loesung|data-richtig)="[^"]*"', '', m.group(0))
+        if 'ia-quiz' in t: t = re.sub(r'\sdata-text="[^"]*"', '', t)
+        return t
+    tn = re.sub(r'<div class="(?:[^"]* )?ia-[^"]*"[^>]*>', _tn_ia, tn)
+    tn = re.sub(r'(<[a-z0-9]+\b[^>]*?)\sdata-ziel="[^"]*"', r'\1 data-item=""', tn)
+    out_tn = (shell.replace('{{TITEL}}', _h.escape(K['titel']) + ' · Mitmachen').replace('{{SLIDES}}', tn)
+              .replace('<body>', '<body class="tn">', 1))
+    open(LIVE['teilnehmer'], 'w', encoding='utf-8').write(out_tn)
+    if re.search(r'data-wert=|data-loesung=|data-richtig=|data-ziel=|class="notes"|data-pointe=', tn): sys.exit('Teilnehmerfassung enthält noch Lösungen oder Notizen – Abbruch')
 
 # ---- Prüfungen ----
 secs = re.findall(r'<section class="slide.*?</section>', slides, flags=re.S)
-print(f'{len(secs)} Folien aus {len(parts)} Dateien -> {AUSGABE} ({len(out)//1024} kB), Stil {K["stil"]}, {len(GLOSSAR)} Glossarbegriffe, {len(quellen_link.REFS)} Quellen')
+print(f'{len(secs)} Folien aus {len(parts)} Dateien -> {AUSGABE} ({len(out)//1024} kB), Stil {K["stil"]}, {len(GLOSSAR)} Glossarbegriffe, {len(quellen_link.REFS)} Quellen'
+      + (f'; Live: {LIVE["teilnehmer"]} ({_zi[0]} Bausteine)' if LIVE else ''))
 left = re.findall(r'\{\{\w+\}\}', slides)
 if left: print('FEHLENDE SNIPPETS:', set(left))
 text_only = re.sub(r'<[^>]+>', ' ', re.sub(r'<script.*?</script>|<style.*?</style>', '', slides, flags=re.S))

@@ -54,7 +54,7 @@
   "vektor_hinweise": "Feine Linien (stroke 1.4–2.5 px, #1A1D21) auf Weiß, sparsame Flächen in #E2ECF1 oder #1F5673 (opacity .08–.75), Akzent nur in #9E2A2B. Diagramme mit Achsen, Ticks und gestrichelten Vergleichslinien; Beschriftung „Abb. n“ klein in Serifenschrift. Viel Leerraum, keine Schatten, keine Texturen.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/journal.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

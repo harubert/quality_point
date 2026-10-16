@@ -54,7 +54,7 @@
   "vektor_hinweise": "Alle Formen mit 5–8 px schwarzer Kontur (stroke-linejoin round), Flächen in #D7191C, #FFD400, #1565C0, #FF7A00, #FFF; Schattierung mit <pattern> aus Halbtonpunkten. Dynamik durch Speedlines (dicke Linien vom Zentrum), Explosions-Polygone und Sprechblasen mit Schwanz; Panelrahmen 10 px. Keine Wörter in der Grafik.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/comic.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

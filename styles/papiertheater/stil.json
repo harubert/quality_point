@@ -55,7 +55,7 @@
   "vektor_hinweise": "Flächen aus Papierbögen in Kraftbraun (#C9A878), Tomatenrot, Petrol und Creme; jede Ebene als <path> mit leicht unregelmäßigem Rand und versetztem Schatten (gleicher Pfad, dunkler, 4–8 px verschoben, opacity .25). Keine Konturlinien. Tiefe durch 3–5 hintereinander gestaffelte Ebenen wie Kulissen; Klebestreifen als halbtransparente rote Rechtecke, leicht gedreht.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/theater.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

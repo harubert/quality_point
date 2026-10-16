@@ -54,7 +54,7 @@
   "vektor_hinweise": "Dunkler Grund #0C0E1D; Gegenstände als Silhouetten (#171B36) mit 2 px Leuchtkontur in #52E3FF oder #A67CFF und filter feGaussianBlur (stdDeviation 6) als Glow-Kopie darunter. Lichtkegel als radialGradient (cyan → transparent). Wenige Elemente, viel Dunkel; Personen nur als Rückenansicht-Silhouette.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/nacht.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

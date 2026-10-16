@@ -54,7 +54,7 @@
   "vektor_hinweise": "Nur Grundformen (circle, rect, polygon) in #C42B22, #2347A8, #F2C230 und Schwarz auf Creme #F3EAD5; alle Formen mit 5–6 px schwarzer Kontur, harter Versatzschatten als schwarze Kopie 10 px nach rechts unten. Gegenstände aus Grundformen zusammensetzen (Haus = Quadrat + Dreieck). Keine Verläufe, keine Transparenz.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/fibel.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

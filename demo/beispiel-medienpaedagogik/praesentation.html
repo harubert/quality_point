@@ -504,6 +504,10 @@ a.formlink:hover{background:var(--card)}
 #progress{position:fixed;left:0;top:0;height:5px;background:var(--red);z-index:20;transition:width .5s ease;width:0}
 #nav{position:fixed;right:18px;bottom:16px;z-index:30;display:flex;gap:10px;align-items:stretch;opacity:0;transition:opacity .3s}
 body.maus #nav,#nav:hover,#nav:focus-within,body.zeichnen #nav{opacity:.92}
+/* Tastatur/Presenter: kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen (engine.js peek) */
+body.peek:not(.maus) #nav{opacity:.92}
+body.peek:not(.maus) #nav button:not(#bX){opacity:0;pointer-events:none}
+#nav button{transition:opacity .25s}
 #nav button{position:relative;overflow:hidden;min-height:58px;min-width:62px;padding:8px 16px;font:600 17px/1 var(--ui);display:inline-flex;align-items:center;justify-content:center;
   background:color-mix(in srgb,var(--ui-dunkel) 85%,transparent);color:var(--auf-dunkel);border:1px solid rgba(255,255,255,.18);border-radius:10px;cursor:pointer}
 #nav button:hover{background:var(--teal)}
@@ -751,6 +755,27 @@ body.zeichnen section.slide.cur canvas.zeich{pointer-events:auto;cursor:crosshai
 /* Spotlight */
 #spot{position:fixed;inset:0;z-index:62;pointer-events:none;display:none;background:radial-gradient(circle var(--r,180px) at var(--x,50%) var(--y,50%),transparent 97%,rgba(0,0,0,.82) 100%)}
 #spot.on{display:block}
+/* Live-Ergebnisse (Server-Modus) und Umfrage */
+.ia-live{font:500 22px/1.35 var(--ui);color:var(--ink2);margin-top:12px}
+.ia-live b{color:var(--ink)}
+.ia-n{font:500 19px/1 var(--ui);color:var(--ink3);margin-top:8px}
+.ia-balken{display:grid;grid-template-columns:auto 1fr auto;gap:8px 16px;align-items:center;margin-top:12px}
+.ia-balken .ia-bz{display:contents}
+.ia-balken .ia-bl{font:500 22px/1.2 var(--ui);color:var(--ink)}
+.ia-balken .ia-bt{height:26px;background:var(--paper2);border-radius:6px;overflow:hidden}
+.ia-balken .ia-bt i{display:block;height:100%;width:0;background:var(--teal);transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.ia-balken .ia-bz.ok .ia-bt i{background:var(--gruen)} .ia-balken .ia-bz.nein .ia-bt i{background:var(--ink3)}
+.ia-balken .ia-bn{font:600 20px/1 var(--ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.ia-schaetz .ia-hist{position:absolute;left:0;right:0;top:-40px;height:40px;display:flex;align-items:flex-end;gap:2px;pointer-events:none}
+.ia-schaetz .ia-hist i{display:block;flex:1;background:color-mix(in srgb,var(--teal) 55%,transparent);border-radius:3px 3px 0 0;min-height:0;transition:height .5s}
+.ia-schaetz .ia-skala{margin-top:40px}
+.ia-umfrage{background:var(--card);padding:22px 28px;box-shadow:0 14px 30px -18px var(--schatten)}
+.ia-umfrage .ia-opt{display:flex;flex-wrap:wrap;gap:12px}
+.ia-umfrage .ia-opt button{background:var(--paper2);color:var(--ink);border:2px solid var(--sand);font-size:22px;padding:14px 20px}
+.ia-umfrage .ia-opt button i{font-style:normal;background:var(--card);border-radius:20px;padding:2px 10px;margin-left:8px;color:var(--ink2)}
+.ia-umfrage .ia-opt button.ok{border-color:var(--gruen);background:color-mix(in srgb,var(--gruen) 15%,var(--card))}
+[class^="ia-"] button.gewaehlt,[class*=" ia-"] button.gewaehlt{outline:4px solid var(--yellow);outline-offset:2px}
+.ia-ampel .ia-l button:not([title="eine Stimme dazu"]){width:auto;min-width:64px;border-radius:32px;font-size:20px;padding:0 18px}
 
 /* ==========================================================
    Stil „Papiertheater“ – Kraftpapier, Tomatenrot, Petrol, Creme.
@@ -851,7 +876,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </defs>
 </svg>
 <div id="viewport"><div id="stage">
-<section class="slide s-title" data-chap="Start" data-title="Medienpädagogik in der Primarstufe – Kostproben" data-zweck="Ausgewählte Folien aus einem Seminar für angehende Volksschullehrpersonen – als Beispiel für Quality Point." data-pointe="Kostproben aus dem echten Einsatz.">
+<section class="slide s-title" data-chap="Start" data-title="Medienpädagogik in der Primarstufe – Kostproben" data-zweck="Ausgewählte Folien aus einem Seminar für angehende Volksschullehrpersonen – als Beispiel für Quality Point." data-pointe="Kostproben aus dem echten Einsatz." data-nr="1">
   <div class="tt">
     <div class="kick a">Beispiel · Seminar für angehende Volksschullehrpersonen</div>
     <h1 class="a" data-d=".2">Medienpädagogik in der Primarstufe – Kostproben</h1>
@@ -864,7 +889,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t1 t1-skala" data-chap="Selbstbild" data-title="Klassenclown wird man nicht allein" data-zweck="Animierte Skala: Selbstbild und Fremdbild eines Kindes nähern sich über ein Schuljahr an, bis aus einem Witz eine Rolle wird." data-pointe="Rollen entstehen im Spiegel der anderen.">
+<section class="slide t1 t1-skala" data-chap="Selbstbild" data-title="Klassenclown wird man nicht allein" data-zweck="Animierte Skala: Selbstbild und Fremdbild eines Kindes nähern sich über ein Schuljahr an, bis aus einem Witz eine Rolle wird." data-pointe="Rollen entstehen im Spiegel der anderen." data-nr="2">
   <style>
     .t1-skala .mk{transition:transform 1.1s cubic-bezier(.3,.7,.2,1)}
     .t1-skala .ms{transform:translateX(600px)}  .t1-skala .mf{transform:translateX(750px)}
@@ -915,7 +940,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t1 t1w t1w-medizin" data-chap="Werbung" data-title="Absurde Werbung von gestern: Medizin für Kinder" data-zweck="Echte Anzeigen von 1885 bis in die 1940er bewerben Kokain, Morphium, Heroin und radioaktive Zahncreme – oft mit Kindern. Gewarnt wurde früh, geworben trotzdem." data-pointe="Damals stand es auf der Packung – heute steht es im Giftschrank.">
+<section class="slide t1 t1w t1w-medizin" data-chap="Werbung" data-title="Absurde Werbung von gestern: Medizin für Kinder" data-zweck="Echte Anzeigen von 1885 bis in die 1940er bewerben Kokain, Morphium, Heroin und radioaktive Zahncreme – oft mit Kindern. Gewarnt wurde früh, geworben trotzdem." data-pointe="Damals stand es auf der Packung – heute steht es im Giftschrank." data-nr="3">
   <style>
     .t1w .card p,.t1w .card li{font-size:27px}
     .t1w .card h3{font-size:34px}
@@ -959,7 +984,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t1 t1-heute2" data-title="Gesund verpackt, süß gefüllt" data-zweck="Cerealien, Kinderjoghurt, Kinder Schokolade und Nutella werben mit Milch, Vollkorn und Frucht – und bestehen zu großen Teilen aus Zucker, sichtbar als Zuckerwürfel." data-pointe="Milch auf der Packung, Zucker in der Packung.">
+<section class="slide t1 t1-heute2" data-title="Gesund verpackt, süß gefüllt" data-zweck="Cerealien, Kinderjoghurt, Kinder Schokolade und Nutella werben mit Milch, Vollkorn und Frucht – und bestehen zu großen Teilen aus Zucker, sichtbar als Zuckerwürfel." data-pointe="Milch auf der Packung, Zucker in der Packung." data-nr="4">
   <style>
     .t1-heute2 .lay{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:stretch}
     .t1-heute2 .card{padding:16px 20px;display:flex;flex-direction:column;gap:8px}
@@ -996,7 +1021,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t5fb" data-chap="Bilder prüfen" data-title="Fehlbild 1: Wer fehlt auf dem Foto?" data-zweck="Retusche: Jeschow verschwindet aus dem Foto – mit dem Vorher-nachher-Regler selbst aufdecken." data-pointe="Wer das Bild kontrolliert, kontrolliert die Erinnerung.">
+<section class="slide t5fb" data-chap="Bilder prüfen" data-title="Fehlbild 1: Wer fehlt auf dem Foto?" data-zweck="Retusche: Jeschow verschwindet aus dem Foto – mit dem Vorher-nachher-Regler selbst aufdecken." data-pointe="Wer das Bild kontrolliert, kontrolliert die Erinnerung." data-nr="5">
   <style>
     .t5fb .paar{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .t5fb .paar .foto{height:520px}
@@ -1010,7 +1035,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   <div class="kick">Fehlbilder · Retusche · mit Vorher-nachher-Regler</div>
   <h2>Wer fehlt <em>auf dem Foto?</em></h2>
   <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:start">
-    <div class="ia-vergleich" data-a="img/fehlbild/jeschow-original.webp" data-b="img/fehlbild/jeschow-retuschiert.webp" data-la="1937: Original" data-lb="nach 1940: retuschiert" style="height:640px"></div>
+    <div class="ia-vergleich" data-a="img/fehlbild/jeschow-original.webp" data-b="img/fehlbild/jeschow-retuschiert.webp" data-la="1937: Original" data-lb="nach 1940: retuschiert" style="height:640px" data-id="ia1"></div>
     <div class="col" style="gap:20px">
       <p style="font-size:27px;line-height:1.4">Ziehen Sie den Regler: Geheimdienstchef Nikolai Jeschow wurde 1940 hingerichtet – und danach aus dem Foto vom Moskau-Wolga-Kanal entfernt.</p>
       <div class="card r tape"><p class="zit" style="font:400 italic 26px/1.35 var(--lesen)">„… Yezhov was subsequently removed from the original image after his execution in February 1940.“</p><p class="ueb">… Jeschow wurde nach seiner Hinrichtung im Februar 1940 aus dem Originalbild entfernt.</p></div>
@@ -1024,7 +1049,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t5fb t5fb2" data-title="Fehlbild 2: Wessen Körper ist das?" data-zweck="Montage: Lincolns Kopf auf dem Körper von John C. Calhoun – samt ausgetauschter Botschaft auf dem Tisch." data-pointe="Auch ein Heldenbild kann zusammengesetzt sein.">
+<section class="slide t5fb t5fb2" data-title="Fehlbild 2: Wessen Körper ist das?" data-zweck="Montage: Lincolns Kopf auf dem Körper von John C. Calhoun – samt ausgetauschter Botschaft auf dem Tisch." data-pointe="Auch ein Heldenbild kann zusammengesetzt sein." data-nr="6">
   <div class="kick">5.1 · Fehlbilder · Montage</div>
   <h2>Wessen <em>Körper</em> ist das?</h2>
   <div class="row" style="gap:46px;align-items:flex-start">
@@ -1043,12 +1068,12 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide" data-chap="Mitmachen" data-title="Schätzen Sie: Wie viele Kinder sind online?" data-zweck="Schätzregler zur Internetnutzung von 6- bis 9-Jährigen (KIM 2024)." data-pointe="Erst schätzen, dann staunen.">
+<section class="slide" data-chap="Mitmachen" data-title="Schätzen Sie: Wie viele Kinder sind online?" data-zweck="Schätzregler zur Internetnutzung von 6- bis 9-Jährigen (KIM 2024)." data-pointe="Erst schätzen, dann staunen." data-nr="7">
   <div class="kick">Mediennutzung · mit Schätzregler</div>
   <h2>Schätzen Sie: <em>Wie viele Kinder sind online?</em></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
-    <div class="ia-schaetz" data-frage="Wie viel Prozent der 6- bis 7-Jährigen in Deutschland nutzen zumindest selten das Internet?" data-wert="37" data-einheit="%"></div>
-    <div class="ia-schaetz" data-frage="… und wie viel Prozent der 8- bis 9-Jährigen?" data-wert="67" data-einheit="%"></div>
+    <div class="ia-schaetz" data-frage="Wie viel Prozent der 6- bis 7-Jährigen in Deutschland nutzen zumindest selten das Internet?" data-wert="37" data-einheit="%" data-id="ia2"></div>
+    <div class="ia-schaetz" data-frage="… und wie viel Prozent der 8- bis 9-Jährigen?" data-wert="67" data-einheit="%" data-id="ia3"></div>
   </div>
   <p class="lesehilfe"><span class="lh">→</span>Das heißt: Zwischen 6 – 7 und 8 – 9 Jahren steigt die Internetnutzung von etwas mehr als einem Drittel auf zwei Drittel der Kinder (Deutschland, <span class="gl" data-g="g11" title="KIM-Studie: Langzeitstudie des Medienpädagogischen Forschungsverbunds Südwest (mpfs) zur Mediennutzung von 6- bis 13-Jährigen in Deutschland, seit 1999. Beispiel: 2024 waren 37 % der 6- bis 7-Jährigen zumindest selten online.">KIM-Studie 2024</span>) – die Volksschule ist der richtige Zeitpunkt für <span class="gl" data-g="g0" title="Medienbildung: Der reflexive, nie abgeschlossene Prozess, sich mit einer medial vermittelten Welt auseinanderzusetzen. Im Lehrplan der Volksschule 2023 ein übergreifendes Thema, das in mehreren Fächern verbindlich aufzugreifen ist.">Medienbildung</span>.</p>
   <cite class="src"><a class="ql" data-q="s009_feierabend" title="Im Quellenverzeichnis anzeigen">Feierabend u. a. (2025)</a><a class="qo" href="https://mpfs.de/app/uploads/2025/05/KIM-Studie-2024.pdf" target="_blank" rel="noopener" title="Originalquelle (Webseite)">↗</a></cite>
@@ -1057,10 +1082,10 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide" data-title="Werbung oder nicht?" data-zweck="Alltagssituationen zuordnen – mit dem Feld „Kommt darauf an“ für die spannenden Fälle." data-pointe="Werbung erkennt man nicht immer auf den ersten Blick.">
+<section class="slide" data-title="Werbung oder nicht?" data-zweck="Alltagssituationen zuordnen – mit dem Feld „Kommt darauf an“ für die spannenden Fälle." data-pointe="Werbung erkennt man nicht immer auf den ersten Blick." data-nr="8">
   <div class="kick">Werbekompetenz · mit Zuordnen</div>
   <h2>Werbung <em>oder nicht?</em></h2>
-  <div class="ia-sort" data-felder="Werbung|Keine Werbung|Kommt darauf an">
+  <div class="ia-sort" data-felder="Werbung|Keine Werbung|Kommt darauf an" data-id="ia4">
     <span data-ziel="Werbung">Plakat an der Bushaltestelle</span><span data-ziel="Werbung">Spot vor einem YouTube-Video</span>
     <span data-ziel="Kommt darauf an">Unboxing-Video einer <span class="gl" data-g="g5" title="Kidfluencer: Kinder, die selbst als Influencer*innen auftreten, meist mit Hilfe der Eltern. Für Gleichaltrige wirken sie wie Freund*innen, darum ist ihre Werbung besonders wirksam.">Kidfluencerin</span></span><span data-ziel="Keine Werbung">Schulbuch im Mathematikunterricht</span>
     <span data-ziel="Werbung">Sammelsticker an der Supermarktkasse</span><span data-ziel="Kommt darauf an">Logo auf dem Lieblings-T-Shirt</span>
@@ -1072,7 +1097,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t3-schach" data-chap="Spiele" data-title="Schach: ein harmloses Spiel?" data-zweck="Gedankenexperiment: Streng gelesen ist Schach ein Kriegsspiel mit Lagern nach Farbe, geopferten Bauern, Monarchie und einer Dame, die die Arbeit macht." data-pointe="Sonst müssten wir Schach verbieten.">
+<section class="slide t3-schach" data-chap="Spiele" data-title="Schach: ein harmloses Spiel?" data-zweck="Gedankenexperiment: Streng gelesen ist Schach ein Kriegsspiel mit Lagern nach Farbe, geopferten Bauern, Monarchie und einer Dame, die die Arbeit macht." data-pointe="Sonst müssten wir Schach verbieten." data-nr="9">
   <style>
     .t3-schach .lay{display:grid;grid-template-columns:330px 1fr;gap:50px;align-items:start}
     .t3-schach .brett{width:330px;height:330px;display:grid;grid-template-columns:repeat(4,1fr);border:6px solid var(--ink);box-shadow:0 18px 30px -18px rgba(60,35,10,.55);transform:rotate(-2deg)}
@@ -1114,7 +1139,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide t2-fnusk" data-title="Fortnite: Warum eigentlich ab 12?" data-zweck="Die Freigabe ab 12 stammte vom Modus „Rette die Welt“; Battle Royale kam als ungeprüfter Online-Inhalt dazu, erst 2019 prüfte die USK alle Modi." data-pointe="Ein Etikett altert nicht mit dem Spiel.">
+<section class="slide t2-fnusk" data-title="Fortnite: Warum eigentlich ab 12?" data-zweck="Die Freigabe ab 12 stammte vom Modus „Rette die Welt“; Battle Royale kam als ungeprüfter Online-Inhalt dazu, erst 2019 prüfte die USK alle Modi." data-pointe="Ein Etikett altert nicht mit dem Spiel." data-nr="10">
   <style>
     .t2-fnusk .zeit{display:grid;grid-template-columns:150px 1fr;gap:10px 24px;align-items:baseline}
     .t2-fnusk .zeit .j{font:400 36px/1 var(--serif);color:var(--red)}
@@ -1151,7 +1176,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   </aside>
 </section>
 
-<section class="slide quellen" data-chap="Quellen" data-title="Quellen 1/2" data-zweck="Verzeichnis der auf den Folien zitierten Werke mit Link zum Original." data-pointe="Wer zitiert, verlinkt.">
+<section class="slide quellen" data-chap="Quellen" data-title="Quellen 1/2" data-zweck="Verzeichnis der auf den Folien zitierten Werke mit Link zum Original." data-pointe="Wer zitiert, verlinkt." data-nr="11">
   <div class="kick">Quellen</div>
   <h2 style="font-size:52px;margin-bottom:20px">Quellen 1/2</h2>
   <ul class="ql">
@@ -1176,7 +1201,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
   <aside class="notes"><p><span class="lbl">Kern</span>Verzeichnis der auf den Folien zitierten Werke. Klick auf eine Quellenangabe springt hierher; „↗“ öffnet das Original.</p></aside>
 </section>
 
-<section class="slide quellen" data-title="Quellen 2/2" data-zweck="Verzeichnis der auf den Folien zitierten Werke mit Link zum Original." data-pointe="Wer zitiert, verlinkt.">
+<section class="slide quellen" data-title="Quellen 2/2" data-zweck="Verzeichnis der auf den Folien zitierten Werke mit Link zum Original." data-pointe="Wer zitiert, verlinkt." data-nr="12">
   <div class="kick">Quellen</div>
   <h2 style="font-size:52px;margin-bottom:20px">Quellen 2/2</h2>
   <ul class="ql">
@@ -1235,6 +1260,7 @@ ul.dots li::before{background:var(--red);border-radius:2px;transform:rotate(45de
     <tr><td><kbd>R</kbd></td><td>Timer im Notizfenster zurücksetzen</td></tr>
     <tr><td><kbd>K</kbd></td><td>Pointe-Banner auf den Folien aus/ein</td></tr>
     <tr><td><kbd>G</kbd></td><td>Glossar aller Fachbegriffe (Begriffe auf den Folien sind anklickbar)</td></tr>
+    <tr><td><kbd>A</kbd></td><td>Live-Panel (nur mit Server-Modus): Teilnehmer*innen, Barometer, Hinweise, Ergebnisse, Einstellungen</td></tr>
     <tr><td>Quellenangabe anklicken</td><td>springt ins Quellenverzeichnis · <b>↗</b> öffnet die Originalquelle</td></tr>
   </table>
   <p class="tipp">Tipp für den Hörsaal: Beamer als <b>erweiterten</b> Bildschirm anschließen (nicht spiegeln), dann <kbd>S</kbd> – die Folien gehen als Vollbild auf den Beamer, das Notizfenster bleibt am Laptop (Chrome oder Edge, Windows und Mac; der Browser fragt einmal nach der Erlaubnis „Fensterverwaltung“). In Safari oder Firefox: Fenster auf den Beamer ziehen, <kbd>F</kbd>, dann <kbd>P</kbd>. Gesteuert wird aus beiden Fenstern.</p>
@@ -1305,7 +1331,12 @@ const QUELLEN={"fb_barrett2021": {"url": "https://historynet.com/from-blurring-i
     document.getElementById('progress').style.width=((cur+ (s._steps.length? step/(s._steps.length+1):0))/(N-1)*100)+'%';
     try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
     runCounts(s); renderNotes(); syncPopup(); navBtns(); if(typeof vinSync==='function') vinSync(); if(typeof zs!=='undefined'&&zs.on) zCanvas(slides[cur]);
+    document.dispatchEvent(new CustomEvent('qp-folie',{detail:{cur,step,nr:+(s.dataset.nr||cur+1)}}));   // für Live-Modul u. a.
   }
+  /* Presenter/Tastatur: die Steuerleiste ist dann meist ausgeblendet – kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen */
+  let peekT=null;
+  function peek(){ if(document.body.classList.contains('maus')) return; document.body.classList.add('peek'); clearTimeout(peekT); peekT=setTimeout(()=>document.body.classList.remove('peek'),1600); }
+  let lock=false;                                               // Teilnehmer-Modus: Navigation gesperrt, solange sie der Referentenfolie folgen
   /* Weiter/Zurück zeigen, was der nächste Klick bewirkt. Pfeile als SVG.
      Hat die Folie Teilschritte, ist die Weiter-Schaltfläche in n Felder geteilt und füllt sich Schritt für Schritt. */
   const SV=d=>'<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>';
@@ -1443,9 +1474,9 @@ const QUELLEN={"fb_barrett2021": {"url": "https://historynet.com/from-blurring-i
     });
     slides.forEach(o=>{ if(o!==s) o.querySelectorAll('.count').forEach(el=>el._done=false); });
   }
-  function go(i,st){ i=Math.max(0,Math.min(N-1,i)); const ch=i!==cur; cur=i; step=st==null?0:st; if(ch&&!t0) t0=Date.now(); apply(); }
-  function next(){ const s=slides[cur]; if(!t0) t0=Date.now(); if(step<s._steps.length){ step++; apply(); } else if(cur<N-1) go(cur+1,0); }
-  function prev(){ if(step>0){ step--; apply(); } else if(cur>0) go(cur-1,slides[cur-1]._steps.length); }
+  function go(i,st,frei){ if(lock&&!frei) return; i=Math.max(0,Math.min(N-1,i)); const ch=i!==cur; cur=i; step=st==null?0:st; if(ch&&!t0) t0=Date.now(); apply(); }
+  function next(){ if(lock) return; const s=slides[cur]; if(!t0) t0=Date.now(); if(step<s._steps.length){ step++; apply(); } else if(cur<N-1) go(cur+1,0); }
+  function prev(){ if(lock) return; if(step>0){ step--; apply(); } else if(cur>0) go(cur-1,slides[cur-1]._steps.length); }
   function nextSlide(){ go(cur+1,0); } function prevSlide(){ go(cur-1,0); }
 
   /* ---- Notizen (Leiste) ---- */
@@ -1626,8 +1657,8 @@ const QUELLEN={"fb_barrett2021": {"url": "https://historynet.com/from-blurring-i
     if(/^[0-9]$/.test(k)){ numBuf+=k; gt.textContent='Gehe zu Folie '+numBuf; gt.classList.add('on'); clearTimeout(numT); numT=setTimeout(()=>{numBuf='';gt.classList.remove('on');},2500); return; }
     if(k==='Enter'&&numBuf){ go(parseInt(numBuf,10)-1,0); numBuf=''; gt.classList.remove('on'); e.preventDefault(); return; }
     switch(k){
-      case 'ArrowRight': case 'PageDown': case ' ': case 'ArrowDown': e.shiftKey?nextSlide():next(); e.preventDefault(); break;
-      case 'ArrowLeft': case 'PageUp': case 'ArrowUp': case 'Backspace': e.shiftKey?prevSlide():prev(); e.preventDefault(); break;
+      case 'ArrowRight': case 'PageDown': case ' ': case 'ArrowDown': e.shiftKey?nextSlide():next(); peek(); e.preventDefault(); break;
+      case 'ArrowLeft': case 'PageUp': case 'ArrowUp': case 'Backspace': e.shiftKey?prevSlide():prev(); peek(); e.preventDefault(); break;
       case 'Home': go(0,0); break; case 'End': go(N-1,0); break;
       case 'n': case 'N': toggleNotes(); break;
       case 'p': case 'P': openPopup(); break;
@@ -1750,7 +1781,8 @@ const QUELLEN={"fb_barrett2021": {"url": "https://historynet.com/from-blurring-i
   apply();
   if(location.search.includes('notes')) toggleNotes();
   if(document.fonts) document.fonts.ready.then(()=>{ measure(); });
-  window.deck={go,next,prev};
+  window.deck={go,next,prev,slides,N,cur:()=>cur,step:()=>step,title,setLock:v=>{ lock=!!v; document.body.classList.toggle('gesperrt',lock); },
+    goNr:(nr,st)=>{ let k=slides.findIndex(s=>+(s.dataset.nr||0)===nr); if(k<0){ k=slides.findIndex(s=>+(s.dataset.nr||0)>nr)-1; if(k<0) k=nr>N?N-1:0; } go(k,Math.min(st||0,slides[Math.max(0,k)]._steps.length),true); }};
   /* Foliensprung über die Adresse auch bei geöffneter Präsentation (#115 oder #115.2) */
   window.addEventListener('hashchange',()=>{
     const q=(location.hash||'').slice(1).split('.'), k=parseInt(q[0],10);
@@ -4077,12 +4109,15 @@ var qrcode = function() {
 
 /* ==========================================================
    Interaktionsbausteine – auf einer Folie per Klasse + data-Attribute einsetzen.
-   Alle Bausteine funktionieren ohne Server und ohne fremde Dienste.
+   Alle Bausteine funktionieren ohne Server (Handzeichen zählen, am Vortragsrechner eintippen).
+   Im Server-Modus (quality_point.json „live“) antworten Teilnehmer*innen am eigenen Gerät; die
+   Bausteine schicken dann ihre Antworten über live.js und zeigen die Ergebnisse aller.
 
    ia-schaetz    <div class="ia-schaetz" data-frage="…" data-wert="67" data-min="0" data-max="100" data-einheit="%"></div>
    ia-vergleich  <div class="ia-vergleich" data-a=BILD_VORHER data-b=BILD_NACHHER data-la="vorher" data-lb="nachher"></div>
    ia-ausschnitt <div class="ia-ausschnitt" data-img=BILD data-x="30" data-y="20" data-w="30" data-h="40"></div>  (Ausschnitt in % des Bildes)
    ia-quiz       <div class="ia-quiz" data-loesung="fake" data-text="Erklärung …"><img …></div>   (Abstimmung echt/fake)
+   ia-umfrage    <div class="ia-umfrage" data-frage="…" data-optionen="A|B|C" data-mehrfach="0" data-richtig="B"></div>  (Umfrage/Quiz mit Balken)
    ia-sort       <div class="ia-sort" data-felder="Säugetier|Vogel"><span data-ziel="Vogel">Amsel</span> …</div>
    ia-timer      <div class="ia-timer" data-min="10"></div>
    ia-rad        <div class="ia-rad" data-items="Gruppe 1|Gruppe 2|Gruppe 3"></div>
@@ -4091,23 +4126,55 @@ var qrcode = function() {
    ia-qr         <div class="ia-qr" data-url="https://…" data-text="Folie am Handy"></div>   (ohne data-url: Adresse dieser Folie)
    ia-ampel      <div class="ia-ampel" data-frage="Darf man das posten?"></div>
    Spotlight     Taste X: alles abdunkeln bis auf einen Lichtkreis um die Maus
+
+   Live-Attribute (Server-Modus): data-id (vergibt build.py), data-ergebnis="sofort|freigabe|nie" – wann Teilnehmer*innen
+   die Ergebnisse sehen (Standard aus den Einstellungen). Lösungen (data-wert, data-loesung, data-richtig, data-ziel, data-text)
+   entfernt build.py aus der Teilnehmer-Fassung; sie kommen erst mit der Freigabe.
    ========================================================== */
 (function(){
   const $=(t,c,h)=>{ const e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e; };
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const stop=el=>['click','pointerdown','keydown','wheel'].forEach(ev=>el.addEventListener(ev,e=>e.stopPropagation()));
+  // Klicks und Rad bleiben im Baustein (kein Folienwechsel); Tasten nur in Eingabefeldern – ein angeklickter Knopf gibt den Fokus
+  // sofort wieder ab, damit Presenter und Pfeiltasten weiter die Folien steuern.
+  const stop=el=>{ ['click','pointerdown','wheel'].forEach(ev=>el.addEventListener(ev,e=>e.stopPropagation()));
+    el.addEventListener('keydown',e=>{ if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.stopPropagation(); });
+    el.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) b.blur(); }); };
   const fmt=v=>Number(v).toLocaleString(document.documentElement.lang||'de',{maximumFractionDigits:1});
+  const TN=document.body.classList.contains('tn');              // Teilnehmer-Fassung (teilnehmer.html)
+  const L=()=>window.qpLive||null;                               // Live-Modul, nur im Server-Modus vorhanden
+  const live=()=>!!L();
+  const senden=(el,wert,mehrfach)=>{ const l=L(); if(l) l.antwort(el.dataset.id,wert,!!mehrfach); };
+  const freigeben=(el,loesung)=>{ const l=L(); if(l&&!TN) l.freigeben(el.dataset.id,true,loesung); };
+  const pct=(n,m)=>m?Math.round(n/m*100):0;
+  /* Balkendiagramm: zeilen [{label,n,ok}] */
+  function balken(box,zeilen,gesamt){
+    const m=Math.max(1,...zeilen.map(z=>z.n));
+    box.innerHTML='<div class="ia-balken">'+zeilen.map(z=>'<div class="ia-bz'+(z.ok===true?' ok':z.ok===false?' nein':'')+'"><span class="ia-bl">'+esc(z.label)+'</span><span class="ia-bt"><i style="width:'+pct(z.n,m)+'%"></i></span><span class="ia-bn">'+z.n+(gesamt?' · '+pct(z.n,gesamt)+' %':'')+'</span></div>').join('')+'</div>'
+      +(gesamt!=null?'<div class="ia-n">'+gesamt+' '+(gesamt===1?'Antwort':'Antworten')+'</div>':'');
+  }
+  const median=a=>{ if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y), h=s.length>>1; return s.length%2?s[h]:(s[h-1]+s[h])/2; };
 
   /* 1 Schätzregler */
   function schaetz(el){
-    const min=+(el.dataset.min||0), max=+(el.dataset.max||100), wahr=+el.dataset.wert, ein=el.dataset.einheit||'';
+    const min=+(el.dataset.min||0), max=+(el.dataset.max||100), wahr=el.dataset.wert!=null?+el.dataset.wert:null, ein=el.dataset.einheit||'';
     el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Schätzen Sie!')+'</div>'
-      +'<div class="ia-skala"><input type="range" min="'+min+'" max="'+max+'" step="'+(el.dataset.schritt||1)+'" value="'+((min+max)/2)+'"><i class="ia-wahr"></i></div>'
-      +'<div class="ia-zeile"><span class="ia-tipp">Schätzung: <b>'+fmt((min+max)/2)+'</b> '+esc(ein)+'</span><button>Auflösen</button><span class="ia-erg"></span></div>';
-    const r=el.querySelector('input'), b=el.querySelector('button'), w=el.querySelector('.ia-wahr'), tip=el.querySelector('.ia-tipp b'), erg=el.querySelector('.ia-erg');
+      +'<div class="ia-skala"><input type="range" min="'+min+'" max="'+max+'" step="'+(el.dataset.schritt||1)+'" value="'+((min+max)/2)+'"><i class="ia-wahr"></i><div class="ia-hist"></div></div>'
+      +'<div class="ia-zeile"><span class="ia-tipp">Schätzung: <b>'+fmt((min+max)/2)+'</b> '+esc(ein)+'</span>'+(TN?'<button class="ia-send">Abschicken</button>':'<button class="ia-los">Auflösen</button>')+'<span class="ia-erg"></span></div><div class="ia-live"></div>';
+    const r=el.querySelector('input'), w=el.querySelector('.ia-wahr'), tip=el.querySelector('.ia-tipp b'), erg=el.querySelector('.ia-erg'), lv=el.querySelector('.ia-live'), hist=el.querySelector('.ia-hist');
     r.addEventListener('input',()=>{ tip.textContent=fmt(r.value); });
-    b.addEventListener('click',()=>{ const p=(wahr-min)/(max-min)*100; w.style.left=p+'%'; el.classList.add('aufgeloest');
-      const d=Math.abs(wahr-r.value); erg.innerHTML='Wirklich: <b>'+fmt(wahr)+' '+esc(ein)+'</b> · '+(d===0?'genau getroffen!':'daneben um '+fmt(d)+' '+esc(ein)); });
+    const zeigeWahr=v=>{ w.style.left=((v-min)/(max-min)*100)+'%'; el.classList.add('aufgeloest'); const d=Math.abs(v-r.value);
+      erg.innerHTML='Wirklich: <b>'+fmt(v)+' '+esc(ein)+'</b> · '+(d===0?'genau getroffen!':'daneben um '+fmt(d)+' '+esc(ein)); };
+    if(TN){ el.querySelector('.ia-send').addEventListener('click',e=>{ senden(el,+r.value); e.target.textContent='Gesendet ✓'; setTimeout(()=>e.target.textContent='Erneut schicken',2500); }); }
+    else el.querySelector('.ia-los').addEventListener('click',()=>{ if(wahr==null) return; zeigeWahr(wahr); freigeben(el,{wert:wahr}); });
+    el._loesung=()=>({wert:wahr});
+    el._live=(antworten,frei)=>{                                   // antworten: Zahlen aller Teilnehmer*innen
+      const a=(antworten||[]).map(Number).filter(x=>!isNaN(x));
+      if(frei&&frei.loesung&&frei.loesung.wert!=null&&!el.classList.contains('aufgeloest')) zeigeWahr(+frei.loesung.wert);
+      if(!a.length){ lv.textContent=''; hist.innerHTML=''; return; }
+      const k=12, z=new Array(k).fill(0); a.forEach(v=>{ z[Math.min(k-1,Math.max(0,Math.floor((v-min)/(max-min)*k)))]++; });
+      const mx=Math.max(...z); hist.innerHTML=z.map(n=>'<i style="height:'+Math.round(n/mx*100)+'%"></i>').join('');
+      lv.innerHTML='<b>'+a.length+'</b> '+(a.length===1?'Schätzung':'Schätzungen')+' · Median <b>'+fmt(median(a))+' '+esc(ein)+'</b> · von '+fmt(Math.min(...a))+' bis '+fmt(Math.max(...a));
+    };
     stop(el);
   }
   /* 2 Vorher-nachher-Regler */
@@ -4135,21 +4202,51 @@ var qrcode = function() {
   }
   /* 4 Echt oder Fake? */
   function quiz(el){
-    const inhalt=el.innerHTML;
-    el.innerHTML='<div class="ia-q-bild">'+inhalt+'</div><div class="ia-zeile"><button data-s="echt">Echt <i>0</i></button><button data-s="fake">Fake <i>0</i></button><button class="ia-los">Auflösen</button></div><div class="ia-erg"></div>';
-    const z={echt:0,fake:0};
-    el.querySelectorAll('button[data-s]').forEach(b=>b.addEventListener('click',()=>{ z[b.dataset.s]++; b.querySelector('i').textContent=z[b.dataset.s]; }));
-    el.querySelector('.ia-los').addEventListener('click',()=>{ const l=el.dataset.loesung||'echt', n=z.echt+z.fake;
-      el.classList.add('aufgeloest'); el.querySelector('.ia-erg').innerHTML='<b>'+(l==='fake'?'Fake':'Echt')+'</b>'+(n?' · '+Math.round(z[l]/n*100)+' % lagen richtig':'')+(el.dataset.text?' – '+esc(el.dataset.text):''); });
+    const inhalt=el.innerHTML, loes=el.dataset.loesung||null;
+    el.innerHTML='<div class="ia-q-bild">'+inhalt+'</div><div class="ia-zeile"><button data-s="echt">Echt <i>0</i></button><button data-s="fake">Fake <i>0</i></button>'+(TN?'':'<button class="ia-los">Auflösen</button>')+'</div><div class="ia-erg"></div>';
+    const z={echt:0,fake:0}, erg=el.querySelector('.ia-erg');
+    const zeige=()=>el.querySelectorAll('button[data-s]').forEach(b=>b.querySelector('i').textContent=z[b.dataset.s]);
+    el.querySelectorAll('button[data-s]').forEach(b=>b.addEventListener('click',()=>{
+      if(TN){ senden(el,b.dataset.s); el.querySelectorAll('button[data-s]').forEach(x=>x.classList.toggle('gewaehlt',x===b)); erg.textContent='Deine Antwort: '+b.textContent.replace(/\d+$/,'').trim(); return; }
+      if(live()) return; z[b.dataset.s]++; zeige(); }));
+    const aufloesen=(l,text)=>{ const n=z.echt+z.fake; el.classList.add('aufgeloest');
+      erg.innerHTML='<b>'+(l==='fake'?'Fake':'Echt')+'</b>'+(n?' · '+pct(z[l],n)+' % lagen richtig':'')+(text?' – '+esc(text):''); };
+    if(!TN) el.querySelector('.ia-los').addEventListener('click',()=>{ if(!loes) return; aufloesen(loes,el.dataset.text); freigeben(el,{loesung:loes,text:el.dataset.text||''}); });
+    el._loesung=()=>({loesung:loes,text:el.dataset.text||''});
+    el._live=(antworten,frei)=>{
+      if(antworten){ z.echt=antworten.filter(v=>v==='echt').length; z.fake=antworten.filter(v=>v==='fake').length; if(!TN||frei) zeige(); }
+      if(frei&&frei.loesung&&!el.classList.contains('aufgeloest')) aufloesen(frei.loesung.loesung,frei.loesung.text);
+    };
     stop(el);
+  }
+  /* 4b Umfrage / Quiz mit Balken */
+  function umfrage(el){
+    const opt=(el.dataset.optionen||'Ja|Nein').split('|').map(s=>s.trim()).filter(Boolean), mehr=el.dataset.mehrfach==='1', richtig=el.dataset.richtig?el.dataset.richtig.split('|').map(s=>s.trim()):null;
+    el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Ihre Meinung?')+'</div><div class="ia-opt">'+opt.map((o,i)=>'<button data-i="'+i+'">'+esc(o)+(TN?'':' <i>0</i>')+'</button>').join('')+'</div>'
+      +'<div class="ia-zeile">'+(TN?(mehr?'<button class="ia-send">Abschicken</button>':''):(richtig?'<button class="ia-los">Auflösen</button>':'')+'<button class="ia-reset" title="zurücksetzen">↺</button>')+'<span class="ia-erg"></span></div><div class="ia-live"></div>';
+    const z=opt.map(()=>0), lv=el.querySelector('.ia-live'), erg=el.querySelector('.ia-erg'), gew=new Set();
+    const zeige=(gesamt)=>{ el.querySelectorAll('.ia-opt button i').forEach((i,k)=>i.textContent=z[k]); if(live()||TN) balken(lv,opt.map((o,k)=>({label:o,n:z[k],ok:el.classList.contains('aufgeloest')&&richtig?richtig.includes(o):null})),gesamt); };
+    el.querySelectorAll('.ia-opt button').forEach(b=>b.addEventListener('click',()=>{ const k=+b.dataset.i;
+      if(TN){ if(mehr){ b.classList.toggle('gewaehlt'); gew.has(k)?gew.delete(k):gew.add(k); } else { senden(el,opt[k]); el.querySelectorAll('.ia-opt button').forEach(x=>x.classList.toggle('gewaehlt',x===b)); erg.textContent='Gesendet ✓'; } return; }
+      if(live()) return; z[k]++; zeige(z.reduce((a,b)=>a+b,0)); }));
+    if(TN&&mehr) el.querySelector('.ia-send').addEventListener('click',e=>{ senden(el,[...gew].map(k=>opt[k])); e.target.textContent='Gesendet ✓'; });
+    if(!TN){ el.querySelector('.ia-reset').addEventListener('click',()=>{ z.fill(0); el.classList.remove('aufgeloest'); zeige(0); });
+      const los=el.querySelector('.ia-los'); if(los) los.addEventListener('click',()=>{ el.classList.add('aufgeloest'); zeige(z.reduce((a,b)=>a+b,0)); freigeben(el,{richtig}); }); }
+    el._loesung=()=>({richtig});
+    el._live=(antworten,frei)=>{
+      if(antworten){ z.fill(0); antworten.forEach(v=>(Array.isArray(v)?v:[v]).forEach(o=>{ const k=opt.indexOf(o); if(k>=0) z[k]++; })); }
+      if(frei&&frei.loesung&&frei.loesung.richtig){ el.classList.add('aufgeloest'); el.querySelectorAll('.ia-opt button').forEach((b,k)=>b.classList.toggle('ok',frei.loesung.richtig.includes(opt[k]))); }
+      if(antworten&&(!TN||frei)) zeige(antworten.length); else if(TN) lv.innerHTML='';
+    };
+    zeige(0); stop(el);
   }
   /* 5 Zuordnen per Ziehen */
   function sort(el){
-    const felder=(el.dataset.felder||'').split('|'), items=[...el.querySelectorAll('[data-ziel]')];
+    const felder=(el.dataset.felder||'').split('|'), items=[...el.querySelectorAll('[data-ziel],[data-item]')];
     const vorrat=$('div','ia-vorrat'), reihe=$('div','ia-felder');
     felder.forEach(f=>{ const d=$('div','ia-feld','<b>'+esc(f)+'</b>'); d.dataset.feld=f; reihe.appendChild(d); });
     items.sort(()=>Math.random()-.5).forEach(it=>{ it.classList.add('ia-item'); it.draggable=true; vorrat.appendChild(it); });
-    const knopf=$('button','ia-pruefen','Prüfen'); el.innerHTML=''; el.append(vorrat,reihe,knopf);
+    const knopf=$('button','ia-pruefen',TN?'Abschicken':'Prüfen'), lv=$('div','ia-live'); el.innerHTML=''; el.append(vorrat,reihe,knopf,lv);
     let gezogen=null;
     el.addEventListener('dragstart',e=>{ gezogen=e.target.closest('.ia-item'); });
     [vorrat,...reihe.children].forEach(z=>{ z.addEventListener('dragover',e=>e.preventDefault()); z.addEventListener('drop',e=>{ e.preventDefault(); if(gezogen){ z.appendChild(gezogen); gezogen.classList.remove('ok','falsch'); } }); });
@@ -4158,7 +4255,20 @@ var qrcode = function() {
     el.addEventListener('click',e=>{ const it=e.target.closest('.ia-item'), fd=e.target.closest('.ia-feld,.ia-vorrat');
       if(it){ if(gewaehlt) gewaehlt.classList.remove('gewaehlt'); gewaehlt=it; it.classList.add('gewaehlt'); return; }
       if(fd&&gewaehlt){ fd.appendChild(gewaehlt); gewaehlt.classList.remove('gewaehlt','ok','falsch'); gewaehlt=null; } });
-    knopf.addEventListener('click',e=>{ e.stopPropagation(); el.querySelectorAll('.ia-feld .ia-item').forEach(it=>{ const ok=it.dataset.ziel===it.parentElement.dataset.feld; it.classList.toggle('ok',ok); it.classList.toggle('falsch',!ok); }); });
+    const zuordnung=()=>{ const m={}; el.querySelectorAll('.ia-feld .ia-item').forEach(it=>{ m[it.textContent.trim()]=it.parentElement.dataset.feld; }); return m; };
+    const loesung=()=>{ const m={}; items.forEach(it=>{ if(it.dataset.ziel) m[it.textContent.trim()]=it.dataset.ziel; }); return m; };
+    const markiere=(l)=>el.querySelectorAll('.ia-feld .ia-item').forEach(it=>{ const ok=l[it.textContent.trim()]===it.parentElement.dataset.feld; it.classList.toggle('ok',ok); it.classList.toggle('falsch',!ok); });
+    knopf.addEventListener('click',e=>{ e.stopPropagation();
+      if(TN){ senden(el,zuordnung()); knopf.textContent='Gesendet ✓'; setTimeout(()=>knopf.textContent='Erneut schicken',2500); return; }
+      markiere(loesung()); freigeben(el,{zuordnung:loesung()}); });
+    el._loesung=()=>({zuordnung:loesung()});
+    el._live=(antworten,frei)=>{
+      if(frei&&frei.loesung&&frei.loesung.zuordnung&&TN) markiere(frei.loesung.zuordnung);
+      if(!antworten||!antworten.length||(TN&&!frei)){ lv.innerHTML=''; return; }
+      const l=TN?(frei&&frei.loesung&&frei.loesung.zuordnung)||{}:loesung(), namen=Object.keys(l); let richtig=0, gesamt=0;
+      antworten.forEach(a=>{ if(a&&typeof a==='object') namen.forEach(n=>{ if(a[n]!=null){ gesamt++; if(a[n]===l[n]) richtig++; } }); });
+      lv.innerHTML='<b>'+antworten.length+'</b> '+(antworten.length===1?'Einsendung':'Einsendungen')+(gesamt?' · <b>'+pct(richtig,gesamt)+' %</b> der Zuordnungen richtig':'');
+    };
     stop(el);
   }
   /* 6 Timer */
@@ -4183,13 +4293,18 @@ var qrcode = function() {
       s.style.transform='rotate('+w+'deg)'; el.querySelector('.ia-erg').textContent=''; setTimeout(()=>{ el.querySelector('.ia-erg').textContent='→ '+it[k]; },3200); });
     stop(el);
   }
-  /* 8 Wortwolke (nur auf diesem Rechner) */
+  /* 8 Wortwolke (ohne Server: nur auf diesem Rechner; mit Server: Begriffe aller Teilnehmer*innen) */
   function wolke(el){
-    el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Ihre Begriffe')+'</div><div class="ia-zeile"><input type="text" placeholder="Begriff eintippen, Enter"><button class="ia-leer">leeren</button></div><div class="ia-woerter"></div>';
-    const inp=el.querySelector('input'), box=el.querySelector('.ia-woerter'), z={};
+    el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Ihre Begriffe')+'</div><div class="ia-zeile"><input type="text" maxlength="40" placeholder="Begriff eintippen, Enter"><button class="ia-send">Senden</button>'+(TN?'':'<button class="ia-leer">leeren</button>')+'</div><div class="ia-woerter"></div><div class="ia-live"></div>';
+    const inp=el.querySelector('input'), box=el.querySelector('.ia-woerter'), lv=el.querySelector('.ia-live'), z={}, eigene=[];
     const zeig=()=>{ const m=Math.max(1,...Object.values(z)); box.innerHTML=Object.entries(z).sort(()=>Math.random()-.5).map(([w,n])=>'<span style="font-size:'+(22+n/m*46)+'px">'+esc(w)+'</span>').join(''); };
-    inp.addEventListener('keydown',e=>{ e.stopPropagation(); if(e.key==='Enter'&&inp.value.trim()){ const w=inp.value.trim(); z[w]=(z[w]||0)+1; inp.value=''; zeig(); } });
-    el.querySelector('.ia-leer').addEventListener('click',()=>{ for(const k in z) delete z[k]; zeig(); });
+    const schick=()=>{ const w=inp.value.trim(); if(!w) return; inp.value='';
+      if(TN){ eigene.push(w); lv.innerHTML='Deine Begriffe: '+eigene.map(esc).join(', '); senden(el,w,true); return; }
+      if(live()){ senden(el,w,true); return; } z[w]=(z[w]||0)+1; zeig(); };
+    inp.addEventListener('keydown',e=>{ e.stopPropagation(); if(e.key==='Enter') schick(); });
+    el.querySelector('.ia-send').addEventListener('click',schick);
+    if(!TN) el.querySelector('.ia-leer').addEventListener('click',()=>{ for(const k in z) delete z[k]; zeig(); const l=L(); if(l) l.zuruecksetzen('antworten',el.dataset.id); });
+    el._live=(antworten,frei)=>{ if(!antworten||(TN&&!frei)) return; for(const k in z) delete z[k]; antworten.forEach(w=>{ const t=String(w).trim().toLowerCase(); if(t) z[t]=(z[t]||0)+1; }); zeig(); };
     stop(el);
   }
   /* 9 Karteikarte zum Umdrehen */
@@ -4201,28 +4316,33 @@ var qrcode = function() {
   function qr(el){
     if(typeof qrcode!=='function'){ el.textContent='QR nicht verfügbar'; return; }
     const sec=el.closest('section.slide'); const idx=[...document.querySelectorAll('section.slide')].indexOf(sec)+1;
-    const url=el.dataset.url||(location.href.split('#')[0]+'#'+idx);
+    const l=L(); const url=el.dataset.url||(l&&l.teilnehmerUrl?l.teilnehmerUrl()+'#'+(sec.dataset.nr||idx):(location.href.split('#')[0]+'#'+idx));
     const q=qrcode(0,'M'); q.addData(url); q.make();
-    el.innerHTML=q.createSvgTag({cellSize:6,margin:2,scalable:true})+'<div class="ia-qrt">'+esc(el.dataset.text||'Mit dem Handy öffnen')+'</div>';
+    el.innerHTML=q.createSvgTag({cellSize:6,margin:2,scalable:true})+'<div class="ia-qrt">'+esc(el.dataset.text||(l?'Mitmachen am Handy':'Mit dem Handy öffnen'))+'</div>';
     el.title=url; stop(el);
   }
-  /* 11 Ampel-Abstimmung (Handzeichen zählen) */
+  /* 11 Ampel-Abstimmung (ohne Server: Handzeichen zählen) */
   function ampel(el){
-    el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Wie sehen Sie das?')+'</div><div class="ia-lichter">'+['rot','gelb','gruen'].map(f=>'<div class="ia-l ia-'+f+'"><button title="eine Stimme dazu">+</button><i></i><b>0</b></div>').join('')+'</div><button class="ia-reset">↺</button>';
+    const F=['rot','gelb','gruen'], N={rot:'Nein',gelb:'Unentschieden',gruen:'Ja'};
+    el.innerHTML='<div class="ia-frage">'+esc(el.dataset.frage||'Wie sehen Sie das?')+'</div><div class="ia-lichter">'+F.map(f=>'<div class="ia-l ia-'+f+'"><button title="'+(TN?N[f]:'eine Stimme dazu')+'">'+(TN?N[f]:'+')+'</button><i></i><b>0</b></div>').join('')+'</div>'+(TN?'':'<button class="ia-reset">↺</button>')+'<div class="ia-erg"></div>';
     const z={rot:0,gelb:0,gruen:0};
-    const zeig=()=>{ const m=Math.max(1,z.rot+z.gelb+z.gruen); ['rot','gelb','gruen'].forEach(f=>{ const l=el.querySelector('.ia-'+f); l.querySelector('b').textContent=z[f]; l.querySelector('i').style.height=Math.round(z[f]/m*200)+'px'; }); };
-    ['rot','gelb','gruen'].forEach(f=>el.querySelector('.ia-'+f+' button').addEventListener('click',()=>{ z[f]++; zeig(); }));
-    el.querySelector('.ia-reset').addEventListener('click',()=>{ z.rot=z.gelb=z.gruen=0; zeig(); });
+    const zeig=()=>{ const m=Math.max(1,z.rot+z.gelb+z.gruen); F.forEach(f=>{ const l=el.querySelector('.ia-'+f); l.querySelector('b').textContent=z[f]; l.querySelector('i').style.height=Math.round(z[f]/m*200)+'px'; }); };
+    F.forEach(f=>el.querySelector('.ia-'+f+' button').addEventListener('click',e=>{
+      if(TN){ senden(el,f); F.forEach(g=>el.querySelector('.ia-'+g+' button').classList.toggle('gewaehlt',g===f)); el.querySelector('.ia-erg').textContent='Gesendet ✓'; return; }
+      if(live()) return; z[f]++; zeig(); }));
+    if(!TN) el.querySelector('.ia-reset').addEventListener('click',()=>{ z.rot=z.gelb=z.gruen=0; zeig(); const l=L(); if(l) l.zuruecksetzen('antworten',el.dataset.id); });
+    el._live=(antworten,frei)=>{ if(!antworten||(TN&&!frei)) return; el.classList.add('frei'); z.rot=z.gelb=z.gruen=0; antworten.forEach(v=>{ if(z[v]!=null) z[v]++; }); zeig(); };
     zeig(); stop(el);
   }
-  const BAU={'ia-schaetz':schaetz,'ia-vergleich':vergleich,'ia-ausschnitt':ausschnitt,'ia-quiz':quiz,'ia-sort':sort,'ia-timer':timer,'ia-rad':rad,'ia-wolke':wolke,'ia-karte':karte,'ia-qr':qr,'ia-ampel':ampel};
+  const BAU={'ia-schaetz':schaetz,'ia-vergleich':vergleich,'ia-ausschnitt':ausschnitt,'ia-quiz':quiz,'ia-umfrage':umfrage,'ia-sort':sort,'ia-timer':timer,'ia-rad':rad,'ia-wolke':wolke,'ia-karte':karte,'ia-qr':qr,'ia-ampel':ampel};
   function init(root){ Object.entries(BAU).forEach(([k,f])=>root.querySelectorAll('#stage .'+k+':not(.ia-fertig)').forEach(el=>{ try{ f(el); el.classList.add('ia-fertig'); }catch(e){ console.warn(k,e); } })); }
   init(document);
+  window.qpBausteine={init,LIVE_TYPEN:['ia-schaetz','ia-quiz','ia-umfrage','ia-sort','ia-wolke','ia-ampel']};
 
   /* 12 Spotlight (Taste X) */
   const spot=$('div',''); spot.id='spot'; document.body.appendChild(spot);
   document.addEventListener('mousemove',e=>{ spot.style.setProperty('--x',e.clientX+'px'); spot.style.setProperty('--y',e.clientY+'px'); });
-  document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT') return; if(e.key==='x'||e.key==='X') spot.classList.toggle('on'); if(e.key==='Escape') spot.classList.remove('on'); });
+  document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return; if(e.key==='x'||e.key==='X') spot.classList.toggle('on'); if(e.key==='Escape') spot.classList.remove('on'); });
   document.addEventListener('wheel',e=>{ if(!spot.classList.contains('on')) return; const r=parseFloat(getComputedStyle(spot).getPropertyValue('--r'))||180; spot.style.setProperty('--r',Math.max(60,Math.min(600,r-e.deltaY*.3))+'px'); },{passive:true});
 })();
 

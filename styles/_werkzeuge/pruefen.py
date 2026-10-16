@@ -89,7 +89,9 @@ for d in sorted(p for p in STYLES.iterdir() if (p / "stil.css").exists()):
     else:
         cfg = json.loads(j.read_text(encoding="utf-8"))
         fehler += [f"{d.name}: stil.json ohne „{f}“" for f in JSON_FELDER if f not in cfg]
-    if not (d / "fonts" / "fonts.css").exists(): fehler.append(f"{d.name}: fonts/fonts.css fehlt")
+        fs = cfg.get("schriftset", "")
+        if not (STYLES / "_schriftsets" / f"{fs}.json").exists(): fehler.append(f"{d.name}: Schriftset „{fs}“ fehlt in _schriftsets/")
+        elif not (STYLES / "_schriftsets" / "fonts" / f"{fs}.css").exists(): fehler.append(f"{d.name}: Schriftset „{fs}“ nicht geladen (python styles/_werkzeuge/schriften_holen.py {fs})")
 
 # externe URLs in CSS/HTML/SVG (Doku-Dateien ausgenommen)
 for p in list(STYLES.rglob("*.css")) + list(STYLES.rglob("*.html")) + list(STYLES.rglob("*.svg")):

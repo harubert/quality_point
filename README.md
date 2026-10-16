@@ -17,7 +17,7 @@ Du sagst Claude Code, worum es geht und womit gearbeitet werden soll. Quality Po
 - **Referentenansicht** mit Notizen, Timer und Zwei-Bildschirm-Modus
 - **Quellenverzeichnis** (APA 7) mit Sprung von der Folie zur Quelle und zurück
 - **Glossar**, auf den Folien anklickbar
-- auf Wunsch: **Landingpage**, **Fachartikel** (über [claude-research](https://github.com/harubert/claude-research)), **Lehrplan-Bezug**, **Unterrichtsmaterial als Word** (Feinziele, didaktische Analyse nach Klafki, Lösungen mit Begründung), **Handout als PDF** (Kernaussagen, Fragestellungen zur eigenen Kompetenzentwicklung, Literatur, QR-Code), **Werkstatt-Aufträge**, **Video-Inhaltsangaben**, **Interaktionsbausteine**
+- auf Wunsch: **Landingpage**, **Fachartikel** (über [claude-research](https://github.com/harubert/claude-research)), **Lehrplan-Bezug**, **Unterrichtsmaterial als Word** (Feinziele, didaktische Analyse nach Klafki, Lösungen mit Begründung), **Handout als PDF** (Kernaussagen, Fragestellungen zur eigenen Kompetenzentwicklung, Literatur, QR-Code), **Live-Mitmachen auf dem eigenen Server** (Teilnehmerfassung per QR-Code, Stimmungsbarometer, Hinweise, Umfragen – PHP, keine Datenbank; [docs/LIVE.md](docs/LIVE.md)), **Werkstatt-Aufträge**, **Video-Inhaltsangaben**, **Interaktionsbausteine**
 
 Der Anspruch steckt im Namen: Jede Zahl braucht eine Quelle und eine Bezugsgruppe, jedes Bild eine Herkunft, jede Folie muss die automatische Layoutprüfung bestehen. Was nicht belegt ist, wird gekennzeichnet oder weggelassen.
 
@@ -80,7 +80,8 @@ quality_point/
 │   ├── src/                       ← Hülle, Engine (JS/CSS), Interaktionen, vendor/qrcode.js
 │   ├── fonts/                     ← lokale Schriften (OFL)
 │   └── werkzeuge/                 ← Quellen, Seiten, Materialien, Screenshots, Bilder
-├── styles/                        ← 10 Stile, 10 Schriftsets, index.html (Start und Auswahl)
+├── engine/live/                   ← Server-Modus: api.php, live.js, live.css (optional)
+├── styles/                        ← 20 Stile, 20 Schriftsets, index.html (Start und Auswahl)
 ├── demo/                          ← Beispielprojekte
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```
@@ -96,7 +97,7 @@ Ein **Projekt** liegt außerhalb des Quality-Point-Ordners und enthält vor alle
 
 ## Funktionen in Kürze
 
-Steuerleiste mit Teilschritt-Anzeige · Referentenansicht (`P`) · Zwei-Bildschirm-Modus (`S`, Chrome/Edge) · große Folie im Notizfenster (`V`) · Schwarzbild (`B`/`.`) · Stifte (`Z`) · Spotlight (`X`) · Laser (`L`) · Bildansicht mit Lupe · Glossar (`G`) · Quellenlinks mit Rücksprung · Sprungkarten · Übersicht mit Suche (`O`) · Pointen-Banner (`K`) · Zähler · Video-Inhaltsangaben und lokale Videokopien · Foliensprung per Adresse (`#47.2`) oder Ziffern + `Enter` · Interaktionsbausteine (Schätzregler, Vorher-nachher, Ausschnitt, Echt/Fake, Zuordnen, Timer, Zufallsrad, Wortwolke, Karteikarte, QR, Ampel) · Landingpage, Glossar-, Lehrplan- und Quellenseite · Word-Materialien · Handout-PDF · Bilder-Herkunftsübersicht · Prüf- und Deploy-Werkzeuge mit Sperrliste.
+Steuerleiste mit Teilschritt-Anzeige · Referentenansicht (`P`) · Zwei-Bildschirm-Modus (`S`, Chrome/Edge) · große Folie im Notizfenster (`V`) · Schwarzbild (`B`/`.`) · Stifte (`Z`) · Spotlight (`X`) · Laser (`L`) · Bildansicht mit Lupe · Glossar (`G`) · Quellenlinks mit Rücksprung · Sprungkarten · Übersicht mit Suche (`O`) · Pointen-Banner (`K`) · Zähler · Video-Inhaltsangaben und lokale Videokopien · Foliensprung per Adresse (`#47.2`) oder Ziffern + `Enter` · Interaktionsbausteine (Schätzregler, Vorher-nachher, Ausschnitt, Echt/Fake, Zuordnen, Timer, Zufallsrad, Wortwolke, Karteikarte, QR, Ampel) · Landingpage, Glossar-, Lehrplan- und Quellenseite · Word-Materialien · Handout-PDF · Live-Panel (`A`) mit Teilnehmerfassung, Barometer, Hinweisen, Ergebnissen und Verlauf (Server-Modus) · Bilder-Herkunftsübersicht · Prüf- und Deploy-Werkzeuge mit Sperrliste.
 
 Keine Google Fonts, keine CDNs, keine Tracker: Alles läuft lokal.
 
@@ -135,7 +136,7 @@ You tell Claude Code what the talk is about and what to work with. Quality Point
 - **Presenter view** with notes, timer and dual-screen mode
 - **Reference list** (APA 7) with jump from slide to source and back
 - **Glossary**, clickable on the slides
-- optionally: **landing page**, **scholarly article** (via [claude-research](https://github.com/harubert/claude-research)), **curriculum links**, **teaching materials as Word files** (learning objectives, didactic analysis after Klafki, answer keys with reasoning), **PDF handout** (key messages, self-study questions, references, QR code), **workshop tasks**, **video summaries**, **interactive widgets**
+- optionally: **landing page**, **scholarly article** (via [claude-research](https://github.com/harubert/claude-research)), **curriculum links**, **teaching materials as Word files** (learning objectives, didactic analysis after Klafki, answer keys with reasoning), **PDF handout** (key messages, self-study questions, references, QR code), **live audience response on your own server** (participant version via QR code, mood barometer, hints, polls – PHP, no database; [docs/LIVE.md](docs/LIVE.md)), **workshop tasks**, **video summaries**, **interactive widgets**
 
 The name is the promise: every figure needs a source and a reference group, every image a provenance, every slide must pass the automated layout check. Anything that cannot be verified is labelled or left out.
 
@@ -191,7 +192,8 @@ quality_point/
 │   ├── src/                       ← shell, engine (JS/CSS), widgets, vendor/qrcode.js
 │   ├── fonts/                     ← local fonts (OFL)
 │   └── werkzeuge/                 ← references, pages, materials, screenshots, images
-├── styles/                        ← 10 styles, 10 font sets, index.html (onboarding and picker)
+├── engine/live/                   ← server mode: api.php, live.js, live.css (optional)
+├── styles/                        ← 20 styles, 20 font sets, index.html (onboarding and picker)
 ├── demo/                          ← example projects
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```
@@ -202,7 +204,7 @@ The documentation in `docs/` and `engine/` is written in German; the presentatio
 
 ## Features at a glance
 
-Control bar with sub-step indicator · presenter view (`P`) · dual-screen mode (`S`, Chrome/Edge on Windows and macOS via the Window Management API) · large slide in the notes window (`V`) · black screen with hint (`B`/`.`) · pens: marker, highlighter, emoji stamp, eraser (`Z`) · spotlight (`X`) · laser (`L`) · image viewer with magnifier · glossary popover (`G`) · source links with return jump · jump cards · overview with search (`O`) · punchline banner (`K`) · animated counters · video summaries and local video copies (presenter machine only) · slide address (`#47.2`) or digits + `Enter` · interactive widgets (estimate slider, before/after, reveal crop, real or fake, sort, timer, wheel of names, word cloud, flash card, QR code, traffic light) · landing page, glossary, curriculum and reference pages · Word materials · PDF handout · image provenance overview · check and deploy tools with a blocklist for keys, local paths and CDNs.
+Control bar with sub-step indicator · presenter view (`P`) · dual-screen mode (`S`, Chrome/Edge on Windows and macOS via the Window Management API) · large slide in the notes window (`V`) · black screen with hint (`B`/`.`) · pens: marker, highlighter, emoji stamp, eraser (`Z`) · spotlight (`X`) · laser (`L`) · image viewer with magnifier · glossary popover (`G`) · source links with return jump · jump cards · overview with search (`O`) · punchline banner (`K`) · animated counters · video summaries and local video copies (presenter machine only) · slide address (`#47.2`) or digits + `Enter` · interactive widgets (estimate slider, before/after, reveal crop, real or fake, sort, timer, wheel of names, word cloud, flash card, QR code, traffic light) · landing page, glossary, curriculum and reference pages · Word materials · PDF handout · live panel (`A`) with participant version, barometer, hints, results and timeline (server mode) · image provenance overview · check and deploy tools with a blocklist for keys, local paths and CDNs.
 
 No Google Fonts, no CDNs, no trackers: everything runs locally.
 

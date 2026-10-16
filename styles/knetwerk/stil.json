@@ -54,7 +54,7 @@
   "vektor_hinweise": "Weiche Formen mit großen Radien (rx ≥ 30 % der Kantenlänge), jede Form mit radialGradient (Glanzpunkt oben links, z. B. #FFB489 → #F2793D) und dunklerem Innenschatten unten rechts. Farben #F2793D, #23805F, #F5C54A, #1F3347 auf #E4F1F7. Keine Konturen; Bodenschatten als weiche Ellipse (opacity .15).",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/knete.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

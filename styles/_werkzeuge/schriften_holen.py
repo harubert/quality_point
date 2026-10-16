@@ -3,7 +3,7 @@ und schreibt lokale @font-face-Regeln. Danach lädt keine Seite mehr Schriften v
 
   styles/_schriftsets/<set>.json   Quelle (Feld google_fonts_api)
   styles/_schriftsets/fonts/       alle WOFF2 + <set>.css je Set
-  styles/<stil>/fonts/             Kopie des Standard-Sets eines Stils + fonts.css
+  (build.py kopiert das Set eines Projekts nach <projekt>/fonts/)
 
 Aufruf:  python styles/_werkzeuge/schriften_holen.py [set-id ...]
 Alle Familien stehen unter der SIL Open Font License 1.1 (geprüft mit --lizenz).
@@ -42,13 +42,7 @@ def set_laden(sid):
         dateien.append(name)
         regeln.append("@font-face {" + body.replace(url, name).rstrip() + "\n}")
     (ziel / f"{sid}.css").write_text("\n".join(regeln) + "\n", encoding="utf-8")
-    # Standard-Set des Stils in dessen fonts/-Ordner spiegeln
-    stil = STYLES / cfg["standard_fuer_stil"] / "fonts"
-    stil.mkdir(parents=True, exist_ok=True)
-    for d in dateien:
-        shutil.copyfile(ziel / d, stil / d)
-    (stil / "fonts.css").write_text("\n".join(regeln) + "\n", encoding="utf-8")
-    print(f"{sid}: {len(dateien)} Dateien -> {cfg['standard_fuer_stil']}/fonts/")
+    print(f"{sid}: {len(dateien)} Dateien -> _schriftsets/fonts/{sid}.css")   # build.py kopiert daraus nach <projekt>/fonts/
 
 
 def lizenz_pruefen():

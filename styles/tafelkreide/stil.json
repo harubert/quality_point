@@ -54,7 +54,7 @@
   "vektor_hinweise": "Grund #1F3B2F; nur Linien (fill=\"none\", stroke 5–9 px, stroke-linecap round) in #F4F2E8, #F6DE78, #F6A5A5, #9CD3F0, #F7B27A. Kreidekante über <filter>: feTurbulence (baseFrequency 1.2–1.6) + feDisplacementMap (scale 4–6) + feComponentTransfer, der Alpha ausdünnt. Flächen höchstens als fill-opacity .2. Kreidestaub: zweites feTurbulence-Rechteck mit Alpha .07.",
   "dateien": {
     "css": "stil.css",
-    "fonts": "fonts/fonts.css",
+    "fonts": "../_schriftsets/fonts/kreide.css",
     "vorschau": "vorschau.webp",
     "beispiele": "beispiel/"
   },

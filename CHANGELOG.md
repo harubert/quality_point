@@ -2,6 +2,10 @@
 
 ## 2026-10-16
 
+- **Live-Mitmachen (Server-Modus, optional):** `live.an` erzeugt eine Teilnehmerfassung (`teilnehmer.html`, ohne Notizen, Pointen, Lösungen und Referentenfolien) und den Server-Teil `live/api.php` (PHP 8, JSON-Dateien, keine Datenbank). Teilnehmer*innen kommen per QR-Code der Startseite, folgen dem Vortrag, melden Stimmung (sechs schaltbare Kategorien), schicken Hinweise, drücken „Fertig“ und beantworten Bausteine. Vortragende melden sich mit Passwort an (`QP_LIVE_PASSWORT` oder erzeugtes Startpasswort); Badge und Aufpoppen für Hinweise, Live-Panel (`A`) mit Übersicht, Hinweisen (auf die Folie legen), Ergebnissen mit Freigabe, Verlauf mit Export und Einstellungen. Doku: `docs/LIVE.md`.
+- **Neuer Baustein `ia-umfrage`** (Einfach-/Mehrfachwahl mit Balken, optional richtige Antwort); `ia-schaetz`, `ia-quiz`, `ia-wolke`, `ia-ampel`, `ia-sort` arbeiten im Server-Modus mit den Antworten aller.
+- **Presenter:** Nach Tastendruck erscheint kurz nur die Weiter-Schaltfläche mit den Teilschritten; ein angeklickter Baustein-Knopf blockiert die Tastatur nicht mehr.
+- `build.py` vergibt `data-nr` je Folie und `data-id` je Baustein; Skill-Regel: die Schrittzahl der Weiter-Schaltfläche darf keine Lösung verraten.
 - **Notizschutz** (`engine/werkzeuge/notizschutz.py`, optional): Sprechernotizen und Pointen im veröffentlichten Paket verschlüsselt, Freischaltung per PIN (N, P, S, V); PIN aus `QP_NOTIZ_PIN`, optionaler Stichtag. Ohne PIN bricht `deploy.py` ab, bevor der Zielordner angefasst wird.
 - **Arbeitsblätter:** Bilder unter dem Titel und je Aufgabe, Bildraster (`bilder_spalten`), Seitenumbruch vor einer Aufgabe (`neue_seite`), Aufzählungen ohne Kästchen (`ohne_kaestchen`); Schreiblinien bleiben in Word einzeln sichtbar.
 - **Glossar:** Begriffe ohne weitere Schreibweise („Begriff“ ohne „|“) werden erkannt und verlinkt – bisher fielen sie stillschweigend weg.

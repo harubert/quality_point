@@ -1,7 +1,7 @@
 # Baut alles neu, kopiert NUR freigegebene Dateien in den Veröffentlichungsordner (quality_point.json „ziel“)
 # und prüft das Paket auf heikle Inhalte und tote Links. Treffer = Abbruch mit Fehlercode 1.
 # Aufruf:  python engine/deploy.py <projektordner> [--ohne-bau]
-import os, re, sys, glob, shutil, zipfile, subprocess
+import os, re, sys, glob, shutil, zipfile, subprocess, json, hashlib, secrets, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import konfig
 
@@ -27,6 +27,36 @@ def immer():
     for z in K['seiten_zusatz']:                                # weitere Dateien/Ordner aus quality_point.json
         liste += [os.path.relpath(f, PRJ).replace('\\', '/') for f in glob.glob(z, recursive=True) if os.path.isfile(f)] or [z]
     return liste
+
+
+def pbkdf2(pw):
+    """Passwort-Hash im Format, das live/api.php prüft (pbkdf2$sha256$runden$salz$hash)."""
+    salz, runden = secrets.token_hex(16), 200000
+    return 'pbkdf2$sha256$%d$%s$%s' % (runden, salz, hashlib.pbkdf2_hmac('sha256', pw.encode('utf-8'), bytes.fromhex(salz), runden, 32).hex())
+
+
+def live_einrichten():
+    """Server-Modus: live/api.php + Datenordner ins Paket; Referenten-Passwort aus QP_LIVE_PASSWORT, sonst aus der Konfiguration,
+    sonst einmal erzeugen (wird angezeigt). Ein vorhandener Datenordner bleibt erhalten (laufende Sitzung)."""
+    L = K['live']; lz = os.path.join(ZIEL, 'live'); dz = os.path.join(lz, 'daten'); os.makedirs(dz, exist_ok=True)
+    shutil.copy2(os.path.join(ENG, 'live', 'api.php'), os.path.join(lz, 'api.php'))
+    open(os.path.join(dz, '.htaccess'), 'w', encoding='utf-8').write('Require all denied\n')
+    open(os.path.join(dz, 'index.html'), 'w', encoding='utf-8').write('')
+    zugang = os.path.join(dz, 'zugang.json')
+    pw = os.environ.get('QP_LIVE_PASSWORT') or str(L.get('passwort') or '')
+    if pw or not os.path.exists(zugang):
+        neu = not pw
+        if neu: pw = secrets.choice(['ampel', 'tafel', 'kreide', 'folie', 'pult', 'beamer', 'pause', 'wolke']) + '-' + str(secrets.randbelow(9000) + 1000)
+        json.dump({'hash': pbkdf2(pw), 'erstellt': int(time.time())}, open(zugang, 'w', encoding='utf-8'))
+        print('Live: Referenten-Passwort ' + ('(neu erzeugt, bitte notieren) ' if neu else '(aus Konfiguration/Umgebung) ') + pw + ' – ändern im Live-Panel (Taste A → Einstellungen)')
+    else:
+        print('Live: vorhandenes Passwort bleibt (live/daten/zugang.json); neues per QP_LIVE_PASSWORT')
+    einst = os.path.join(dz, 'einstellungen.json')
+    if not os.path.exists(einst):
+        json.dump({'folgen': bool(L.get('folgen', True)), 'notizen': bool(L.get('notizen', True)), 'fertig': bool(L.get('fertig', True)),
+                   'barometer': list(L.get('barometer', [])), 'ergebnisse': L.get('ergebnisse', 'freigabe'), 'freigaben': {}, 'version': 1, 'start': int(time.time())},
+                  open(einst, 'w', encoding='utf-8'), ensure_ascii=False)
+    print('Live: Server-Teil in', os.path.relpath(lz, ZIEL) + '/ (PHP 8, Schreibrecht auf live/daten/ – siehe docs/LIVE.md)')
 
 
 def herkunft(pfad):
@@ -55,7 +85,9 @@ def main():
     if os.path.abspath(ZIEL) in (os.path.abspath(PRJ), os.path.abspath(ENG)) or os.path.abspath(PRJ).startswith(os.path.abspath(ZIEL) + os.sep):
         sys.exit(f'Ziel {ZIEL} darf nicht Projekt- oder Engine-Ordner (oder deren Elternordner) sein')
     os.makedirs(ZIEL, exist_ok=True)
+    daten_live = os.path.join(ZIEL, 'live', 'daten')     # gesammelte Live-Daten (Antworten, Hinweise, Passwort) überleben den Neubau
     for dp, ds, fs in os.walk(ZIEL, topdown=False):     # leeren (leere Ordner dürfen bleiben – Cloud-Sync sperrt sie manchmal)
+        if os.path.abspath(dp).startswith(os.path.abspath(daten_live)): continue
         for f in fs: os.remove(os.path.join(dp, f))
         for d in ds:
             try: os.rmdir(os.path.join(dp, d))
@@ -70,6 +102,7 @@ def main():
         q = herkunft(a)
         if not q: print('FEHLT:', a); continue
         os.makedirs(os.path.dirname(os.path.join(ZIEL, a)) or ZIEL, exist_ok=True); shutil.copy2(q, os.path.join(ZIEL, a))
+    if K['live'].get('an'): live_einrichten()
     ns = K.get('notizschutz') or {}
     if ns:                                                       # Sprechernotizen im Paket nur mit PIN
         sys.path.insert(0, os.path.join(ENG, 'werkzeuge')); import notizschutz
