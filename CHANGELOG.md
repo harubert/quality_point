@@ -1,5 +1,9 @@
 # Änderungen
 
+## 2026-10-18
+
+- Aufgeklappte Bilder (Lupe), Glossar-Ebene, Video-Inhalt und laufende Videos schließen sich beim Weiterklicken (Schritt oder Folie) von selbst.
+
 ## 2026-10-16
 
 - **Zehn neue Stile** (jetzt 20, je mit eigenem Schriftset, OFL, lokal): Herbarium (naturkundlicher Atlas), Nordisch (skandinavischer Katalog), Magazin (Lifestyle-Editorial), Galerie (White Cube), Schweizer Typografie, Zeitung, Linolschnitt, Beton (Web-Brutalismus), Konsole (Terminal, dunkel), Blaupause (technische Zeichnung, dunkel). Alle mit handgezeichneten Vektorbeispielen; Startseite in vier Gruppen geordnet (warm · editorial · grafisch · dunkel).

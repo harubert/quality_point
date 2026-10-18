@@ -57,6 +57,8 @@
     document.getElementById('progress').style.width=((cur+ (s._steps.length? step/(s._steps.length+1):0))/(N-1)*100)+'%';
     try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
     runCounts(s); renderNotes(); syncPopup(); navBtns(); if(typeof vinSync==='function') vinSync(); if(typeof zs!=='undefined'&&zs.on) zCanvas(slides[cur]);
+    // Aufgeklappte Bilder (Lupe), Glossar-Ebene, Video-Inhalt und laufende Videos schließen sich beim Weiterklicken von selbst
+    ['glx','vinlay'].forEach(id=>{ const o=document.getElementById(id); if(o) o.classList.remove('on'); }); vidClose();
     document.dispatchEvent(new CustomEvent('qp-folie',{detail:{cur,step,nr:+(s.dataset.nr||cur+1)}}));   // für Live-Modul u. a.
   }
   /* Presenter/Tastatur: die Steuerleiste ist dann meist ausgeblendet – kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen */
