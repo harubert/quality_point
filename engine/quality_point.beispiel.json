@@ -49,19 +49,5 @@
   "sperrliste_zusatz": [
     "vertraulich",
     "intern-only"
-  ],
-  "live": {
-    "an": false,
-    "teilnehmer": "teilnehmer.html",
-    "folgen": true,
-    "notizen": true,
-    "fertig": true,
-    "barometer": [
-      "tempo",
-      "verstaendnis",
-      "relevanz",
-      "stimmung"
-    ],
-    "ergebnisse": "freigabe"
-  }
+  ]
 }

@@ -21,7 +21,6 @@ def main(K):
     aus = K['materialien'].get('ausgabe', 'formulare')
     mat = json.load(open(os.path.join(aus, 'materialien.json'), encoding='utf-8')) if K['materialien'].get('an') and os.path.exists(os.path.join(aus, 'materialien.json')) else []
     hat_art, hat_lp = bool(K['_artikel']), bool(K['lehrplan'].get('an'))
-    hat_live = bool(K['live'].get('an')); TNF = K['live'].get('teilnehmer', 'teilnehmer.html')
 
     # Glossar
     GL = []
@@ -51,7 +50,6 @@ def main(K):
     nav += [('quellen.html', T['quellen']), ('glossar.html', T['glossar'])]
     if hat_lp: nav.append(('lehrplan.html', T['lehrplan']))
     if mat: nav.append(('index.html#materialien', T['materialien']))
-    if hat_live: nav.append((TNF, T['live_tn'].split(' (')[0]))
     NAV = '<nav>' + ''.join(f'<a href="{h}">{E(t)}</a>' for h, t in nav) + '</nav>'
     BIS = re.compile(r'(\d)\s*–\s*(\d)')
     fuss = ' · '.join(E(x) for x in (K['autor'], K['institution'], K['veranstaltung']) if x)
@@ -99,12 +97,11 @@ def main(K):
   <div>{f'<div class="kick">{E(kick)}</div>' if kick else ''}
   <h1>{E(K["titel"])}</h1>
   {f'<p class="lead" style="margin-top:1rem">{E(K["untertitel"])}</p>' if K['untertitel'] else ''}
-  <div class="btns">{f'<a class="btn p" href="{K["ausgabe"]}?referent">{E(T["live_ref"])}</a><a class="btn" href="{E(TNF)}">{E(T["live_tn"])}</a>' if hat_live else f'<a class="btn p" href="{K["ausgabe"]}">{E(T["praes_start"])}</a>'}{f'<a class="btn" href="artikel.html">{E(T["artikel_lesen"])}</a>' if hat_art else ''}{f'<a class="btn" href="#materialien">{E(T["materialien"])}</a>' if mat else ''}</div>
+  <div class="btns"><a class="btn p" href="{K["ausgabe"]}">{E(T["praes_start"])}</a>{f'<a class="btn" href="artikel.html">{E(T["artikel_lesen"])}</a>' if hat_art else ''}{f'<a class="btn" href="#materialien">{E(T["materialien"])}</a>' if mat else ''}</div>
   <p class="meta">{len(titel)} {E(T["folien"])}{f" · {len(mat)} {E(T['material1'] if len(mat) == 1 else T['materialn'])}" if mat else ''} · {len(GL)} {E(T["begriffe"])} · {E(T["stand"])} {JAHR}</p></div>
   {f'<div class="bild tape"><img src="{E(tb)}" alt=""></div>' if tb else ''}
 </header>
 <main>
-{f'<section class="wrap" id="live"><div class="kick">{E(T["live_kick"])}</div><h2>{T["live_h"]}</h2><div class="live-box"><div id="liveQr"></div><div><p class="lead">{E(T["live_t"])}</p><p class="live-url"><a href="{E(TNF)}" id="liveUrl">{E(TNF)}</a></p><p class="small">{E(T["live_ref_t"])}</p></div></div></section><script>{rd(os.path.join(K["_engine"], "src", "vendor", "qrcode.js"))}</script><script>(function(){{var u=location.href.replace(/[#?].*$/,"").replace(/[^/]*$/,"")+"{E(TNF)}";var a=document.getElementById("liveUrl");a.textContent=u.replace(/^https?:\\/\\//,"");if(typeof qrcode==="function"){{var q=qrcode(0,"M");q.addData(u);q.make();document.getElementById("liveQr").innerHTML=q.createSvgTag({{cellSize:4,margin:1,scalable:true}});}}}})();</script>' if hat_live else ''}
 {f'<section class="wrap" id="einheiten"><div class="kick">{E(T["einheiten"])}</div><h2>{E(T["einheiten"])}</h2><div class="units">{units}</div></section>' if units else ''}
 {f'<section class="wrap" id="materialien"><div class="kick">{E(T["mat_kick"])}</div><h2>{T["mat_h"]}</h2><p class="lead">{E(T["mat_lead"])}</p>{mat_html}</section>' if mat else ''}
 <section class="wrap"><div class="kick">{E(T["nachlesen"])}</div><h2>{T["grundlage"]}</h2><div class="tiles">{tiles}</div></section>

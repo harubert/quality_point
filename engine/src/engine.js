@@ -59,12 +59,12 @@
     runCounts(s); renderNotes(); syncPopup(); navBtns(); if(typeof vinSync==='function') vinSync(); if(typeof zs!=='undefined'&&zs.on) zCanvas(slides[cur]);
     // Aufgeklappte Bilder (Lupe), Glossar-Ebene, Video-Inhalt und laufende Videos schließen sich beim Weiterklicken von selbst
     ['glx','vinlay'].forEach(id=>{ const o=document.getElementById(id); if(o) o.classList.remove('on'); }); vidClose();
-    document.dispatchEvent(new CustomEvent('qp-folie',{detail:{cur,step,nr:+(s.dataset.nr||cur+1)}}));   // für Live-Modul u. a.
+    document.dispatchEvent(new CustomEvent('qp-folie',{detail:{cur,step,nr:+(s.dataset.nr||cur+1)}}));   // Andockpunkt für Erweiterungen (z. B. Quality Response)
   }
   /* Presenter/Tastatur: die Steuerleiste ist dann meist ausgeblendet – kurz nur die Weiter-Schaltfläche mit den Teilschritten zeigen */
   let peekT=null;
   function peek(){ if(document.body.classList.contains('maus')) return; document.body.classList.add('peek'); clearTimeout(peekT); peekT=setTimeout(()=>document.body.classList.remove('peek'),1600); }
-  let lock=false;                                               // Teilnehmer-Modus: Navigation gesperrt, solange sie der Referentenfolie folgen
+  let lock=false;                                               // Erweiterungen können die Navigation sperren (deck.setLock), z. B. wenn Geräte einer Referentenfolie folgen
   /* Weiter/Zurück zeigen, was der nächste Klick bewirkt. Pfeile als SVG.
      Hat die Folie Teilschritte, ist die Weiter-Schaltfläche in n Felder geteilt und füllt sich Schritt für Schritt. */
   const SV=d=>'<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>';

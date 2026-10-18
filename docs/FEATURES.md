@@ -70,20 +70,6 @@ Alle laufen im Browser ohne Server und ohne Konto. Sie eignen sich für Präsenz
 | QR-Code | Link oder diese Folie aufs Handy (lokal erzeugt) |
 | Ampel | rot/gelb/grün-Stimmungsbild mit Zählern |
 
-## Live mitmachen (Server-Modus, optional)
-
-Mit `live.an` in `quality_point.json` entsteht zusätzlich eine **Teilnehmerfassung** (`teilnehmer.html`) und ein kleiner Server-Teil (`live/api.php`, PHP 8, keine Datenbank). Teilnehmer*innen scannen den QR-Code der Startseite; die Folien laufen am eigenen Gerät mit.
-
-| Für Teilnehmer*innen | Für Vortragende |
-|---|---|
-| Folien folgen dem Vortrag (oder frei blättern, einstellbar) | Anmeldung mit Passwort über „Präsentation starten (Referent*in)“ |
-| Stimmungsbarometer: Tempo, Verständlichkeit, Relevanz, Stimmung, Lautstärke, Pause (einzeln schaltbar) | Badge rechts unten: Teilnehmer*innen online, neue Hinweise; Hinweise poppen auf |
-| Hinweise, Fragen, Fehler, Ergänzungen zur aktuellen Folie (anonym; eigene bleiben am Gerät sichtbar) | Live-Panel (`A`): Übersicht mit Barometer-Verteilungen, Hinweise („Auf der Folie zeigen“ als Beitrag), Ergebnisse je Baustein mit Freigabe, Verlauf über die Zeit mit Export, Einstellungen |
-| „Fertig“-Knopf auf Aufgabenfolien | sieht, wie viele fertig sind |
-| Umfragen, Schätzen, Echt/Fake, Wortwolke, Ampel, Zuordnen am eigenen Gerät | Ergebnisse direkt im Baustein auf der Folie; Auflösen gibt die Lösung frei |
-
-Standalone bleibt der Normalfall: ohne `live.an` ändert sich nichts. Voraussetzungen, Datenschutz und Grenzen: `docs/LIVE.md`.
-
 ## Begleitseiten und Materialien (je nach Bauliste)
 
 | Seite / Datei | Inhalt |

@@ -2,15 +2,16 @@
 
 ## 2026-10-18
 
+- **Trennung:** Quality Point bleibt reines HTML/JS ohne Server. Der am 16. 10. eingebaute Live-Modus (PHP, Teilnehmerfassung, Live-Panel) ist wieder ausgebaut und lebt als eigenes Produkt weiter: **Quality Response** (https://github.com/harubert/quality_response) setzt auf einem fertigen Quality-Point-Paket auf. Geblieben sind die Andockpunkte (`data-nr`, `data-id`, `window.deck`, Ereignis `qp-folie`), der Baustein `ia-umfrage` (lokal, Handzeichen zählen), die Presenter-Anzeige der Teilschritte und der Fokus-Fix.
 - Aufgeklappte Bilder (Lupe), Glossar-Ebene, Video-Inhalt und laufende Videos schließen sich beim Weiterklicken (Schritt oder Folie) von selbst.
 
 ## 2026-10-16
 
 - **Zehn neue Stile** (jetzt 20, je mit eigenem Schriftset, OFL, lokal): Herbarium (naturkundlicher Atlas), Nordisch (skandinavischer Katalog), Magazin (Lifestyle-Editorial), Galerie (White Cube), Schweizer Typografie, Zeitung, Linolschnitt, Beton (Web-Brutalismus), Konsole (Terminal, dunkel), Blaupause (technische Zeichnung, dunkel). Alle mit handgezeichneten Vektorbeispielen; Startseite in vier Gruppen geordnet (warm · editorial · grafisch · dunkel).
-- **Live-Mitmachen (Server-Modus, optional):** `live.an` erzeugt eine Teilnehmerfassung (`teilnehmer.html`, ohne Notizen, Pointen, Lösungen und Referentenfolien) und den Server-Teil `live/api.php` (PHP 8, JSON-Dateien, keine Datenbank). Teilnehmer*innen kommen per QR-Code der Startseite, folgen dem Vortrag, melden Stimmung (sechs schaltbare Kategorien), schicken Hinweise, drücken „Fertig“ und beantworten Bausteine. Vortragende melden sich mit Passwort an (`QP_LIVE_PASSWORT` oder erzeugtes Startpasswort); Badge und Aufpoppen für Hinweise, Live-Panel (`A`) mit Übersicht, Hinweisen (auf die Folie legen), Ergebnissen mit Freigabe, Verlauf mit Export und Einstellungen. Doku: `docs/LIVE.md`.
-- **Neuer Baustein `ia-umfrage`** (Einfach-/Mehrfachwahl mit Balken, optional richtige Antwort); `ia-schaetz`, `ia-quiz`, `ia-wolke`, `ia-ampel`, `ia-sort` arbeiten im Server-Modus mit den Antworten aller.
+- Live-Mitmachen (Server-Modus) – am 18. 10. wieder ausgebaut, siehe oben.
+- **Neuer Baustein `ia-umfrage`** (Antworten als Handzeichen zählen, Balken, optional richtige Antwort).
 - **Presenter:** Nach Tastendruck erscheint kurz nur die Weiter-Schaltfläche mit den Teilschritten; ein angeklickter Baustein-Knopf blockiert die Tastatur nicht mehr.
-- `build.py` vergibt `data-nr` je Folie und `data-id` je Baustein; Skill-Regel: die Schrittzahl der Weiter-Schaltfläche darf keine Lösung verraten.
+- `build.py` vergibt `data-nr` je Folie und `data-id` je Baustein (Andockpunkte); Skill-Regel: die Schrittzahl der Weiter-Schaltfläche darf keine Lösung verraten.
 - **Notizschutz** (`engine/werkzeuge/notizschutz.py`, optional): Sprechernotizen und Pointen im veröffentlichten Paket verschlüsselt, Freischaltung per PIN (N, P, S, V); PIN aus `QP_NOTIZ_PIN`, optionaler Stichtag. Ohne PIN bricht `deploy.py` ab, bevor der Zielordner angefasst wird.
 - **Arbeitsblätter:** Bilder unter dem Titel und je Aufgabe, Bildraster (`bilder_spalten`), Seitenumbruch vor einer Aufgabe (`neue_seite`), Aufzählungen ohne Kästchen (`ohne_kaestchen`); Schreiblinien bleiben in Word einzeln sichtbar.
 - **Glossar:** Begriffe ohne weitere Schreibweise („Begriff“ ohne „|“) werden erkannt und verlinkt – bisher fielen sie stillschweigend weg.

@@ -15,8 +15,8 @@ Merksatz
 Z: Sicherung in einem Satz.
 P: Nachprüfbar = Tatsache.
 
-Umfrage live
-Z: Live-Bausteine: Umfrage und Schätzregler.
+Umfrage und Schätzen
+Z: Bausteine: Umfrage mit Balken und Schätzregler.
 P: Erst schätzen, dann wissen.
 
 Wolke und Ampel
@@ -27,6 +27,3 @@ Werkstatt Zuordnen
 Z: Zuordnen mit Fertig-Meldung.
 P: Fertig – alle da?
 
-Nur Referent
-Z: Beispiel für eine Folie, die nicht in die Teilnehmerfassung kommt.
-P: Nur für Vortragende.

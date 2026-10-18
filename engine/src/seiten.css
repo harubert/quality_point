@@ -68,8 +68,3 @@ table.lp{border-collapse:collapse;width:100%;background:var(--card);font-size:.9
 table.lp th{background:var(--ink);color:var(--card);text-align:left;padding:.6rem .8rem;font:600 .8rem/1.2 var(--ui);letter-spacing:.06em;text-transform:uppercase}
 table.lp td{border-top:1px solid var(--sand);padding:.6rem .8rem;vertical-align:top}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-/* Live mitmachen (Server-Modus) */
-.live-box{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.5rem;align-items:center;background:var(--card);padding:1.2rem 1.4rem;border-radius:var(--radius);box-shadow:0 20px 40px -28px var(--schatten)}
-#liveQr{width:min(190px,40vw);background:#fff;padding:6px;border-radius:8px} #liveQr svg{display:block;width:100%;height:auto}
-.live-url a{font:600 1.05rem/1.3 var(--ui);word-break:break-all;color:var(--teal)} .live-box .lead{margin:0 0 .6rem}
-@media(max-width:640px){.live-box{grid-template-columns:1fr}}
