@@ -66,7 +66,7 @@ Dann eine der beiden Varianten:
 
 > Ich halte im November eine 90-minütige Fortbildung „KI im Deutschunterricht der Sekundarstufe“ für Lehrer*innen. Hier ist meine alte PowerPoint (`vorlage/ki_deutsch.pptx`). Mach daraus mit Quality Point eine neue Präsentation – Vorlage vollständig, aber gern mit aktueller Forschung ergänzt – plus Glossar, Quellen und drei Arbeitsblätter.
 
-Claude öffnet zuerst die Startseite (`styles/index.html`): Ablauf, Bilder-Wege – Claude zeichnet selbst oder Bildgenerator mit eigenem Schlüssel – und alle Stile mit ehrlicher Angabe, welcher ohne Schlüssel gleichwertig aussieht. Danach stellt Claude die offenen Fragen, zeigt die Gliederung zur Freigabe und baut anschließend durch.
+Claude öffnet zuerst die Einrichtungsseite `start.html`: Dort ist alles voreingestellt und erklärt – Eckdaten, Material, Inhaltsschalter, Bauliste, 20 Stile mit Musterfolien, Bilder-Wege mit Beispielen, Veröffentlichung. „Standard übernehmen“ oder einstellen, dann den Code in den Chat einfügen (oder die gespeicherte `quality_point.json` in den Projektordner legen). Claude fragt nur noch, zeigt die Gliederung zur Freigabe und baut anschließend durch.
 
 ## Ordnerstruktur
 
@@ -82,7 +82,8 @@ quality_point/
 │   ├── src/                       ← Hülle, Engine (JS/CSS), Interaktionen, vendor/qrcode.js
 │   ├── fonts/                     ← lokale Schriften (OFL)
 │   └── werkzeuge/                 ← Quellen, Seiten, Materialien, Screenshots, Bilder
-├── styles/                        ← 20 Stile, 20 Schriftsets, index.html (Start und Auswahl)
+├── start.html                     ← Einrichtungsseite: alles erklärt, voreingestellt, Code für den Chat
+├── styles/                        ← 20 Stile, 20 Schriftsets, index.html (Stilgalerie)
 ├── demo/                          ← Beispielprojekte
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```
@@ -195,7 +196,8 @@ quality_point/
 │   ├── src/                       ← shell, engine (JS/CSS), widgets, vendor/qrcode.js
 │   ├── fonts/                     ← local fonts (OFL)
 │   └── werkzeuge/                 ← references, pages, materials, screenshots, images
-├── styles/                        ← 20 styles, 20 font sets, index.html (onboarding and picker)
+├── start.html                     ← setup page: everything explained, preset, code for the chat
+├── styles/                        ← 20 styles, 20 font sets, index.html (style gallery)
 ├── demo/                          ← example projects
 └── docs/                          ← ABLAUF.md · REGELN.md · FEATURES.md · bilder/
 ```

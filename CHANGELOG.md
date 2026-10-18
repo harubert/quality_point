@@ -2,6 +2,7 @@
 
 ## 2026-10-18
 
+- **Einrichtungsseite `start.html`** statt Fragenkette im Chat: alles voreingestellt und erklärt (Eckdaten, Material, Inhaltsschalter, Bauliste, 20 Stile mit Musterfolien und Schriftprobe, Bilder-Wege mit Beispielen, Veröffentlichung, Quality Response). „Standard übernehmen“ oder einstellen; Ergebnis als Code `QP1…` für den Chat oder als Datei. `engine/werkzeuge/code_lesen.py` liest beides; der Skill fragt nur noch nach Lücken. Erzeugt von `engine/werkzeuge/start_bauen.py`.
 - **Trennung:** Quality Point bleibt reines HTML/JS ohne Server. Der am 16. 10. eingebaute Live-Modus (PHP, Teilnehmerfassung, Live-Panel) ist wieder ausgebaut und lebt als eigenes Produkt weiter: **Quality Response** (https://github.com/harubert/quality_response) setzt auf einem fertigen Quality-Point-Paket auf. Geblieben sind die Andockpunkte (`data-nr`, `data-id`, `window.deck`, Ereignis `qp-folie`), der Baustein `ia-umfrage` (lokal, Handzeichen zählen), die Presenter-Anzeige der Teilschritte und der Fokus-Fix.
 - Aufgeklappte Bilder (Lupe), Glossar-Ebene, Video-Inhalt und laufende Videos schließen sich beim Weiterklicken (Schritt oder Folie) von selbst.
 

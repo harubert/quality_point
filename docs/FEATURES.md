@@ -100,7 +100,8 @@ Alle Skripte liegen im Quality-Point-Ordner unter `engine/` und werden mit dem P
 | `materialien_bauen.py`, `bisstrich_docx.py` | Word-Materialien bauen bzw. typografisch korrigieren |
 | `unterricht_folien.py` | Unterrichtsfolien je Material |
 | `deploy.py` | baut den Veröffentlichungsordner nur aus einer Positivliste und bricht bei Sperrlisten-Treffern ab (Schlüssel, lokale Pfade, private Adressen, CDNs) |
-| `styles/index.html` | Startseite und Stilauswahl: 20 Stile × 20 Schriftsets |
+| `start.html` | Einrichtungsseite: jede Wahl erklärt und voreingestellt, Stile mit Musterfolien, Schriftprobe, Bildbeispiele; Ergebnis als Code für den Chat oder `quality_point.json` (`engine/werkzeuge/code_lesen.py`) |
+| `styles/index.html` | Stilgalerie: 20 Stile × 20 Schriftsets |
 | `bilder_generieren.py` (in `styles/`) | generierte Bilder per API-Schlüssel (aus Umgebungsvariable) |
 
 ## Datenschutz und Technik

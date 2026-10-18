@@ -4,7 +4,8 @@ Diese Datei beschreibt im Detail, wie Claude mit dem Quality-Point-Skill ein Pro
 
 ## Grundsätze
 
-- **Nacheinander fragen, nicht alles auf einmal.** Jeder Block ist ein Aufruf von `AskUserQuestion` mit höchstens 4 Fragen und je 2 – 4 Optionen. Die Option „Anders“ (Freitext) ergänzt das Werkzeug automatisch.
+- **Zuerst die Einrichtungsseite.** `start.html` erklärt jede Wahl mit Beispiel, hat überall Voreinstellungen und liefert einen Code (`QP1…`) bzw. eine `quality_point.json` (`engine/werkzeuge/code_lesen.py`). Die Blöcke unten sind der Wortlaut für den Ausweichweg im Chat und die Bedeutung der Werte.
+- **Nacheinander fragen, nicht alles auf einmal** (nur im Ausweichweg). Jeder Block ist ein Aufruf von `AskUserQuestion` mit höchstens 4 Fragen und je 2 – 4 Optionen. Die Option „Anders“ (Freitext) ergänzt das Werkzeug automatisch.
 - **Immer eine Empfehlung.** Die erste Option ist die empfohlene und trägt den Zusatz „(empfohlen)“.
 - **Nichts doppelt fragen.** Was schon im ersten Satz, in einer vorhandenen `quality_point.json` oder im claude-research-Projekt (`content/meta.json`) steht, wird übernommen und nur bestätigt.
 - **Freitext im Chat.** Titel, Namen, Institution, Datum fragt Claude als kurze Liste im Chat ab, nicht als erfundene Auswahloptionen.

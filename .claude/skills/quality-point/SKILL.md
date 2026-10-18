@@ -7,7 +7,7 @@ description: "Quality Point: baut aus einem Thema oder aus vorhandenem Material 
 
 Du baust mit der Quality-Point-Engine eine Präsentation, die man ohne PowerPoint im Browser zeigt, und auf Wunsch alles, was dazugehört (Landingpage, Glossar, Quellen, Fachartikel, Unterrichtsmaterial). Maßstab ist Qualität: nichts erfinden, alles belegen, alles prüfen, sauber gestalten.
 
-Arbeitsweise in einem Satz: **erst sorgfältig fragen (A), Gliederung freigeben lassen, dann autonom bauen und prüfen (B), am Ende knapp berichten.** Die Qualitätsregeln (C) gelten immer.
+Arbeitsweise in einem Satz: **Einrichtungsseite öffnen und deren Code lesen (A), nur Lücken erfragen, Gliederung freigeben lassen, dann autonom bauen und prüfen (B), am Ende knapp berichten.** Die Qualitätsregeln (C) gelten immer.
 
 ---
 
@@ -16,45 +16,18 @@ Arbeitsweise in einem Satz: **erst sorgfältig fragen (A), Gliederung freigeben 
 1. **Quality-Point-Ordner finden.** Der Skill braucht die Engine aus dem Repository `harubert/quality_point`. Suche in dieser Reihenfolge: Umgebungsvariable `QP_HOME` · aktueller Arbeitsordner (enthält `engine/build.py`) · übergeordnete Ordner · `~/quality_point`. Nichts gefunden → `git clone https://github.com/harubert/quality_point` in einen Ordner neben dem Projekt und kurz sagen, dass das passiert ist.
    Die Engine bleibt im Quality-Point-Ordner; Projekte liegen woanders. **Aufrufmuster aller Skripte:** `python <quality_point>/engine/<skript>.py <projektordner>` (Windows auch `py`; ohne Ordnerangabe gilt der aktuelle Ordner). Jedes Projekt hat eine `quality_point.json` (Vorlage `engine/quality_point.beispiel.json`, Standardwerte in `engine/konfig.py`).
 2. **Lesen, bevor du baust:** `engine/FOLIEN.md` (Folientypen, Bausteine, Schritte, Notizen, Glossar-, Quellen- und Pointenformat), `engine/TOKENS.md` (Design-Variablen, an die sich jeder Stil hält), `docs/REGELN.md` (Qualitätsregeln). Sind FOLIEN.md oder TOKENS.md im Repo noch nicht vorhanden, gelten die Kommentare in `engine/build.py`, `engine/src/basis.css (und styles/<stil>/stil.css)` und `engine/src/interaktion.js`.
-3. **Startseite zeigen – immer zuerst, noch vor der ersten Frage** (außer bei einem laufenden Projekt, siehe 4): `styles/index.html` im Browser öffnen (Windows: `start "" "<pfad>\styles\index.html"`, macOS: `open …`, Linux: `xdg-open …`). Die Seite ist das Onboarding: vier Schritte des Ablaufs, die drei Bilder-Wege (Claude zeichnet selbst als SVG · Bildgenerator mit eigenem Schlüssel · eigene/freie Bilder) mit Kosten und Grenzen, dann alle Stile mit Musterfolien. Jede Stilkarte trägt ein Abzeichen („Kein Schlüssel nötig“ / „Geht ohne Schlüssel“ / „Bildgenerator empfohlen“, Quelle: `bilder.vektor` in `styles/<stil>/stil.json`) und zeigt das Vektor-Beispiel neben dem KI-Beispiel. Dazu im Chat höchstens drei Sätze: was die Seite zeigt, dass ohne Schlüssel alles funktioniert, und dass Stil und Bilder-Weg später gefragt werden – die Person kann sich in Ruhe umsehen, während die Eckdaten laufen.
+3. **Einrichtungsseite öffnen – immer zuerst, noch vor der ersten Frage** (außer bei einem laufenden Projekt, siehe 4): `start.html` im Wurzelordner von Quality Point im Browser öffnen (Windows: `start "" "<pfad>\start.html"`, macOS: `open …`, Linux: `xdg-open …`). Dort ist **alles voreingestellt und erklärt**: Eckdaten, Material, Inhaltsschalter, Bauliste, 20 Stile mit Musterfolien und Schriftprobe, Bilder-Weg mit Beispielen, Veröffentlichung, Quality Response. Die Person drückt entweder „Standard übernehmen“ oder stellt ein und bekommt am Ende einen **Code** (`QP1…`) für den Chat oder eine Datei `quality_point.json`. Im Chat dazu nur zwei Sätze: „Die Einrichtungsseite ist offen – stell ein, was du willst, oder nimm den Standard; dann den Code hier einfügen (oder die gespeicherte Datei in den Projektordner legen).“ **Keine Fragen stellen, bevor der Code oder die Datei da ist.**
 4. **Vorhandenes prüfen:** Gibt es im Arbeitsordner schon eine `quality_point.json`? Dann ist das ein laufendes Projekt: lesen, Stand zusammenfassen und nur nach dem Fehlenden fragen. Hat die Person im ersten Satz schon Antworten gegeben (Thema, Dauer, Material …), diese übernehmen und **nicht erneut fragen**.
 
 ---
 
-## A · Aufnahme: nacheinander fragen
+## A · Aufnahme: Code lesen, nur Lücken erfragen
 
-Frage mit dem Werkzeug **AskUserQuestion**, ein Block nach dem anderen (höchstens 4 Fragen pro Aufruf, je 2 – 4 Optionen; „Anders“ ergänzt das Werkzeug automatisch, also nicht selbst als Option anlegen). Gib bei jeder Frage eine **Empfehlung** an (erste Option, Zusatz „(empfohlen)“). Freitextangaben (Titel, Name) kurz im Chat erfragen, nicht als Scheinoptionen. Wortlaut und Optionen im Detail: `docs/ABLAUF.md`.
-
-**1. Eckdaten** – Thema/Arbeitstitel · Zielgruppe (z. B. Studierende, Schüler*innen Sek I, Kollegium, Fachpublikum) · Anlass/Veranstaltung und Datum · Sprache · Dauer bzw. Umfang (z. B. 20 Min., 90 Min., ganzes Semester in Teilen) · Autor*in mit Rolle/Institution.
-
-**2. Material** – Womit fütterst du mich? Mehrfachauswahl: vorhandene PPTX/Keynote-Export · PDF (Skript, Buch, Aufsatz) · Webseiten/Links · eigenes claude-research-Projekt · „Claude recherchiert selbst“. Aktiv vorschlagen, was die Qualität hebt: eigene Notizen, Lehrplan, frühere Arbeitsblätter, Videolinks, Fotos mit geklärten Rechten, Literaturliste.
-Danach **ausdrücklich** fragen: **„Soll zusätzlich ein Fachartikel mit claude-research entstehen?“**
-- Ja, und es gibt noch keins → `git clone https://github.com/harubert/claude-research` neben das Projekt (Hinweis: Forschungs-Template desselben Autors, MIT-Lizenz), dort `CLAUDE.md` befolgen. Der Artikel liefert `sources/sources.json` (geprüfte Quellen) und `standalone.html`; Quality Point übernimmt beides (Quellenverzeichnis, Artikelseite).
-- Ja, existiert schon → Pfad erfragen und `sources.json` als Hauptquelle für Befunde verwenden.
-
-**3. Inhaltsschalter** (eigene Frage, Einzelauswahl – bestimmt alles Weitere):
-- **Exakt und vollständig nach Vorlage** – Texte, Bilder, Videos, Links, Fragen der Vorlage sind Mindestumfang; nur die Gestaltung ist neu.
-- **Vorlage + eigene Regie** – Vorlage vollständig, Claude ergänzt Forschung, Beispiele, Übungen.
-- **Freie Regie** – Claude entwirft neu, die Vorlage ist Steinbruch.
-- **Anderes Schema** – z. B. didaktisch (Einstieg – Erarbeitung – Sicherung), Vorlesung, Workshop, Flipped Classroom, Pecha Kucha (20 × 20 s), Keynote-Talk. Bei Wahl: Schema nachfragen.
-
-**4. Bauliste** (multiSelect, auf zwei bis drei Fragen verteilen, weil höchstens 4 Optionen je Frage):
-- Präsentation (immer, nicht abwählbar – nur zur Info nennen) · Landingpage · Glossar · Quellenverzeichnis
-- Fachartikel (claude-research) · Lehrplan-Bezug (braucht Lehrplan-Daten oder -Link) · Unterrichtsmaterial als Word (Feinziele „Die Schüler*innen können …“, didaktische Analyse nach Klafki, Lösungen mit Begründung) · Unterrichtsfolien je Material mit Illustration
-- Video-Inhaltsangaben · Werkstatt-Aufträge · Interaktionsbausteine · **Handout als PDF** (A4 im Design der Präsentation: Kernaussagen, Kapitel mit Beispielen und Bildern, „Fragestellungen für die eigene Kompetenzentwicklung“, gesamte Literaturliste, QR-Code zur Online-Fassung; Seitenzahl erfragen, üblich 10 – 25)
-
-**5. Stil** – Verweis auf die schon geöffnete Startseite (`styles/index.html`; falls geschlossen, erneut öffnen). 20 Stile × 20 Schriftsets frei kombinierbar (Überblick mit Stimmung und Einsatz: `styles/README.md`); Stile sind Ordner unter `styles/`, Schriftsets in `styles/_schriftsets/`. Person nennt Stil + Schriftset (oder „du entscheidest passend zur Zielgruppe“); Eintrag in `quality_point.json` (`stil`, Schriftset laut `engine/quality_point.beispiel.json`). Hat der gewählte Stil `bilder.vektor = "schwach"`, beim nächsten Punkt ehrlich sagen, dass er ohne Bildgenerator deutlich schlichter wirkt.
-
-**6. Grafik** (Einzelauswahl; Empfehlung nach dem Abzeichen des gewählten Stils – „Kein Schlüssel nötig“ → Vektor empfehlen):
-- **Generierte Bilder per API-Schlüssel** – Anbieter nachfragen: OpenAI gpt-image · Google Gemini/Imagen · fal.ai Flux · Stability/Replicate. Vor- und Nachteile und grobe Kosten: `docs/ABLAUF.md`. **Schlüssel nur als Umgebungsvariable**, nie in eine Datei, nie in den Chat zurückschreiben, nie committen. Erzeugt wird mit `styles/bilder_generieren.py`.
-- **Vektorgrafiken direkt von Claude Code** (SVG, kostenlos, offline).
-- **Nur Bilder aus der Vorlage bzw. frei lizenzierte** (Wikimedia Commons u. Ä., mit Lizenzangabe).
-
-**7. Veröffentlichung** – nur lokal (`deployment/`) · zusätzlich Übergabe an eigene Server-Session/Webspace (Ziel erfragen; du lädst nichts ohne ausdrückliche Freigabe hoch). Wird Zitatrecht genutzt (fremde Screenshots, Werbemotive), **Zugangsschutz empfehlen** (z. B. Passwort per `.htaccess`, LMS-Kurs). Will die Person, dass Teilnehmer*innen vom eigenen Gerät aus mitmachen (Stimmungsbarometer, Hinweise, Umfragen), ist das **nicht** Teil von Quality Point: Auf das getrennte Produkt **Quality Response** verweisen (https://github.com/harubert/quality_response, braucht PHP am Server) – es setzt nachträglich auf dem fertigen Paket auf. Sollen Studierende die Folien vor einer Prüfung sehen, aber nicht die Sprechernotizen: **Notizschutz** anbieten (`"notizschutz": {"bis": "JJJJ-MM-TT"}`, PIN nur als Umgebungsvariable `QP_NOTIZ_PIN` – nie in eine Datei, nie in den Chat zurückschreiben; ehrlich sagen, dass eine kurze PIN nur Neugierige abhält).
-
-Danach alles in `quality_point.json` des Projekts schreiben (Vorlage: `engine/quality_point.beispiel.json`) und **einmal** zusammenfassen: „So baue ich es – passt das?“
-
----
+1. **Code oder Datei einlesen:** `python <quality_point>/engine/werkzeuge/code_lesen.py <projektordner> "<code>"` (oder mit dem Pfad der gespeicherten `quality_point.json`, z. B. aus dem Download-Ordner). Das Werkzeug schreibt `<projekt>/quality_point.json`; der Abschnitt `aufnahme` enthält Zielgruppe, Dauer, Material, Inhaltsschalter, Bauliste, Grafik und Veröffentlichung. Zum Nachsehen: `code_lesen.py --zeigen "<code>"`.
+2. **Nur Lücken im Chat erfragen**, kompakt als eine Liste: Titel/Thema und Autor*in, falls leer; Pfade zu Dateien, die in `aufnahme.material_pfade` fehlen; bei `artikel = "vorhanden"` der Pfad; bei `grafik.weg = "generator"` der Hinweis auf die Umgebungsvariable (Schlüssel nie in Dateien, nie im Chat); bei `stil_auto` die eigene Stilwahl kurz begründen. Nichts fragen, was die Seite schon beantwortet hat.
+3. **Ohne Code** (die Person will nicht klicken): dieselben Punkte in der Reihenfolge der Seite mit **AskUserQuestion** abfragen (höchstens 4 Fragen je Aufruf, Empfehlung zuerst; Wortlaut und Optionen: `docs/ABLAUF.md`). Das ist der Ausweichweg, nicht der Normalfall.
+4. **Bedeutung der Werte** (`aufnahme`): `inhaltsschalter` exakt · vorlage_regie · frei · schema (+ `schema`) – siehe `docs/ABLAUF.md` Block 3. `bauliste` kann enthalten: landingpage, glossar, quellen, interaktion, videoinhalte, werkstatt, material (→ `materialien.an`), unterrichtsfolien, lehrplan (→ `lehrplan.an`, braucht Lehrplandaten), handout (+ `handout_seiten`), notizschutz (→ `notizschutz` in `quality_point.json`, PIN per `QP_NOTIZ_PIN`). `grafik.weg` vektor · generator (+ `anbieter`) · eigene. `veroeffentlichung.art` lokal · server (+ `ziel`); `veroeffentlichung.response = true` → nach dem Deploy **Quality Response** einbauen (eigenes Repo, eigener Skill: https://github.com/harubert/quality_response, braucht PHP am Server – der Person vorher sagen).
+5. Danach **einmal** zusammenfassen: „So baue ich es – passt das?“ (ein Absatz, keine Rückfragen zu Dingen aus dem Code), dann Teil B.
 
 ## B · Arbeitsablauf
 
