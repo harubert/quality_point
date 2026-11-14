@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Quality Point: a Claude Code skill for presentations that substantiate what they show"
+authors:
+  - family-names: Schroffenegger
+    given-names: Thomas
+    affiliation: "Pädagogische Hochschule Vorarlberg"
+    orcid: "https://orcid.org/0000-0002-3224-2384"
+version: "1.0.0"
+date-released: "2026-11-14"
+license: MIT
+repository-code: "https://github.com/harubert/quality_point"
+abstract: >-
+  Quality Point – ein Claude-Code-Skill für Präsentationen, die belegen, was sie zeigen: Folien, Landingpage, Glossar, Quellen und Unterrichtsmaterial im Browser. (A Claude Code skill for presentations that substantiate what they show: slides, landing page, glossary, sources and teaching material in the browser.)
+keywords:
+  - presentations
+  - teaching material
+  - source verification
+  - large language models
+  - Claude Code

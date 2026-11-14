@@ -1,0 +1,22 @@
+{
+  "title": "Quality Point: a Claude Code skill for presentations that substantiate what they show",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Schroffenegger, Thomas",
+      "affiliation": "Pädagogische Hochschule Vorarlberg",
+      "orcid": "0000-0002-3224-2384"
+    }
+  ],
+  "description": "Quality Point – ein Claude-Code-Skill für Präsentationen, die belegen, was sie zeigen: Folien, Landingpage, Glossar, Quellen und Unterrichtsmaterial im Browser. (A Claude Code skill for presentations that substantiate what they show: slides, landing page, glossary, sources and teaching material in the browser.)",
+  "keywords": [
+    "presentations",
+    "teaching material",
+    "source verification",
+    "large language models",
+    "Claude Code"
+  ],
+  "version": "1.0.0"
+}
