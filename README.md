@@ -1,5 +1,7 @@
 # Quality Point
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24218597.svg)](https://doi.org/10.5281/zenodo.24218597)
+
 **Präsentationen, die man nicht nur zeigt, sondern belegen kann.** Ein Skill für Claude Code, der aus Thema oder Vorlage eine geprüfte HTML-Präsentation baut – mit Referentenansicht, Quellen, Glossar und auf Wunsch Unterrichtsmaterial. Die Dateiendung *.qptx* gibt es übrigens nicht. Die Qualität schon.
 
 *[English version below](#english)*
